@@ -31,7 +31,19 @@ public:
         memcpy(str, incomingStr.str, _length+1);
         return *this;
     }
-
+    void append(const Strings &incomingStr){
+            Strings temp;
+            temp = *this;
+            int new_length = (this -> _length) + incomingStr._length;
+            if(!Is_Empty(*this)){
+                delete[] str;
+            }
+            str = new char[new_length + 1];
+            memcpy(str, incomingStr.str, _length+1);
+            strcat(str, incomingStr.str);
+            _length = new_length;
+            delete[] temp.str;
+    }
     void Print_String(){
         std::cout << this -> str << std::endl;
     }
@@ -56,7 +68,7 @@ int main(){
     Strings myString1("123");
     myString2.Print_String();
 
-    myString1 = myString2;
+    myString1.append(myString2);
     myString1.Print_String();
     return 0;
 }
