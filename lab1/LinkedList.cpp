@@ -19,18 +19,22 @@ public:
     LinkedList(const std::string& incomingString){
         _pFirstNode = new ListNode;
         _pLastNode = _pFirstNode;
-        (_pFirstNode -> key) = incomingString;
+        _pFirstNode -> key = incomingString;    
     }
     LinkedList(const LinkedList& incomingList){
         _pFirstNode = new ListNode;
         _pLastNode = _pFirstNode;
 
         if(!IsEmpty(incomingList)){
-            LinkedList* pTemp = _pFirstNode;
-                    
-        }  
+            ListNode* pTemp = (incomingList._pFirstNode);
+            while(pTemp != nullptr){
+                CopyNode(pTemp);
+                pTemp = (pTemp -> pNext);  
+            }
+        }
+
     }
-    void Push(std::string S){
+    void Push(const LinkedList&){
         
     }
     void PrintNode(){
@@ -42,8 +46,20 @@ private:
     ListNode* _pFirstNode = nullptr;
     ListNode* _pLastNode = nullptr;
 
+    void CopyNode(ListNode* incomingNode){
+        (_pFirstNode -> key) = (incomingNode -> key);
+        (_pFirstNode -> data.age) = (incomingNode -> data.age);
+        (_pFirstNode -> data.weight) = (incomingNode -> data.weight);
+        (_pFirstNode -> pNext) = (incomingNode -> pNext);            
+    }
     bool IsEmpty(const LinkedList& incomingList){
         if(nullptr == (incomingList._pFirstNode)){
+            return true;
+        }
+        return false;
+    }
+    bool AreKeysEqual(const LinkedList& L1, const LinkedList& L2){
+        if((L1._pFirstNode) -> key == (L2._pFirstNode) -> key){
             return true;
         }
         return false;
@@ -52,7 +68,8 @@ private:
 
 
 int main(){
-    LinkedList A("abcdr");
-    A.PrintNode();
+    LinkedList A("abcder");
+    LinkedList B = A;
+    B.PrintNode();
     return 0;
 }   
