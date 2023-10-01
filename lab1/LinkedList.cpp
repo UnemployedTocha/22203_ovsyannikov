@@ -13,63 +13,68 @@ struct ListNode{
 };
 
 
-class LinkedList{
+class List{
 public:
-    LinkedList() = default;
-    LinkedList(const std::string& incomingString){
-        _pFirstNode = new ListNode;
-        _pLastNode = _pFirstNode;
-        _pFirstNode -> key = incomingString;    
+    List() = default;
+    List(const std::string& inputString){
+        ListNode* newNode = NewNode(inputString);    
+        _pFirstNode = newNode;
     }
-    LinkedList(const LinkedList& incomingList){
-        _pFirstNode = new ListNode;
-        _pLastNode = _pFirstNode;
+    List(const List& inputList){
+        if(!IsListEmpty(inputList)){
+            ListNode* newNode = new ListNode;
+            newNode = CopyNode(*(inputList._pFirstNode));
+            _pFirstNode = newNode;
 
-        if(!IsEmpty(incomingList)){
-            ListNode* pTemp = (incomingList._pFirstNode);
+            ListNode* pTemp = (inputList._pFirstNode) -> pNext;
             while(pTemp != nullptr){
-                CopyNode(pTemp);
-                pTemp = (pTemp -> pNext);  
+                newNode = new ListNode;
             }
         }
+    }
 
-    }
-    void Push(const LinkedList&){
-        
-    }
+
     void PrintNode(){
         std::cout << _pFirstNode -> key << std::endl;
     }
-    ~LinkedList(){
-    }   
+    ~List(){
+        }   
 private:
     ListNode* _pFirstNode = nullptr;
-    ListNode* _pLastNode = nullptr;
 
-    void CopyNode(ListNode* incomingNode){
-        (_pFirstNode -> key) = (incomingNode -> key);
-        (_pFirstNode -> data.age) = (incomingNode -> data.age);
-        (_pFirstNode -> data.weight) = (incomingNode -> data.weight);
-        (_pFirstNode -> pNext) = (incomingNode -> pNext);            
+    void CopyNode(ListNode* nodeTo, const ListNode& nodeFrom){
+        (nodeTo -> data).age = (nodeFrom.data).age;
+        (nodeTo -> data).weight = (nodeFrom.data).weight;
+        nodeTo -> key = nodeFrom.key;
+        nodeTo -> pNext = nodeFrom.pNext;
     }
-    bool IsEmpty(const LinkedList& incomingList){
-        if(nullptr == (incomingList._pFirstNode)){
+    ListNode* NewNode(const ListNode& node){
+        ListNode* newNode = new ListNode;
+        CopyNode(NewNode, node);
+        return newNode;
+    }
+    ListNode* NewNode(const std::string str){
+        ListNode* newNode = new ListNode;
+        newNode -> key = str;
+        return newNode;
+
+    }
+
+    bool IsListEmpty(const List& inputList){
+        if(nullptr == (inputList._pFirstNode)){
             return true;
         }
         return false;
     }
-    bool AreKeysEqual(const LinkedList& L1, const LinkedList& L2){
-        if((L1._pFirstNode) -> key == (L2._pFirstNode) -> key){
-            return true;
-        }
-        return false;
+    bool AreKeysEqual(const List& L1, const List& L2){
+        return (L1._pFirstNode -> key == (L2._pFirstNode) -> key) ? true : false; 
     }
 };
 
 
 int main(){
-    LinkedList A("abcder");
-    LinkedList B = A;
+    List A("abcder");
+    List B = A;
     B.PrintNode();
     return 0;
 }   

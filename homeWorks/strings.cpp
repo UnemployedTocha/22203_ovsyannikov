@@ -70,4 +70,4 @@ int main(){
     
     myString2.Print_String();
     return 0;
-}
+}   
