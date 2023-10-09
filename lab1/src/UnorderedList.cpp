@@ -2,11 +2,19 @@
 
 typedef std::string Key;
 
-void FillValue(Value& p, int age, int weight){
-    p.age = age;
-    p.weight = weight;  
+Value::Value() = default;
+Value::Value(unsigned age, unsigned weight): age(age), weight(weight){}
+Value& Value::operator=(const Value& data){
+    age = data.age;
+    weight = data.weight;
+    return *this;
 }
-
+unsigned Value::GetAge() const{
+    return age;
+}
+unsigned Value::GetWeight() const{
+    return weight;
+}    
 List::List() = default;
 List::List(const List& L): _sz(L._sz){
     ListNode* pTemp = L._pFirstNode;
@@ -42,7 +50,13 @@ void List::Push(std::string key, Value data){
     _pFirstNode = NewNode(key, data);
     _pFirstNode -> pNext = pTemp;
 }
+void List::Push(ListNode& N){
+    ++_sz;
 
+    ListNode* pTemp = _pFirstNode;
+    _pFirstNode = &N;
+    N.pNext = pTemp;
+}
 bool List::Pop(std::string key){ // Returns the success of Pop(). 
     if(IsEmpty()){
         return false;
@@ -68,6 +82,16 @@ bool List::Pop(std::string key){ // Returns the success of Pop().
         pTemp = pTemp -> pNext;
     }
     return false;
+}
+ListNode* List::Pop(){ // Returns top node/nullptr if pop is unsuccessful 
+    if(IsEmpty()){
+        return nullptr;
+    } 
+    ListNode* pTemp = _pFirstNode;
+    _pFirstNode = pTemp -> pNext;
+    --_sz;
+    return pTemp;
+
 }
 List& List::operator=(const List& L){
     if(this == &L){
@@ -104,13 +128,13 @@ List& List::operator=(List&& L){
     return *this;
 }
 bool List::IsEmpty() const{
-    return (nullptr == _pFirstNode) ? true : false;
+    return (_sz == 0) ? true : false;
 }
 
 void List::PrintList() const{
     ListNode* pTemp = _pFirstNode;
     while(nullptr != pTemp){
-        std::cout << pTemp -> key << " " << pTemp -> data.age << " " << pTemp -> data.weight << std::endl;
+        std::cout << pTemp -> key << ((pTemp -> data).GetAge()) << ((pTemp -> data).GetWeight()) << std::endl;
         pTemp = pTemp -> pNext;
     }
 }   
@@ -118,13 +142,11 @@ void List::PrintList() const{
 ListNode* List::NewNode(std::string key, Value data){
     ListNode* newNode = new ListNode;
     newNode -> key = key;
-    (newNode -> data).age = data.age;
-    (newNode -> data).weight = data.weight;
+    (newNode -> data) = data;
     return newNode;  
 }
 void List::FillNode(ListNode* pNodeTo, ListNode* pNodeFrom){
-    (pNodeTo -> data).age = (pNodeFrom -> data).age;
-    (pNodeTo -> data).weight = (pNodeFrom -> data).weight;
+    pNodeTo -> data = pNodeFrom -> data;
     pNodeTo -> key = pNodeFrom -> key;
     pNodeTo -> pNext = pNodeFrom -> pNext;
 }

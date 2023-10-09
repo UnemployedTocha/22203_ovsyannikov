@@ -3,7 +3,14 @@
 #include <iostream>
 #include <string>
 
-struct Value {
+class Value {
+public:
+    Value();    
+    Value(unsigned age, unsigned weight);
+    Value& operator=(const Value& data);
+    unsigned GetAge() const;
+    unsigned GetWeight() const;
+private:
     unsigned age;
     unsigned weight;
 };
@@ -13,7 +20,6 @@ struct ListNode{
     Value data; 
     struct ListNode* pNext = nullptr;
 };
-void FillValue(Value& p, int age, int weight);
 
 
 class List{    
@@ -27,7 +33,9 @@ public:
     friend bool operator==(const List& L1, const List& L2); 
     ~List();
     void Push(std::string key, Value data);
+    void Push(ListNode& N);
     bool Pop(std::string key);
+    ListNode* Pop();
     bool IsEmpty() const;
     void PrintList() const;
     size_t Size() const;
