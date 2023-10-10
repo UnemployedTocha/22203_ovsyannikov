@@ -28,9 +28,10 @@ public:
     bool Empty() const;
     friend bool operator==(const HashTable& A, const HashTable& B);
     friend bool operator!=(const HashTable& A, const HashTable& B);
+    void PrintHashTable() const;
 private:    
-    size_t _cap = nullptr;
-    size_t _sz = 0;
+    size_t _cap;
+    size_t _sz;
     List* _arr;
 
 

@@ -135,7 +135,8 @@ bool List::Contains(const std::string& key) const{
     while(nullptr != pTemp){
         if(pTemp -> key == key){
             return true;
-        }    
+        }
+        pTemp = pTemp -> pNext;    
     }
     return false;
 }
@@ -153,7 +154,7 @@ Value& List::ValueByKey(const std::string& key){
 void List::PrintList() const{
     ListNode* pTemp = _pFirstNode;
     while(nullptr != pTemp){
-        std::cout << pTemp -> key << ((pTemp -> data).GetAge()) << ((pTemp -> data).GetWeight()) << std::endl;
+        std::cout << pTemp -> key << " " << ((pTemp -> data).GetAge()) << " " << ((pTemp -> data).GetWeight()) << std::endl;
         pTemp = pTemp -> pNext;
     }
 }   
