@@ -17,23 +17,24 @@ public:
 
     void Swap(HashTable& b);
     HashTable& operator=(const HashTable& B);
-    void clear();
-    bool erase(const Key& k);
-    bool insert(const Key& k, const Value& v);
-    bool contains(const Key& k) const;
-    Value& operator[](const Key& k);
-    Value& at(const Key& k);
-    const Value& at(const Key& k) const;
+    void Clear();
+    bool Erase(const Key& key);
+    bool Insert(const Key& key, const Value& data);
+    bool Contains(const Key& key) const;
+    Value& operator[](const Key& key);
+    Value& At(const Key& key);
+    const Value& At(const Key& key) const;
     size_t Size() const;
-    bool empty() const;
-    friend bool operator==(const HashTable& a, const HashTable& b);
-    friend bool operator!=(const HashTable& a, const HashTable& b);
+    bool Empty() const;
+    friend bool operator==(const HashTable& A, const HashTable& B);
+    friend bool operator!=(const HashTable& A, const HashTable& B);
 private:    
-    List* _arr = nullptr;
-    size_t _cap = 0;
+    size_t _cap = nullptr;
     size_t _sz = 0;
-    
-    size_t Hash(std::string key);
-    void Resize(size_t newSize);
+    List* _arr;
+
+
+    size_t Hash(const Key& key) const;
+    bool Resize(size_t newSize);
 
 };

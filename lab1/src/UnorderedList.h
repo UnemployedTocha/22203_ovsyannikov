@@ -25,17 +25,21 @@ struct ListNode{
 class List{    
 public:
     List();
-    List(std::string key, Value data);
+    List(const std::string& key,const Value& data);
     List(const List& L);
     List(List&& L);
     List& operator=(const List& L);
     List& operator=(List&& L);
     friend bool operator==(const List& L1, const List& L2); 
     ~List();
-    void Push(std::string key, Value data);
+    void Push(const std::string& key,const Value& data);
     void Push(ListNode& N);
-    bool Pop(std::string key);
+    bool Pop(const std::string& key);
     ListNode* Pop();
+    bool Contains(const std::string& key) const;
+    Value& ValueByKey(const std::string& key); 
+
+    ListNode* GetFirstNodePointer() const;
     bool IsEmpty() const;
     void PrintList() const;
     size_t Size() const;
@@ -43,7 +47,7 @@ private:
     ListNode* _pFirstNode = nullptr;
     size_t _sz = 0;
 
-    ListNode* NewNode(std::string key, Value data);
+    ListNode* NewNode(const std::string& key,const Value& data);
     void FillNode(ListNode* pNodeFrom, ListNode* pNodeTo);
     void FreeList(List* pList);
 };

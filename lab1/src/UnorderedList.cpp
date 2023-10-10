@@ -2,7 +2,7 @@
 
 typedef std::string Key;
 
-Value::Value() = default;
+Value::Value(): age(0), weight(0){}
 Value::Value(unsigned age, unsigned weight): age(age), weight(weight){}
 Value& Value::operator=(const Value& data){
     age = data.age;
@@ -35,7 +35,7 @@ List::List(List&& L): _pFirstNode(L._pFirstNode), _sz(L._sz){
     L._pFirstNode = nullptr;
     L._sz = 0;    
 }
-List::List(std::string key, Value data): _sz(1){
+List::List(const std::string& key,const Value& data): _sz(1){
     ListNode* newNode = NewNode(key, data);
     _pFirstNode = newNode;  
 }
@@ -43,7 +43,7 @@ List::~List(){
     FreeList(this);        
 }
 
-void List::Push(std::string key, Value data){
+void List::Push(const std::string& key,const Value& data){
     ++_sz;
 
     ListNode* pTemp = _pFirstNode;
@@ -57,7 +57,7 @@ void List::Push(ListNode& N){
     _pFirstNode = &N;
     N.pNext = pTemp;
 }
-bool List::Pop(std::string key){ // Returns the success of Pop(). 
+bool List::Pop(const std::string& key){ // Returns the success of Pop(). 
     if(IsEmpty()){
         return false;
     } 
@@ -130,7 +130,26 @@ List& List::operator=(List&& L){
 bool List::IsEmpty() const{
     return (_sz == 0) ? true : false;
 }
-
+bool List::Contains(const std::string& key) const{
+    ListNode* pTemp = _pFirstNode;
+    while(nullptr != pTemp){
+        if(pTemp -> key == key){
+            return true;
+        }    
+    }
+    return false;
+}
+Value& List::ValueByKey(const std::string& key){
+    ListNode* pTemp = _pFirstNode;
+    while(nullptr != pTemp){
+        if(pTemp -> key == key){
+            return pTemp -> data;
+        }    
+    }
+    Value data;
+    Push(key, data);
+    return _pFirstNode -> data;
+}
 void List::PrintList() const{
     ListNode* pTemp = _pFirstNode;
     while(nullptr != pTemp){
@@ -139,7 +158,7 @@ void List::PrintList() const{
     }
 }   
 
-ListNode* List::NewNode(std::string key, Value data){
+ListNode* List::NewNode(const std::string& key,const Value& data){
     ListNode* newNode = new ListNode;
     newNode -> key = key;
     (newNode -> data) = data;
@@ -162,6 +181,9 @@ void List::FreeList(List* pList){
 size_t List::Size() const{
     return _sz;
 }
+ListNode* List::GetFirstNodePointer() const{
+    return _pFirstNode;
+}
 bool operator==(const List& L1, const List& L2){
     if(L1.IsEmpty() && L2.IsEmpty()){
         return true;
@@ -169,7 +191,6 @@ bool operator==(const List& L1, const List& L2){
     if(L1.Size() != L2.Size()){
         return false;
     }
-
     ListNode* p1 = L1._pFirstNode;
     ListNode* p2 = L2._pFirstNode;
     for(size_t i = 0; i < L1.Size(); ++i){
