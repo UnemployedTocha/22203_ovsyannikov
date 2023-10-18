@@ -2,68 +2,71 @@
 
 typedef std::string Key;
 
-Value::Value(): age(0), weight(0){}
-Value::Value(unsigned age, unsigned weight): age(age), weight(weight){}
-Value& Value::operator=(const Value& data){
+Value::Value(): age(0), weight(0) {}
+
+Value::Value(unsigned age, unsigned weight): age(age), weight(weight) {}
+
+Value& Value::operator=(const Value& data) {
     age = data.age;
     weight = data.weight;
     return *this;
 }
-unsigned Value::GetAge() const{
+
+unsigned Value::GetAge() const {
     return age;
 }
-unsigned Value::GetWeight() const{
-    return weight;
-}    
-List::List() = default;
-List::List(const List& L): _sz(L._sz){
-    ListNode* pTemp = L._pFirstNode;
-    if(nullptr != L._pFirstNode){
-        ListNode* newNode = new ListNode;
-        FillNode(newNode, pTemp);
-        _pFirstNode = newNode;
 
-        pTemp = pTemp -> pNext;
-        while(nullptr != pTemp){
-            newNode = new ListNode;
-            FillNode(newNode, pTemp);
-            pTemp = pTemp -> pNext;
-        }   
-    }
+unsigned Value::GetWeight() const {
+    return weight;
 }
-List::List(List&& L): _pFirstNode(L._pFirstNode), _sz(L._sz){
+
+List::List() = default;
+
+List::List(const List& L): _sz(L._sz) {
+    if(L.IsEmpty()) {
+        _pFirstNode = nullptr;
+    }
+    CopyList(L);
+    
+}
+
+List::List(List&& L): _pFirstNode(L._pFirstNode), _sz(L._sz) {
     L._pFirstNode = nullptr;
     L._sz = 0;    
 }
-List::List(const std::string& key,const Value& data): _sz(1){
+
+List::List(const std::string& key,const Value& data): _sz(1) {
     ListNode* newNode = NewNode(key, data);
     _pFirstNode = newNode;  
 }
-List::~List(){
+
+List::~List() {
     FreeList(this);        
 }
 
-void List::Push(const std::string& key,const Value& data){
+void List::Push(const std::string& key,const Value& data) {
     ++_sz;
 
     ListNode* pTemp = _pFirstNode;
     _pFirstNode = NewNode(key, data);
     _pFirstNode -> pNext = pTemp;
 }
-void List::Push(ListNode& N){
+
+void List::Push(ListNode& N) {
     ++_sz;
 
     ListNode* pTemp = _pFirstNode;
     _pFirstNode = &N;
     N.pNext = pTemp;
 }
-bool List::Pop(const std::string& key){ // Returns the success of Pop(). 
-    if(IsEmpty()){
+
+bool List::Pop(const std::string& key) {
+    if(IsEmpty()) {
         return false;
     } 
 
     ListNode* pTemp = _pFirstNode -> pNext;
-    if(_pFirstNode->key == key){
+    if(_pFirstNode->key == key) {
         delete _pFirstNode;
         _pFirstNode = pTemp;
         --_sz;
@@ -71,8 +74,8 @@ bool List::Pop(const std::string& key){ // Returns the success of Pop().
     }
 
     ListNode* pPrevTemp = _pFirstNode;
-    while(nullptr != pTemp){
-        if(pTemp->key == key){
+    while(nullptr != pTemp) {
+        if(pTemp->key == key) {
             pPrevTemp -> pNext = pTemp -> pNext;
             delete pTemp;
             --_sz;
@@ -83,8 +86,9 @@ bool List::Pop(const std::string& key){ // Returns the success of Pop().
     }
     return false;
 }
-ListNode* List::Pop(){ // Returns top node/nullptr if pop is unsuccessful 
-    if(IsEmpty()){
+
+ListNode* List::Pop() { // Returns top node/nullptr if pop is unsuccessful 
+    if(IsEmpty()) {
         return nullptr;
     } 
     ListNode* pTemp = _pFirstNode;
@@ -93,30 +97,27 @@ ListNode* List::Pop(){ // Returns top node/nullptr if pop is unsuccessful
     return pTemp;
 
 }
-List& List::operator=(const List& L){
-    if(this == &L){
+
+List& List::operator=(const List& L) {
+    if(this == &L) {
         return *this;
     }
+
+    if(L.IsEmpty()) {
+        _pFirstNode = nullptr;
+        _sz = 0;
+        return *this;       
+    }
+
     FreeList(this);
     _sz = L._sz;
 
-    ListNode* pTemp = L._pFirstNode;
-    if(nullptr != L._pFirstNode){
-        ListNode* newNode = new ListNode;
-        FillNode(newNode, pTemp);
-        _pFirstNode = newNode;
-
-        pTemp = pTemp -> pNext;
-        while(nullptr != pTemp){
-            newNode = new ListNode;
-            FillNode(newNode, pTemp);
-            pTemp = pTemp -> pNext;
-        }   
-    }
+    CopyList(L);
     return *this;
 }
-List& List::operator=(List&& L){
-    if(this == &L){
+
+List& List::operator=(List&& L) {
+    if(this == &L) {
         return *this;
     }
     FreeList(this);
@@ -127,23 +128,26 @@ List& List::operator=(List&& L){
     L._sz = 0;
     return *this;
 }
-bool List::IsEmpty() const{
+
+bool List::IsEmpty() const {
     return (_sz == 0) ? true : false;
 }
-bool List::Contains(const std::string& key) const{
+
+bool List::Contains(const std::string& key) const {
     ListNode* pTemp = _pFirstNode;
-    while(nullptr != pTemp){
-        if(pTemp -> key == key){
+    while(nullptr != pTemp) {
+        if(pTemp -> key == key) {
             return true;
         }
         pTemp = pTemp -> pNext;    
     }
     return false;
 }
-Value& List::ValueByKey(const std::string& key){
+
+Value& List::ValueByKey(const std::string& key) {
     ListNode* pTemp = _pFirstNode;
-    while(nullptr != pTemp){
-        if(pTemp -> key == key){
+    while(nullptr != pTemp) {
+        if(pTemp -> key == key) {
             return pTemp -> data;
         }    
     }
@@ -151,63 +155,58 @@ Value& List::ValueByKey(const std::string& key){
     Push(key, data);
     return _pFirstNode -> data;
 }
-void List::PrintList() const{
+
+void List::PrintList() const {
     ListNode* pTemp = _pFirstNode;
-    while(nullptr != pTemp){
+    while(nullptr != pTemp) {
         std::cout << pTemp -> key << " " << ((pTemp -> data).GetAge()) << " " << ((pTemp -> data).GetWeight()) << std::endl;
         pTemp = pTemp -> pNext;
     }
 }   
 
-ListNode* List::NewNode(const std::string& key,const Value& data){
+ListNode* List::NewNode(const std::string& key,const Value& data) {
     ListNode* newNode = new ListNode;
     newNode -> key = key;
-    (newNode -> data) = data;
+    newNode -> data = data;
     return newNode;  
 }
-void List::FillNode(ListNode* pNodeTo, ListNode* pNodeFrom){
+
+void List::FillNode(ListNode* pNodeTo, ListNode* pNodeFrom) {
     pNodeTo -> data = pNodeFrom -> data;
     pNodeTo -> key = pNodeFrom -> key;
     pNodeTo -> pNext = pNodeFrom -> pNext;
 }
 
-void List::FreeList(List* pList){
+void List::CopyList(const List& L) {
+    ListNode* pTemp = L._pFirstNode;
+    if(nullptr != L._pFirstNode) {
+        ListNode* newNode = new ListNode;
+        FillNode(newNode, pTemp);
+        _pFirstNode = newNode;
+
+        pTemp = pTemp -> pNext;
+        while(nullptr != pTemp) {
+            newNode = new ListNode;
+            FillNode(newNode, pTemp);
+            pTemp = pTemp -> pNext;
+        }   
+    }    
+}
+
+void List::FreeList(List* pList) {
     ListNode* pTemp = pList->_pFirstNode;
-    while(nullptr != pTemp){
+    while(nullptr != pTemp) {
         ListNode* pNextNode = pTemp -> pNext;
         delete pTemp;
         pTemp = pNextNode;
     }
 }
-size_t List::Size() const{
+
+size_t List::Size() const {
     return _sz;
 }
-ListNode* List::GetFirstNodePointer() const{
+
+ListNode* List::GetFirstNodePointer() const {
     return _pFirstNode;
 }
-bool operator==(const List& L1, const List& L2){
-    if(L1.IsEmpty() && L2.IsEmpty()){
-        return true;
-    }
-    if(L1.Size() != L2.Size()){
-        return false;
-    }
-    ListNode* p1 = L1._pFirstNode;
-    ListNode* p2 = L2._pFirstNode;
-    for(size_t i = 0; i < L1.Size(); ++i){
-        bool isEqualNodeExist = false;
-        for(size_t j = 0; i < L2.Size(); ++j){
-            if((p1 -> key) == (p2 -> key)){
-                isEqualNodeExist = true;
-                break;
-            }
-            p2 = p2 -> pNext;
-        }
-        if(false == isEqualNodeExist){
-            return false;
-        }
-        p1 = p1 -> pNext;
-        p2 = L2._pFirstNode;
-    }
-    return true;
-}
+

@@ -30,7 +30,6 @@ public:
     List(List&& L);
     List& operator=(const List& L);
     List& operator=(List&& L);
-    friend bool operator==(const List& L1, const List& L2); 
     ~List();
     void Push(const std::string& key,const Value& data);
     void Push(ListNode& N);
@@ -49,5 +48,6 @@ private:
 
     ListNode* NewNode(const std::string& key,const Value& data);
     void FillNode(ListNode* pNodeFrom, ListNode* pNodeTo);
+    void CopyList(const List& L);
     void FreeList(List* pList);
 };

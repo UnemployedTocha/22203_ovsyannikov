@@ -5,7 +5,7 @@
 #include "UnorderedList.h"
 
 typedef std::string Key;
-#define DEFAULT_SIZE_CAP 4 //
+#define DEFAULT_SIZE_CAP 2
 
 
 class HashTable{
@@ -30,10 +30,9 @@ public:
     friend bool operator!=(const HashTable& A, const HashTable& B);
     void PrintHashTable() const;
 private:    
-    size_t _cap;
-    size_t _sz;
-    List* _arr;
-
+    size_t _cap = DEFAULT_SIZE_CAP;
+    size_t _sz = 0;
+    List* _arr = nullptr;
 
     size_t Hash(const Key& key) const;
     bool Resize(size_t newSize);
