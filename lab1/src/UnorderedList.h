@@ -49,5 +49,5 @@ private:
     ListNode* NewNode(const std::string& key,const Value& data);
     void FillNode(ListNode* pNodeFrom, ListNode* pNodeTo);
     void CopyList(const List& L);
-    void FreeList(List* pList);
+    void FreeList();
 };

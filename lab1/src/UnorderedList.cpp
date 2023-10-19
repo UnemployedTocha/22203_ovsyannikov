@@ -41,7 +41,7 @@ List::List(const std::string& key,const Value& data): _sz(1) {
 }
 
 List::~List() {
-    FreeList(this);        
+    FreeList();        
 }
 
 void List::Push(const std::string& key,const Value& data) {
@@ -109,7 +109,7 @@ List& List::operator=(const List& L) {
         return *this;       
     }
 
-    FreeList(this);
+    FreeList();
     _sz = L._sz;
 
     CopyList(L);
@@ -120,7 +120,7 @@ List& List::operator=(List&& L) {
     if(this == &L) {
         return *this;
     }
-    FreeList(this);
+    FreeList();
     _pFirstNode = L._pFirstNode;
     _sz = L._sz;
 
@@ -193,8 +193,8 @@ void List::CopyList(const List& L) {
     }    
 }
 
-void List::FreeList(List* pList) {
-    ListNode* pTemp = pList->_pFirstNode;
+void List::FreeList() {
+    ListNode* pTemp = this -> _pFirstNode;
     while(nullptr != pTemp) {
         ListNode* pNextNode = pTemp -> pNext;
         delete pTemp;
