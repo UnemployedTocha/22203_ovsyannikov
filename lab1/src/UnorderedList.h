@@ -7,6 +7,7 @@ public:
     Value();    
     Value(unsigned age, unsigned weight);
     Value& operator=(const Value& data);
+    friend bool operator==(const Value& A, const Value& B);
     unsigned GetAge() const;
     unsigned GetWeight() const;
 private:

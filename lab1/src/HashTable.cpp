@@ -1,7 +1,6 @@
 #include "HashTable.h"
 #include <iostream>
 #include <algorithm>
-#include "gtest/gtest.h"
 
 HashTable::HashTable(): _cap(DEFAULT_SIZE_CAP), _sz(0), _arr(new List[_cap]) {}
 

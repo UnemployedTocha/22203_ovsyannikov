@@ -13,6 +13,13 @@ Value& Value::operator=(const Value& data) {
     return *this;
 }
 
+bool operator==(const Value& A, const Value& B) {
+    if((A.age == B.age) && (A.weight == B.weight)){
+        return true;
+    }
+    return false;
+}
+
 unsigned Value::GetAge() const {
     return age;
 }

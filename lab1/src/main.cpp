@@ -13,7 +13,6 @@ int main(){
     A.Insert("aaa1", P1);
     A.Erase("aaa1");
 
-    HashTable B = A;
     B.Insert("zzzz", P1);
     B.Erase("zzzz");
     std::cout << "CAREFUL: " <<(B == A) << " " << B.Size() << " " << A.Size();
