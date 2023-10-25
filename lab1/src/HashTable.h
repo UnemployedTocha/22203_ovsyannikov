@@ -1,11 +1,10 @@
 #pragma once
-#include <iostream>
 #include <string>
-#include <algorithm>
+
+
 #include "UnorderedList.h"
 
 typedef std::string Key;
-#define DEFAULT_SIZE_CAP 2
 
 
 class HashTable{
@@ -29,12 +28,13 @@ public:
     friend bool operator==(const HashTable& A, const HashTable& B);
     friend bool operator!=(const HashTable& A, const HashTable& B);
     void PrintHashTable() const;
+
 private:    
+    static constexpr size_t DEFAULT_SIZE_CAP = 2;
     size_t _cap = DEFAULT_SIZE_CAP;
     size_t _sz = 0;
     List* _arr = nullptr;
 
     size_t Hash(const Key& key) const;
     bool Resize(size_t newSize);
-
 };

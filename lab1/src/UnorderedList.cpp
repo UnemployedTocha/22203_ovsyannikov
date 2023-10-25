@@ -1,4 +1,5 @@
 #include "UnorderedList.h"
+#include <iostream>
 
 typedef std::string Key;
 
@@ -60,7 +61,7 @@ void List::Push(ListNode& N) {
     N.pNext = pTemp;
 }
 
-bool List::Pop(const std::string& key) {
+bool List::Erase(const std::string& key) {
     if(IsEmpty()) {
         return false;
     } 
@@ -130,7 +131,7 @@ List& List::operator=(List&& L) {
 }
 
 bool List::IsEmpty() const {
-    return (_sz == 0) ? true : false;
+    return _sz == 0;
 }
 
 bool List::Contains(const std::string& key) const {

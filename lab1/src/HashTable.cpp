@@ -1,4 +1,7 @@
 #include "HashTable.h"
+#include <iostream>
+#include <algorithm>
+#include "gtest/gtest.h"
 
 HashTable::HashTable(): _cap(DEFAULT_SIZE_CAP), _sz(0), _arr(new List[_cap]) {}
 
@@ -8,17 +11,10 @@ HashTable::~HashTable() {
 }
 
 HashTable::HashTable(const HashTable& B): _cap(B._cap), _sz(B._sz), _arr(new List[_cap]) {
-    for(size_t i = 0; i < _cap; ++i) {
-        _arr[i] = B._arr[i];
-    }
-
+    std::copy(B._arr, B._arr + _cap, _arr);
 }
 
-HashTable::HashTable(HashTable&& B): _cap(B._cap), _sz(B._sz), _arr(B._arr) {
-    B._arr = new List[DEFAULT_SIZE_CAP];
-    B._cap = DEFAULT_SIZE_CAP;
-    B._sz = 0;
-}
+HashTable::HashTable(HashTable&& B): _cap(B._cap), _sz(B._sz), _arr(B._arr) {}
 
 void HashTable::Swap(HashTable& B) {
     std::swap(_arr, B._arr);
@@ -43,21 +39,21 @@ void HashTable::Clear() {
 }
 
 bool HashTable::Erase(const Key& key) {
-    size_t index = Hash(key);
-    bool isErased;
-    isErased = _arr[index].Pop(key);
+    const size_t index = Hash(key);
+    const bool isErased = _arr[index].Erase(key);
     _sz = _sz - isErased;
     return isErased;
 }
 
 bool HashTable::Insert(const Key& key, const Value& data) {
-    if(_sz >= _cap) {
-        bool flag = Resize(_cap * 2);
-        if(!flag){
-            return false;
-        }
+    if(Contains(key)){
+        return false;
     }
-    size_t index = Hash(key);
+
+    if(_sz >= _cap) {
+        Resize(_cap * 2);
+    }
+    const size_t index = Hash(key);
     _arr[index].Push(key, data);
     ++_sz;
     return true;
@@ -68,7 +64,7 @@ bool HashTable::Contains(const Key& key) const {
 }
 
 Value& HashTable::operator[](const Key& key) {
-    size_t index = Hash(key);
+    const size_t index = Hash(key);
     if(Contains(key)){
         return _arr[index].ValueByKey(key);     
     }
@@ -82,7 +78,7 @@ Value& HashTable::At(const Key& key) {
     if(Contains(key)){
         return _arr[index].ValueByKey(key);     
     }
-    throw "No such element with such key";  
+    throw std::runtime_error("No such element");; 
 }
 
 const Value& HashTable::At(const Key& key) const {
@@ -90,7 +86,7 @@ const Value& HashTable::At(const Key& key) const {
     if(Contains(key)) {
         return _arr[index].ValueByKey(key);     
     }
-    throw "No such element with such key";  
+    throw std::runtime_error("No such element");; 
 }
 
 bool operator==(const HashTable& A, const HashTable& B) {
@@ -102,16 +98,20 @@ bool operator==(const HashTable& A, const HashTable& B) {
         ListNode* pNodeA = (A._arr[i]).GetFirstNodePointer();
         while(nullptr != pNodeA) {
             bool isEqualNodeExist = false;
-            for(size_t j = 0; j < size; ++j) {
-                ListNode* pNodeB = (B._arr[j]).GetFirstNodePointer();
-                while(nullptr != pNodeB) {
-                    if(pNodeA -> key == pNodeB -> key) {
-                        isEqualNodeExist = true;
-                        break;
-                    }
-                    pNodeB = pNodeB -> pNext;
-                }            
+            if(B.Contains(pNodeA -> key)) {
+                isEqualNodeExist = true;
             }
+            
+            // for(size_t j = 0; j < size; ++j) {
+            //     ListNode* pNodeB = (B._arr[j]).GetFirstNodePointer();
+            //     while(nullptr != pNodeB) {
+            //         if(pNodeA -> key == pNodeB -> key) {
+            //             isEqualNodeExist = true;
+            //             break;
+            //         }
+            //         pNodeB = pNodeB -> pNext;
+            //     }            
+            // }
             if(false == isEqualNodeExist) {
                 return false;
             }
@@ -153,7 +153,7 @@ bool HashTable::Resize(size_t newSize) {
     for(size_t i = 0; i < oldCapacity; ++i) {
         while(pTemp[i].Size() > 0) {
             ListNode* node = pTemp[i].Pop();      
-            int index = Hash(node -> key);
+            size_t index = Hash(node -> key);
             _arr[index].Push(*node);  
         }
     }
@@ -162,9 +162,13 @@ bool HashTable::Resize(size_t newSize) {
 }
 
 void HashTable::PrintHashTable() const {
-    for(size_t i = 0; i < _cap; ++i) {
-        std::cout << "List " << i << ":" << std::endl;
-        _arr[i].PrintList();
+    std::for_each(_arr, _arr + _cap, [](List A){
+        A.PrintList();
     }
+    );
+    // for(size_t i = 0; i < _cap; ++i) {
+    //     std::cout << "List " << i << ":" << std::endl;
+    //     _arr[i].PrintList();
+    // }
 }
 

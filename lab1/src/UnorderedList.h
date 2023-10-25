@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include <string>
 
 class Value {
@@ -21,7 +20,6 @@ struct ListNode{
     struct ListNode* pNext = nullptr;
 };
 
-
 class List{    
 public:
     List();
@@ -33,7 +31,7 @@ public:
     ~List();
     void Push(const std::string& key,const Value& data);
     void Push(ListNode& N);
-    bool Pop(const std::string& key);
+    bool Erase(const std::string& key);
     ListNode* Pop();
     bool Contains(const std::string& key) const;
     Value& ValueByKey(const std::string& key); 
@@ -42,6 +40,7 @@ public:
     bool IsEmpty() const;
     void PrintList() const;
     size_t Size() const;
+
 private:
     ListNode* _pFirstNode = nullptr;
     size_t _sz = 0;
