@@ -15,14 +15,11 @@ private:
     unsigned weight;
 };
 
-struct ListNode{
-    std::string key;
-    Value data; 
-    struct ListNode* pNext = nullptr;
-};
 
 class List{    
 public:
+
+
     List();
     List(const std::string& key,const Value& data);
     List(const List& L);
@@ -31,13 +28,21 @@ public:
     List& operator=(List&& L);
     ~List();
     void Push(const std::string& key,const Value& data);
-    void Push(ListNode& N);
     bool Erase(const std::string& key);
-    ListNode* Pop();
     bool Contains(const std::string& key) const;
     Value& ValueByKey(const std::string& key); 
 
-    ListNode* GetFirstNodePointer() const;
+
+    
+    Iterator::Iterator Begin(){
+        Iterator it(_pFirstNode);
+        return it;    
+    }
+    Iterator::Iterator End(){
+        Iterator it(nullptr);
+        return it;
+    }
+    
     bool IsEmpty() const;
     void PrintList() const;
     size_t Size() const;
@@ -46,8 +51,22 @@ private:
     ListNode* _pFirstNode = nullptr;
     size_t _sz = 0;
 
+
+    struct ListNode {
+        std::string key;
+        Value data; 
+        struct ListNode* pNext = nullptr;
+    };
+
     ListNode* NewNode(const std::string& key,const Value& data);
     void FillNode(ListNode* pNodeFrom, ListNode* pNodeTo);
     void CopyList(const List& L);
     void FreeList();
+
+    void Push(ListNode& N);
+    ListNode* Pop();
+    // ListNode* GetFirstNodePointer() const;
+
+
+
 };

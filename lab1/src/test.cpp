@@ -2,6 +2,13 @@
 #include <gtest/gtest.h>
 
 
+TEST(TestValue, Equality){
+    Value A;
+    Value B(10, 24);
+    A = B;
+    EXPECT_EQ(A, B);
+}
+
 TEST(TestHashTable, Insert) { 
     HashTable A;
     
@@ -24,6 +31,8 @@ TEST(TestHashTable, Insert) {
         std::string key = std::to_string(i);
         EXPECT_FALSE(B.Insert(key, Data));
     }
+
+    
 }
 
 TEST(TestHashTable, OperatorSquareBrackets) {
@@ -56,7 +65,6 @@ TEST(TestHashTable, Erase) {
     for(int i = 999; i >= 0; --i){
         EXPECT_TRUE(A.Erase(std::to_string(i)));
     }
-
 }
 
 
@@ -91,7 +99,7 @@ TEST(TestHashTable, Contains) {
         std::string key = std::to_string(i);
         A.Insert(key, Data);
     }
-    for(int i = 999; i >= 0; --i){
+    for(int i = 999; i >= 0; --i) {
         EXPECT_TRUE(A.Contains(std::to_string(i)));
     }
 }
@@ -111,7 +119,7 @@ TEST(TestHashTable, Equality) {
         std::string key = std::to_string(i);
         EXPECT_TRUE(B.Insert(key, Data));
     }
-    for(int i = 1000; i < 2000; ++i){
+    for(int i = 1000; i < 2000; ++i) {
         EXPECT_TRUE(B.Erase(std::to_string(i)));
     }
 

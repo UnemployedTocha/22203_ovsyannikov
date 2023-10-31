@@ -60,10 +60,10 @@ void List::Push(const std::string& key,const Value& data) {
     _pFirstNode -> pNext = pTemp;
 }
 
-void List::Push(ListNode& N) {
+void List::Push(List::ListNode& N) {
     ++_sz;
 
-    ListNode* pTemp = _pFirstNode;
+    List::ListNode* pTemp = _pFirstNode;
     _pFirstNode = &N;
     N.pNext = pTemp;
 }
@@ -95,11 +95,11 @@ bool List::Erase(const std::string& key) {
     return false;
 }
 
-ListNode* List::Pop() { // Returns top node/nullptr if pop is unsuccessful 
+List::ListNode* List::Pop() { // Returns top node/nullptr if pop is unsuccessful 
     if(IsEmpty()) {
         return nullptr;
     } 
-    ListNode* pTemp = _pFirstNode;
+    List::ListNode* pTemp = _pFirstNode;
     _pFirstNode = pTemp -> pNext;
     --_sz;
     return pTemp;
@@ -172,8 +172,8 @@ void List::PrintList() const {
     }
 }   
 
-ListNode* List::NewNode(const std::string& key,const Value& data) {
-    ListNode* newNode = new ListNode;
+List::ListNode* List::NewNode(const std::string& key,const Value& data) {
+    List::ListNode* newNode = new ListNode;
     newNode -> key = key;
     newNode -> data = data;
     return newNode;  

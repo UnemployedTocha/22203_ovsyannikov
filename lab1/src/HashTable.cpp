@@ -94,23 +94,12 @@ bool operator==(const HashTable& A, const HashTable& B) {
     }    
     size_t size = A.Size();
     for(size_t i = 0; i < size; ++i) {
-        ListNode* pNodeA = (A._arr[i]).GetFirstNodePointer();
+        List::ListNode* pNodeA = (A._arr[i]).List::GetFirstNodePointer();
         while(nullptr != pNodeA) {
             bool isEqualNodeExist = false;
             if(B.Contains(pNodeA -> key)) {
                 isEqualNodeExist = true;
             }
-            
-            // for(size_t j = 0; j < size; ++j) {
-            //     ListNode* pNodeB = (B._arr[j]).GetFirstNodePointer();
-            //     while(nullptr != pNodeB) {
-            //         if(pNodeA -> key == pNodeB -> key) {
-            //             isEqualNodeExist = true;
-            //             break;
-            //         }
-            //         pNodeB = pNodeB -> pNext;
-            //     }            
-            // }
             if(false == isEqualNodeExist) {
                 return false;
             }
@@ -151,7 +140,7 @@ bool HashTable::Resize(size_t newSize) {
     }
     for(size_t i = 0; i < oldCapacity; ++i) {
         while(pTemp[i].Size() > 0) {
-            ListNode* node = pTemp[i].Pop();      
+            List::ListNode* node = pTemp[i].Pop();      
             size_t index = Hash(node -> key);
             _arr[index].Push(*node);  
         }
@@ -165,9 +154,5 @@ void HashTable::PrintHashTable() const {
         A.PrintList();
     }
     );
-    // for(size_t i = 0; i < _cap; ++i) {
-    //     std::cout << "List " << i << ":" << std::endl;
-    //     _arr[i].PrintList();
-    // }
 }
 
