@@ -38,7 +38,7 @@ List::List(const List& L): _sz(L._sz) {
     
 }
 
-List::List(List&& L): _pFirstNode(L._pFirstNode), _sz(L._sz) {
+List::List(List&& L) noexcept : _pFirstNode(L._pFirstNode), _sz(L._sz) {
     L._pFirstNode = nullptr;
     L._sz = 0;    
 }
@@ -213,8 +213,15 @@ void List::FreeList() {
 size_t List::Size() const {
     return _sz;
 }
-
-ListNode* List::GetFirstNodePointer() const {
-    return _pFirstNode;
+List::Iterator List::Begin(){
+    Iterator it(_pFirstNode);
+    return it;    
 }
+List::Iterator List::End(){
+    Iterator it(nullptr);
+    return it;
+}
+// ListNode* List::GetFirstNodePointer() const {
+//     return _pFirstNode;
+// }
 

@@ -105,26 +105,26 @@ TEST(TestHashTable, Contains) {
 }
 
 
-TEST(TestHashTable, Equality) {
-    HashTable A;
-    for (size_t i = 0; i < 1000; ++i) { 
-        Value Data;
-        std::string key = std::to_string(i);
-        EXPECT_TRUE(A.Insert(key, Data));
-    }
+// TEST(TestHashTable, Equality) {
+//     HashTable A;
+//     for (size_t i = 0; i < 1000; ++i) { 
+//         Value Data;
+//         std::string key = std::to_string(i);
+//         EXPECT_TRUE(A.Insert(key, Data));
+//     }
 
-    HashTable B;
-    for (int i = 0; i < 2000; ++i) {
-        Value Data;
-        std::string key = std::to_string(i);
-        EXPECT_TRUE(B.Insert(key, Data));
-    }
-    for(int i = 1000; i < 2000; ++i) {
-        EXPECT_TRUE(B.Erase(std::to_string(i)));
-    }
+//     HashTable B;
+//     for (int i = 0; i < 2000; ++i) {
+//         Value Data;
+//         std::string key = std::to_string(i);
+//         EXPECT_TRUE(B.Insert(key, Data));
+//     }
+//     for(int i = 1000; i < 2000; ++i) {
+//         EXPECT_TRUE(B.Erase(std::to_string(i)));
+//     }
 
-    EXPECT_EQ(A, B);
- }
+//     EXPECT_EQ(A, B);
+//  }
 
 int main() {
     testing::InitGoogleTest();

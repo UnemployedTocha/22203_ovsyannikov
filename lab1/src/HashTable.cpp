@@ -13,7 +13,7 @@ HashTable::HashTable(const HashTable& B): _cap(B._cap), _sz(B._sz), _arr(new Lis
     std::copy(B._arr, B._arr + _cap, _arr);
 }
 
-HashTable::HashTable(HashTable&& B): _cap(B._cap), _sz(B._sz), _arr(B._arr) {}
+HashTable::HashTable(HashTable&& B) noexcept : _cap(B._cap), _sz(B._sz), _arr(B._arr) {}
 
 void HashTable::Swap(HashTable& B) {
     std::swap(_arr, B._arr);
@@ -88,30 +88,30 @@ const Value& HashTable::At(const Key& key) const {
     throw std::runtime_error("No such element");; 
 }
 
-bool operator==(const HashTable& A, const HashTable& B) {
-    if(A.Size() != B.Size()) {   
-        return false;
-    }    
-    size_t size = A.Size();
-    for(size_t i = 0; i < size; ++i) {
-        List::ListNode* pNodeA = (A._arr[i]).List::GetFirstNodePointer();
-        while(nullptr != pNodeA) {
-            bool isEqualNodeExist = false;
-            if(B.Contains(pNodeA -> key)) {
-                isEqualNodeExist = true;
-            }
-            if(false == isEqualNodeExist) {
-                return false;
-            }
-            pNodeA = pNodeA -> pNext;
-        }
-    }
-    return true;
-}
-
-bool operator!=(const HashTable& A, const HashTable& B) {
-    return !(A == B);
-}
+// bool operator==(const HashTable& A, const HashTable& B) {
+//     if(A.Size() != B.Size()) {   
+//         return false;
+//     }    
+//     size_t size = A.Size();
+//     for(size_t i = 0; i < size; ++i) {
+//         List::ListNode* pNodeA = (A._arr[i]).List::GetFirstNodePointer();
+//         while(nullptr != pNodeA) {
+//             bool isEqualNodeExist = false;
+//             if(B.Contains(pNodeA -> key)) {
+//                 isEqualNodeExist = true;
+//             }
+//             if(false == isEqualNodeExist) {
+//                 return false;
+//             }
+//             pNodeA = pNodeA -> pNext;
+//         }
+//     }
+//     return true;
+// }
+//
+// bool operator!=(const HashTable& A, const HashTable& B) {
+//     return !(A == B);
+// }
 
 size_t HashTable::Size() const {
     return _sz;
@@ -140,9 +140,9 @@ bool HashTable::Resize(size_t newSize) {
     }
     for(size_t i = 0; i < oldCapacity; ++i) {
         while(pTemp[i].Size() > 0) {
-            List::ListNode* node = pTemp[i].Pop();      
+            List::ListNode* node = pTemp[i].Pop(); // ?????????????????????      
             size_t index = Hash(node -> key);
-            _arr[index].Push(*node);  
+            _arr[index].Push(*node); // ????????????????????  
         }
     }
     delete[] pTemp;

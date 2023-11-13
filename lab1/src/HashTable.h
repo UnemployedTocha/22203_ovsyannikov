@@ -12,13 +12,13 @@ public:
     HashTable();
     ~HashTable();
     HashTable(const HashTable& B);
-    HashTable(HashTable&& B);
+    HashTable(HashTable&& B) noexcept;
 
     void Swap(HashTable& b);
     HashTable& operator=(const HashTable& B);
     void Clear();
     bool Erase(const Key& key);
-    bool Insert(const Key& key, const Value& data);
+     bool Insert(const Key& key, const Value& data);
     bool Contains(const Key& key) const;
     Value& operator[](const Key& key);
     Value& At(const Key& key);
