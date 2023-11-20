@@ -1,5 +1,4 @@
 #include "UnorderedList.h"
-#include <iostream>
 
 typedef std::string Key;
 
@@ -7,49 +6,18 @@ Value::Value(): age(0), weight(0) {}
 
 Value::Value(unsigned age, unsigned weight): age(age), weight(weight) {}
 
-Value& Value::operator=(const Value& data) {
-    age = data.age;
-    weight = data.weight;
-    return *this;
-}
-
-bool operator==(const Value& A, const Value& B) {
+bool operator==(const Value& A, const Value& B){
     if((A.age == B.age) && (A.weight == B.weight)){
         return true;
     }
     return false;
 }
 
-unsigned Value::GetAge() const {
-    return age;
-}
+List::List() : _sz(0), _pFirstNode(nullptr){}
 
-unsigned Value::GetWeight() const {
-    return weight;
-}
-
-List::List() = default;
-
-List::List(const List& L): _sz(L._sz) {
-    if(L.IsEmpty()) {
-        _pFirstNode = nullptr;
-    }
-    CopyList(L);
-    
-}
-
-List::List(List&& L) noexcept : _pFirstNode(L._pFirstNode), _sz(L._sz) {
-    L._pFirstNode = nullptr;
-    L._sz = 0;    
-}
-
-List::List(const std::string& key,const Value& data): _sz(1) {
-    ListNode* newNode = NewNode(key, data);
-    _pFirstNode = newNode;  
-}
 
 List::~List() {
-    FreeList();        
+    FreeList();
 }
 
 void List::Push(const std::string& key,const Value& data) {
@@ -71,7 +39,7 @@ void List::Push(List::ListNode& N) {
 bool List::Erase(const std::string& key) {
     if(IsEmpty()) {
         return false;
-    } 
+    }
 
     ListNode* pTemp = _pFirstNode -> pNext;
     if(_pFirstNode->key == key) {
@@ -95,10 +63,7 @@ bool List::Erase(const std::string& key) {
     return false;
 }
 
-List::ListNode* List::Pop() { // Returns top node/nullptr if pop is unsuccessful 
-    if(IsEmpty()) {
-        return nullptr;
-    } 
+List::ListNode* List::Pop() {
     List::ListNode* pTemp = _pFirstNode;
     _pFirstNode = pTemp -> pNext;
     --_sz;
@@ -111,30 +76,25 @@ List& List::operator=(const List& L) {
         return *this;
     }
 
+    FreeList();
+
     if(L.IsEmpty()) {
         _pFirstNode = nullptr;
         _sz = 0;
-        return *this;       
+        return *this;
     }
 
-    FreeList();
     _sz = L._sz;
-
     CopyList(L);
     return *this;
 }
 
-List& List::operator=(List&& L) {
-    if(this == &L) {
-        return *this;
-    }
-    FreeList();
-    _pFirstNode = L._pFirstNode;
-    _sz = L._sz;
-
-    L._pFirstNode = nullptr;
-    L._sz = 0;
-    return *this;
+void List::MoveTopNode(List& listFrom) {
+    this -> Push(*(listFrom.Pop()));
+    return;
+}
+const List::ListNode& List::Top() const{
+    return *(this -> _pFirstNode);
 }
 
 bool List::IsEmpty() const {
@@ -147,7 +107,7 @@ bool List::Contains(const std::string& key) const {
         if(pTemp -> key == key) {
             return true;
         }
-        pTemp = pTemp -> pNext;    
+        pTemp = pTemp -> pNext;
     }
     return false;
 }
@@ -157,48 +117,44 @@ Value& List::ValueByKey(const std::string& key) {
     while(nullptr != pTemp) {
         if(pTemp -> key == key) {
             return pTemp -> data;
-        }    
+        }
+        pTemp = pTemp -> pNext;
     }
     Value data;
     Push(key, data);
     return _pFirstNode -> data;
 }
 
-void List::PrintList() const {
-    ListNode* pTemp = _pFirstNode;
-    while(nullptr != pTemp) {
-        std::cout << pTemp -> key << " " << ((pTemp -> data).GetAge()) << " " << ((pTemp -> data).GetWeight()) << std::endl;
-        pTemp = pTemp -> pNext;
-    }
-}   
-
 List::ListNode* List::NewNode(const std::string& key,const Value& data) {
     List::ListNode* newNode = new ListNode;
     newNode -> key = key;
     newNode -> data = data;
-    return newNode;  
+    return newNode;
 }
 
-void List::FillNode(ListNode* pNodeTo, ListNode* pNodeFrom) {
+void List::FillData(ListNode* pNodeTo, ListNode* pNodeFrom) {
     pNodeTo -> data = pNodeFrom -> data;
     pNodeTo -> key = pNodeFrom -> key;
-    pNodeTo -> pNext = pNodeFrom -> pNext;
 }
 
 void List::CopyList(const List& L) {
-    ListNode* pTemp = L._pFirstNode;
     if(nullptr != L._pFirstNode) {
+        ListNode* pTemp = L._pFirstNode;
+
         ListNode* newNode = new ListNode;
-        FillNode(newNode, pTemp);
+        FillData(newNode, pTemp);
         _pFirstNode = newNode;
 
         pTemp = pTemp -> pNext;
         while(nullptr != pTemp) {
+            ListNode* pPrevTemp = newNode;
             newNode = new ListNode;
-            FillNode(newNode, pTemp);
+            pPrevTemp -> pNext = newNode;
+
+            FillData(newNode, pTemp);
             pTemp = pTemp -> pNext;
-        }   
-    }    
+        }
+    }
 }
 
 void List::FreeList() {
@@ -213,15 +169,55 @@ void List::FreeList() {
 size_t List::Size() const {
     return _sz;
 }
-List::Iterator List::Begin(){
+List::Iterator List::Begin() const{
     Iterator it(_pFirstNode);
-    return it;    
+    return it;
 }
-List::Iterator List::End(){
+List::Iterator List::End() const{
     Iterator it(nullptr);
     return it;
 }
-// ListNode* List::GetFirstNodePointer() const {
-//     return _pFirstNode;
-// }
+
+//List::Iterator::Iterator() : _pNode(nullptr) {};
+List::Iterator::Iterator(ListNode* pNode) : _pNode(pNode) {};
+List::Iterator& List::Iterator::operator++() {
+    if(!_pNode) {
+        return *this;
+    }
+    _pNode = _pNode -> pNext;
+    return *this;
+}
+List::ListNode& List::Iterator::operator*() {
+    return *_pNode;
+}
+
+bool operator==(const List& A, const List& B) {
+    auto itListA = A.Begin();
+    while(itListA != A.End()) {
+        auto itListB = B.Begin();
+        bool isEqualNodeExist = false;
+
+        while(itListB != B.End()) {
+            if((*itListA).key == (*itListB).key){
+                isEqualNodeExist = true;
+            }
+            ++itListB;
+        }
+        if(!isEqualNodeExist) {
+            return false;
+        }
+        ++itListA;
+    }
+    return true;
+}
+bool operator!=(const List& A, const List& B) {
+    return !(A == B);
+}
+bool operator==(const List::Iterator& A, const List::Iterator& B) {
+    return A._pNode == B._pNode;
+}
+bool operator!=(const List::Iterator& A, const List::Iterator& B) {
+    return !(A == B);
+}
+
 

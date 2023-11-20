@@ -1,9 +1,6 @@
 #include <iostream>
-#include <string>
 #include "HashTable.h"
 
-
-int main(){
-    // Value P1(10,20);
+int main() {
     return 0;
 }
