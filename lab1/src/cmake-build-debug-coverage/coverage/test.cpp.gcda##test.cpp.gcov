@@ -190,17 +190,19 @@ call   24 never executed
      2000:   19:        std::string key = std::to_string(i);
      1000:   20:        A.Push(key, data);
         -:   21:    }
-        1:   22:    List B = A;
-        -:   23:
-       1*:   24:    EXPECT_EQ(A, B);
-       1*:   25:    EXPECT_EQ(B, A);
-        -:   26:
-        1:   27:    A = A;
-       1*:   28:    EXPECT_EQ(A, A);
-        -:   29:
-        1:   30:    A.Push("qwerty", data);
-       1*:   31:    EXPECT_NE(A, B);
-        1:   32:}
+        2:   22:    List B;
+        1:   23:    B = A;
+        -:   24:
+        -:   25:
+       1*:   26:    EXPECT_EQ(A, B);
+       1*:   27:    EXPECT_EQ(B, A);
+        -:   28:
+        1:   29:    A = A;
+       1*:   30:    EXPECT_EQ(A, A);
+        -:   31:
+        1:   32:    A.Push("qwerty", data);
+       1*:   33:    EXPECT_NE(A, B);
+        1:   34:}
 ------------------
 _ZN30TestList_OperatorEquality_TestC1Ev:
 function _ZN30TestList_OperatorEquality_TestC1Ev called 1 returned 100% blocks executed 100%
@@ -222,7 +224,7 @@ function _ZN30TestList_OperatorEquality_TestD1Ev called 1 returned 100% blocks e
 call    0 returned 1
 ------------------
 _ZN30TestList_OperatorEquality_Test8TestBodyEv:
-function _ZN30TestList_OperatorEquality_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+function _ZN30TestList_OperatorEquality_Test8TestBodyEv called 1 returned 100% blocks executed 32%
         1:   14:TEST(TestList, OperatorEquality){
         2:   15:    List A;
         1:   15-block  0
@@ -258,1538 +260,1478 @@ call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
         -:   21:    }
-        1:   22:    List B = A;
-call    0 returned 1
-    $$$$$:   22-block  0
-call    1 never executed
-        -:   23:
-       1*:   24:    EXPECT_EQ(A, B);
-        1:   24-block  0
+        2:   22:    List B;
+        1:   22-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:   24-block  1
+call    3 returned 1
+    $$$$$:   22-block  1
+call    4 never executed
+        1:   23:    B = A;
+        1:   23-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   24:
+        -:   25:
+       1*:   26:    EXPECT_EQ(A, B);
+        1:   26-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   26-block  1
 call    3 returned 1
 branch  4 taken 0 (fallthrough)
 branch  5 taken 1
-    %%%%%:   24-block  2
+    %%%%%:   26-block  2
 call    6 never executed
 branch  7 never executed
 branch  8 never executed
-    %%%%%:   24-block  3
+    %%%%%:   26-block  3
 call    9 never executed
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   24-block  4
+    %%%%%:   26-block  4
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:   24-block  5
+    %%%%%:   26-block  5
 call   16 never executed
 call   17 never executed
-        1:   24-block  6
+        1:   26-block  6
 call   18 returned 1
-    $$$$$:   24-block  7
+    $$$$$:   26-block  7
 call   19 never executed
-    $$$$$:   24-block  8
-    $$$$$:   24-block  9
+    $$$$$:   26-block  8
+    $$$$$:   26-block  9
 call   20 never executed
-    $$$$$:   24-block 10
-    $$$$$:   24-block 11
+    $$$$$:   26-block 10
+    $$$$$:   26-block 11
 call   21 never executed
-       1*:   25:    EXPECT_EQ(B, A);
+       1*:   27:    EXPECT_EQ(B, A);
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:   25-block  0
+        1:   27-block  0
 call    3 returned 1
 branch  4 taken 0 (fallthrough)
 branch  5 taken 1
-    %%%%%:   25-block  1
+    %%%%%:   27-block  1
 call    6 never executed
 branch  7 never executed
 branch  8 never executed
-    %%%%%:   25-block  2
+    %%%%%:   27-block  2
 call    9 never executed
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   25-block  3
+    %%%%%:   27-block  3
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:   25-block  4
+    %%%%%:   27-block  4
 call   16 never executed
 call   17 never executed
-        1:   25-block  5
+        1:   27-block  5
 call   18 returned 1
-    $$$$$:   25-block  6
+    $$$$$:   27-block  6
 call   19 never executed
-    $$$$$:   25-block  7
-    $$$$$:   25-block  8
+    $$$$$:   27-block  7
+    $$$$$:   27-block  8
 call   20 never executed
-    $$$$$:   25-block  9
-    $$$$$:   25-block 10
+    $$$$$:   27-block  9
+    $$$$$:   27-block 10
 call   21 never executed
-        -:   26:
-        1:   27:    A = A;
+        -:   28:
+        1:   29:    A = A;
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-       1*:   28:    EXPECT_EQ(A, A);
-        1:   28-block  0
+       1*:   30:    EXPECT_EQ(A, A);
+        1:   30-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:   28-block  1
+        1:   30-block  1
 call    3 returned 1
 branch  4 taken 0 (fallthrough)
 branch  5 taken 1
-    %%%%%:   28-block  2
+    %%%%%:   30-block  2
 call    6 never executed
 branch  7 never executed
 branch  8 never executed
-    %%%%%:   28-block  3
+    %%%%%:   30-block  3
 call    9 never executed
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   28-block  4
+    %%%%%:   30-block  4
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:   28-block  5
+    %%%%%:   30-block  5
 call   16 never executed
 call   17 never executed
-        1:   28-block  6
+        1:   30-block  6
 call   18 returned 1
-    $$$$$:   28-block  7
+    $$$$$:   30-block  7
 call   19 never executed
-    $$$$$:   28-block  8
-    $$$$$:   28-block  9
+    $$$$$:   30-block  8
+    $$$$$:   30-block  9
 call   20 never executed
-    $$$$$:   28-block 10
-    $$$$$:   28-block 11
+    $$$$$:   30-block 10
+    $$$$$:   30-block 11
 call   21 never executed
-        -:   29:
-        1:   30:    A.Push("qwerty", data);
+        -:   31:
+        1:   32:    A.Push("qwerty", data);
 call    0 returned 1
 call    1 returned 1
 branch  2 taken 1 (fallthrough)
 branch  3 taken 0 (throw)
-        1:   30-block  0
+        1:   32-block  0
 call    4 returned 1
 branch  5 taken 1 (fallthrough)
 branch  6 taken 0 (throw)
-        1:   30-block  1
+        1:   32-block  1
 call    7 returned 1
 call    8 returned 1
-    $$$$$:   30-block  2
+    $$$$$:   32-block  2
 call    9 never executed
-    $$$$$:   30-block  3
-    $$$$$:   30-block  4
+    $$$$$:   32-block  3
+    $$$$$:   32-block  4
 call   10 never executed
-    $$$$$:   30-block  5
-       1*:   31:    EXPECT_NE(A, B);
+    $$$$$:   32-block  5
+       1*:   33:    EXPECT_NE(A, B);
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:   31-block  0
+        1:   33-block  0
 call    3 returned 1
 branch  4 taken 0 (fallthrough)
 branch  5 taken 1
-    %%%%%:   31-block  1
+    %%%%%:   33-block  1
 call    6 never executed
 branch  7 never executed
 branch  8 never executed
-    %%%%%:   31-block  2
+    %%%%%:   33-block  2
 call    9 never executed
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   31-block  3
+    %%%%%:   33-block  3
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:   31-block  4
+    %%%%%:   33-block  4
 call   16 never executed
 call   17 never executed
-        1:   31-block  5
+        1:   33-block  5
 call   18 returned 1
-    $$$$$:   31-block  6
+    $$$$$:   33-block  6
 call   19 never executed
-    $$$$$:   31-block  7
-    $$$$$:   31-block  8
+    $$$$$:   33-block  7
+    $$$$$:   33-block  8
 call   20 never executed
-    $$$$$:   31-block  9
-    $$$$$:   31-block 10
+    $$$$$:   33-block  9
+    $$$$$:   33-block 10
 call   21 never executed
-        1:   32:}
+        1:   34:}
 ------------------
-        -:   33:
-        -:   34:
-        4:   35:TEST(TestHashTable, Constructors){
-        2:   36:    HashTable A;
-     1001:   37:    for(size_t i = 0; i < 1000; ++i){
-     1000:   38:        Value data;
-     2000:   39:        std::string key = std::to_string(i);
-     1000:   40:        A.Insert(key, data);
-        -:   41:    }
-        2:   42:    HashTable B = A;
-        -:   43:
-       1*:   44:    EXPECT_EQ(A, B);
-       1*:   45:    EXPECT_EQ(B, A);
-        -:   46:
-        1:   47:}
+        -:   35:
+        -:   36:
+        4:   37:TEST(TestHashTable, Constructors){
+        2:   38:    HashTable A;
+     1001:   39:    for(size_t i = 0; i < 1000; ++i){
+     1000:   40:        Value data;
+     2000:   41:        std::string key = std::to_string(i);
+     1000:   42:        A.Insert(key, data);
+        -:   43:    }
+        2:   44:    HashTable B = A;
+        -:   45:
+       1*:   46:    EXPECT_EQ(A, B);
+       1*:   47:    EXPECT_EQ(B, A);
+        -:   48:
+        1:   49:}
 ------------------
 _ZN31TestHashTable_Constructors_TestC1Ev:
 function _ZN31TestHashTable_Constructors_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:   35:TEST(TestHashTable, Constructors){
-        1:   35-block  0
+        1:   37:TEST(TestHashTable, Constructors){
+        1:   37-block  0
 call    0 returned 1
 ------------------
 _ZN31TestHashTable_Constructors_TestD0Ev:
 function _ZN31TestHashTable_Constructors_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:   35:TEST(TestHashTable, Constructors){
-        1:   35-block  0
+        1:   37:TEST(TestHashTable, Constructors){
+        1:   37-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN31TestHashTable_Constructors_TestD1Ev:
 function _ZN31TestHashTable_Constructors_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:   35:TEST(TestHashTable, Constructors){
-        1:   35-block  0
+        1:   37:TEST(TestHashTable, Constructors){
+        1:   37-block  0
 call    0 returned 1
 ------------------
 _ZN31TestHashTable_Constructors_Test8TestBodyEv:
 function _ZN31TestHashTable_Constructors_Test8TestBodyEv called 1 returned 100% blocks executed 35%
-        1:   35:TEST(TestHashTable, Constructors){
-        2:   36:    HashTable A;
-        1:   36-block  0
+        1:   37:TEST(TestHashTable, Constructors){
+        2:   38:    HashTable A;
+        1:   38-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:   36-block  1
+    $$$$$:   38-block  1
 call    4 never executed
-     1001:   37:    for(size_t i = 0; i < 1000; ++i){
-        1:   37-block  0
-     1001:   37-block  1
+     1001:   39:    for(size_t i = 0; i < 1000; ++i){
+        1:   39-block  0
+     1001:   39-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:   38:        Value data;
-     1000:   38-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:   39:        std::string key = std::to_string(i);
-     1000:   39-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     1000:   39-block  1
-call    3 returned 1000
-    $$$$$:   39-block  2
-call    4 never executed
-     1000:   40:        A.Insert(key, data);
+     1000:   40:        Value data;
      1000:   40-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-        -:   41:    }
-        2:   42:    HashTable B = A;
-        1:   42-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
+     2000:   41:        std::string key = std::to_string(i);
+     1000:   41-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-call    3 returned 1
-    $$$$$:   42-block  1
+     1000:   41-block  1
+call    3 returned 1000
+    $$$$$:   41-block  2
 call    4 never executed
-        -:   43:
-       1*:   44:    EXPECT_EQ(A, B);
+     1000:   42:        A.Insert(key, data);
+     1000:   42-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   43:    }
+        2:   44:    HashTable B = A;
         1:   44-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:   44-block  1
 call    3 returned 1
-branch  4 taken 0 (fallthrough)
-branch  5 taken 1
-    %%%%%:   44-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:   44-block  3
-call    9 never executed
-call   10 never executed
-branch 11 never executed
-branch 12 never executed
-    %%%%%:   44-block  4
-call   13 never executed
-branch 14 never executed
-branch 15 never executed
-    %%%%%:   44-block  5
-call   16 never executed
-call   17 never executed
-        1:   44-block  6
-call   18 returned 1
-    $$$$$:   44-block  7
-call   19 never executed
-    $$$$$:   44-block  8
-    $$$$$:   44-block  9
-call   20 never executed
-    $$$$$:   44-block 10
-    $$$$$:   44-block 11
-call   21 never executed
-       1*:   45:    EXPECT_EQ(B, A);
+    $$$$$:   44-block  1
+call    4 never executed
+        -:   45:
+       1*:   46:    EXPECT_EQ(A, B);
+        1:   46-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:   45-block  0
+        1:   46-block  1
 call    3 returned 1
 branch  4 taken 0 (fallthrough)
 branch  5 taken 1
-    %%%%%:   45-block  1
+    %%%%%:   46-block  2
 call    6 never executed
 branch  7 never executed
 branch  8 never executed
-    %%%%%:   45-block  2
+    %%%%%:   46-block  3
 call    9 never executed
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   45-block  3
+    %%%%%:   46-block  4
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:   45-block  4
+    %%%%%:   46-block  5
 call   16 never executed
 call   17 never executed
-        1:   45-block  5
+        1:   46-block  6
 call   18 returned 1
-    $$$$$:   45-block  6
+    $$$$$:   46-block  7
 call   19 never executed
-    $$$$$:   45-block  7
-    $$$$$:   45-block  8
+    $$$$$:   46-block  8
+    $$$$$:   46-block  9
 call   20 never executed
-    $$$$$:   45-block  9
-    $$$$$:   45-block 10
+    $$$$$:   46-block 10
+    $$$$$:   46-block 11
 call   21 never executed
-        -:   46:
-        1:   47:}
-------------------
+       1*:   47:    EXPECT_EQ(B, A);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   47-block  0
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   47-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   47-block  2
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   47-block  3
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   47-block  4
+call   16 never executed
+call   17 never executed
+        1:   47-block  5
+call   18 returned 1
+    $$$$$:   47-block  6
+call   19 never executed
+    $$$$$:   47-block  7
+    $$$$$:   47-block  8
+call   20 never executed
+    $$$$$:   47-block  9
+    $$$$$:   47-block 10
+call   21 never executed
         -:   48:
-        4:   49:TEST(TestHashTable, Insert) {
-        2:   50:    HashTable A;
-        -:   51:
-     1001:   52:    for (size_t i = 0; i < 1000; ++i) {
-     1000:   53:        Value data(12, 38);
-     2000:   54:        std::string key = std::to_string(i);
-     1000:   55:        A.Insert(key, data);
-    1000*:   56:        EXPECT_FALSE(A.Insert(key, data));
-        -:   57:    }
-        1:   58:    A.Clear();
-     1001:   59:    for (size_t i = 0; i < 1000; ++i) {
-     1000:   60:        Value Data;
-     2000:   61:        std::string key = std::to_string(i);
-    1000*:   62:        EXPECT_TRUE(A.Insert(key, Data));
-        -:   63:    }
-        -:   64:
-        2:   65:    HashTable B;
-        1:   66:    B = A;
-     1001:   67:    for (size_t i = 0; i < 1000; ++i) {
-     1000:   68:        Value data;
-     2000:   69:        std::string key = std::to_string(i);
-    1000*:   70:        EXPECT_FALSE(B.Insert(key, data));
-        -:   71:    }
-        -:   72:
-     1001:   73:    for (size_t i = 0; i < 1000; ++i) {
-    1000*:   74:        EXPECT_TRUE(B.Contains(std::to_string(i)));
-        -:   75:    }
-        1:   76:}
+        1:   49:}
+------------------
+        -:   50:
+        4:   51:TEST(TestHashTable, Insert) {
+        2:   52:    HashTable A;
+        -:   53:
+     1001:   54:    for (size_t i = 0; i < 1000; ++i) {
+     1000:   55:        Value data(12, 38);
+     2000:   56:        std::string key = std::to_string(i);
+     1000:   57:        A.Insert(key, data);
+    1000*:   58:        EXPECT_FALSE(A.Insert(key, data));
+        -:   59:    }
+        1:   60:    A.Clear();
+     1001:   61:    for (size_t i = 0; i < 1000; ++i) {
+     1000:   62:        Value Data;
+     2000:   63:        std::string key = std::to_string(i);
+    1000*:   64:        EXPECT_TRUE(A.Insert(key, Data));
+        -:   65:    }
+        -:   66:
+        2:   67:    HashTable B;
+        1:   68:    B = A;
+     1001:   69:    for (size_t i = 0; i < 1000; ++i) {
+     1000:   70:        Value data;
+     2000:   71:        std::string key = std::to_string(i);
+    1000*:   72:        EXPECT_FALSE(B.Insert(key, data));
+        -:   73:    }
+        -:   74:
+     1001:   75:    for (size_t i = 0; i < 1000; ++i) {
+    1000*:   76:        EXPECT_TRUE(B.Contains(std::to_string(i)));
+        -:   77:    }
+        1:   78:}
 ------------------
 _ZN25TestHashTable_Insert_TestC1Ev:
 function _ZN25TestHashTable_Insert_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:   49:TEST(TestHashTable, Insert) {
-        1:   49-block  0
+        1:   51:TEST(TestHashTable, Insert) {
+        1:   51-block  0
 call    0 returned 1
 ------------------
 _ZN25TestHashTable_Insert_TestD0Ev:
 function _ZN25TestHashTable_Insert_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:   49:TEST(TestHashTable, Insert) {
-        1:   49-block  0
+        1:   51:TEST(TestHashTable, Insert) {
+        1:   51-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN25TestHashTable_Insert_TestD1Ev:
 function _ZN25TestHashTable_Insert_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:   49:TEST(TestHashTable, Insert) {
-        1:   49-block  0
+        1:   51:TEST(TestHashTable, Insert) {
+        1:   51-block  0
 call    0 returned 1
 ------------------
 _ZN25TestHashTable_Insert_Test8TestBodyEv:
 function _ZN25TestHashTable_Insert_Test8TestBodyEv called 1 returned 100% blocks executed 34%
-        1:   49:TEST(TestHashTable, Insert) {
-        2:   50:    HashTable A;
-        1:   50-block  0
+        1:   51:TEST(TestHashTable, Insert) {
+        2:   52:    HashTable A;
+        1:   52-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:   50-block  1
+    $$$$$:   52-block  1
 call    4 never executed
-        -:   51:
-     1001:   52:    for (size_t i = 0; i < 1000; ++i) {
-        1:   52-block  0
-     1001:   52-block  1
+        -:   53:
+     1001:   54:    for (size_t i = 0; i < 1000; ++i) {
+        1:   54-block  0
+     1001:   54-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:   53:        Value data(12, 38);
-     1000:   53-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:   54:        std::string key = std::to_string(i);
-     1000:   54-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:   54-block  1
-call    4 never executed
-     1000:   55:        A.Insert(key, data);
+     1000:   55:        Value data(12, 38);
      1000:   55-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-    1000*:   56:        EXPECT_FALSE(A.Insert(key, data));
+     2000:   56:        std::string key = std::to_string(i);
      1000:   56-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:   56-block  1
+call    3 returned 1000
+    $$$$$:   56-block  1
+call    4 never executed
+     1000:   57:        A.Insert(key, data);
+     1000:   57-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+    1000*:   58:        EXPECT_FALSE(A.Insert(key, data));
+     1000:   58-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:   58-block  1
 call    3 returned 1000
 call    4 returned 1000
 branch  5 taken 0 (fallthrough)
 branch  6 taken 1000
-    %%%%%:   56-block  2
+    %%%%%:   58-block  2
 call    7 never executed
 branch  8 never executed
 branch  9 never executed
-    %%%%%:   56-block  3
+    %%%%%:   58-block  3
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   56-block  4
+    %%%%%:   58-block  4
 call   13 never executed
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:   56-block  5
+    %%%%%:   58-block  5
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:   56-block  6
+    %%%%%:   58-block  6
 call   20 never executed
 call   21 never executed
 call   22 never executed
-     1000:   56-block  7
+     1000:   58-block  7
 call   23 returned 1000
-    $$$$$:   56-block  8
+    $$$$$:   58-block  8
 call   24 never executed
-    $$$$$:   56-block  9
-    $$$$$:   56-block 10
+    $$$$$:   58-block  9
+    $$$$$:   58-block 10
 call   25 never executed
-    $$$$$:   56-block 11
-    $$$$$:   56-block 12
+    $$$$$:   58-block 11
+    $$$$$:   58-block 12
 call   26 never executed
-    $$$$$:   56-block 13
-    $$$$$:   56-block 14
+    $$$$$:   58-block 13
+    $$$$$:   58-block 14
 call   27 never executed
-        -:   57:    }
-        1:   58:    A.Clear();
-        1:   58-block  0
+        -:   59:    }
+        1:   60:    A.Clear();
+        1:   60-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-     1001:   59:    for (size_t i = 0; i < 1000; ++i) {
-        1:   59-block  0
-     1001:   59-block  1
+     1001:   61:    for (size_t i = 0; i < 1000; ++i) {
+        1:   61-block  0
+     1001:   61-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:   60:        Value Data;
-     1000:   60-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:   61:        std::string key = std::to_string(i);
-     1000:   61-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:   61-block  1
-call    4 never executed
-    1000*:   62:        EXPECT_TRUE(A.Insert(key, Data));
+     1000:   62:        Value Data;
      1000:   62-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:   62-block  1
+     2000:   63:        std::string key = std::to_string(i);
+     1000:   63-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1000
+    $$$$$:   63-block  1
+call    4 never executed
+    1000*:   64:        EXPECT_TRUE(A.Insert(key, Data));
+     1000:   64-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:   64-block  1
 call    3 returned 1000
 call    4 returned 1000
 branch  5 taken 0 (fallthrough)
 branch  6 taken 1000
-    %%%%%:   62-block  2
+    %%%%%:   64-block  2
 call    7 never executed
 branch  8 never executed
 branch  9 never executed
-    %%%%%:   62-block  3
+    %%%%%:   64-block  3
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   62-block  4
+    %%%%%:   64-block  4
 call   13 never executed
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:   62-block  5
+    %%%%%:   64-block  5
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:   62-block  6
+    %%%%%:   64-block  6
 call   20 never executed
 call   21 never executed
 call   22 never executed
-     1000:   62-block  7
+     1000:   64-block  7
 call   23 returned 1000
-    $$$$$:   62-block  8
+    $$$$$:   64-block  8
 call   24 never executed
-    $$$$$:   62-block  9
-    $$$$$:   62-block 10
+    $$$$$:   64-block  9
+    $$$$$:   64-block 10
 call   25 never executed
-    $$$$$:   62-block 11
-    $$$$$:   62-block 12
+    $$$$$:   64-block 11
+    $$$$$:   64-block 12
 call   26 never executed
-    $$$$$:   62-block 13
-    $$$$$:   62-block 14
+    $$$$$:   64-block 13
+    $$$$$:   64-block 14
 call   27 never executed
-        -:   63:    }
-        -:   64:
-        2:   65:    HashTable B;
-        1:   65-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
-branch  2 taken 0 (throw)
-        1:   65-block  1
-call    3 returned 1
-    $$$$$:   65-block  2
-call    4 never executed
-        1:   66:    B = A;
-        1:   66-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
-branch  2 taken 0 (throw)
-     1001:   67:    for (size_t i = 0; i < 1000; ++i) {
+        -:   65:    }
+        -:   66:
+        2:   67:    HashTable B;
         1:   67-block  0
-     1001:   67-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   67-block  1
+call    3 returned 1
+    $$$$$:   67-block  2
+call    4 never executed
+        1:   68:    B = A;
+        1:   68-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+     1001:   69:    for (size_t i = 0; i < 1000; ++i) {
+        1:   69-block  0
+     1001:   69-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:   68:        Value data;
-     1000:   68-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:   69:        std::string key = std::to_string(i);
-     1000:   69-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:   69-block  1
-call    4 never executed
-    1000*:   70:        EXPECT_FALSE(B.Insert(key, data));
+     1000:   70:        Value data;
      1000:   70-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:   70-block  1
+     2000:   71:        std::string key = std::to_string(i);
+     1000:   71-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1000
+    $$$$$:   71-block  1
+call    4 never executed
+    1000*:   72:        EXPECT_FALSE(B.Insert(key, data));
+     1000:   72-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:   72-block  1
 call    3 returned 1000
 call    4 returned 1000
 branch  5 taken 0 (fallthrough)
 branch  6 taken 1000
-    %%%%%:   70-block  2
+    %%%%%:   72-block  2
 call    7 never executed
 branch  8 never executed
 branch  9 never executed
-    %%%%%:   70-block  3
+    %%%%%:   72-block  3
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   70-block  4
+    %%%%%:   72-block  4
 call   13 never executed
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:   70-block  5
+    %%%%%:   72-block  5
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:   70-block  6
+    %%%%%:   72-block  6
 call   20 never executed
 call   21 never executed
 call   22 never executed
-     1000:   70-block  7
+     1000:   72-block  7
 call   23 returned 1000
-    $$$$$:   70-block  8
+    $$$$$:   72-block  8
 call   24 never executed
-    $$$$$:   70-block  9
-    $$$$$:   70-block 10
+    $$$$$:   72-block  9
+    $$$$$:   72-block 10
 call   25 never executed
-    $$$$$:   70-block 11
-    $$$$$:   70-block 12
+    $$$$$:   72-block 11
+    $$$$$:   72-block 12
 call   26 never executed
-    $$$$$:   70-block 13
-    $$$$$:   70-block 14
+    $$$$$:   72-block 13
+    $$$$$:   72-block 14
 call   27 never executed
-        -:   71:    }
-        -:   72:
-     1001:   73:    for (size_t i = 0; i < 1000; ++i) {
-        1:   73-block  0
-     1001:   73-block  1
+        -:   73:    }
+        -:   74:
+     1001:   75:    for (size_t i = 0; i < 1000; ++i) {
+        1:   75-block  0
+     1001:   75-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-    1000*:   74:        EXPECT_TRUE(B.Contains(std::to_string(i)));
-     1000:   74-block  0
+    1000*:   76:        EXPECT_TRUE(B.Contains(std::to_string(i)));
+     1000:   76-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:   74-block  1
+     1000:   76-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:   74-block  2
+     1000:   76-block  2
 call    6 returned 1000
 call    7 returned 1000
 call    8 returned 1000
 branch  9 taken 0 (fallthrough)
 branch 10 taken 1000
-    %%%%%:   74-block  3
+    %%%%%:   76-block  3
 call   11 never executed
 branch 12 never executed
 branch 13 never executed
-    %%%%%:   74-block  4
+    %%%%%:   76-block  4
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:   74-block  5
+    %%%%%:   76-block  5
 call   17 never executed
 call   18 never executed
 branch 19 never executed
 branch 20 never executed
-    %%%%%:   74-block  6
+    %%%%%:   76-block  6
 call   21 never executed
 branch 22 never executed
 branch 23 never executed
-    %%%%%:   74-block  7
+    %%%%%:   76-block  7
 call   24 never executed
 call   25 never executed
 call   26 never executed
-     1000:   74-block  8
+     1000:   76-block  8
 call   27 returned 1000
-    $$$$$:   74-block  9
-    $$$$$:   74-block 10
+    $$$$$:   76-block  9
+    $$$$$:   76-block 10
 call   28 never executed
-    $$$$$:   74-block 11
-    $$$$$:   74-block 12
+    $$$$$:   76-block 11
+    $$$$$:   76-block 12
 call   29 never executed
-    $$$$$:   74-block 13
-    $$$$$:   74-block 14
+    $$$$$:   76-block 13
+    $$$$$:   76-block 14
 call   30 never executed
-    $$$$$:   74-block 15
-    $$$$$:   74-block 16
+    $$$$$:   76-block 15
+    $$$$$:   76-block 16
 call   31 never executed
-        -:   75:    }
-        1:   76:}
+        -:   77:    }
+        1:   78:}
 ------------------
-        -:   77:
-        4:   78:TEST(TestHashTable, MoveConstructor) {
-        2:   79:    HashTable A;
-      101:   80:    for (int i = 100; i > 0; --i) {
-      200:   81:        std::string key = std::to_string(i);
-      100:   82:        Value data;
-      100:   83:        A.Insert(key, data);
-        -:   84:    }
-        2:   85:    HashTable B = A;
-        2:   86:    HashTable C = std::move(B);
-       1*:   87:    EXPECT_EQ(A, C);
-        1:   88:}
+        -:   79:
+        4:   80:TEST(TestHashTable, MoveConstructor) {
+        2:   81:    HashTable A;
+      101:   82:    for (int i = 100; i > 0; --i) {
+      200:   83:        std::string key = std::to_string(i);
+      100:   84:        Value data;
+      100:   85:        A.Insert(key, data);
+        -:   86:    }
+        2:   87:    HashTable B = A;
+        2:   88:    HashTable C = std::move(B);
+       1*:   89:    EXPECT_EQ(A, C);
+        1:   90:}
 ------------------
 _ZN34TestHashTable_MoveConstructor_TestC1Ev:
 function _ZN34TestHashTable_MoveConstructor_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:   78:TEST(TestHashTable, MoveConstructor) {
-        1:   78-block  0
+        1:   80:TEST(TestHashTable, MoveConstructor) {
+        1:   80-block  0
 call    0 returned 1
 ------------------
 _ZN34TestHashTable_MoveConstructor_TestD0Ev:
 function _ZN34TestHashTable_MoveConstructor_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:   78:TEST(TestHashTable, MoveConstructor) {
-        1:   78-block  0
+        1:   80:TEST(TestHashTable, MoveConstructor) {
+        1:   80-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN34TestHashTable_MoveConstructor_TestD1Ev:
 function _ZN34TestHashTable_MoveConstructor_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:   78:TEST(TestHashTable, MoveConstructor) {
-        1:   78-block  0
+        1:   80:TEST(TestHashTable, MoveConstructor) {
+        1:   80-block  0
 call    0 returned 1
 ------------------
 _ZN34TestHashTable_MoveConstructor_Test8TestBodyEv:
 function _ZN34TestHashTable_MoveConstructor_Test8TestBodyEv called 1 returned 100% blocks executed 44%
-        1:   78:TEST(TestHashTable, MoveConstructor) {
-        2:   79:    HashTable A;
-        1:   79-block  0
+        1:   80:TEST(TestHashTable, MoveConstructor) {
+        2:   81:    HashTable A;
+        1:   81-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:   79-block  1
+    $$$$$:   81-block  1
 call    4 never executed
-      101:   80:    for (int i = 100; i > 0; --i) {
-        1:   80-block  0
-      101:   80-block  1
+      101:   82:    for (int i = 100; i > 0; --i) {
+        1:   82-block  0
+      101:   82-block  1
 branch  0 taken 100 (fallthrough)
 branch  1 taken 1
-      200:   81:        std::string key = std::to_string(i);
-      100:   81-block  0
-call    0 returned 100
-branch  1 taken 100 (fallthrough)
-branch  2 taken 0 (throw)
-      100:   81-block  1
-call    3 returned 100
-    $$$$$:   81-block  2
-call    4 never executed
-      100:   82:        Value data;
-      100:   82-block  0
-call    0 returned 100
-branch  1 taken 100 (fallthrough)
-branch  2 taken 0 (throw)
-      100:   83:        A.Insert(key, data);
+      200:   83:        std::string key = std::to_string(i);
       100:   83-block  0
 call    0 returned 100
 branch  1 taken 100 (fallthrough)
 branch  2 taken 0 (throw)
-        -:   84:    }
-        2:   85:    HashTable B = A;
-        1:   85-block  0
+      100:   83-block  1
+call    3 returned 100
+    $$$$$:   83-block  2
+call    4 never executed
+      100:   84:        Value data;
+      100:   84-block  0
+call    0 returned 100
+branch  1 taken 100 (fallthrough)
+branch  2 taken 0 (throw)
+      100:   85:        A.Insert(key, data);
+      100:   85-block  0
+call    0 returned 100
+branch  1 taken 100 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   86:    }
+        2:   87:    HashTable B = A;
+        1:   87-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:   85-block  1
+    $$$$$:   87-block  1
 call    4 never executed
-        2:   86:    HashTable C = std::move(B);
-        1:   86-block  0
+        2:   88:    HashTable C = std::move(B);
+        1:   88-block  0
 call    0 returned 1
 call    1 returned 1
 call    2 returned 1
-    $$$$$:   86-block  1
+    $$$$$:   88-block  1
 call    3 never executed
-       1*:   87:    EXPECT_EQ(A, C);
+       1*:   89:    EXPECT_EQ(A, C);
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:   87-block  0
+        1:   89-block  0
 call    3 returned 1
 branch  4 taken 0 (fallthrough)
 branch  5 taken 1
-    %%%%%:   87-block  1
+    %%%%%:   89-block  1
 call    6 never executed
 branch  7 never executed
 branch  8 never executed
-    %%%%%:   87-block  2
+    %%%%%:   89-block  2
 call    9 never executed
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:   87-block  3
+    %%%%%:   89-block  3
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:   87-block  4
+    %%%%%:   89-block  4
 call   16 never executed
 call   17 never executed
-        1:   87-block  5
+        1:   89-block  5
 call   18 returned 1
-    $$$$$:   87-block  6
+    $$$$$:   89-block  6
 call   19 never executed
-    $$$$$:   87-block  7
-    $$$$$:   87-block  8
+    $$$$$:   89-block  7
+    $$$$$:   89-block  8
 call   20 never executed
-    $$$$$:   87-block  9
-    $$$$$:   87-block 10
+    $$$$$:   89-block  9
+    $$$$$:   89-block 10
 call   21 never executed
-        1:   88:}
+        1:   90:}
 ------------------
-        -:   89:
-        4:   90:TEST(TestHashTable, Swap) {
-        2:   91:    HashTable A;
-      101:   92:    for (int i = 100; i > 0; --i) {
-      200:   93:        std::string key = std::to_string(i);
-      100:   94:        Value data;
-      100:   95:        A.Insert(key, data);
-        -:   96:    }
-        2:   97:    HashTable C = A;
-        2:   98:    HashTable B;
-      101:   99:    for (int i = 200; i > 100; --i) {
-      200:  100:        std::string key = std::to_string(i);
-      100:  101:        Value data;
-      100:  102:        B.Insert(key, data);
-        -:  103:    }
-        2:  104:    HashTable D = B;
-        1:  105:    A.Swap(B);
-       1*:  106:    EXPECT_EQ(A, D);
-       1*:  107:    EXPECT_EQ(B, C);
-        1:  108:}
+        -:   91:
+        4:   92:TEST(TestHashTable, Swap) {
+        2:   93:    HashTable A;
+      101:   94:    for (int i = 100; i > 0; --i) {
+      200:   95:        std::string key = std::to_string(i);
+      100:   96:        Value data;
+      100:   97:        A.Insert(key, data);
+        -:   98:    }
+        2:   99:    HashTable C = A;
+        2:  100:    HashTable B;
+      101:  101:    for (int i = 200; i > 100; --i) {
+      200:  102:        std::string key = std::to_string(i);
+      100:  103:        Value data;
+      100:  104:        B.Insert(key, data);
+        -:  105:    }
+        2:  106:    HashTable D = B;
+        1:  107:    A.Swap(B);
+       1*:  108:    EXPECT_EQ(A, D);
+       1*:  109:    EXPECT_EQ(B, C);
+        1:  110:}
 ------------------
 _ZN23TestHashTable_Swap_TestC1Ev:
 function _ZN23TestHashTable_Swap_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:   90:TEST(TestHashTable, Swap) {
-        1:   90-block  0
+        1:   92:TEST(TestHashTable, Swap) {
+        1:   92-block  0
 call    0 returned 1
 ------------------
 _ZN23TestHashTable_Swap_TestD0Ev:
 function _ZN23TestHashTable_Swap_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:   90:TEST(TestHashTable, Swap) {
-        1:   90-block  0
+        1:   92:TEST(TestHashTable, Swap) {
+        1:   92-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN23TestHashTable_Swap_TestD1Ev:
 function _ZN23TestHashTable_Swap_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:   90:TEST(TestHashTable, Swap) {
-        1:   90-block  0
+        1:   92:TEST(TestHashTable, Swap) {
+        1:   92-block  0
 call    0 returned 1
 ------------------
 _ZN23TestHashTable_Swap_Test8TestBodyEv:
 function _ZN23TestHashTable_Swap_Test8TestBodyEv called 1 returned 100% blocks executed 42%
-        1:   90:TEST(TestHashTable, Swap) {
-        2:   91:    HashTable A;
-        1:   91-block  0
+        1:   92:TEST(TestHashTable, Swap) {
+        2:   93:    HashTable A;
+        1:   93-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:   91-block  1
+    $$$$$:   93-block  1
 call    4 never executed
-      101:   92:    for (int i = 100; i > 0; --i) {
-        1:   92-block  0
-      101:   92-block  1
+      101:   94:    for (int i = 100; i > 0; --i) {
+        1:   94-block  0
+      101:   94-block  1
 branch  0 taken 100 (fallthrough)
 branch  1 taken 1
-      200:   93:        std::string key = std::to_string(i);
-      100:   93-block  0
-call    0 returned 100
-branch  1 taken 100 (fallthrough)
-branch  2 taken 0 (throw)
-      100:   93-block  1
-call    3 returned 100
-    $$$$$:   93-block  2
-call    4 never executed
-      100:   94:        Value data;
-      100:   94-block  0
-call    0 returned 100
-branch  1 taken 100 (fallthrough)
-branch  2 taken 0 (throw)
-      100:   95:        A.Insert(key, data);
+      200:   95:        std::string key = std::to_string(i);
       100:   95-block  0
 call    0 returned 100
 branch  1 taken 100 (fallthrough)
 branch  2 taken 0 (throw)
-        -:   96:    }
-        2:   97:    HashTable C = A;
-        1:   97-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1
-    $$$$$:   97-block  1
+      100:   95-block  1
+call    3 returned 100
+    $$$$$:   95-block  2
 call    4 never executed
-        2:   98:    HashTable B;
-        1:   98-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
+      100:   96:        Value data;
+      100:   96-block  0
+call    0 returned 100
+branch  1 taken 100 (fallthrough)
 branch  2 taken 0 (throw)
-call    3 returned 1
-    $$$$$:   98-block  1
-call    4 never executed
-      101:   99:    for (int i = 200; i > 100; --i) {
+      100:   97:        A.Insert(key, data);
+      100:   97-block  0
+call    0 returned 100
+branch  1 taken 100 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   98:    }
+        2:   99:    HashTable C = A;
         1:   99-block  0
-      101:   99-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   99-block  1
+call    4 never executed
+        2:  100:    HashTable B;
+        1:  100-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  100-block  1
+call    4 never executed
+      101:  101:    for (int i = 200; i > 100; --i) {
+        1:  101-block  0
+      101:  101-block  1
 branch  0 taken 100 (fallthrough)
 branch  1 taken 1
-      200:  100:        std::string key = std::to_string(i);
-      100:  100-block  0
-call    0 returned 100
-branch  1 taken 100 (fallthrough)
-branch  2 taken 0 (throw)
-      100:  100-block  1
-call    3 returned 100
-    $$$$$:  100-block  2
-call    4 never executed
-      100:  101:        Value data;
-      100:  101-block  0
-call    0 returned 100
-branch  1 taken 100 (fallthrough)
-branch  2 taken 0 (throw)
-      100:  102:        B.Insert(key, data);
+      200:  102:        std::string key = std::to_string(i);
       100:  102-block  0
 call    0 returned 100
 branch  1 taken 100 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  103:    }
-        2:  104:    HashTable D = B;
-        1:  104-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1
-    $$$$$:  104-block  1
+      100:  102-block  1
+call    3 returned 100
+    $$$$$:  102-block  2
 call    4 never executed
-        1:  105:    A.Swap(B);
-        1:  105-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
+      100:  103:        Value data;
+      100:  103-block  0
+call    0 returned 100
+branch  1 taken 100 (fallthrough)
 branch  2 taken 0 (throw)
-       1*:  106:    EXPECT_EQ(A, D);
+      100:  104:        B.Insert(key, data);
+      100:  104-block  0
+call    0 returned 100
+branch  1 taken 100 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  105:    }
+        2:  106:    HashTable D = B;
         1:  106-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  106-block  1
 call    3 returned 1
-branch  4 taken 0 (fallthrough)
-branch  5 taken 1
-    %%%%%:  106-block  2
-call    6 never executed
-branch  7 never executed
-branch  8 never executed
-    %%%%%:  106-block  3
-call    9 never executed
-call   10 never executed
-branch 11 never executed
-branch 12 never executed
-    %%%%%:  106-block  4
-call   13 never executed
-branch 14 never executed
-branch 15 never executed
-    %%%%%:  106-block  5
-call   16 never executed
-call   17 never executed
-        1:  106-block  6
-call   18 returned 1
-    $$$$$:  106-block  7
-call   19 never executed
-    $$$$$:  106-block  8
-    $$$$$:  106-block  9
-call   20 never executed
-    $$$$$:  106-block 10
-    $$$$$:  106-block 11
-call   21 never executed
-       1*:  107:    EXPECT_EQ(B, C);
+    $$$$$:  106-block  1
+call    4 never executed
+        1:  107:    A.Swap(B);
+        1:  107-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  107-block  0
+       1*:  108:    EXPECT_EQ(A, D);
+        1:  108-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  108-block  1
 call    3 returned 1
 branch  4 taken 0 (fallthrough)
 branch  5 taken 1
-    %%%%%:  107-block  1
+    %%%%%:  108-block  2
 call    6 never executed
 branch  7 never executed
 branch  8 never executed
-    %%%%%:  107-block  2
+    %%%%%:  108-block  3
 call    9 never executed
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:  107-block  3
+    %%%%%:  108-block  4
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  107-block  4
+    %%%%%:  108-block  5
 call   16 never executed
 call   17 never executed
-        1:  107-block  5
+        1:  108-block  6
 call   18 returned 1
-    $$$$$:  107-block  6
+    $$$$$:  108-block  7
 call   19 never executed
-    $$$$$:  107-block  7
-    $$$$$:  107-block  8
+    $$$$$:  108-block  8
+    $$$$$:  108-block  9
 call   20 never executed
-    $$$$$:  107-block  9
-    $$$$$:  107-block 10
+    $$$$$:  108-block 10
+    $$$$$:  108-block 11
 call   21 never executed
-        1:  108:}
+       1*:  109:    EXPECT_EQ(B, C);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  109-block  0
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  109-block  1
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  109-block  2
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  109-block  3
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  109-block  4
+call   16 never executed
+call   17 never executed
+        1:  109-block  5
+call   18 returned 1
+    $$$$$:  109-block  6
+call   19 never executed
+    $$$$$:  109-block  7
+    $$$$$:  109-block  8
+call   20 never executed
+    $$$$$:  109-block  9
+    $$$$$:  109-block 10
+call   21 never executed
+        1:  110:}
 ------------------
-        -:  109:
-        4:  110:TEST(TestHashTable, OperatorSquareBrackets) {
         -:  111:
-        2:  112:    HashTable A;
-     1001:  113:    for (int i = 0; i < 1000; ++i) {
-     1000:  114:        Value data(i, i);
-     2000:  115:        std::string key = std::to_string(i);
-     1000:  116:        A.Insert(key, data);
-    2000*:  117:        EXPECT_EQ(A[std::to_string(i)], data);
-        -:  118:    }
-        -:  119:
-        1:  120:    A.Clear();
-     1001:  121:    for (int i = 1000; i > 0; --i) {
-     1000:  122:        Value data(i, i);
-     2000:  123:        std::string key = std::to_string(i);
-     1000:  124:        A.Insert(key, data);
-    2000*:  125:        EXPECT_EQ(A[std::to_string(i)], data);
-        -:  126:    }
-        -:  127:
-        1:  128:    A.Clear();
-     1001:  129:    for (int i = 1000; i > 0; --i) {
-     2000:  130:        std::string key = std::to_string(i);
-     1000:  131:        Value data;
-    2000*:  132:        EXPECT_EQ(A[std::to_string(i)], data);
-        -:  133:    }
-        1:  134:}
+        4:  112:TEST(TestHashTable, OperatorSquareBrackets) {
+        -:  113:
+        2:  114:    HashTable A;
+     1001:  115:    for (int i = 0; i < 1000; ++i) {
+     1000:  116:        Value data(i, i);
+     2000:  117:        std::string key = std::to_string(i);
+     1000:  118:        A.Insert(key, data);
+    2000*:  119:        EXPECT_EQ(A[std::to_string(i)], data);
+        -:  120:    }
+        -:  121:
+        1:  122:    A.Clear();
+     1001:  123:    for (int i = 1000; i > 0; --i) {
+     1000:  124:        Value data(i, i);
+     2000:  125:        std::string key = std::to_string(i);
+     1000:  126:        A.Insert(key, data);
+    2000*:  127:        EXPECT_EQ(A[std::to_string(i)], data);
+        -:  128:    }
+        -:  129:
+        1:  130:    A.Clear();
+     1001:  131:    for (int i = 1000; i > 0; --i) {
+     2000:  132:        std::string key = std::to_string(i);
+     1000:  133:        Value data;
+    2000*:  134:        EXPECT_EQ(A[std::to_string(i)], data);
+        -:  135:    }
+        1:  136:}
 ------------------
 _ZN41TestHashTable_OperatorSquareBrackets_TestC1Ev:
 function _ZN41TestHashTable_OperatorSquareBrackets_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:  110:TEST(TestHashTable, OperatorSquareBrackets) {
-        1:  110-block  0
+        1:  112:TEST(TestHashTable, OperatorSquareBrackets) {
+        1:  112-block  0
 call    0 returned 1
 ------------------
 _ZN41TestHashTable_OperatorSquareBrackets_TestD0Ev:
 function _ZN41TestHashTable_OperatorSquareBrackets_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:  110:TEST(TestHashTable, OperatorSquareBrackets) {
-        1:  110-block  0
+        1:  112:TEST(TestHashTable, OperatorSquareBrackets) {
+        1:  112-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN41TestHashTable_OperatorSquareBrackets_TestD1Ev:
 function _ZN41TestHashTable_OperatorSquareBrackets_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:  110:TEST(TestHashTable, OperatorSquareBrackets) {
-        1:  110-block  0
+        1:  112:TEST(TestHashTable, OperatorSquareBrackets) {
+        1:  112-block  0
 call    0 returned 1
 ------------------
 _ZN41TestHashTable_OperatorSquareBrackets_Test8TestBodyEv:
 function _ZN41TestHashTable_OperatorSquareBrackets_Test8TestBodyEv called 1 returned 100% blocks executed 41%
-        1:  110:TEST(TestHashTable, OperatorSquareBrackets) {
-        -:  111:
-        2:  112:    HashTable A;
-        1:  112-block  0
+        1:  112:TEST(TestHashTable, OperatorSquareBrackets) {
+        -:  113:
+        2:  114:    HashTable A;
+        1:  114-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  112-block  1
+        1:  114-block  1
 call    3 returned 1
-    $$$$$:  112-block  2
+    $$$$$:  114-block  2
 call    4 never executed
-     1001:  113:    for (int i = 0; i < 1000; ++i) {
-        1:  113-block  0
-     1001:  113-block  1
+     1001:  115:    for (int i = 0; i < 1000; ++i) {
+        1:  115-block  0
+     1001:  115-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  114:        Value data(i, i);
-     1000:  114-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:  115:        std::string key = std::to_string(i);
-     1000:  115-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:  115-block  1
-call    4 never executed
-     1000:  116:        A.Insert(key, data);
+     1000:  116:        Value data(i, i);
      1000:  116-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-    2000*:  117:        EXPECT_EQ(A[std::to_string(i)], data);
+     2000:  117:        std::string key = std::to_string(i);
      1000:  117-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  117-block  1
+call    3 returned 1000
+    $$$$$:  117-block  1
+call    4 never executed
+     1000:  118:        A.Insert(key, data);
+     1000:  118-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+    2000*:  119:        EXPECT_EQ(A[std::to_string(i)], data);
+     1000:  119-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:  119-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  117-block  2
+     1000:  119-block  2
 call    6 returned 1000
 branch  7 taken 1000 (fallthrough)
 branch  8 taken 0 (throw)
 call    9 returned 1000
 branch 10 taken 0 (fallthrough)
 branch 11 taken 1000
-    %%%%%:  117-block  3
+    %%%%%:  119-block  3
 call   12 never executed
 branch 13 never executed
 branch 14 never executed
-    %%%%%:  117-block  4
+    %%%%%:  119-block  4
 call   15 never executed
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  117-block  5
+    %%%%%:  119-block  5
 call   19 never executed
 branch 20 never executed
 branch 21 never executed
-    %%%%%:  117-block  6
+    %%%%%:  119-block  6
 call   22 never executed
 call   23 never executed
-     1000:  117-block  7
+     1000:  119-block  7
 call   24 returned 1000
-    $$$$$:  117-block  8
-    $$$$$:  117-block  9
+    $$$$$:  119-block  8
+    $$$$$:  119-block  9
 call   25 never executed
-    $$$$$:  117-block 10
-    $$$$$:  117-block 11
+    $$$$$:  119-block 10
+    $$$$$:  119-block 11
 call   26 never executed
-    $$$$$:  117-block 12
-    $$$$$:  117-block 13
+    $$$$$:  119-block 12
+    $$$$$:  119-block 13
 call   27 never executed
-        -:  118:    }
-        -:  119:
-        1:  120:    A.Clear();
-        1:  120-block  0
+        -:  120:    }
+        -:  121:
+        1:  122:    A.Clear();
+        1:  122-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-     1001:  121:    for (int i = 1000; i > 0; --i) {
-        1:  121-block  0
-     1001:  121-block  1
+     1001:  123:    for (int i = 1000; i > 0; --i) {
+        1:  123-block  0
+     1001:  123-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  122:        Value data(i, i);
-     1000:  122-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:  123:        std::string key = std::to_string(i);
-     1000:  123-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:  123-block  1
-call    4 never executed
-     1000:  124:        A.Insert(key, data);
+     1000:  124:        Value data(i, i);
      1000:  124-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-    2000*:  125:        EXPECT_EQ(A[std::to_string(i)], data);
+     2000:  125:        std::string key = std::to_string(i);
      1000:  125-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  125-block  1
+call    3 returned 1000
+    $$$$$:  125-block  1
+call    4 never executed
+     1000:  126:        A.Insert(key, data);
+     1000:  126-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+    2000*:  127:        EXPECT_EQ(A[std::to_string(i)], data);
+     1000:  127-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:  127-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  125-block  2
+     1000:  127-block  2
 call    6 returned 1000
 branch  7 taken 1000 (fallthrough)
 branch  8 taken 0 (throw)
 call    9 returned 1000
 branch 10 taken 0 (fallthrough)
 branch 11 taken 1000
-    %%%%%:  125-block  3
+    %%%%%:  127-block  3
 call   12 never executed
 branch 13 never executed
 branch 14 never executed
-    %%%%%:  125-block  4
+    %%%%%:  127-block  4
 call   15 never executed
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  125-block  5
+    %%%%%:  127-block  5
 call   19 never executed
 branch 20 never executed
 branch 21 never executed
-    %%%%%:  125-block  6
+    %%%%%:  127-block  6
 call   22 never executed
 call   23 never executed
-     1000:  125-block  7
+     1000:  127-block  7
 call   24 returned 1000
-    $$$$$:  125-block  8
-    $$$$$:  125-block  9
+    $$$$$:  127-block  8
+    $$$$$:  127-block  9
 call   25 never executed
-    $$$$$:  125-block 10
-    $$$$$:  125-block 11
+    $$$$$:  127-block 10
+    $$$$$:  127-block 11
 call   26 never executed
-    $$$$$:  125-block 12
-    $$$$$:  125-block 13
+    $$$$$:  127-block 12
+    $$$$$:  127-block 13
 call   27 never executed
-        -:  126:    }
-        -:  127:
-        1:  128:    A.Clear();
-        1:  128-block  0
+        -:  128:    }
+        -:  129:
+        1:  130:    A.Clear();
+        1:  130-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-     1001:  129:    for (int i = 1000; i > 0; --i) {
-        1:  129-block  0
-     1001:  129-block  1
+     1001:  131:    for (int i = 1000; i > 0; --i) {
+        1:  131-block  0
+     1001:  131-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     2000:  130:        std::string key = std::to_string(i);
-     1000:  130-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:  130-block  1
-call    4 never executed
-     1000:  131:        Value data;
-     1000:  131-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-    2000*:  132:        EXPECT_EQ(A[std::to_string(i)], data);
+     2000:  132:        std::string key = std::to_string(i);
      1000:  132-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  132-block  1
+call    3 returned 1000
+    $$$$$:  132-block  1
+call    4 never executed
+     1000:  133:        Value data;
+     1000:  133-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+    2000*:  134:        EXPECT_EQ(A[std::to_string(i)], data);
+     1000:  134-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:  134-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  132-block  2
+     1000:  134-block  2
 call    6 returned 1000
 branch  7 taken 1000 (fallthrough)
 branch  8 taken 0 (throw)
 call    9 returned 1000
 branch 10 taken 0 (fallthrough)
 branch 11 taken 1000
-    %%%%%:  132-block  3
+    %%%%%:  134-block  3
 call   12 never executed
 branch 13 never executed
 branch 14 never executed
-    %%%%%:  132-block  4
+    %%%%%:  134-block  4
 call   15 never executed
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  132-block  5
+    %%%%%:  134-block  5
 call   19 never executed
 branch 20 never executed
 branch 21 never executed
-    %%%%%:  132-block  6
+    %%%%%:  134-block  6
 call   22 never executed
 call   23 never executed
-     1000:  132-block  7
+     1000:  134-block  7
 call   24 returned 1000
-    $$$$$:  132-block  8
-    $$$$$:  132-block  9
+    $$$$$:  134-block  8
+    $$$$$:  134-block  9
 call   25 never executed
-    $$$$$:  132-block 10
-    $$$$$:  132-block 11
+    $$$$$:  134-block 10
+    $$$$$:  134-block 11
 call   26 never executed
-    $$$$$:  132-block 12
-    $$$$$:  132-block 13
+    $$$$$:  134-block 12
+    $$$$$:  134-block 13
 call   27 never executed
-        -:  133:    }
-        1:  134:}
+        -:  135:    }
+        1:  136:}
 ------------------
-        4:  135:TEST(TestHashTable, Erase) {
-        2:  136:    HashTable A;
-        -:  137:
-     1001:  138:    for (int i = 0; i < 1000; ++i) {
-     1000:  139:        Value data(12, 38);
-     1000:  140:        A.Insert(std::to_string(i), data);
-        -:  141:    }
-     1001:  142:    for(int i = 999; i >= 0; --i){
-    1000*:  143:        EXPECT_TRUE(A.Erase(std::to_string(i)));
-        -:  144:    }
-       1*:  145:    EXPECT_FALSE(A.Erase("qwerty"));
-        -:  146:
-        2:  147:    HashTable C;
-        1:  148:    Value data;
-        1:  149:    C.Insert("alt+f3", data);
-        1:  150:    C.Insert("alt+f4", data);
-       1*:  151:    EXPECT_FALSE(C.Erase("qwerty3"));
-       1*:  152:    EXPECT_FALSE(C.Erase("qwerty4"));
-        1:  153:}
+        4:  137:TEST(TestHashTable, Erase) {
+        2:  138:    HashTable A;
+        -:  139:
+     1001:  140:    for (int i = 0; i < 1000; ++i) {
+     1000:  141:        Value data(12, 38);
+     1000:  142:        A.Insert(std::to_string(i), data);
+        -:  143:    }
+     1001:  144:    for(int i = 999; i >= 0; --i){
+    1000*:  145:        EXPECT_TRUE(A.Erase(std::to_string(i)));
+        -:  146:    }
+       1*:  147:    EXPECT_FALSE(A.Erase("qwerty"));
+        -:  148:
+        2:  149:    HashTable C;
+        1:  150:    Value data;
+        1:  151:    C.Insert("alt+f3", data);
+        1:  152:    C.Insert("alt+f4", data);
+       1*:  153:    EXPECT_FALSE(C.Erase("qwerty3"));
+       1*:  154:    EXPECT_FALSE(C.Erase("qwerty4"));
+        1:  155:}
 ------------------
 _ZN24TestHashTable_Erase_TestC1Ev:
 function _ZN24TestHashTable_Erase_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:  135:TEST(TestHashTable, Erase) {
-        1:  135-block  0
+        1:  137:TEST(TestHashTable, Erase) {
+        1:  137-block  0
 call    0 returned 1
 ------------------
 _ZN24TestHashTable_Erase_TestD0Ev:
 function _ZN24TestHashTable_Erase_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:  135:TEST(TestHashTable, Erase) {
-        1:  135-block  0
+        1:  137:TEST(TestHashTable, Erase) {
+        1:  137-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN24TestHashTable_Erase_TestD1Ev:
 function _ZN24TestHashTable_Erase_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:  135:TEST(TestHashTable, Erase) {
-        1:  135-block  0
+        1:  137:TEST(TestHashTable, Erase) {
+        1:  137-block  0
 call    0 returned 1
 ------------------
 _ZN24TestHashTable_Erase_Test8TestBodyEv:
 function _ZN24TestHashTable_Erase_Test8TestBodyEv called 1 returned 100% blocks executed 33%
-        1:  135:TEST(TestHashTable, Erase) {
-        2:  136:    HashTable A;
-        1:  136-block  0
+        1:  137:TEST(TestHashTable, Erase) {
+        2:  138:    HashTable A;
+        1:  138-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:  136-block  1
+    $$$$$:  138-block  1
 call    4 never executed
-        -:  137:
-     1001:  138:    for (int i = 0; i < 1000; ++i) {
-        1:  138-block  0
-     1001:  138-block  1
+        -:  139:
+     1001:  140:    for (int i = 0; i < 1000; ++i) {
+        1:  140-block  0
+     1001:  140-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  139:        Value data(12, 38);
-     1000:  139-block  0
+     1000:  141:        Value data(12, 38);
+     1000:  141-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  140:        A.Insert(std::to_string(i), data);
-     1000:  140-block  0
+     1000:  142:        A.Insert(std::to_string(i), data);
+     1000:  142-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  140-block  1
+     1000:  142-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  140-block  2
+     1000:  142-block  2
 call    6 returned 1000
-    $$$$$:  140-block  3
+    $$$$$:  142-block  3
 call    7 never executed
-    $$$$$:  140-block  4
-        -:  141:    }
-     1001:  142:    for(int i = 999; i >= 0; --i){
-        1:  142-block  0
-     1001:  142-block  1
+    $$$$$:  142-block  4
+        -:  143:    }
+     1001:  144:    for(int i = 999; i >= 0; --i){
+        1:  144-block  0
+     1001:  144-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-    1000*:  143:        EXPECT_TRUE(A.Erase(std::to_string(i)));
-     1000:  143-block  0
+    1000*:  145:        EXPECT_TRUE(A.Erase(std::to_string(i)));
+     1000:  145-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  143-block  1
+     1000:  145-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  143-block  2
+     1000:  145-block  2
 call    6 returned 1000
 call    7 returned 1000
 call    8 returned 1000
 branch  9 taken 0 (fallthrough)
 branch 10 taken 1000
-    %%%%%:  143-block  3
+    %%%%%:  145-block  3
 call   11 never executed
 branch 12 never executed
 branch 13 never executed
-    %%%%%:  143-block  4
+    %%%%%:  145-block  4
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  143-block  5
+    %%%%%:  145-block  5
 call   17 never executed
 call   18 never executed
 branch 19 never executed
 branch 20 never executed
-    %%%%%:  143-block  6
+    %%%%%:  145-block  6
 call   21 never executed
 branch 22 never executed
 branch 23 never executed
-    %%%%%:  143-block  7
+    %%%%%:  145-block  7
 call   24 never executed
 call   25 never executed
 call   26 never executed
-     1000:  143-block  8
+     1000:  145-block  8
 call   27 returned 1000
-    $$$$$:  143-block  9
-    $$$$$:  143-block 10
+    $$$$$:  145-block  9
+    $$$$$:  145-block 10
 call   28 never executed
-    $$$$$:  143-block 11
-    $$$$$:  143-block 12
+    $$$$$:  145-block 11
+    $$$$$:  145-block 12
 call   29 never executed
-    $$$$$:  143-block 13
-    $$$$$:  143-block 14
+    $$$$$:  145-block 13
+    $$$$$:  145-block 14
 call   30 never executed
-    $$$$$:  143-block 15
-    $$$$$:  143-block 16
+    $$$$$:  145-block 15
+    $$$$$:  145-block 16
 call   31 never executed
-        -:  144:    }
-       1*:  145:    EXPECT_FALSE(A.Erase("qwerty"));
-        1:  145-block  0
+        -:  146:    }
+       1*:  147:    EXPECT_FALSE(A.Erase("qwerty"));
+        1:  147-block  0
 call    0 returned 1
 call    1 returned 1
 branch  2 taken 1 (fallthrough)
 branch  3 taken 0 (throw)
-        1:  145-block  1
+        1:  147-block  1
 call    4 returned 1
 branch  5 taken 1 (fallthrough)
 branch  6 taken 0 (throw)
-        1:  145-block  2
+        1:  147-block  2
 call    7 returned 1
 call    8 returned 1
 call    9 returned 1
 call   10 returned 1
 branch 11 taken 0 (fallthrough)
 branch 12 taken 1
-    %%%%%:  145-block  3
+    %%%%%:  147-block  3
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  145-block  4
+    %%%%%:  147-block  4
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  145-block  5
+    %%%%%:  147-block  5
 call   19 never executed
 call   20 never executed
 branch 21 never executed
 branch 22 never executed
-    %%%%%:  145-block  6
+    %%%%%:  147-block  6
 call   23 never executed
 branch 24 never executed
 branch 25 never executed
-    %%%%%:  145-block  7
+    %%%%%:  147-block  7
 call   26 never executed
 call   27 never executed
 call   28 never executed
-        1:  145-block  8
+        1:  147-block  8
 call   29 returned 1
-    $$$$$:  145-block  9
-    $$$$$:  145-block 10
-    $$$$$:  145-block 11
+    $$$$$:  147-block  9
+    $$$$$:  147-block 10
+    $$$$$:  147-block 11
 call   30 never executed
-    $$$$$:  145-block 12
-    $$$$$:  145-block 13
+    $$$$$:  147-block 12
+    $$$$$:  147-block 13
 call   31 never executed
-    $$$$$:  145-block 14
-    $$$$$:  145-block 15
+    $$$$$:  147-block 14
+    $$$$$:  147-block 15
 call   32 never executed
-    $$$$$:  145-block 16
-    $$$$$:  145-block 17
+    $$$$$:  147-block 16
+    $$$$$:  147-block 17
 call   33 never executed
-        -:  146:
-        2:  147:    HashTable C;
+        -:  148:
+        2:  149:    HashTable C;
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:  147-block  0
+    $$$$$:  149-block  0
 call    4 never executed
-        1:  148:    Value data;
-        1:  148-block  0
+        1:  150:    Value data;
+        1:  150-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  149:    C.Insert("alt+f3", data);
-        1:  149-block  0
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:  149-block  1
-call    4 returned 1
-branch  5 taken 1 (fallthrough)
-branch  6 taken 0 (throw)
-        1:  149-block  2
-call    7 returned 1
-call    8 returned 1
-    $$$$$:  149-block  3
-call    9 never executed
-    $$$$$:  149-block  4
-    $$$$$:  149-block  5
-call   10 never executed
-    $$$$$:  149-block  6
-        1:  150:    C.Insert("alt+f4", data);
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:  150-block  0
-call    4 returned 1
-branch  5 taken 1 (fallthrough)
-branch  6 taken 0 (throw)
-        1:  150-block  1
-call    7 returned 1
-call    8 returned 1
-    $$$$$:  150-block  2
-call    9 never executed
-    $$$$$:  150-block  3
-    $$$$$:  150-block  4
-call   10 never executed
-    $$$$$:  150-block  5
-       1*:  151:    EXPECT_FALSE(C.Erase("qwerty3"));
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
+        1:  151:    C.Insert("alt+f3", data);
         1:  151-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  151-block  1
 call    4 returned 1
 branch  5 taken 1 (fallthrough)
 branch  6 taken 0 (throw)
-        1:  151-block  1
+        1:  151-block  2
 call    7 returned 1
 call    8 returned 1
-call    9 returned 1
-call   10 returned 1
-branch 11 taken 0 (fallthrough)
-branch 12 taken 1
-    %%%%%:  151-block  2
-call   13 never executed
-branch 14 never executed
-branch 15 never executed
-    %%%%%:  151-block  3
-call   16 never executed
-branch 17 never executed
-branch 18 never executed
-    %%%%%:  151-block  4
-call   19 never executed
-call   20 never executed
-branch 21 never executed
-branch 22 never executed
-    %%%%%:  151-block  5
-call   23 never executed
-branch 24 never executed
-branch 25 never executed
-    %%%%%:  151-block  6
-call   26 never executed
-call   27 never executed
-call   28 never executed
-        1:  151-block  7
-call   29 returned 1
-    $$$$$:  151-block  8
-    $$$$$:  151-block  9
-    $$$$$:  151-block 10
-call   30 never executed
-    $$$$$:  151-block 11
-    $$$$$:  151-block 12
-call   31 never executed
-    $$$$$:  151-block 13
-    $$$$$:  151-block 14
-call   32 never executed
-    $$$$$:  151-block 15
-    $$$$$:  151-block 16
-call   33 never executed
-       1*:  152:    EXPECT_FALSE(C.Erase("qwerty4"));
+    $$$$$:  151-block  3
+call    9 never executed
+    $$$$$:  151-block  4
+    $$$$$:  151-block  5
+call   10 never executed
+    $$$$$:  151-block  6
+        1:  152:    C.Insert("alt+f4", data);
 call    0 returned 1
 call    1 returned 1
 branch  2 taken 1 (fallthrough)
@@ -1801,763 +1743,788 @@ branch  6 taken 0 (throw)
         1:  152-block  1
 call    7 returned 1
 call    8 returned 1
+    $$$$$:  152-block  2
+call    9 never executed
+    $$$$$:  152-block  3
+    $$$$$:  152-block  4
+call   10 never executed
+    $$$$$:  152-block  5
+       1*:  153:    EXPECT_FALSE(C.Erase("qwerty3"));
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  153-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  153-block  1
+call    7 returned 1
+call    8 returned 1
 call    9 returned 1
 call   10 returned 1
 branch 11 taken 0 (fallthrough)
 branch 12 taken 1
-    %%%%%:  152-block  2
+    %%%%%:  153-block  2
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  152-block  3
+    %%%%%:  153-block  3
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  152-block  4
+    %%%%%:  153-block  4
 call   19 never executed
 call   20 never executed
 branch 21 never executed
 branch 22 never executed
-    %%%%%:  152-block  5
+    %%%%%:  153-block  5
 call   23 never executed
 branch 24 never executed
 branch 25 never executed
-    %%%%%:  152-block  6
+    %%%%%:  153-block  6
 call   26 never executed
 call   27 never executed
 call   28 never executed
-        1:  152-block  7
+        1:  153-block  7
 call   29 returned 1
-    $$$$$:  152-block  8
-    $$$$$:  152-block  9
-    $$$$$:  152-block 10
+    $$$$$:  153-block  8
+    $$$$$:  153-block  9
+    $$$$$:  153-block 10
 call   30 never executed
-    $$$$$:  152-block 11
-    $$$$$:  152-block 12
+    $$$$$:  153-block 11
+    $$$$$:  153-block 12
 call   31 never executed
-    $$$$$:  152-block 13
-    $$$$$:  152-block 14
+    $$$$$:  153-block 13
+    $$$$$:  153-block 14
 call   32 never executed
-    $$$$$:  152-block 15
-    $$$$$:  152-block 16
+    $$$$$:  153-block 15
+    $$$$$:  153-block 16
 call   33 never executed
-        1:  153:}
+       1*:  154:    EXPECT_FALSE(C.Erase("qwerty4"));
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  154-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  154-block  1
+call    7 returned 1
+call    8 returned 1
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 0 (fallthrough)
+branch 12 taken 1
+    %%%%%:  154-block  2
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  154-block  3
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  154-block  4
+call   19 never executed
+call   20 never executed
+branch 21 never executed
+branch 22 never executed
+    %%%%%:  154-block  5
+call   23 never executed
+branch 24 never executed
+branch 25 never executed
+    %%%%%:  154-block  6
+call   26 never executed
+call   27 never executed
+call   28 never executed
+        1:  154-block  7
+call   29 returned 1
+    $$$$$:  154-block  8
+    $$$$$:  154-block  9
+    $$$$$:  154-block 10
+call   30 never executed
+    $$$$$:  154-block 11
+    $$$$$:  154-block 12
+call   31 never executed
+    $$$$$:  154-block 13
+    $$$$$:  154-block 14
+call   32 never executed
+    $$$$$:  154-block 15
+    $$$$$:  154-block 16
+call   33 never executed
+        1:  155:}
 ------------------
-        4:  154:TEST(TestHashTable, At) {
-        -:  155:
-        2:  156:    HashTable A;
-     1001:  157:    for (int i = 0; i < 1000; ++i) {
-     1000:  158:        Value data(i, i);
-     2000:  159:        std::string key = std::to_string(i);
-     1000:  160:        A.Insert(key, data);
-    1000*:  161:        EXPECT_EQ(A.At(key), data);
-        -:  162:    }
-        -:  163:
-     1001:  164:    for(size_t i = 1000; i < 2000; ++i){
-     2000:  165:        std::string key = std::to_string(i);
-    2000*:  166:        EXPECT_THROW(A.At(key), std::runtime_error);
-        -:  167:    }
-        -:  168:
-        -:  169:
-        2:  170:    const HashTable B = A;
-     1001:  171:    for (int i = 0; i < 1000; ++i) {
-     1000:  172:        Value data(i, i);
-    2000*:  173:        EXPECT_EQ(B.At(std::to_string(i)), data);
-        -:  174:    }
-     1001:  175:    for(size_t i = 1000; i < 2000; ++i){
-     2000:  176:        std::string key = std::to_string(i);
-    2000*:  177:        EXPECT_THROW(B.At(key), std::runtime_error);
-        -:  178:    }
-        -:  179:
-        1:  180:}
+        4:  156:TEST(TestHashTable, At) {
+        -:  157:
+        2:  158:    HashTable A;
+     1001:  159:    for (int i = 0; i < 1000; ++i) {
+     1000:  160:        Value data(i, i);
+     2000:  161:        std::string key = std::to_string(i);
+     1000:  162:        A.Insert(key, data);
+    1000*:  163:        EXPECT_EQ(A.At(key), data);
+        -:  164:    }
+        -:  165:
+     1001:  166:    for(size_t i = 1000; i < 2000; ++i){
+     2000:  167:        std::string key = std::to_string(i);
+    2000*:  168:        EXPECT_THROW(A.At(key), std::runtime_error);
+        -:  169:    }
+        -:  170:
+        -:  171:
+        2:  172:    const HashTable B = A;
+     1001:  173:    for (int i = 0; i < 1000; ++i) {
+     1000:  174:        Value data(i, i);
+    2000*:  175:        EXPECT_EQ(B.At(std::to_string(i)), data);
+        -:  176:    }
+     1001:  177:    for(size_t i = 1000; i < 2000; ++i){
+     2000:  178:        std::string key = std::to_string(i);
+    2000*:  179:        EXPECT_THROW(B.At(key), std::runtime_error);
+        -:  180:    }
+        -:  181:
+        1:  182:}
 ------------------
 _ZN21TestHashTable_At_TestC1Ev:
 function _ZN21TestHashTable_At_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:  154:TEST(TestHashTable, At) {
-        1:  154-block  0
+        1:  156:TEST(TestHashTable, At) {
+        1:  156-block  0
 call    0 returned 1
 ------------------
 _ZN21TestHashTable_At_TestD0Ev:
 function _ZN21TestHashTable_At_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:  154:TEST(TestHashTable, At) {
-        1:  154-block  0
+        1:  156:TEST(TestHashTable, At) {
+        1:  156-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN21TestHashTable_At_TestD1Ev:
 function _ZN21TestHashTable_At_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:  154:TEST(TestHashTable, At) {
-        1:  154-block  0
+        1:  156:TEST(TestHashTable, At) {
+        1:  156-block  0
 call    0 returned 1
 ------------------
 _ZN21TestHashTable_At_Test8TestBodyEv:
 function _ZN21TestHashTable_At_Test8TestBodyEv called 1 returned 100% blocks executed 33%
-        1:  154:TEST(TestHashTable, At) {
-        -:  155:
-        2:  156:    HashTable A;
-        1:  156-block  0
+        1:  156:TEST(TestHashTable, At) {
+        -:  157:
+        2:  158:    HashTable A;
+        1:  158-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:  156-block  1
+    $$$$$:  158-block  1
 call    4 never executed
-     1001:  157:    for (int i = 0; i < 1000; ++i) {
-        1:  157-block  0
-     1001:  157-block  1
+     1001:  159:    for (int i = 0; i < 1000; ++i) {
+        1:  159-block  0
+     1001:  159-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  158:        Value data(i, i);
-     1000:  158-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:  159:        std::string key = std::to_string(i);
-     1000:  159-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:  159-block  1
-call    4 never executed
-     1000:  160:        A.Insert(key, data);
+     1000:  160:        Value data(i, i);
      1000:  160-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-    1000*:  161:        EXPECT_EQ(A.At(key), data);
+     2000:  161:        std::string key = std::to_string(i);
      1000:  161-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  161-block  1
+call    3 returned 1000
+    $$$$$:  161-block  1
+call    4 never executed
+     1000:  162:        A.Insert(key, data);
+     1000:  162-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+    1000*:  163:        EXPECT_EQ(A.At(key), data);
+     1000:  163-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:  163-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  161-block  2
+     1000:  163-block  2
 call    6 returned 1000
 branch  7 taken 0 (fallthrough)
 branch  8 taken 1000
-    %%%%%:  161-block  3
+    %%%%%:  163-block  3
 call    9 never executed
 branch 10 never executed
 branch 11 never executed
-    %%%%%:  161-block  4
+    %%%%%:  163-block  4
 call   12 never executed
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  161-block  5
+    %%%%%:  163-block  5
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  161-block  6
+    %%%%%:  163-block  6
 call   19 never executed
 call   20 never executed
-     1000:  161-block  7
+     1000:  163-block  7
 call   21 returned 1000
-    $$$$$:  161-block  8
+    $$$$$:  163-block  8
 call   22 never executed
-    $$$$$:  161-block  9
-    $$$$$:  161-block 10
+    $$$$$:  163-block  9
+    $$$$$:  163-block 10
 call   23 never executed
-    $$$$$:  161-block 11
-    $$$$$:  161-block 12
+    $$$$$:  163-block 11
+    $$$$$:  163-block 12
 call   24 never executed
-        -:  162:    }
-        -:  163:
-     1001:  164:    for(size_t i = 1000; i < 2000; ++i){
-        1:  164-block  0
-     1001:  164-block  1
+        -:  164:    }
+        -:  165:
+     1001:  166:    for(size_t i = 1000; i < 2000; ++i){
+        1:  166-block  0
+     1001:  166-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     2000:  165:        std::string key = std::to_string(i);
-     1000:  165-block  0
+     2000:  167:        std::string key = std::to_string(i);
+     1000:  167-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1000
-    $$$$$:  165-block  1
+    $$$$$:  167-block  1
 call    4 never executed
-    2000*:  166:        EXPECT_THROW(A.At(key), std::runtime_error);
-     1000:  166-block  0
+    2000*:  168:        EXPECT_THROW(A.At(key), std::runtime_error);
+     1000:  168-block  0
 call    0 returned 1000
 call    1 returned 1000
 branch  2 taken 1000 (fallthrough)
 branch  3 taken 0
-     1000:  166-block  1
+     1000:  168-block  1
 call    4 returned 1000
 branch  5 taken 1000 (fallthrough)
 branch  6 taken 0 (throw)
-     1000:  166-block  2
+     1000:  168-block  2
 branch  7 taken 1000 (fallthrough)
 branch  8 taken 0
-     1000:  166-block  3
+     1000:  168-block  3
 call    9 returned 1000
 branch 10 taken 0 (fallthrough)
 branch 11 taken 1000 (throw)
-     1000:  166-block  4
+     1000:  168-block  4
 branch 12 taken 0 (fallthrough)
 branch 13 taken 1000
-    %%%%%:  166-block  5
+    %%%%%:  168-block  5
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  166-block  6
-    %%%%%:  166-block  7
+    %%%%%:  168-block  6
+    %%%%%:  168-block  7
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:  166-block  8
+    %%%%%:  168-block  8
 call   20 never executed
 call   21 never executed
 branch 22 never executed
 branch 23 never executed
-    %%%%%:  166-block  9
+    %%%%%:  168-block  9
 call   24 never executed
 branch 25 never executed
 branch 26 never executed
-    %%%%%:  166-block 10
+    %%%%%:  168-block 10
 call   27 never executed
 call   28 never executed
-     1000:  166-block 11
+     1000:  168-block 11
 call   29 returned 1000
-     1000:  166-block 12
+     1000:  168-block 12
 call   30 returned 1000
 call   31 returned 1000
-    $$$$$:  166-block 13
+    $$$$$:  168-block 13
 call   32 never executed
 call   33 never executed
 branch 34 never executed
 branch 35 never executed
-    $$$$$:  166-block 14
+    $$$$$:  168-block 14
 call   36 never executed
 branch 37 never executed
 branch 38 never executed
-    $$$$$:  166-block 15
+    $$$$$:  168-block 15
 call   39 never executed
 branch 40 never executed
 branch 41 never executed
-    $$$$$:  166-block 16
+    $$$$$:  168-block 16
 call   42 never executed
 call   43 never executed
 branch 44 never executed
 branch 45 never executed
-    $$$$$:  166-block 17
+    $$$$$:  168-block 17
 call   46 never executed
 call   47 never executed
 branch 48 never executed
 branch 49 never executed
-    $$$$$:  166-block 18
+    $$$$$:  168-block 18
 call   50 never executed
 branch 51 never executed
 branch 52 never executed
-    $$$$$:  166-block 19
+    $$$$$:  168-block 19
 call   53 never executed
-    $$$$$:  166-block 20
+    $$$$$:  168-block 20
 call   54 never executed
 call   55 never executed
 branch 56 never executed
 branch 57 never executed
-    $$$$$:  166-block 21
+    $$$$$:  168-block 21
 call   58 never executed
 branch 59 never executed
 branch 60 never executed
-    $$$$$:  166-block 22
+    $$$$$:  168-block 22
 call   61 never executed
-    $$$$$:  166-block 23
-    $$$$$:  166-block 24
+    $$$$$:  168-block 23
+    $$$$$:  168-block 24
 call   62 never executed
-    $$$$$:  166-block 25
+    $$$$$:  168-block 25
 call   63 never executed
-    $$$$$:  166-block 26
+    $$$$$:  168-block 26
 call   64 never executed
-    $$$$$:  166-block 27
-    $$$$$:  166-block 28
+    $$$$$:  168-block 27
+    $$$$$:  168-block 28
 call   65 never executed
-    $$$$$:  166-block 29
-    $$$$$:  166-block 30
+    $$$$$:  168-block 29
+    $$$$$:  168-block 30
 call   66 never executed
-        -:  167:    }
-        -:  168:
-        -:  169:
-        2:  170:    const HashTable B = A;
-        1:  170-block  0
+        -:  169:    }
+        -:  170:
+        -:  171:
+        2:  172:    const HashTable B = A;
+        1:  172-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  170-block  1
+        1:  172-block  1
 call    3 returned 1
-    $$$$$:  170-block  2
+    $$$$$:  172-block  2
 call    4 never executed
-     1001:  171:    for (int i = 0; i < 1000; ++i) {
-        1:  171-block  0
-     1001:  171-block  1
+     1001:  173:    for (int i = 0; i < 1000; ++i) {
+        1:  173-block  0
+     1001:  173-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  172:        Value data(i, i);
-     1000:  172-block  0
+     1000:  174:        Value data(i, i);
+     1000:  174-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-    2000*:  173:        EXPECT_EQ(B.At(std::to_string(i)), data);
-     1000:  173-block  0
+    2000*:  175:        EXPECT_EQ(B.At(std::to_string(i)), data);
+     1000:  175-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  173-block  1
+     1000:  175-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  173-block  2
+     1000:  175-block  2
 call    6 returned 1000
 branch  7 taken 1000 (fallthrough)
 branch  8 taken 0 (throw)
 call    9 returned 1000
 branch 10 taken 0 (fallthrough)
 branch 11 taken 1000
-    %%%%%:  173-block  3
+    %%%%%:  175-block  3
 call   12 never executed
 branch 13 never executed
 branch 14 never executed
-    %%%%%:  173-block  4
+    %%%%%:  175-block  4
 call   15 never executed
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  173-block  5
+    %%%%%:  175-block  5
 call   19 never executed
 branch 20 never executed
 branch 21 never executed
-    %%%%%:  173-block  6
+    %%%%%:  175-block  6
 call   22 never executed
 call   23 never executed
-     1000:  173-block  7
+     1000:  175-block  7
 call   24 returned 1000
-    $$$$$:  173-block  8
-    $$$$$:  173-block  9
+    $$$$$:  175-block  8
+    $$$$$:  175-block  9
 call   25 never executed
-    $$$$$:  173-block 10
-    $$$$$:  173-block 11
+    $$$$$:  175-block 10
+    $$$$$:  175-block 11
 call   26 never executed
-    $$$$$:  173-block 12
-    $$$$$:  173-block 13
+    $$$$$:  175-block 12
+    $$$$$:  175-block 13
 call   27 never executed
-        -:  174:    }
-     1001:  175:    for(size_t i = 1000; i < 2000; ++i){
-        1:  175-block  0
-     1001:  175-block  1
+        -:  176:    }
+     1001:  177:    for(size_t i = 1000; i < 2000; ++i){
+        1:  177-block  0
+     1001:  177-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     2000:  176:        std::string key = std::to_string(i);
-     1000:  176-block  0
+     2000:  178:        std::string key = std::to_string(i);
+     1000:  178-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1000
-    $$$$$:  176-block  1
+    $$$$$:  178-block  1
 call    4 never executed
-    2000*:  177:        EXPECT_THROW(B.At(key), std::runtime_error);
-     1000:  177-block  0
+    2000*:  179:        EXPECT_THROW(B.At(key), std::runtime_error);
+     1000:  179-block  0
 call    0 returned 1000
 call    1 returned 1000
 branch  2 taken 1000 (fallthrough)
 branch  3 taken 0
-     1000:  177-block  1
+     1000:  179-block  1
 call    4 returned 1000
 branch  5 taken 1000 (fallthrough)
 branch  6 taken 0 (throw)
-     1000:  177-block  2
+     1000:  179-block  2
 branch  7 taken 1000 (fallthrough)
 branch  8 taken 0
-     1000:  177-block  3
+     1000:  179-block  3
 call    9 returned 1000
 branch 10 taken 0 (fallthrough)
 branch 11 taken 1000 (throw)
-     1000:  177-block  4
+     1000:  179-block  4
 branch 12 taken 0 (fallthrough)
 branch 13 taken 1000
-    %%%%%:  177-block  5
+    %%%%%:  179-block  5
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  177-block  6
-    %%%%%:  177-block  7
+    %%%%%:  179-block  6
+    %%%%%:  179-block  7
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:  177-block  8
+    %%%%%:  179-block  8
 call   20 never executed
 call   21 never executed
 branch 22 never executed
 branch 23 never executed
-    %%%%%:  177-block  9
+    %%%%%:  179-block  9
 call   24 never executed
 branch 25 never executed
 branch 26 never executed
-    %%%%%:  177-block 10
+    %%%%%:  179-block 10
 call   27 never executed
 call   28 never executed
-     1000:  177-block 11
+     1000:  179-block 11
 call   29 returned 1000
-     1000:  177-block 12
+     1000:  179-block 12
 call   30 returned 1000
 call   31 returned 1000
-    $$$$$:  177-block 13
+    $$$$$:  179-block 13
 call   32 never executed
 call   33 never executed
 branch 34 never executed
 branch 35 never executed
-    $$$$$:  177-block 14
+    $$$$$:  179-block 14
 call   36 never executed
 branch 37 never executed
 branch 38 never executed
-    $$$$$:  177-block 15
+    $$$$$:  179-block 15
 call   39 never executed
 branch 40 never executed
 branch 41 never executed
-    $$$$$:  177-block 16
+    $$$$$:  179-block 16
 call   42 never executed
 call   43 never executed
 branch 44 never executed
 branch 45 never executed
-    $$$$$:  177-block 17
+    $$$$$:  179-block 17
 call   46 never executed
 call   47 never executed
 branch 48 never executed
 branch 49 never executed
-    $$$$$:  177-block 18
+    $$$$$:  179-block 18
 call   50 never executed
 branch 51 never executed
 branch 52 never executed
-    $$$$$:  177-block 19
+    $$$$$:  179-block 19
 call   53 never executed
-    $$$$$:  177-block 20
+    $$$$$:  179-block 20
 call   54 never executed
 call   55 never executed
 branch 56 never executed
 branch 57 never executed
-    $$$$$:  177-block 21
+    $$$$$:  179-block 21
 call   58 never executed
 branch 59 never executed
 branch 60 never executed
-    $$$$$:  177-block 22
+    $$$$$:  179-block 22
 call   61 never executed
-    $$$$$:  177-block 23
-    $$$$$:  177-block 24
+    $$$$$:  179-block 23
+    $$$$$:  179-block 24
 call   62 never executed
-    $$$$$:  177-block 25
+    $$$$$:  179-block 25
 call   63 never executed
-    $$$$$:  177-block 26
+    $$$$$:  179-block 26
 call   64 never executed
-    $$$$$:  177-block 27
-    $$$$$:  177-block 28
+    $$$$$:  179-block 27
+    $$$$$:  179-block 28
 call   65 never executed
-    $$$$$:  177-block 29
-    $$$$$:  177-block 30
+    $$$$$:  179-block 29
+    $$$$$:  179-block 30
 call   66 never executed
-        -:  178:    }
-        -:  179:
-        1:  180:}
+        -:  180:    }
+        -:  181:
+        1:  182:}
 ------------------
-        4:  181:TEST(TestHashTable, Contains) {
-        2:  182:    HashTable A;
-     101*:  183:    for(int i = 0; i < 100; ++i) EXPECT_FALSE(A.Contains(std::to_string(i)));
-        -:  184:
-     1001:  185:    for (size_t i = 0; i < 1000; ++i) {
-     1000:  186:        Value data;
-     2000:  187:        std::string key = std::to_string(i);
-     1000:  188:        A.Insert(key, data);
-        -:  189:    }
-     1001:  190:    for(int i = 999; i >= 0; --i) {
-    1000*:  191:        EXPECT_TRUE(A.Contains(std::to_string(i)));
-        -:  192:    }
-        1:  193:}
+        4:  183:TEST(TestHashTable, Contains) {
+        2:  184:    HashTable A;
+     101*:  185:    for(int i = 0; i < 100; ++i) EXPECT_FALSE(A.Contains(std::to_string(i)));
+        -:  186:
+     1001:  187:    for (size_t i = 0; i < 1000; ++i) {
+     1000:  188:        Value data;
+     2000:  189:        std::string key = std::to_string(i);
+     1000:  190:        A.Insert(key, data);
+        -:  191:    }
+     1001:  192:    for(int i = 999; i >= 0; --i) {
+    1000*:  193:        EXPECT_TRUE(A.Contains(std::to_string(i)));
+        -:  194:    }
+        1:  195:}
 ------------------
 _ZN27TestHashTable_Contains_TestC1Ev:
 function _ZN27TestHashTable_Contains_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:  181:TEST(TestHashTable, Contains) {
-        1:  181-block  0
+        1:  183:TEST(TestHashTable, Contains) {
+        1:  183-block  0
 call    0 returned 1
 ------------------
 _ZN27TestHashTable_Contains_TestD0Ev:
 function _ZN27TestHashTable_Contains_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:  181:TEST(TestHashTable, Contains) {
-        1:  181-block  0
+        1:  183:TEST(TestHashTable, Contains) {
+        1:  183-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN27TestHashTable_Contains_TestD1Ev:
 function _ZN27TestHashTable_Contains_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:  181:TEST(TestHashTable, Contains) {
-        1:  181-block  0
+        1:  183:TEST(TestHashTable, Contains) {
+        1:  183-block  0
 call    0 returned 1
 ------------------
 _ZN27TestHashTable_Contains_Test8TestBodyEv:
 function _ZN27TestHashTable_Contains_Test8TestBodyEv called 1 returned 100% blocks executed 37%
-        1:  181:TEST(TestHashTable, Contains) {
-        2:  182:    HashTable A;
-        1:  182-block  0
+        1:  183:TEST(TestHashTable, Contains) {
+        2:  184:    HashTable A;
+        1:  184-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  182-block  1
+        1:  184-block  1
 call    3 returned 1
-    $$$$$:  182-block  2
+    $$$$$:  184-block  2
 call    4 never executed
-     101*:  183:    for(int i = 0; i < 100; ++i) EXPECT_FALSE(A.Contains(std::to_string(i)));
-        1:  183-block  0
-      101:  183-block  1
+     101*:  185:    for(int i = 0; i < 100; ++i) EXPECT_FALSE(A.Contains(std::to_string(i)));
+        1:  185-block  0
+      101:  185-block  1
 branch  0 taken 100 (fallthrough)
 branch  1 taken 1
-      100:  183-block  2
+      100:  185-block  2
 call    2 returned 100
 branch  3 taken 100 (fallthrough)
 branch  4 taken 0 (throw)
-      100:  183-block  3
+      100:  185-block  3
 call    5 returned 100
 branch  6 taken 100 (fallthrough)
 branch  7 taken 0 (throw)
-      100:  183-block  4
+      100:  185-block  4
 call    8 returned 100
 call    9 returned 100
 call   10 returned 100
 branch 11 taken 0 (fallthrough)
 branch 12 taken 100
-    %%%%%:  183-block  5
+    %%%%%:  185-block  5
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  183-block  6
+    %%%%%:  185-block  6
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  183-block  7
+    %%%%%:  185-block  7
 call   19 never executed
 call   20 never executed
 branch 21 never executed
 branch 22 never executed
-    %%%%%:  183-block  8
+    %%%%%:  185-block  8
 call   23 never executed
 branch 24 never executed
 branch 25 never executed
-    %%%%%:  183-block  9
+    %%%%%:  185-block  9
 call   26 never executed
 call   27 never executed
 call   28 never executed
-      100:  183-block 10
+      100:  185-block 10
 call   29 returned 100
-    $$$$$:  183-block 11
-    $$$$$:  183-block 12
+    $$$$$:  185-block 11
+    $$$$$:  185-block 12
 call   30 never executed
-    $$$$$:  183-block 13
-    $$$$$:  183-block 14
+    $$$$$:  185-block 13
+    $$$$$:  185-block 14
 call   31 never executed
-    $$$$$:  183-block 15
-    $$$$$:  183-block 16
+    $$$$$:  185-block 15
+    $$$$$:  185-block 16
 call   32 never executed
-    $$$$$:  183-block 17
-    $$$$$:  183-block 18
+    $$$$$:  185-block 17
+    $$$$$:  185-block 18
 call   33 never executed
-        -:  184:
-     1001:  185:    for (size_t i = 0; i < 1000; ++i) {
-        1:  185-block  0
-     1001:  185-block  1
+        -:  186:
+     1001:  187:    for (size_t i = 0; i < 1000; ++i) {
+        1:  187-block  0
+     1001:  187-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  186:        Value data;
-     1000:  186-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:  187:        std::string key = std::to_string(i);
-     1000:  187-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     1000:  187-block  1
-call    3 returned 1000
-    $$$$$:  187-block  2
-call    4 never executed
-     1000:  188:        A.Insert(key, data);
+     1000:  188:        Value data;
      1000:  188-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  189:    }
-     1001:  190:    for(int i = 999; i >= 0; --i) {
-        1:  190-block  0
-     1001:  190-block  1
-branch  0 taken 1000 (fallthrough)
-branch  1 taken 1
-    1000*:  191:        EXPECT_TRUE(A.Contains(std::to_string(i)));
-     1000:  191-block  0
+     2000:  189:        std::string key = std::to_string(i);
+     1000:  189-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  191-block  1
+     1000:  189-block  1
+call    3 returned 1000
+    $$$$$:  189-block  2
+call    4 never executed
+     1000:  190:        A.Insert(key, data);
+     1000:  190-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  191:    }
+     1001:  192:    for(int i = 999; i >= 0; --i) {
+        1:  192-block  0
+     1001:  192-block  1
+branch  0 taken 1000 (fallthrough)
+branch  1 taken 1
+    1000*:  193:        EXPECT_TRUE(A.Contains(std::to_string(i)));
+     1000:  193-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:  193-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  191-block  2
+     1000:  193-block  2
 call    6 returned 1000
 call    7 returned 1000
 call    8 returned 1000
 branch  9 taken 0 (fallthrough)
 branch 10 taken 1000
-    %%%%%:  191-block  3
+    %%%%%:  193-block  3
 call   11 never executed
 branch 12 never executed
 branch 13 never executed
-    %%%%%:  191-block  4
+    %%%%%:  193-block  4
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  191-block  5
+    %%%%%:  193-block  5
 call   17 never executed
 call   18 never executed
 branch 19 never executed
 branch 20 never executed
-    %%%%%:  191-block  6
+    %%%%%:  193-block  6
 call   21 never executed
 branch 22 never executed
 branch 23 never executed
-    %%%%%:  191-block  7
+    %%%%%:  193-block  7
 call   24 never executed
 call   25 never executed
 call   26 never executed
-     1000:  191-block  8
+     1000:  193-block  8
 call   27 returned 1000
-    $$$$$:  191-block  9
-    $$$$$:  191-block 10
+    $$$$$:  193-block  9
+    $$$$$:  193-block 10
 call   28 never executed
-    $$$$$:  191-block 11
-    $$$$$:  191-block 12
+    $$$$$:  193-block 11
+    $$$$$:  193-block 12
 call   29 never executed
-    $$$$$:  191-block 13
-    $$$$$:  191-block 14
+    $$$$$:  193-block 13
+    $$$$$:  193-block 14
 call   30 never executed
-    $$$$$:  191-block 15
-    $$$$$:  191-block 16
+    $$$$$:  193-block 15
+    $$$$$:  193-block 16
 call   31 never executed
-        -:  192:    }
-        1:  193:}
+        -:  194:    }
+        1:  195:}
 ------------------
-        -:  194:
-        4:  195:TEST(TestHashTable, Empty_Size_Clear) {
-        2:  196:    HashTable A;
-     1001:  197:    for (size_t i = 0; i < 1000; ++i) {
-     1000:  198:        Value data(i, i);
-     2000:  199:        std::string key = std::to_string(i);
-     1000:  200:        A.Insert(key, data);
-        -:  201:    }
-       1*:  202:    EXPECT_EQ(A.Size(), 1000);
-        1:  203:    A.Clear();
-       1*:  204:    EXPECT_EQ(A.Empty(), true);
-       1*:  205:    EXPECT_EQ(A.Size(), 0);
-        1:  206:}
+        -:  196:
+        4:  197:TEST(TestHashTable, Empty_Size_Clear) {
+        2:  198:    HashTable A;
+     1001:  199:    for (size_t i = 0; i < 1000; ++i) {
+     1000:  200:        Value data(i, i);
+     2000:  201:        std::string key = std::to_string(i);
+     1000:  202:        A.Insert(key, data);
+        -:  203:    }
+       1*:  204:    EXPECT_EQ(A.Size(), 1000);
+        1:  205:    A.Clear();
+       1*:  206:    EXPECT_EQ(A.Empty(), true);
+       1*:  207:    EXPECT_EQ(A.Size(), 0);
+        1:  208:}
 ------------------
 _ZN35TestHashTable_Empty_Size_Clear_TestC1Ev:
 function _ZN35TestHashTable_Empty_Size_Clear_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:  195:TEST(TestHashTable, Empty_Size_Clear) {
-        1:  195-block  0
+        1:  197:TEST(TestHashTable, Empty_Size_Clear) {
+        1:  197-block  0
 call    0 returned 1
 ------------------
 _ZN35TestHashTable_Empty_Size_Clear_TestD0Ev:
 function _ZN35TestHashTable_Empty_Size_Clear_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:  195:TEST(TestHashTable, Empty_Size_Clear) {
-        1:  195-block  0
+        1:  197:TEST(TestHashTable, Empty_Size_Clear) {
+        1:  197-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN35TestHashTable_Empty_Size_Clear_TestD1Ev:
 function _ZN35TestHashTable_Empty_Size_Clear_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:  195:TEST(TestHashTable, Empty_Size_Clear) {
-        1:  195-block  0
+        1:  197:TEST(TestHashTable, Empty_Size_Clear) {
+        1:  197-block  0
 call    0 returned 1
 ------------------
 _ZN35TestHashTable_Empty_Size_Clear_Test8TestBodyEv:
 function _ZN35TestHashTable_Empty_Size_Clear_Test8TestBodyEv called 1 returned 100% blocks executed 29%
-        1:  195:TEST(TestHashTable, Empty_Size_Clear) {
-        2:  196:    HashTable A;
-        1:  196-block  0
+        1:  197:TEST(TestHashTable, Empty_Size_Clear) {
+        2:  198:    HashTable A;
+        1:  198-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:  196-block  1
+    $$$$$:  198-block  1
 call    4 never executed
-     1001:  197:    for (size_t i = 0; i < 1000; ++i) {
-        1:  197-block  0
-     1001:  197-block  1
+     1001:  199:    for (size_t i = 0; i < 1000; ++i) {
+        1:  199-block  0
+     1001:  199-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  198:        Value data(i, i);
-     1000:  198-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:  199:        std::string key = std::to_string(i);
-     1000:  199-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     1000:  199-block  1
-call    3 returned 1000
-    $$$$$:  199-block  2
-call    4 never executed
-     1000:  200:        A.Insert(key, data);
+     1000:  200:        Value data(i, i);
      1000:  200-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  201:    }
-       1*:  202:    EXPECT_EQ(A.Size(), 1000);
-        1:  202-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
+     2000:  201:        std::string key = std::to_string(i);
+     1000:  201-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  202-block  1
-call    3 returned 1
-branch  4 taken 1 (fallthrough)
-branch  5 taken 0 (throw)
-        1:  202-block  2
-call    6 returned 1
-branch  7 taken 0 (fallthrough)
-branch  8 taken 1
-    %%%%%:  202-block  3
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:  202-block  4
-call   12 never executed
-call   13 never executed
-branch 14 never executed
-branch 15 never executed
-    %%%%%:  202-block  5
-call   16 never executed
-branch 17 never executed
-branch 18 never executed
-    %%%%%:  202-block  6
-call   19 never executed
-call   20 never executed
-        1:  202-block  7
-call   21 returned 1
-    $$$$$:  202-block  8
-    $$$$$:  202-block  9
-    $$$$$:  202-block 10
-call   22 never executed
-    $$$$$:  202-block 11
-    $$$$$:  202-block 12
-call   23 never executed
-    $$$$$:  202-block 13
-    $$$$$:  202-block 14
-call   24 never executed
-        1:  203:    A.Clear();
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
+     1000:  201-block  1
+call    3 returned 1000
+    $$$$$:  201-block  2
+call    4 never executed
+     1000:  202:        A.Insert(key, data);
+     1000:  202-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-       1*:  204:    EXPECT_EQ(A.Empty(), true);
+        -:  203:    }
+       1*:  204:    EXPECT_EQ(A.Size(), 1000);
         1:  204-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
@@ -2598,493 +2565,502 @@ call   23 never executed
     $$$$$:  204-block 13
     $$$$$:  204-block 14
 call   24 never executed
-       1*:  205:    EXPECT_EQ(A.Size(), 0);
+        1:  205:    A.Clear();
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  205-block  0
+       1*:  206:    EXPECT_EQ(A.Empty(), true);
+        1:  206-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  206-block  1
 call    3 returned 1
 branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
-        1:  205-block  1
+        1:  206-block  2
 call    6 returned 1
 branch  7 taken 0 (fallthrough)
 branch  8 taken 1
-    %%%%%:  205-block  2
+    %%%%%:  206-block  3
 call    9 never executed
 branch 10 never executed
 branch 11 never executed
-    %%%%%:  205-block  3
+    %%%%%:  206-block  4
 call   12 never executed
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  205-block  4
+    %%%%%:  206-block  5
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  205-block  5
+    %%%%%:  206-block  6
 call   19 never executed
 call   20 never executed
-        1:  205-block  6
+        1:  206-block  7
 call   21 returned 1
-    $$$$$:  205-block  7
-    $$$$$:  205-block  8
-    $$$$$:  205-block  9
+    $$$$$:  206-block  8
+    $$$$$:  206-block  9
+    $$$$$:  206-block 10
 call   22 never executed
-    $$$$$:  205-block 10
-    $$$$$:  205-block 11
+    $$$$$:  206-block 11
+    $$$$$:  206-block 12
 call   23 never executed
-    $$$$$:  205-block 12
-    $$$$$:  205-block 13
+    $$$$$:  206-block 13
+    $$$$$:  206-block 14
 call   24 never executed
-        1:  206:}
+       1*:  207:    EXPECT_EQ(A.Size(), 0);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  207-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  207-block  1
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:  207-block  2
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  207-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  207-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  207-block  5
+call   19 never executed
+call   20 never executed
+        1:  207-block  6
+call   21 returned 1
+    $$$$$:  207-block  7
+    $$$$$:  207-block  8
+    $$$$$:  207-block  9
+call   22 never executed
+    $$$$$:  207-block 10
+    $$$$$:  207-block 11
+call   23 never executed
+    $$$$$:  207-block 12
+    $$$$$:  207-block 13
+call   24 never executed
+        1:  208:}
 ------------------
-        -:  207:
-        4:  208:TEST(TestHashTable, Equality) {
-        2:  209:    HashTable A;
-     1001:  210:    for (size_t i = 0; i < 1000; ++i) {
-     1000:  211:        Value data;
-     2000:  212:        std::string key = std::to_string(i);
-    1000*:  213:        EXPECT_TRUE(A.Insert(key, data));
-        -:  214:    }
-        -:  215:
-        2:  216:    HashTable B;
-     2001:  217:    for (int i = 0; i < 2000; ++i) {
-     2000:  218:        Value data;
-     4000:  219:        std::string key = std::to_string(i);
-    2000*:  220:        EXPECT_TRUE(B.Insert(key, data));
-        -:  221:    }
-     1001:  222:    for(int i = 1000; i < 2000; ++i) {
-    1000*:  223:        EXPECT_TRUE(B.Erase(std::to_string(i)));
-        -:  224:    }
-        -:  225:
-       1*:  226:    EXPECT_EQ(A == B, true);
+        -:  209:
+        4:  210:TEST(TestHashTable, Equality) {
+        2:  211:    HashTable A;
+     1001:  212:    for (size_t i = 0; i < 1000; ++i) {
+     1000:  213:        Value data;
+     2000:  214:        std::string key = std::to_string(i);
+    1000*:  215:        EXPECT_TRUE(A.Insert(key, data));
+        -:  216:    }
+        -:  217:
+        2:  218:    HashTable B;
+     2001:  219:    for (int i = 0; i < 2000; ++i) {
+     2000:  220:        Value data;
+     4000:  221:        std::string key = std::to_string(i);
+    2000*:  222:        EXPECT_TRUE(B.Insert(key, data));
+        -:  223:    }
+     1001:  224:    for(int i = 1000; i < 2000; ++i) {
+    1000*:  225:        EXPECT_TRUE(B.Erase(std::to_string(i)));
+        -:  226:    }
         -:  227:
-        1:  228:    A = A;
-       1*:  229:    EXPECT_EQ(A == A, true);
-        -:  230:
-        1:  231:    Value Data;
-        1:  232:    A.Insert("qwerty", Data);
-       1*:  233:    EXPECT_EQ(A == B, false);
-        -:  234:
-        1:  235:    A.Erase("qwerty");
-        1:  236:    A.Erase("0");
-        1:  237:    A.Insert("UNIQUE_KEY", Data);
-       1*:  238:    EXPECT_EQ(A == B, false);
-        1:  239:}
+       1*:  228:    EXPECT_EQ(A == B, true);
+        -:  229:
+        1:  230:    A = A;
+       1*:  231:    EXPECT_EQ(A == A, true);
+        -:  232:
+        1:  233:    Value Data;
+        1:  234:    A.Insert("qwerty", Data);
+       1*:  235:    EXPECT_EQ(A == B, false);
+        -:  236:
+        1:  237:    A.Erase("qwerty");
+        1:  238:    A.Erase("0");
+        1:  239:    A.Insert("UNIQUE_KEY", Data);
+       1*:  240:    EXPECT_EQ(A == B, false);
+        1:  241:}
 ------------------
 _ZN27TestHashTable_Equality_TestC1Ev:
 function _ZN27TestHashTable_Equality_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:  208:TEST(TestHashTable, Equality) {
-        1:  208-block  0
+        1:  210:TEST(TestHashTable, Equality) {
+        1:  210-block  0
 call    0 returned 1
 ------------------
 _ZN27TestHashTable_Equality_TestD0Ev:
 function _ZN27TestHashTable_Equality_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:  208:TEST(TestHashTable, Equality) {
-        1:  208-block  0
+        1:  210:TEST(TestHashTable, Equality) {
+        1:  210-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN27TestHashTable_Equality_TestD1Ev:
 function _ZN27TestHashTable_Equality_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:  208:TEST(TestHashTable, Equality) {
-        1:  208-block  0
+        1:  210:TEST(TestHashTable, Equality) {
+        1:  210-block  0
 call    0 returned 1
 ------------------
 _ZN27TestHashTable_Equality_Test8TestBodyEv:
 function _ZN27TestHashTable_Equality_Test8TestBodyEv called 1 returned 100% blocks executed 31%
-        1:  208:TEST(TestHashTable, Equality) {
-        2:  209:    HashTable A;
-        1:  209-block  0
+        1:  210:TEST(TestHashTable, Equality) {
+        2:  211:    HashTable A;
+        1:  211-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:  209-block  1
+    $$$$$:  211-block  1
 call    4 never executed
-     1001:  210:    for (size_t i = 0; i < 1000; ++i) {
-        1:  210-block  0
-     1001:  210-block  1
+     1001:  212:    for (size_t i = 0; i < 1000; ++i) {
+        1:  212-block  0
+     1001:  212-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  211:        Value data;
-     1000:  211-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:  212:        std::string key = std::to_string(i);
-     1000:  212-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:  212-block  1
-call    4 never executed
-    1000*:  213:        EXPECT_TRUE(A.Insert(key, data));
+     1000:  213:        Value data;
      1000:  213-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  213-block  1
+     2000:  214:        std::string key = std::to_string(i);
+     1000:  214-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1000
+    $$$$$:  214-block  1
+call    4 never executed
+    1000*:  215:        EXPECT_TRUE(A.Insert(key, data));
+     1000:  215-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:  215-block  1
 call    3 returned 1000
 call    4 returned 1000
 branch  5 taken 0 (fallthrough)
 branch  6 taken 1000
-    %%%%%:  213-block  2
+    %%%%%:  215-block  2
 call    7 never executed
 branch  8 never executed
 branch  9 never executed
-    %%%%%:  213-block  3
+    %%%%%:  215-block  3
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:  213-block  4
+    %%%%%:  215-block  4
 call   13 never executed
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  213-block  5
+    %%%%%:  215-block  5
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:  213-block  6
+    %%%%%:  215-block  6
 call   20 never executed
 call   21 never executed
 call   22 never executed
-     1000:  213-block  7
+     1000:  215-block  7
 call   23 returned 1000
-    $$$$$:  213-block  8
+    $$$$$:  215-block  8
 call   24 never executed
-    $$$$$:  213-block  9
-    $$$$$:  213-block 10
+    $$$$$:  215-block  9
+    $$$$$:  215-block 10
 call   25 never executed
-    $$$$$:  213-block 11
-    $$$$$:  213-block 12
+    $$$$$:  215-block 11
+    $$$$$:  215-block 12
 call   26 never executed
-    $$$$$:  213-block 13
-    $$$$$:  213-block 14
+    $$$$$:  215-block 13
+    $$$$$:  215-block 14
 call   27 never executed
-        -:  214:    }
-        -:  215:
-        2:  216:    HashTable B;
-        1:  216-block  0
+        -:  216:    }
+        -:  217:
+        2:  218:    HashTable B;
+        1:  218-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:  216-block  1
+    $$$$$:  218-block  1
 call    4 never executed
-     2001:  217:    for (int i = 0; i < 2000; ++i) {
-        1:  217-block  0
-     2001:  217-block  1
+     2001:  219:    for (int i = 0; i < 2000; ++i) {
+        1:  219-block  0
+     2001:  219-block  1
 branch  0 taken 2000 (fallthrough)
 branch  1 taken 1
-     2000:  218:        Value data;
-     2000:  218-block  0
-call    0 returned 2000
-branch  1 taken 2000 (fallthrough)
-branch  2 taken 0 (throw)
-     4000:  219:        std::string key = std::to_string(i);
-     2000:  219-block  0
-call    0 returned 2000
-branch  1 taken 2000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 2000
-    $$$$$:  219-block  1
-call    4 never executed
-    2000*:  220:        EXPECT_TRUE(B.Insert(key, data));
+     2000:  220:        Value data;
      2000:  220-block  0
 call    0 returned 2000
 branch  1 taken 2000 (fallthrough)
 branch  2 taken 0 (throw)
-     2000:  220-block  1
+     4000:  221:        std::string key = std::to_string(i);
+     2000:  221-block  0
+call    0 returned 2000
+branch  1 taken 2000 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 2000
+    $$$$$:  221-block  1
+call    4 never executed
+    2000*:  222:        EXPECT_TRUE(B.Insert(key, data));
+     2000:  222-block  0
+call    0 returned 2000
+branch  1 taken 2000 (fallthrough)
+branch  2 taken 0 (throw)
+     2000:  222-block  1
 call    3 returned 2000
 call    4 returned 2000
 branch  5 taken 0 (fallthrough)
 branch  6 taken 2000
-    %%%%%:  220-block  2
+    %%%%%:  222-block  2
 call    7 never executed
 branch  8 never executed
 branch  9 never executed
-    %%%%%:  220-block  3
+    %%%%%:  222-block  3
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:  220-block  4
+    %%%%%:  222-block  4
 call   13 never executed
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  220-block  5
+    %%%%%:  222-block  5
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:  220-block  6
+    %%%%%:  222-block  6
 call   20 never executed
 call   21 never executed
 call   22 never executed
-     2000:  220-block  7
+     2000:  222-block  7
 call   23 returned 2000
-    $$$$$:  220-block  8
+    $$$$$:  222-block  8
 call   24 never executed
-    $$$$$:  220-block  9
-    $$$$$:  220-block 10
+    $$$$$:  222-block  9
+    $$$$$:  222-block 10
 call   25 never executed
-    $$$$$:  220-block 11
-    $$$$$:  220-block 12
+    $$$$$:  222-block 11
+    $$$$$:  222-block 12
 call   26 never executed
-    $$$$$:  220-block 13
-    $$$$$:  220-block 14
+    $$$$$:  222-block 13
+    $$$$$:  222-block 14
 call   27 never executed
-        -:  221:    }
-     1001:  222:    for(int i = 1000; i < 2000; ++i) {
-        1:  222-block  0
-     1001:  222-block  1
+        -:  223:    }
+     1001:  224:    for(int i = 1000; i < 2000; ++i) {
+        1:  224-block  0
+     1001:  224-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-    1000*:  223:        EXPECT_TRUE(B.Erase(std::to_string(i)));
-     1000:  223-block  0
+    1000*:  225:        EXPECT_TRUE(B.Erase(std::to_string(i)));
+     1000:  225-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  223-block  1
+     1000:  225-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  223-block  2
+     1000:  225-block  2
 call    6 returned 1000
 call    7 returned 1000
 call    8 returned 1000
 branch  9 taken 0 (fallthrough)
 branch 10 taken 1000
-    %%%%%:  223-block  3
+    %%%%%:  225-block  3
 call   11 never executed
 branch 12 never executed
 branch 13 never executed
-    %%%%%:  223-block  4
+    %%%%%:  225-block  4
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  223-block  5
+    %%%%%:  225-block  5
 call   17 never executed
 call   18 never executed
 branch 19 never executed
 branch 20 never executed
-    %%%%%:  223-block  6
+    %%%%%:  225-block  6
 call   21 never executed
 branch 22 never executed
 branch 23 never executed
-    %%%%%:  223-block  7
+    %%%%%:  225-block  7
 call   24 never executed
 call   25 never executed
 call   26 never executed
-     1000:  223-block  8
+     1000:  225-block  8
 call   27 returned 1000
-    $$$$$:  223-block  9
-    $$$$$:  223-block 10
+    $$$$$:  225-block  9
+    $$$$$:  225-block 10
 call   28 never executed
-    $$$$$:  223-block 11
-    $$$$$:  223-block 12
+    $$$$$:  225-block 11
+    $$$$$:  225-block 12
 call   29 never executed
-    $$$$$:  223-block 13
-    $$$$$:  223-block 14
+    $$$$$:  225-block 13
+    $$$$$:  225-block 14
 call   30 never executed
-    $$$$$:  223-block 15
-    $$$$$:  223-block 16
+    $$$$$:  225-block 15
+    $$$$$:  225-block 16
 call   31 never executed
-        -:  224:    }
-        -:  225:
-       1*:  226:    EXPECT_EQ(A == B, true);
-        1:  226-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
-branch  2 taken 0 (throw)
-        1:  226-block  1
-call    3 returned 1
-branch  4 taken 1 (fallthrough)
-branch  5 taken 0 (throw)
-        1:  226-block  2
-call    6 returned 1
-branch  7 taken 0 (fallthrough)
-branch  8 taken 1
-    %%%%%:  226-block  3
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:  226-block  4
-call   12 never executed
-call   13 never executed
-branch 14 never executed
-branch 15 never executed
-    %%%%%:  226-block  5
-call   16 never executed
-branch 17 never executed
-branch 18 never executed
-    %%%%%:  226-block  6
-call   19 never executed
-call   20 never executed
-        1:  226-block  7
-call   21 returned 1
-    $$$$$:  226-block  8
-    $$$$$:  226-block  9
-    $$$$$:  226-block 10
-call   22 never executed
-    $$$$$:  226-block 11
-    $$$$$:  226-block 12
-call   23 never executed
-    $$$$$:  226-block 13
-    $$$$$:  226-block 14
-call   24 never executed
+        -:  226:    }
         -:  227:
-        1:  228:    A = A;
+       1*:  228:    EXPECT_EQ(A == B, true);
+        1:  228-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-       1*:  229:    EXPECT_EQ(A == A, true);
-        1:  229-block  0
-call    0 returned 1
-branch  1 taken 1 (fallthrough)
-branch  2 taken 0 (throw)
-        1:  229-block  1
+        1:  228-block  1
 call    3 returned 1
 branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
-        1:  229-block  2
+        1:  228-block  2
 call    6 returned 1
 branch  7 taken 0 (fallthrough)
 branch  8 taken 1
-    %%%%%:  229-block  3
+    %%%%%:  228-block  3
 call    9 never executed
 branch 10 never executed
 branch 11 never executed
-    %%%%%:  229-block  4
+    %%%%%:  228-block  4
 call   12 never executed
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  229-block  5
+    %%%%%:  228-block  5
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  229-block  6
+    %%%%%:  228-block  6
 call   19 never executed
 call   20 never executed
-        1:  229-block  7
+        1:  228-block  7
 call   21 returned 1
-    $$$$$:  229-block  8
-    $$$$$:  229-block  9
-    $$$$$:  229-block 10
+    $$$$$:  228-block  8
+    $$$$$:  228-block  9
+    $$$$$:  228-block 10
 call   22 never executed
-    $$$$$:  229-block 11
-    $$$$$:  229-block 12
+    $$$$$:  228-block 11
+    $$$$$:  228-block 12
 call   23 never executed
-    $$$$$:  229-block 13
-    $$$$$:  229-block 14
+    $$$$$:  228-block 13
+    $$$$$:  228-block 14
 call   24 never executed
-        -:  230:
-        1:  231:    Value Data;
+        -:  229:
+        1:  230:    A = A;
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  232:    A.Insert("qwerty", Data);
-        1:  232-block  0
+       1*:  231:    EXPECT_EQ(A == A, true);
+        1:  231-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  231-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  231-block  2
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:  231-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  231-block  4
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  231-block  5
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  231-block  6
+call   19 never executed
+call   20 never executed
+        1:  231-block  7
+call   21 returned 1
+    $$$$$:  231-block  8
+    $$$$$:  231-block  9
+    $$$$$:  231-block 10
+call   22 never executed
+    $$$$$:  231-block 11
+    $$$$$:  231-block 12
+call   23 never executed
+    $$$$$:  231-block 13
+    $$$$$:  231-block 14
+call   24 never executed
+        -:  232:
+        1:  233:    Value Data;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  234:    A.Insert("qwerty", Data);
+        1:  234-block  0
 call    0 returned 1
 call    1 returned 1
 branch  2 taken 1 (fallthrough)
 branch  3 taken 0 (throw)
-        1:  232-block  1
+        1:  234-block  1
 call    4 returned 1
 branch  5 taken 1 (fallthrough)
 branch  6 taken 0 (throw)
-        1:  232-block  2
+        1:  234-block  2
 call    7 returned 1
 call    8 returned 1
-    $$$$$:  232-block  3
+    $$$$$:  234-block  3
 call    9 never executed
-    $$$$$:  232-block  4
-    $$$$$:  232-block  5
+    $$$$$:  234-block  4
+    $$$$$:  234-block  5
 call   10 never executed
-    $$$$$:  232-block  6
-       1*:  233:    EXPECT_EQ(A == B, false);
+    $$$$$:  234-block  6
+       1*:  235:    EXPECT_EQ(A == B, false);
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  233-block  0
-call    3 returned 1
-branch  4 taken 1 (fallthrough)
-branch  5 taken 0 (throw)
-        1:  233-block  1
-call    6 returned 1
-branch  7 taken 0 (fallthrough)
-branch  8 taken 1
-    %%%%%:  233-block  2
-call    9 never executed
-branch 10 never executed
-branch 11 never executed
-    %%%%%:  233-block  3
-call   12 never executed
-call   13 never executed
-branch 14 never executed
-branch 15 never executed
-    %%%%%:  233-block  4
-call   16 never executed
-branch 17 never executed
-branch 18 never executed
-    %%%%%:  233-block  5
-call   19 never executed
-call   20 never executed
-        1:  233-block  6
-call   21 returned 1
-    $$$$$:  233-block  7
-    $$$$$:  233-block  8
-    $$$$$:  233-block  9
-call   22 never executed
-    $$$$$:  233-block 10
-    $$$$$:  233-block 11
-call   23 never executed
-    $$$$$:  233-block 12
-    $$$$$:  233-block 13
-call   24 never executed
-        -:  234:
-        1:  235:    A.Erase("qwerty");
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
         1:  235-block  0
-call    4 returned 1
-branch  5 taken 1 (fallthrough)
-branch  6 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
         1:  235-block  1
-call    7 returned 1
-call    8 returned 1
-    $$$$$:  235-block  2
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:  235-block  2
 call    9 never executed
-    $$$$$:  235-block  3
-    $$$$$:  235-block  4
-call   10 never executed
-    $$$$$:  235-block  5
-        1:  236:    A.Erase("0");
-call    0 returned 1
-call    1 returned 1
-branch  2 taken 1 (fallthrough)
-branch  3 taken 0 (throw)
-        1:  236-block  0
-call    4 returned 1
-branch  5 taken 1 (fallthrough)
-branch  6 taken 0 (throw)
-        1:  236-block  1
-call    7 returned 1
-call    8 returned 1
-    $$$$$:  236-block  2
-call    9 never executed
-    $$$$$:  236-block  3
-    $$$$$:  236-block  4
-call   10 never executed
-    $$$$$:  236-block  5
-        1:  237:    A.Insert("UNIQUE_KEY", Data);
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  235-block  3
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  235-block  4
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  235-block  5
+call   19 never executed
+call   20 never executed
+        1:  235-block  6
+call   21 returned 1
+    $$$$$:  235-block  7
+    $$$$$:  235-block  8
+    $$$$$:  235-block  9
+call   22 never executed
+    $$$$$:  235-block 10
+    $$$$$:  235-block 11
+call   23 never executed
+    $$$$$:  235-block 12
+    $$$$$:  235-block 13
+call   24 never executed
+        -:  236:
+        1:  237:    A.Erase("qwerty");
 call    0 returned 1
 call    1 returned 1
 branch  2 taken 1 (fallthrough)
@@ -3102,340 +3078,376 @@ call    9 never executed
     $$$$$:  237-block  4
 call   10 never executed
     $$$$$:  237-block  5
-       1*:  238:    EXPECT_EQ(A == B, false);
+        1:  238:    A.Erase("0");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  238-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  238-block  1
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  238-block  2
+call    9 never executed
+    $$$$$:  238-block  3
+    $$$$$:  238-block  4
+call   10 never executed
+    $$$$$:  238-block  5
+        1:  239:    A.Insert("UNIQUE_KEY", Data);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  239-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  239-block  1
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  239-block  2
+call    9 never executed
+    $$$$$:  239-block  3
+    $$$$$:  239-block  4
+call   10 never executed
+    $$$$$:  239-block  5
+       1*:  240:    EXPECT_EQ(A == B, false);
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  238-block  0
+        1:  240-block  0
 call    3 returned 1
 branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
-        1:  238-block  1
+        1:  240-block  1
 call    6 returned 1
 branch  7 taken 0 (fallthrough)
 branch  8 taken 1
-    %%%%%:  238-block  2
+    %%%%%:  240-block  2
 call    9 never executed
 branch 10 never executed
 branch 11 never executed
-    %%%%%:  238-block  3
+    %%%%%:  240-block  3
 call   12 never executed
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  238-block  4
+    %%%%%:  240-block  4
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  238-block  5
+    %%%%%:  240-block  5
 call   19 never executed
 call   20 never executed
-        1:  238-block  6
+        1:  240-block  6
 call   21 returned 1
-    $$$$$:  238-block  7
-    $$$$$:  238-block  8
-    $$$$$:  238-block  9
+    $$$$$:  240-block  7
+    $$$$$:  240-block  8
+    $$$$$:  240-block  9
 call   22 never executed
-    $$$$$:  238-block 10
-    $$$$$:  238-block 11
+    $$$$$:  240-block 10
+    $$$$$:  240-block 11
 call   23 never executed
-    $$$$$:  238-block 12
-    $$$$$:  238-block 13
+    $$$$$:  240-block 12
+    $$$$$:  240-block 13
 call   24 never executed
-        1:  239:}
+        1:  241:}
 ------------------
-        -:  240:
-        4:  241:TEST(TestHashTable, Inequality) {
-        2:  242:    HashTable A;
-     1001:  243:    for (size_t i = 0; i < 1000; ++i) {
-     1000:  244:        Value data;
-     2000:  245:        std::string key = std::to_string(i);
-    1000*:  246:        EXPECT_TRUE(A.Insert(key, data));
-        -:  247:    }
-        -:  248:
-        2:  249:    HashTable B;
-     2001:  250:    for (int i = 0; i < 2000; ++i) {
-     2000:  251:        Value data;
-     4000:  252:        std::string key = std::to_string(i);
-    2000*:  253:        EXPECT_TRUE(B.Insert(key, data));
-        -:  254:    }
-     1001:  255:    for(int i = 1000; i < 2000; ++i) {
-    1000*:  256:        EXPECT_TRUE(B.Erase(std::to_string(i)));
-        -:  257:    }
-        -:  258:
-       1*:  259:    EXPECT_EQ(A != B, false);
-        1:  260:}
+        -:  242:
+        4:  243:TEST(TestHashTable, Inequality) {
+        2:  244:    HashTable A;
+     1001:  245:    for (size_t i = 0; i < 1000; ++i) {
+     1000:  246:        Value data;
+     2000:  247:        std::string key = std::to_string(i);
+    1000*:  248:        EXPECT_TRUE(A.Insert(key, data));
+        -:  249:    }
+        -:  250:
+        2:  251:    HashTable B;
+     2001:  252:    for (int i = 0; i < 2000; ++i) {
+     2000:  253:        Value data;
+     4000:  254:        std::string key = std::to_string(i);
+    2000*:  255:        EXPECT_TRUE(B.Insert(key, data));
+        -:  256:    }
+     1001:  257:    for(int i = 1000; i < 2000; ++i) {
+    1000*:  258:        EXPECT_TRUE(B.Erase(std::to_string(i)));
+        -:  259:    }
+        -:  260:
+       1*:  261:    EXPECT_EQ(A != B, false);
+        1:  262:}
 ------------------
 _ZN29TestHashTable_Inequality_TestC1Ev:
 function _ZN29TestHashTable_Inequality_TestC1Ev called 1 returned 100% blocks executed 100%
-        1:  241:TEST(TestHashTable, Inequality) {
-        1:  241-block  0
+        1:  243:TEST(TestHashTable, Inequality) {
+        1:  243-block  0
 call    0 returned 1
 ------------------
 _ZN29TestHashTable_Inequality_TestD0Ev:
 function _ZN29TestHashTable_Inequality_TestD0Ev called 1 returned 100% blocks executed 100%
-        1:  241:TEST(TestHashTable, Inequality) {
-        1:  241-block  0
+        1:  243:TEST(TestHashTable, Inequality) {
+        1:  243-block  0
 call    0 returned 1
 call    1 returned 1
 ------------------
 _ZN29TestHashTable_Inequality_TestD1Ev:
 function _ZN29TestHashTable_Inequality_TestD1Ev called 1 returned 100% blocks executed 100%
-        1:  241:TEST(TestHashTable, Inequality) {
-        1:  241-block  0
+        1:  243:TEST(TestHashTable, Inequality) {
+        1:  243-block  0
 call    0 returned 1
 ------------------
 _ZN29TestHashTable_Inequality_Test8TestBodyEv:
 function _ZN29TestHashTable_Inequality_Test8TestBodyEv called 1 returned 100% blocks executed 31%
-        1:  241:TEST(TestHashTable, Inequality) {
-        2:  242:    HashTable A;
-        1:  242-block  0
+        1:  243:TEST(TestHashTable, Inequality) {
+        2:  244:    HashTable A;
+        1:  244-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:  242-block  1
+    $$$$$:  244-block  1
 call    4 never executed
-     1001:  243:    for (size_t i = 0; i < 1000; ++i) {
-        1:  243-block  0
-     1001:  243-block  1
+     1001:  245:    for (size_t i = 0; i < 1000; ++i) {
+        1:  245-block  0
+     1001:  245-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-     1000:  244:        Value data;
-     1000:  244-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-     2000:  245:        std::string key = std::to_string(i);
-     1000:  245-block  0
-call    0 returned 1000
-branch  1 taken 1000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 1000
-    $$$$$:  245-block  1
-call    4 never executed
-    1000*:  246:        EXPECT_TRUE(A.Insert(key, data));
+     1000:  246:        Value data;
      1000:  246-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  246-block  1
+     2000:  247:        std::string key = std::to_string(i);
+     1000:  247-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1000
+    $$$$$:  247-block  1
+call    4 never executed
+    1000*:  248:        EXPECT_TRUE(A.Insert(key, data));
+     1000:  248-block  0
+call    0 returned 1000
+branch  1 taken 1000 (fallthrough)
+branch  2 taken 0 (throw)
+     1000:  248-block  1
 call    3 returned 1000
 call    4 returned 1000
 branch  5 taken 0 (fallthrough)
 branch  6 taken 1000
-    %%%%%:  246-block  2
+    %%%%%:  248-block  2
 call    7 never executed
 branch  8 never executed
 branch  9 never executed
-    %%%%%:  246-block  3
+    %%%%%:  248-block  3
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:  246-block  4
+    %%%%%:  248-block  4
 call   13 never executed
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  246-block  5
+    %%%%%:  248-block  5
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:  246-block  6
+    %%%%%:  248-block  6
 call   20 never executed
 call   21 never executed
 call   22 never executed
-     1000:  246-block  7
+     1000:  248-block  7
 call   23 returned 1000
-    $$$$$:  246-block  8
+    $$$$$:  248-block  8
 call   24 never executed
-    $$$$$:  246-block  9
-    $$$$$:  246-block 10
+    $$$$$:  248-block  9
+    $$$$$:  248-block 10
 call   25 never executed
-    $$$$$:  246-block 11
-    $$$$$:  246-block 12
+    $$$$$:  248-block 11
+    $$$$$:  248-block 12
 call   26 never executed
-    $$$$$:  246-block 13
-    $$$$$:  246-block 14
+    $$$$$:  248-block 13
+    $$$$$:  248-block 14
 call   27 never executed
-        -:  247:    }
-        -:  248:
-        2:  249:    HashTable B;
-        1:  249-block  0
+        -:  249:    }
+        -:  250:
+        2:  251:    HashTable B;
+        1:  251-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
 call    3 returned 1
-    $$$$$:  249-block  1
+    $$$$$:  251-block  1
 call    4 never executed
-     2001:  250:    for (int i = 0; i < 2000; ++i) {
-        1:  250-block  0
-     2001:  250-block  1
+     2001:  252:    for (int i = 0; i < 2000; ++i) {
+        1:  252-block  0
+     2001:  252-block  1
 branch  0 taken 2000 (fallthrough)
 branch  1 taken 1
-     2000:  251:        Value data;
-     2000:  251-block  0
-call    0 returned 2000
-branch  1 taken 2000 (fallthrough)
-branch  2 taken 0 (throw)
-     4000:  252:        std::string key = std::to_string(i);
-     2000:  252-block  0
-call    0 returned 2000
-branch  1 taken 2000 (fallthrough)
-branch  2 taken 0 (throw)
-call    3 returned 2000
-    $$$$$:  252-block  1
-call    4 never executed
-    2000*:  253:        EXPECT_TRUE(B.Insert(key, data));
+     2000:  253:        Value data;
      2000:  253-block  0
 call    0 returned 2000
 branch  1 taken 2000 (fallthrough)
 branch  2 taken 0 (throw)
-     2000:  253-block  1
+     4000:  254:        std::string key = std::to_string(i);
+     2000:  254-block  0
+call    0 returned 2000
+branch  1 taken 2000 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 2000
+    $$$$$:  254-block  1
+call    4 never executed
+    2000*:  255:        EXPECT_TRUE(B.Insert(key, data));
+     2000:  255-block  0
+call    0 returned 2000
+branch  1 taken 2000 (fallthrough)
+branch  2 taken 0 (throw)
+     2000:  255-block  1
 call    3 returned 2000
 call    4 returned 2000
 branch  5 taken 0 (fallthrough)
 branch  6 taken 2000
-    %%%%%:  253-block  2
+    %%%%%:  255-block  2
 call    7 never executed
 branch  8 never executed
 branch  9 never executed
-    %%%%%:  253-block  3
+    %%%%%:  255-block  3
 call   10 never executed
 branch 11 never executed
 branch 12 never executed
-    %%%%%:  253-block  4
+    %%%%%:  255-block  4
 call   13 never executed
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  253-block  5
+    %%%%%:  255-block  5
 call   17 never executed
 branch 18 never executed
 branch 19 never executed
-    %%%%%:  253-block  6
+    %%%%%:  255-block  6
 call   20 never executed
 call   21 never executed
 call   22 never executed
-     2000:  253-block  7
+     2000:  255-block  7
 call   23 returned 2000
-    $$$$$:  253-block  8
+    $$$$$:  255-block  8
 call   24 never executed
-    $$$$$:  253-block  9
-    $$$$$:  253-block 10
+    $$$$$:  255-block  9
+    $$$$$:  255-block 10
 call   25 never executed
-    $$$$$:  253-block 11
-    $$$$$:  253-block 12
+    $$$$$:  255-block 11
+    $$$$$:  255-block 12
 call   26 never executed
-    $$$$$:  253-block 13
-    $$$$$:  253-block 14
+    $$$$$:  255-block 13
+    $$$$$:  255-block 14
 call   27 never executed
-        -:  254:    }
-     1001:  255:    for(int i = 1000; i < 2000; ++i) {
-        1:  255-block  0
-     1001:  255-block  1
+        -:  256:    }
+     1001:  257:    for(int i = 1000; i < 2000; ++i) {
+        1:  257-block  0
+     1001:  257-block  1
 branch  0 taken 1000 (fallthrough)
 branch  1 taken 1
-    1000*:  256:        EXPECT_TRUE(B.Erase(std::to_string(i)));
-     1000:  256-block  0
+    1000*:  258:        EXPECT_TRUE(B.Erase(std::to_string(i)));
+     1000:  258-block  0
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  256-block  1
+     1000:  258-block  1
 call    3 returned 1000
 branch  4 taken 1000 (fallthrough)
 branch  5 taken 0 (throw)
-     1000:  256-block  2
+     1000:  258-block  2
 call    6 returned 1000
 call    7 returned 1000
 call    8 returned 1000
 branch  9 taken 0 (fallthrough)
 branch 10 taken 1000
-    %%%%%:  256-block  3
+    %%%%%:  258-block  3
 call   11 never executed
 branch 12 never executed
 branch 13 never executed
-    %%%%%:  256-block  4
+    %%%%%:  258-block  4
 call   14 never executed
 branch 15 never executed
 branch 16 never executed
-    %%%%%:  256-block  5
+    %%%%%:  258-block  5
 call   17 never executed
 call   18 never executed
 branch 19 never executed
 branch 20 never executed
-    %%%%%:  256-block  6
+    %%%%%:  258-block  6
 call   21 never executed
 branch 22 never executed
 branch 23 never executed
-    %%%%%:  256-block  7
+    %%%%%:  258-block  7
 call   24 never executed
 call   25 never executed
 call   26 never executed
-     1000:  256-block  8
+     1000:  258-block  8
 call   27 returned 1000
-    $$$$$:  256-block  9
-    $$$$$:  256-block 10
+    $$$$$:  258-block  9
+    $$$$$:  258-block 10
 call   28 never executed
-    $$$$$:  256-block 11
-    $$$$$:  256-block 12
+    $$$$$:  258-block 11
+    $$$$$:  258-block 12
 call   29 never executed
-    $$$$$:  256-block 13
-    $$$$$:  256-block 14
+    $$$$$:  258-block 13
+    $$$$$:  258-block 14
 call   30 never executed
-    $$$$$:  256-block 15
-    $$$$$:  256-block 16
+    $$$$$:  258-block 15
+    $$$$$:  258-block 16
 call   31 never executed
-        -:  257:    }
-        -:  258:
-       1*:  259:    EXPECT_EQ(A != B, false);
-        1:  259-block  0
+        -:  259:    }
+        -:  260:
+       1*:  261:    EXPECT_EQ(A != B, false);
+        1:  261-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:  259-block  1
+        1:  261-block  1
 call    3 returned 1
 branch  4 taken 1 (fallthrough)
 branch  5 taken 0 (throw)
-        1:  259-block  2
+        1:  261-block  2
 call    6 returned 1
 branch  7 taken 0 (fallthrough)
 branch  8 taken 1
-    %%%%%:  259-block  3
+    %%%%%:  261-block  3
 call    9 never executed
 branch 10 never executed
 branch 11 never executed
-    %%%%%:  259-block  4
+    %%%%%:  261-block  4
 call   12 never executed
 call   13 never executed
 branch 14 never executed
 branch 15 never executed
-    %%%%%:  259-block  5
+    %%%%%:  261-block  5
 call   16 never executed
 branch 17 never executed
 branch 18 never executed
-    %%%%%:  259-block  6
+    %%%%%:  261-block  6
 call   19 never executed
 call   20 never executed
-        1:  259-block  7
+        1:  261-block  7
 call   21 returned 1
-    $$$$$:  259-block  8
-    $$$$$:  259-block  9
-    $$$$$:  259-block 10
+    $$$$$:  261-block  8
+    $$$$$:  261-block  9
+    $$$$$:  261-block 10
 call   22 never executed
-    $$$$$:  259-block 11
-    $$$$$:  259-block 12
+    $$$$$:  261-block 11
+    $$$$$:  261-block 12
 call   23 never executed
-    $$$$$:  259-block 13
-    $$$$$:  259-block 14
+    $$$$$:  261-block 13
+    $$$$$:  261-block 14
 call   24 never executed
-        1:  260:}
+        1:  262:}
 ------------------
 function main called 1 returned 100% blocks executed 100%
-        1:  261:int main() {
-        1:  262:    testing::InitGoogleTest();
-        1:  262-block  0
+        1:  263:int main() {
+        1:  264:    testing::InitGoogleTest();
+        1:  264-block  0
 call    0 returned 1
-        1:  263:    return RUN_ALL_TESTS();
+        1:  265:    return RUN_ALL_TESTS();
 call    0 returned 1
-        -:  264:}
+        -:  266:}

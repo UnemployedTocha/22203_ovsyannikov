@@ -5,7 +5,7 @@ typedef std::string Key;
 Value::Value(): age(0), weight(0) {}
 
 Value::Value(unsigned age, unsigned weight): age(age), weight(weight) {}
-
+    
 bool operator==(const Value& A, const Value& B){
     if((A.age == B.age) && (A.weight == B.weight)){
         return true;
@@ -91,7 +91,6 @@ List& List::operator=(const List& L) {
 
 void List::MoveTopNode(List& listFrom) {
     this -> Push(*(listFrom.Pop()));
-    return;
 }
 const List::ListNode& List::Top() const{
     return *(this -> _pFirstNode);
@@ -179,10 +178,10 @@ List::Iterator List::End() const{
 }
 
 //List::Iterator::Iterator() : _pNode(nullptr) {};
-List::Iterator::Iterator(ListNode* pNode) : _pNode(pNode) {};
+List::Iterator::Iterator(ListNode* pNode) : _pNode(pNode) {}
 List::Iterator& List::Iterator::operator++() {
     if(!_pNode) {
-        return *this;
+        return *this;//???
     }
     _pNode = _pNode -> pNext;
     return *this;
