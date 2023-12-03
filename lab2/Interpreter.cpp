@@ -1,22 +1,24 @@
 #include "Interpreter.h"
 #include <iostream>
+#include "Reader.h"
+#include "Tokens.h"
 
 void Interpreter::TextProccesing(std::ifstream& inputFile) {
-    std::string token;
-    char ch;
-    Factory<Command, std::string, Command*(*)()>* pFactory = Factory<Command, std::string, Command*(*)()>::getInstance();
+    Reader reader(inputFile);
+    Tokens tokens;
 
-    while(inputFile.get(ch)) {
-        if(ch == ' ' || ch == '\n') {
+    std::string token;
+    Factory<Command, std::string, Command*(*)()>* pFactory = Factory<Command, std::string, Command*(*)()>::getInstance();
+    while(reader.SplitStringToTokens(tokens)) {
+        while (!tokens.IsEmpty()) {
+            token = tokens.GetAndPop();
             if (isNumber(token)) {
                 operands_.push(std::stoi(token));
-                std::cout << token << " ";
-                token.clear();
             }
             else if (pFactory->isRegist3red(token)) {
                 Command *pCommand = pFactory->createProductByName(token);
                 try {
-                    pCommand->Execute(operands_, inputFile);
+                    pCommand->Execute(operands_, tokens, output_, reader);
                 } catch (std::underflow_error const &ex) {
                     std::cout << ex.what() << std::endl;
                     return;
@@ -24,21 +26,15 @@ void Interpreter::TextProccesing(std::ifstream& inputFile) {
                     std::cout << ex.what();
                     return;
                 }
-                std::cout << token << " ";
-                token.clear();
             }
             else if (!token.empty()) {
                 std::cout << token << " ?";
                 return;
             }
-            if (ch == '\n') {
-                std::cout << "ok" << std::endl;
-            }
-        }
-        else {
-            token += ch;
+
         }
     }
+    std::cout << output_;
     PrintStack();
 }
 
@@ -61,8 +57,16 @@ bool Interpreter::isNumber(const std::string& str) {
     if(str.empty()) {
         return false;
     }
-    for(char ch : str) {
-        if(!std::isdigit(ch)) {
+
+    if(str[0] == '-' && str.length() == 1) {
+        return false;
+    }
+
+    for(size_t i = 0; i < str.length(); ++i) {
+        if(i == 0 && str[i] == '-') {
+            continue;
+        }
+        if(!std::isdigit(str[i])) {
             return false;
         }
     }

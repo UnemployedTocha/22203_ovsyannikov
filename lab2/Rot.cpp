@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include "FactoryInitializer.h"
 
-void Rot::Execute(std::stack<int>& numbers_, std::ifstream& inputFile) {
+void Rot::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
     int operand1;
     int operand2;
     int operand3;

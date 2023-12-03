@@ -14,6 +14,7 @@ public:
 
 private:
     std::stack<int> operands_;
+    std::string output_;
 
     void PrintStack();
     bool isNumber(const std::string& str);

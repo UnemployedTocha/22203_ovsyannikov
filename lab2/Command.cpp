@@ -2,6 +2,6 @@
 
 Command::Command() = default;
 
-void Command::Execute(std::stack<int>& numbers_, std::ifstream& inputFile){}
+void Command::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader){}
 
-Command::~Command(){}
+Command::~Command() = default;

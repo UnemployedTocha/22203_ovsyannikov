@@ -5,5 +5,5 @@
 
 class Dup : public Command {
 public:
-    void Execute(std::stack<int>& numbers_, std::ifstream& inputFile);
+    void Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader);
 };

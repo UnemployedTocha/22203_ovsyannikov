@@ -2,8 +2,8 @@
 #include <iostream>
 #include "FactoryInitializer.h"
 
-void Cr::Execute(std::stack<int>& numbers_, std::ifstream& inputFile){
-    std::cout << std::endl;
+void Cr::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader){
+    output += "\n";
 }
 
 namespace {

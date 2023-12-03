@@ -40,5 +40,11 @@ add_executable(OOP_LAB2 main.cpp
         Equal.cpp
 #        Equal.h
         StringOutput.cpp
-#        StringOutput.h
+        If.cpp
+        If.h
+        Reader.cpp
+        Reader.h
+        Tokens.cpp
+        Tokens.h
+        #        StringOutput.h
 )

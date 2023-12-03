@@ -1,2 +1,2 @@
-1 5
-mod
+0
+if if 104 105 else 2 3 else  then ; then ;500

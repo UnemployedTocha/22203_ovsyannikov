@@ -2,7 +2,7 @@
 #include "swap.h"
 #include "FactoryInitializer.h"
 
-void Swap::Execute(std::stack<int>& numbers_, std::ifstream& inputFile) {
+void Swap::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
     int operand1;
     int operand2;
     if(numbers_.empty()){

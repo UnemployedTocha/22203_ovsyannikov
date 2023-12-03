@@ -1,14 +1,15 @@
 #include "Dot.h"
 #include <stdexcept>
 #include "FactoryInitializer.h"
-#include <iostream>
 
-void Dot::Execute(std::stack<int>& numbers_, std::ifstream& inputFile) {
+void Dot::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
     if(numbers_.empty()){
         throw std::underflow_error("Stack underflow!");
     }
-    std::cout << numbers_.top() << " ";
+    output += static_cast<char>(numbers_.top());
+    output += " ";
     numbers_.pop();
+
 }
 
 namespace {

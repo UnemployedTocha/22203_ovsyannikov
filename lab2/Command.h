@@ -1,11 +1,12 @@
 #pragma once
 
+#include "Reader.h"
+#include "Tokens.h"
 #include <stack>
-#include <string>
 
 class Command {
 public:
     Command();
-    virtual void Execute(std::stack<int>& numbers_, std::ifstream& inputFile);
+    virtual void Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader);
     virtual ~Command();
 };

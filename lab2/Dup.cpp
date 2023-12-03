@@ -2,7 +2,7 @@
 #include "FactoryInitializer.h"
 #include "Dup.h"
 
-void Dup::Execute(std::stack<int>& numbers_, std::ifstream& inputFile) {
+void Dup::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
     int operand1;
     if(numbers_.empty()){
         throw std::underflow_error("Stack underflow!");

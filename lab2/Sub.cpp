@@ -2,7 +2,7 @@
 #include "Sub.h"
 #include "FactoryInitializer.h"
 
-void Sub::Execute(std::stack<int>& numbers_, std::ifstream& inputFile) {
+void Sub::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
     int operand1;
     int operand2;
     if(numbers_.empty()){
