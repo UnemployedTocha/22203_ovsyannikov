@@ -2,23 +2,12 @@
 #include <stdexcept>
 #include "FactoryInitializer.h"
 
-void Over::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
-    int operand1;
-    int operand2;
+void Over::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+    int operand1 = operands.GetAndPop();
+    int operand2 = operands.Top();
 
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand1 = numbers_.top();
-    numbers_.pop();
-
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand2 = numbers_.top();
-
-    numbers_.push(operand1);
-    numbers_.push(operand2);
+    operands.Push(operand1);
+    operands.Push(operand2);
 
 }
 

@@ -1,17 +1,19 @@
 #include "Interpreter.h"
+#include <iostream>
 
 int main() {
     Interpreter H;
     std::ifstream inputFile;
+    std::string output;
 
     try {
         inputFile.open("Prog.txt");
     } catch(const std::ifstream::failure& ex) {
-        std::cout << "Exception opening/reading file";
+        std::cout << ex.what();
     }
 
-    H.TextProccesing(inputFile);
-
+    H.TextProccesing(inputFile, output);
+    std::cout << output;
     inputFile.close();
     return 0;
 }

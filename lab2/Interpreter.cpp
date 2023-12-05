@@ -1,13 +1,16 @@
 #include "Interpreter.h"
-#include <iostream>
 #include "Reader.h"
 #include "Tokens.h"
 #include "Utility.h"
 #include <memory>
+#include "Command.h"
+#include "Factory.h"
+#include <iostream>
 
-void Interpreter::TextProccesing(std::ifstream& inputFile) {
+void Interpreter::TextProccesing(std::ifstream& inputFile, std::string& output){
     Reader reader(inputFile);
     Tokens tokens;
+    Operands operands;
 
     std::string token;
     Factory<Command, std::string, Command*(*)()>* pFactory = Factory<Command, std::string, Command*(*)()>::getInstance();
@@ -15,12 +18,12 @@ void Interpreter::TextProccesing(std::ifstream& inputFile) {
         while (!tokens.IsEmpty()) {
             token = tokens.GetAndPop();
             if (isNumber(token)) {
-                operands_.push(std::stoi(token));
+                operands_.Push(std::stoi(token));
             }
             else if (pFactory->isRegist3red(token)) {
                 auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
                 try {
-                    pCommand->Execute(operands_, tokens, output_, reader);
+                    pCommand->Execute(operands_, tokens, output, reader);
                 } catch (std::underflow_error const &ex) {
                     std::cout << ex.what() << std::endl;
                     return;
@@ -35,5 +38,4 @@ void Interpreter::TextProccesing(std::ifstream& inputFile) {
             }
         }
     }
-    std::cout << output_;
 }

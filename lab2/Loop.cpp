@@ -4,19 +4,11 @@
 #include "FactoryComplexFuncInitializer.h"
 #include <memory>
 
-void Loop::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
+void Loop::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
     auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
-    if (numbers_.empty()) {
-        throw std::underflow_error("Stack underflow!");
-    }
-    int operand1 = numbers_.top();
-    numbers_.pop();
 
-    if (numbers_.empty()) {
-        throw std::underflow_error("Stack underflow!");
-    }
-    int operand2 = numbers_.top();
-    numbers_.pop();
+    int operand1 = operands.GetAndPop();
+    int operand2 = operands.GetAndPop();
 
     std::queue<std::string> tokensToLoop;
     GetTokensToLoop(tokens, tokensToLoop);
@@ -27,13 +19,13 @@ void Loop::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& outpu
             std::string token = tempTokens.front();
             tempTokens.pop();
             if(isNumber(token)) {
-                numbers_.push(std::stoi(token));
+                operands.Push(std::stoi(token));
             } else if(token == "i") {
-                numbers_.push(i);
+                operands.Push(i);
             }
             else {
                 auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
-                pCommand->Execute(numbers_, tokens, output, reader);
+                pCommand->Execute(operands, tokens, output, reader);
             }
         }
     }

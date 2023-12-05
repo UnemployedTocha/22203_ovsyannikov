@@ -2,22 +2,10 @@
 #include "Sum.h"
 #include "FactoryInitializer.h"
 
-void Sum::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
-    int operand1;
-    int operand2;
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand1 = numbers_.top();
-    numbers_.pop();
-
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand2 = numbers_.top();
-    numbers_.pop();
-
-    numbers_.push(operand1 + operand2);
+void Sum::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+    int operand1 = operands.GetAndPop();
+    int operand2 = operands.GetAndPop();
+    operands.Push(operand1 + operand2);
 
 }
 

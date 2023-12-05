@@ -2,14 +2,10 @@
 #include <stdexcept>
 #include "FactoryInitializer.h"
 
-void Dot::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    output += std::to_string(numbers_.top());
+void Dot::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+    int operand = operands.GetAndPop();
+    output += std::to_string(operand);
     output += " ";
-    numbers_.pop();
-
 }
 
 namespace {

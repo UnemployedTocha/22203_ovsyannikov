@@ -2,32 +2,14 @@
 #include <stdexcept>
 #include "FactoryInitializer.h"
 
-void Rot::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
-    int operand1;
-    int operand2;
-    int operand3;
+void Rot::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+    int operand1 = operands.GetAndPop();
+    int operand2 = operands.GetAndPop();
+    int operand3 = operands.GetAndPop();
 
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand1 = numbers_.top();
-    numbers_.pop();
-
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand2 = numbers_.top();
-    numbers_.pop();
-
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand3 = numbers_.top();
-    numbers_.pop();
-
-    numbers_.push(operand2);
-    numbers_.push(operand1);
-    numbers_.push(operand3);
+    operands.Push(operand2);
+    operands.Push(operand1);
+    operands.Push(operand3);
 
 }
 

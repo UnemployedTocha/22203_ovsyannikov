@@ -2,7 +2,7 @@
 #include <iostream>
 #include "FactoryInitializer.h"
 
-void Cr::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader){
+void Cr::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader){
     output += "\n";
 }
 

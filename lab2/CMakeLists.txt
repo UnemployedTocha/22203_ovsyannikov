@@ -52,4 +52,6 @@ add_executable(OOP_LAB2 main.cpp
         Loop.cpp
         Loop.h
         StringOutput.h
+        Operands.cpp
+        Operands.h
 )

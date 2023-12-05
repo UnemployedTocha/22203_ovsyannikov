@@ -4,14 +4,8 @@
 #include "Emit.h"
 
 
-void Emit::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
-    int operand1;
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand1 = numbers_.top();
-    numbers_.pop();
-
+void Emit::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+    int operand1 = operands.GetAndPop();
     output +=  static_cast<char>(operand1);
     output += " ";
 }

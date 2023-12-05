@@ -2,23 +2,11 @@
 #include "Mul.h"
 #include "FactoryInitializer.h"
 
-void Mul::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
-    int operand1;
-    int operand2;
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand1 = numbers_.top();
-    numbers_.pop();
+void Mul::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+    int operand1 = operands.GetAndPop();
+    int operand2 = operands.GetAndPop();
 
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand2 = numbers_.top();
-    numbers_.pop();
-
-//    (operand1 > 0) ? assert(operand2 <= INT_MAX - operand1) : assert(operand2 >= INT_MIN - operand1);
-    numbers_.push(operand2 * operand1);
+    operands.Push(operand2 * operand1);
 }
 
 namespace {

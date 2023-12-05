@@ -4,7 +4,7 @@
 #include <fstream>
 #include <exception>
 
-void StringOutput::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader){
+void StringOutput::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader){
     if(!tokens.IsEmpty()) {
         std::string token = tokens.GetAndPop();
         if(token.back() == '"') {

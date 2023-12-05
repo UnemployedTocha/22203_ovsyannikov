@@ -5,5 +5,5 @@
 
 class Dot : public Command {
 public:
-    void Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader);
+    void Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader);
 };

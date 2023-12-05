@@ -3,18 +3,13 @@
 #include <fstream>
 #include <string>
 #include <stack>
-#include <iostream>
-
-#include "Factory.h"
+#include "Operands.h"
 
 class Interpreter {
 public:
     Interpreter() = default;
-    void TextProccesing(std::ifstream& inputFile);
+    void TextProccesing(std::ifstream& inputFile, std::string& output);
 
 private:
-    std::stack<int> operands_;
-    std::string output_;
-
-    void PrintStack();
+    Operands operands_;
 };

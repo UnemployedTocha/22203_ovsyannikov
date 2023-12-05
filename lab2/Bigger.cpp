@@ -2,25 +2,11 @@
 #include <stdexcept>
 #include "FactoryInitializer.h"
 
-void Bigger::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
-    int operand1;
-    int operand2;
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand1 = numbers_.top();
-    if(operand1 == 0) {
-        throw std::runtime_error("Error: division by zero");
-    }
-    numbers_.pop();
+void Bigger::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+    int operand1 = operands.GetAndPop();
+    int operand2 = operands.GetAndPop();
 
-    if(numbers_.empty()){
-        throw std::underflow_error("Stack underflow!");
-    }
-    operand2 = numbers_.top();
-    numbers_.pop();
-
-    numbers_.push(operand2 > operand1);
+    operands.Push(operand2 > operand1);
 
 }
 
