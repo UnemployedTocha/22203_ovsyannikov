@@ -46,5 +46,10 @@ add_executable(OOP_LAB2 main.cpp
         Reader.h
         Tokens.cpp
         Tokens.h
+        FactoryComplexFuncInitializer.h
+        Utility.cpp
+        Utility.h
+        Loop.cpp
+        Loop.h
         #        StringOutput.h
 )

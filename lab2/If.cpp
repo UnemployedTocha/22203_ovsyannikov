@@ -1,71 +1,36 @@
 #include "If.h"
-#include <iostream>
-#include "FactoryInitializer.h"
+#include "FactoryComplexFuncInitializer.h"
+#include "Utility.h"
 #include <fstream>
-#include <exception>
-
- void If::CheckSemicolon(Tokens& tokens) {
-    if(tokens.IsEmpty()) {
-        throw std::runtime_error("There is no ; at the end of condition");
-    }
-    std::string token = tokens.GetAndPop();
-    if(token != ";") {
-        throw std::runtime_error("There is no ; at the end of condition");
-    }
-}
-
-//void If::CheckIf(Tokens& tokens, Reader& reader) {
-//    Tokens tempTokens(tokens);
-//    int ifCounter = 1;
-//
-//    while(!tempTokens.IsEmpty()) {
-//        std::string token = tempTokens.GetAndPop();
-//        if(token == "if") {
-//            ++ifCounter;
-//        }
-//        if(token == "then") {
-//            --ifCounter;
-//        }
-//        if(ifCounter < 0) {
-//            throw std::runtime_error("Then before if");
-//        }
-//    }
-//    if(ifCounter != 0) {
-//        throw std::runtime_error("Incorrect form of condition");
-//    }
-//}
 
 void If::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
-    Factory<Command, std::string, Command *(*)()> *pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
+    auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
+    Tokens tempTokens(tokens);
 
-    int operand;
     if (numbers_.empty()) {
         throw std::underflow_error("Stack underflow!");
     }
-    operand = numbers_.top();
 
+    int operand = numbers_.top();
     if (operand == 0) {
         while (!tokens.IsEmpty()) {
             std::string token = tokens.GetAndPop();
-
-            if (pFactory->isRegist3red(token) || isNumber(token)) {
-                continue;
+            if(pFactory->isComplexFuncRegist3red(token)) {
+                (pFactory->createProductByName(token)) -> Check(tokens, reader);
             } else if (token == "else") {
                 while (!tokens.IsEmpty()) {
                     token = tokens.GetAndPop();
                     if (isNumber(token)) {
                         numbers_.push(std::stoi(token));
-                    } else if (pFactory->isRegist3red(token)) {
+                    }
+                    else if(pFactory->isRegist3red(token)) {
                         Command *pCommand = pFactory->createProductByName(token);
-                        try {
-                            pCommand->Execute(numbers_, tokens, output, reader);
-                        } catch (std::underflow_error const &ex) {
-                            std::cout << ex.what() << std::endl;
-                            return;
-                        } catch (std::runtime_error const &ex) {
-                            std::cout << ex.what();
-                        }
-                    } else if (token == "then") {
+                        pCommand->Execute(numbers_, tokens, output, reader);
+                    }
+                    else if (token == "else") {
+                        throw std::runtime_error("Incorrect number of \"else\"");
+                    }
+                    else if (token == "then") {
                         CheckSemicolon(tokens);
                         return;
                     } else {
@@ -76,33 +41,31 @@ void If::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output,
             } else if (token == "then") {
                 CheckSemicolon(tokens);
                 return;
-            } else {
+            } else if(!pFactory->isRegist3red(token) && !isNumber(token)) {
                 token += " ?";
                 throw std::runtime_error(token);
             }
         }
+        throw std::runtime_error("Incorrect form of condition");
     }
-
     else {
-        while(!tokens.IsEmpty()) {
+        while (!tokens.IsEmpty()) {
             std::string token = tokens.GetAndPop();
             if (isNumber(token)) {
                 numbers_.push(std::stoi(token));
-            } else if (pFactory->isRegist3red(token)) {
+            } else if(pFactory->isRegist3red(token)) {
                 Command *pCommand = pFactory->createProductByName(token);
-                try {
-                    pCommand->Execute(numbers_, tokens, output, reader);
-                } catch (std::underflow_error const &ex) {
-                    std::cout << ex.what() << std::endl;
-                    return;
-                } catch (std::runtime_error const &ex) {
-                    std::cout << ex.what();
-                }
+                pCommand->Execute(numbers_, tokens, output, reader);
             } else if(token == "else") {
                 while(!tokens.IsEmpty()) {
                     token = tokens.GetAndPop();
-                    if (pFactory->isRegist3red(token) || isNumber(token) || token == "else") {
+                    if(pFactory->isComplexFuncRegist3red(token)) {
+                        (pFactory->createProductByName(token)) -> Check(tokens, reader);
+                    }
+                    else if (pFactory->isRegist3red(token) || isNumber(token)) {
                         continue;
+                    } else if(token == "else") {
+                        throw std::runtime_error("Incorrect number of \"else\"");
                     } else if (token == "then") {
                         CheckSemicolon(tokens);
                         return;
@@ -111,8 +74,7 @@ void If::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output,
                         throw std::runtime_error(token);
                     }
                 }
-            }
-            else if(token == "then") {
+            } else if(token == "then") {
                 CheckSemicolon(tokens);
                 return;
             } else {
@@ -121,31 +83,42 @@ void If::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output,
             }
         }
     }
-//    throw std::runtime_error("There is no then at the end of condition");
+    throw std::runtime_error("There is no then at the end of condition");
 }
 
-
-bool If::isNumber(const std::string& str) {
-    if(str.empty()) {
-        return false;
-    }
-
-    if(str[0] == '-' && str.length() == 1) {
-        return false;
-    }
-
-    for(size_t i = 0; i < str.length(); ++i) {
-        if(i == 0 && str[i] == '-') {
-            continue;
+void If::Check(Tokens& tokens, Reader& reader) {
+    auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
+    while (!tokens.IsEmpty()) {
+        std::string token = tokens.GetAndPop();
+        if(pFactory->isComplexFuncRegist3red(token)) {
+            (pFactory->createProductByName(token)) -> Check(tokens, reader);
         }
-        if(!std::isdigit(str[i])) {
-            return false;
+        else if (token == "else") {
+            while (!tokens.IsEmpty()) {
+                token = tokens.GetAndPop();
+                if(pFactory->isComplexFuncRegist3red(token)) {
+                    (pFactory->createProductByName(token)) -> Check(tokens, reader);
+                } else if (token == "else") {
+                    throw std::runtime_error("Incorrect number of \"else\"");
+                } else if (token == "then") {
+                    CheckSemicolon(tokens);
+                    return;
+                } else if (!isNumber(token) && !pFactory->isRegist3red(token)){
+                    token += " ?";
+                    throw std::runtime_error(token);
+                }
+            }
+        } else if (token == "then") {
+            CheckSemicolon(tokens);
+            return;
+        } else if(!isNumber(token) && !pFactory->isRegist3red(token)) {
+            token += " ?";
+            throw std::runtime_error(token);
         }
     }
-    return true;
+    throw std::runtime_error("Incorrect form of condition");
 }
-
 
 namespace {
-    FactoryInitializer<If> Registration("if");
+    FactoryComplexFuncInitializer<If> Registration("if");
 }

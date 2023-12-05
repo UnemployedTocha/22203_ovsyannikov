@@ -1,13 +1,12 @@
 #include "StringOutput.h"
 #include <iostream>
-#include "FactoryInitializer.h"
+#include "FactoryComplexFuncInitializer.h"
 #include <fstream>
 #include <exception>
 
 void StringOutput::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader){
-    std::string token;
-    if(tokens.IsEmpty()) {
-        token = tokens.GetAndPop();
+    if(!tokens.IsEmpty()) {
+        std::string token = tokens.GetAndPop();
         if(token.back() == '"') {
             output += token;
             output.pop_back();
@@ -17,6 +16,15 @@ void StringOutput::Execute(std::stack<int>& numbers_, Tokens& tokens, std::strin
     throw std::runtime_error("String is incorrect");
 }
 
+void StringOutput::Check(Tokens& tokens, Reader& reader) {
+    if(!tokens.IsEmpty()) {
+        std::string token = tokens.GetAndPop();
+        if(token.back() == '"') {
+            return;
+        }
+    }
+    throw std::runtime_error("String is incorrect");
+}
 namespace {
-    FactoryInitializer<StringOutput> Registration(".\"");
+    FactoryComplexFuncInitializer<StringOutput> Registration(".\"");
 }

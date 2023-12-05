@@ -1,2 +1,2 @@
 0
-if if 104 105 else 2 3 else  then ; then ;500
+if if ." YALOX" else ." YACHLENOSOS" then ; else if ." YALOX" else ." YACHLENOSOS" then ; then ;

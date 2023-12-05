@@ -187,6 +187,18 @@ build CMakeFiles/OOP_LAB2.dir/Tokens.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_D
   OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
   OBJECT_FILE_DIR = CMakeFiles\OOP_LAB2.dir
 
+build CMakeFiles/OOP_LAB2.dir/Utility.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_Debug C$:/Users/Pepega/CLionProjects/OOP_LAB2/Utility.cpp || cmake_object_order_depends_target_OOP_LAB2
+  DEP_FILE = CMakeFiles\OOP_LAB2.dir\Utility.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
+  OBJECT_FILE_DIR = CMakeFiles\OOP_LAB2.dir
+
+build CMakeFiles/OOP_LAB2.dir/Loop.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_Debug C$:/Users/Pepega/CLionProjects/OOP_LAB2/Loop.cpp || cmake_object_order_depends_target_OOP_LAB2
+  DEP_FILE = CMakeFiles\OOP_LAB2.dir\Loop.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
+  OBJECT_FILE_DIR = CMakeFiles\OOP_LAB2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target OOP_LAB2
@@ -195,7 +207,7 @@ build CMakeFiles/OOP_LAB2.dir/Tokens.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_D
 #############################################
 # Link the executable OOP_LAB2.exe
 
-build OOP_LAB2.exe: CXX_EXECUTABLE_LINKER__OOP_LAB2_Debug CMakeFiles/OOP_LAB2.dir/main.cpp.obj CMakeFiles/OOP_LAB2.dir/Interpreter.cpp.obj CMakeFiles/OOP_LAB2.dir/Command.cpp.obj CMakeFiles/OOP_LAB2.dir/Sum.cpp.obj CMakeFiles/OOP_LAB2.dir/Sub.cpp.obj CMakeFiles/OOP_LAB2.dir/Mul.cpp.obj CMakeFiles/OOP_LAB2.dir/Div.cpp.obj CMakeFiles/OOP_LAB2.dir/Mod.cpp.obj CMakeFiles/OOP_LAB2.dir/Dup.cpp.obj CMakeFiles/OOP_LAB2.dir/Drop.cpp.obj CMakeFiles/OOP_LAB2.dir/Dot.cpp.obj CMakeFiles/OOP_LAB2.dir/swap.cpp.obj CMakeFiles/OOP_LAB2.dir/Rot.cpp.obj CMakeFiles/OOP_LAB2.dir/Over.cpp.obj CMakeFiles/OOP_LAB2.dir/Emit.cpp.obj CMakeFiles/OOP_LAB2.dir/Cr.cpp.obj CMakeFiles/OOP_LAB2.dir/Bigger.cpp.obj CMakeFiles/OOP_LAB2.dir/Less.cpp.obj CMakeFiles/OOP_LAB2.dir/Equal.cpp.obj CMakeFiles/OOP_LAB2.dir/StringOutput.cpp.obj CMakeFiles/OOP_LAB2.dir/If.cpp.obj CMakeFiles/OOP_LAB2.dir/Reader.cpp.obj CMakeFiles/OOP_LAB2.dir/Tokens.cpp.obj
+build OOP_LAB2.exe: CXX_EXECUTABLE_LINKER__OOP_LAB2_Debug CMakeFiles/OOP_LAB2.dir/main.cpp.obj CMakeFiles/OOP_LAB2.dir/Interpreter.cpp.obj CMakeFiles/OOP_LAB2.dir/Command.cpp.obj CMakeFiles/OOP_LAB2.dir/Sum.cpp.obj CMakeFiles/OOP_LAB2.dir/Sub.cpp.obj CMakeFiles/OOP_LAB2.dir/Mul.cpp.obj CMakeFiles/OOP_LAB2.dir/Div.cpp.obj CMakeFiles/OOP_LAB2.dir/Mod.cpp.obj CMakeFiles/OOP_LAB2.dir/Dup.cpp.obj CMakeFiles/OOP_LAB2.dir/Drop.cpp.obj CMakeFiles/OOP_LAB2.dir/Dot.cpp.obj CMakeFiles/OOP_LAB2.dir/swap.cpp.obj CMakeFiles/OOP_LAB2.dir/Rot.cpp.obj CMakeFiles/OOP_LAB2.dir/Over.cpp.obj CMakeFiles/OOP_LAB2.dir/Emit.cpp.obj CMakeFiles/OOP_LAB2.dir/Cr.cpp.obj CMakeFiles/OOP_LAB2.dir/Bigger.cpp.obj CMakeFiles/OOP_LAB2.dir/Less.cpp.obj CMakeFiles/OOP_LAB2.dir/Equal.cpp.obj CMakeFiles/OOP_LAB2.dir/StringOutput.cpp.obj CMakeFiles/OOP_LAB2.dir/If.cpp.obj CMakeFiles/OOP_LAB2.dir/Reader.cpp.obj CMakeFiles/OOP_LAB2.dir/Tokens.cpp.obj CMakeFiles/OOP_LAB2.dir/Utility.cpp.obj CMakeFiles/OOP_LAB2.dir/Loop.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\OOP_LAB2.dir

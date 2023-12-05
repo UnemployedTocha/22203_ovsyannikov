@@ -17,6 +17,4 @@ private:
     std::string output_;
 
     void PrintStack();
-    bool isNumber(const std::string& str);
-
 };
