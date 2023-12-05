@@ -3,6 +3,7 @@
 #include "Reader.h"
 #include "Tokens.h"
 #include "Utility.h"
+#include <memory>
 
 void Interpreter::TextProccesing(std::ifstream& inputFile) {
     Reader reader(inputFile);
@@ -17,7 +18,7 @@ void Interpreter::TextProccesing(std::ifstream& inputFile) {
                 operands_.push(std::stoi(token));
             }
             else if (pFactory->isRegist3red(token)) {
-                Command *pCommand = pFactory->createProductByName(token);
+                auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
                 try {
                     pCommand->Execute(operands_, tokens, output_, reader);
                 } catch (std::underflow_error const &ex) {
@@ -35,19 +36,4 @@ void Interpreter::TextProccesing(std::ifstream& inputFile) {
         }
     }
     std::cout << output_;
-    PrintStack();
-}
-
-void Interpreter::PrintStack() {
-    std::stack<int> tempStack = operands_;
-
-    if(!tempStack.empty()) {
-        std::cout << "Top -> [ ";
-    }
-    while(!tempStack.empty()) {
-        int x = tempStack.top();
-        std::cout << x << " ";
-        tempStack.pop();
-    }
-    std::cout << "]";
 }

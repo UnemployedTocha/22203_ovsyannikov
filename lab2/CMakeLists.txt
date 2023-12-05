@@ -5,40 +5,40 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(OOP_LAB2 main.cpp
         Interpreter.cpp
-#        Factory.h
+        Factory.h
         Command.cpp
         Sum.cpp
         Sub.cpp
-#        Sub.h
+        Sub.h
         Mul.cpp
-#        Mul.h
+        Mul.h
         Div.cpp
-#        Div.h
+        Div.h
         Mod.cpp
-#        Mod.h
+        Mod.h
         Dup.cpp
-#        Dup.h
+        Dup.h
         FactoryInitializer.h
         Drop.cpp
-#        Drop.h
+        Drop.h
         Dot.cpp
-#        Dot.h
+        Dot.h
         swap.cpp
-#        swap.h
+        swap.h
         Rot.cpp
-#        Rot.h
+        Rot.h
         Over.cpp
-#        Over.h
+        Over.h
         Emit.cpp
-#        Emit.h
+        Emit.h
         Cr.cpp
-#        Cr.h
+        Cr.h
         Bigger.cpp
-#        Bigger.h
+        Bigger.h
         Less.cpp
-#        Less.h
+        Less.h
         Equal.cpp
-#        Equal.h
+        Equal.h
         StringOutput.cpp
         If.cpp
         If.h
@@ -51,5 +51,5 @@ add_executable(OOP_LAB2 main.cpp
         Utility.h
         Loop.cpp
         Loop.h
-        #        StringOutput.h
+        StringOutput.h
 )

@@ -2,6 +2,7 @@
 #include "FactoryComplexFuncInitializer.h"
 #include "Utility.h"
 #include <fstream>
+#include <memory>
 
 void If::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output, Reader& reader) {
     auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
@@ -16,7 +17,8 @@ void If::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output,
         while (!tokens.IsEmpty()) {
             std::string token = tokens.GetAndPop();
             if(pFactory->isComplexFuncRegist3red(token)) {
-                (pFactory->createProductByName(token)) -> Check(tokens, reader);
+                auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+                pCommand->Check(tokens, reader);
             } else if (token == "else") {
                 while (!tokens.IsEmpty()) {
                     token = tokens.GetAndPop();
@@ -24,13 +26,11 @@ void If::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output,
                         numbers_.push(std::stoi(token));
                     }
                     else if(pFactory->isRegist3red(token)) {
-                        Command *pCommand = pFactory->createProductByName(token);
+                        auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
                         pCommand->Execute(numbers_, tokens, output, reader);
-                    }
-                    else if (token == "else") {
+                    } else if (token == "else") {
                         throw std::runtime_error("Incorrect number of \"else\"");
-                    }
-                    else if (token == "then") {
+                    } else if (token == "then") {
                         CheckSemicolon(tokens);
                         return;
                     } else {
@@ -54,13 +54,14 @@ void If::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output,
             if (isNumber(token)) {
                 numbers_.push(std::stoi(token));
             } else if(pFactory->isRegist3red(token)) {
-                Command *pCommand = pFactory->createProductByName(token);
+                auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
                 pCommand->Execute(numbers_, tokens, output, reader);
             } else if(token == "else") {
                 while(!tokens.IsEmpty()) {
                     token = tokens.GetAndPop();
                     if(pFactory->isComplexFuncRegist3red(token)) {
-                        (pFactory->createProductByName(token)) -> Check(tokens, reader);
+                        auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+                        pCommand->Check(tokens, reader);
                     }
                     else if (pFactory->isRegist3red(token) || isNumber(token)) {
                         continue;
@@ -91,13 +92,15 @@ void If::Check(Tokens& tokens, Reader& reader) {
     while (!tokens.IsEmpty()) {
         std::string token = tokens.GetAndPop();
         if(pFactory->isComplexFuncRegist3red(token)) {
-            (pFactory->createProductByName(token)) -> Check(tokens, reader);
+            auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+            pCommand->Check(tokens, reader);
         }
         else if (token == "else") {
             while (!tokens.IsEmpty()) {
                 token = tokens.GetAndPop();
                 if(pFactory->isComplexFuncRegist3red(token)) {
-                    (pFactory->createProductByName(token)) -> Check(tokens, reader);
+                    auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+                    pCommand->Check(tokens, reader);
                 } else if (token == "else") {
                     throw std::runtime_error("Incorrect number of \"else\"");
                 } else if (token == "then") {

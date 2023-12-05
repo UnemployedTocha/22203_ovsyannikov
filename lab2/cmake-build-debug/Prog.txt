@@ -1,2 +1,2 @@
-0
-if if ." YALOX" else ." YACHLENOSOS" then ; else if ." YALOX" else ." YACHLENOSOS" then ; then ;
+10 0
+if do i . loop ; else do 7 . loop ; then ;

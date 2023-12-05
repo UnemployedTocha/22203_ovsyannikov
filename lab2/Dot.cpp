@@ -6,7 +6,7 @@ void Dot::Execute(std::stack<int>& numbers_, Tokens& tokens, std::string& output
     if(numbers_.empty()){
         throw std::underflow_error("Stack underflow!");
     }
-    output += static_cast<char>(numbers_.top());
+    output += std::to_string(numbers_.top());
     output += " ";
     numbers_.pop();
 
