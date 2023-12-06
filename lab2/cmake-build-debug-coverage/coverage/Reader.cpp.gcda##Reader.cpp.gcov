@@ -1,0 +1,69 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Reader.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Reader.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Reader.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Reader.h"
+        -:    2:#include <sstream>
+function _ZN6ReaderC2ERSi called 55 returned 100% blocks executed 100%
+       55:    3:Reader::Reader(std::istream& inputFile) : inputFile_(&inputFile){}
+        -:    4:
+function _ZN6Reader19SplitStringToTokensER6Tokens called 82 returned 100% blocks executed 73%
+       82:    5:bool Reader::SplitStringToTokens(Tokens& tokens) {
+      164:    6:    std::string str;
+       82:    6-block  0
+call    0 returned 82
+call    1 returned 82
+    $$$$$:    6-block  1
+call    2 never executed
+       82:    7:    std::string token;
+call    0 returned 82
+    $$$$$:    7-block  0
+call    1 never executed
+       82:    8:    bool isRead = false;
+       82:    9:    if(std::getline(*inputFile_, str)) {
+call    0 returned 82
+branch  1 taken 82 (fallthrough)
+branch  2 taken 0 (throw)
+       82:    9-block  0
+call    3 returned 82
+branch  4 taken 82 (fallthrough)
+branch  5 taken 0 (throw)
+       82:    9-block  1
+branch  6 taken 54 (fallthrough)
+branch  7 taken 28
+       54:   10:        std::stringstream ss(str);
+       54:   10-block  0
+call    0 returned 54
+call    1 returned 54
+branch  2 taken 54 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   10-block  1
+call    4 never executed
+      534:   11:        while (ss >> token) {
+      534:   11-block  0
+call    0 returned 534
+branch  1 taken 534 (fallthrough)
+branch  2 taken 0 (throw)
+      534:   11-block  1
+call    3 returned 534
+branch  4 taken 534 (fallthrough)
+branch  5 taken 0 (throw)
+      534:   11-block  2
+branch  6 taken 480 (fallthrough)
+branch  7 taken 54
+      480:   11-block  3
+      480:   12:            tokens.Push(token);
+      480:   12-block  0
+call    0 returned 480
+branch  1 taken 480 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   13:        }
+       54:   14:        isRead = true;
+       54:   14-block  0
+call    0 returned 54
+        -:   15:    }
+      164:   16:    return isRead;
+       82:   16-block  0
+call    0 returned 82
+       82:   16-block  1
+        -:   17:}

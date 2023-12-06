@@ -10,13 +10,12 @@ int Operands::GetAndPop() {
     return operand;
 }
 
-void Operands::Push(int operand) {
-    operands_.push(operand);
-}
-
 int Operands::Top() {
     if(operands_.empty()){
         throw std::underflow_error("Stack underflow!");
     }
     return operands_.top();
+}
+void Operands::Push(int operand) {
+    operands_.push(operand);
 }

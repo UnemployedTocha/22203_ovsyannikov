@@ -7,7 +7,6 @@ void Bigger::Execute(Operands& operands, Tokens& tokens, std::string& output, Re
     int operand2 = operands.GetAndPop();
 
     operands.Push(operand2 > operand1);
-
 }
 
 namespace {

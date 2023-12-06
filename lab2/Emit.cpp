@@ -1,4 +1,3 @@
-#include <iostream>
 #include <stdexcept>
 #include "FactoryInitializer.h"
 #include "Emit.h"

@@ -1,0 +1,20 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Dup.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Dup.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Dup.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdexcept>
+        -:    2:#include "FactoryInitializer.h"
+        -:    3:#include "Dup.h"
+        -:    4:
+function _ZN3Dup7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 1 returned 100% blocks executed 100%
+        1:    5:void Dup::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+        1:    6:    int operand1 = operands.Top();
+        1:    6-block  0
+call    0 returned 1
+        1:    7:    operands.Push(operand1);
+call    0 returned 1
+        1:    8:}
+        -:    9:
+        -:   10:namespace {
+        -:   11:    FactoryInitializer<Dup> Registration("dup");
+        -:   12:}

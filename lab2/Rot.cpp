@@ -1,5 +1,4 @@
 #include "Rot.h"
-#include <stdexcept>
 #include "FactoryInitializer.h"
 
 void Rot::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
@@ -8,8 +7,8 @@ void Rot::Execute(Operands& operands, Tokens& tokens, std::string& output, Reade
     int operand3 = operands.GetAndPop();
 
     operands.Push(operand2);
-    operands.Push(operand1);
     operands.Push(operand3);
+    operands.Push(operand1);
 
 }
 

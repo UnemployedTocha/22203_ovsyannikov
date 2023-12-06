@@ -1,4 +1,3 @@
-#include <stdexcept>
 #include "Sub.h"
 #include "FactoryInitializer.h"
 

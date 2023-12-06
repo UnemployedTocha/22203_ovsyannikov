@@ -1,0 +1,13 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Command.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Command.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Command.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Command.h"
+        -:    2:
+        -:    3:
+        -:    4:Command::Command() = default;
+function _ZN7Command7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 1 returned 100% blocks executed 100%
+        1:    5:void Command::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {}
+function _ZN7Command5CheckER6TokensR6Reader called 1 returned 100% blocks executed 100%
+        1:    6:void Command::Check(Tokens& tokens, Reader& reader) {}
+        -:    7:Command::~Command() = default;

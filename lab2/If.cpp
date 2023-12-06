@@ -1,7 +1,6 @@
 #include "If.h"
 #include "FactoryComplexFuncInitializer.h"
 #include "Utility.h"
-#include <fstream>
 #include <memory>
 
 void If::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
@@ -42,7 +41,6 @@ void If::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader
                 throw std::runtime_error(token);
             }
         }
-        throw std::runtime_error("Incorrect form of condition");
     }
     else {
         while (!tokens.IsEmpty()) {
@@ -58,15 +56,12 @@ void If::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader
                     if(pFactory->isComplexFuncRegist3red(token)) {
                         auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
                         pCommand->Check(tokens, reader);
-                    }
-                    else if (pFactory->isRegist3red(token) || isNumber(token)) {
-                        continue;
                     } else if(token == "else") {
                         throw std::runtime_error("Incorrect number of \"else\"");
                     } else if (token == "then") {
                         CheckSemicolon(tokens);
                         return;
-                    } else {
+                    } else if(!pFactory->isRegist3red(token) && !isNumber(token)) {
                         token += " ?";
                         throw std::runtime_error(token);
                     }

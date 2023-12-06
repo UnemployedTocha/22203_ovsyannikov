@@ -1,2 +1,1 @@
-10 0
-if do i . loop ; else do 7 . loop ; then ;
+." QWERTY"

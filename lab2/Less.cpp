@@ -1,5 +1,4 @@
 #include "Less.h"
-#include <stdexcept>
 #include "FactoryInitializer.h"
 
 

@@ -1,0 +1,23 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Emit.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Emit.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Emit.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdexcept>
+        -:    2:#include "FactoryInitializer.h"
+        -:    3:#include "Emit.h"
+        -:    4:
+        -:    5:
+function _ZN4Emit7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 1 returned 100% blocks executed 100%
+        1:    6:void Emit::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+        1:    7:    int operand1 = operands.GetAndPop();
+        1:    7-block  0
+call    0 returned 1
+        1:    8:    output +=  static_cast<char>(operand1);
+call    0 returned 1
+        1:    9:    output += " ";
+call    0 returned 1
+        1:   10:}
+        -:   11:
+        -:   12:namespace {
+        -:   13:    FactoryInitializer<Emit> Registration("emit");
+        -:   14:}

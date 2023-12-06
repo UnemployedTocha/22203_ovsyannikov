@@ -1,0 +1,326 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Loop.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Loop.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Loop.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Loop.h"
+        -:    2:#include "Utility.h"
+        -:    3:#include "Factory.h"
+        -:    4:#include "FactoryComplexFuncInitializer.h"
+        -:    5:#include <memory>
+        -:    6:
+function _ZN4Loop7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 7 returned 71% blocks executed 80%
+        7:    7:void Loop::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+        7:    8:    auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
+        7:    8-block  0
+call    0 returned 7
+        -:    9:
+        7:   10:    int operand1 = operands.GetAndPop();
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
+branch  2 taken 0 (throw)
+        7:   11:    int operand2 = operands.GetAndPop();
+        7:   11-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   12:
+       14:   13:    std::queue<std::string> tokensToLoop;
+        7:   13-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
+branch  2 taken 0 (throw)
+        5:   13-block  1
+call    3 returned 5
+        2:   13-block  2
+call    4 returned 2
+        7:   14:    GetTokensToLoop(tokens, tokensToLoop);
+        7:   14-block  0
+call    0 returned 7
+branch  1 taken 5 (fallthrough)
+branch  2 taken 2 (throw)
+        -:   15:
+       85:   16:    for(int i = operand1; i < operand2; ++i) {
+        5:   16-block  0
+       85:   16-block  1
+branch  0 taken 80 (fallthrough)
+branch  1 taken 5
+      160:   17:        auto tempTokens = tokensToLoop;
+       80:   17-block  0
+call    0 returned 80
+branch  1 taken 80 (fallthrough)
+branch  2 taken 0 (throw)
+       80:   17-block  1
+call    3 returned 80
+    $$$$$:   17-block  2
+call    4 never executed
+      240:   18:        while(!tempTokens.empty()) {
+      240:   18-block  0
+call    0 returned 240
+branch  1 taken 160 (fallthrough)
+branch  2 taken 80
+      320:   19:            std::string token = tempTokens.front();
+      160:   19-block  0
+call    0 returned 160
+call    1 returned 160
+branch  2 taken 160 (fallthrough)
+branch  3 taken 0 (throw)
+      160:   19-block  1
+call    4 returned 160
+    $$$$$:   19-block  2
+call    5 never executed
+      160:   20:            tempTokens.pop();
+      160:   20-block  0
+call    0 returned 160
+      160:   21:            if(isNumber(token)) {
+call    0 returned 160
+branch  1 taken 160 (fallthrough)
+branch  2 taken 0 (throw)
+      160:   21-block  0
+branch  3 taken 130 (fallthrough)
+branch  4 taken 30
+      130:   22:                operands.Push(std::stoi(token));
+      130:   22-block  0
+call    0 returned 130
+branch  1 taken 130 (fallthrough)
+branch  2 taken 0 (throw)
+      130:   22-block  1
+call    3 returned 130
+branch  4 taken 130 (fallthrough)
+branch  5 taken 0 (throw)
+       30:   23:            } else if(token == "i") {
+       30:   23-block  0
+call    0 returned 30
+branch  1 taken 10 (fallthrough)
+branch  2 taken 20
+       10:   24:                operands.Push(i);
+       10:   24-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   25:            }
+        -:   26:            else {
+       40:   27:                auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+       20:   27-block  0
+call    0 returned 20
+branch  1 taken 20 (fallthrough)
+branch  2 taken 0 (throw)
+       20:   27-block  1
+call    3 returned 20
+       20:   27-block  2
+call    4 returned 20
+    $$$$$:   27-block  3
+call    5 never executed
+       20:   28:                pCommand->Execute(operands, tokens, output, reader);
+call    0 returned 20
+call    1 returned 20
+branch  2 taken 20 (fallthrough)
+branch  3 taken 0 (throw)
+        -:   29:            }
+        -:   30:        }
+        -:   31:    }
+        5:   32:}
+        -:   33:
+function _ZN4Loop5CheckER6TokensR6Reader called 6 returned 33% blocks executed 94%
+        6:   34:void Loop::Check(Tokens& tokens, Reader& reader) {
+        6:   35:    auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
+        6:   35-block  0
+call    0 returned 6
+       11:   36:    while(!tokens.IsEmpty()) {
+       11:   36-block  0
+call    0 returned 11
+branch  1 taken 10 (fallthrough)
+branch  2 taken 1
+        5:   36-block  1
+       13:   37:        std::string token = tokens.GetAndPop();
+       10:   37-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   37-block  1
+call    3 returned 3
+       10:   38:        if(pFactory->isComplexFuncRegist3red(token)) {
+       10:   38-block  0
+call    0 returned 10
+branch  1 taken 10 (fallthrough)
+branch  2 taken 0 (throw)
+       10:   38-block  1
+branch  3 taken 3 (fallthrough)
+branch  4 taken 7
+        6:   39:            auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+        3:   39-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   39-block  1
+call    3 returned 3
+        1:   39-block  2
+call    4 returned 1
+        2:   39-block  3
+call    5 returned 2
+        3:   40:            pCommand->Check(tokens, reader);
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 1 (fallthrough)
+branch  3 taken 2 (throw)
+        7:   41:        } else if(token == "loop") {
+        7:   41-block  0
+call    0 returned 7
+branch  1 taken 2 (fallthrough)
+branch  2 taken 5
+        2:   42:            CheckSemicolon(tokens);
+        2:   42-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        4:   43:            return;
+        2:   43-block  0
+        2:   43-block  1
+        -:   44:        }
+        5:   45:        else if(!isNumber(token) && !pFactory->isRegist3red(token) && token != "i"){
+        5:   45-block  0
+call    0 returned 5
+branch  1 taken 5 (fallthrough)
+branch  2 taken 0 (throw)
+        5:   45-block  1
+branch  3 taken 3 (fallthrough)
+branch  4 taken 2
+        3:   45-block  2
+call    5 returned 3
+branch  6 taken 3 (fallthrough)
+branch  7 taken 0 (throw)
+        3:   45-block  3
+branch  8 taken 1 (fallthrough)
+branch  9 taken 2
+        1:   45-block  4
+call   10 returned 1
+branch 11 taken 1 (fallthrough)
+branch 12 taken 0
+        1:   45-block  5
+        4:   45-block  6
+        5:   45-block  7
+branch 13 taken 1 (fallthrough)
+branch 14 taken 4
+        1:   46:            token += " ?";
+        1:   46-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   47:            throw std::runtime_error(token);
+        1:   47-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   47-block  1
+call    4 returned 1
+    $$$$$:   47-block  2
+call    5 never executed
+        -:   48:        }
+        -:   49:    }
+        1:   50:    throw std::runtime_error("There is no \"loop ;\" at the end of \"do\"");
+        1:   50-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   50-block  1
+call    4 returned 0
+    $$$$$:   50-block  2
+call    5 never executed
+        -:   51:}
+        -:   52:
+function _ZN4Loop15GetTokensToLoopER6TokensRSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS8_SaIS8_EEE called 7 returned 71% blocks executed 92%
+        7:   53:void Loop::GetTokensToLoop(Tokens& tokens, std::queue<std::string>& tokensToLoop) {
+        7:   54:    auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
+        7:   54-block  0
+call    0 returned 7
+       19:   55:    while(!tokens.IsEmpty()) {
+       19:   55-block  0
+call    0 returned 19
+branch  1 taken 18 (fallthrough)
+branch  2 taken 1
+       12:   55-block  1
+       19:   56:        std::string token = tokens.GetAndPop();
+       18:   56-block  0
+call    0 returned 18
+branch  1 taken 18 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   56-block  1
+call    3 returned 1
+       18:   57:        if(isNumber(token) || pFactory->isRegist3red(token) || (token == "i")) {
+       18:   57-block  0
+call    0 returned 18
+branch  1 taken 18 (fallthrough)
+branch  2 taken 0 (throw)
+       18:   57-block  1
+branch  3 taken 9 (fallthrough)
+branch  4 taken 9
+        9:   57-block  2
+call    5 returned 9
+branch  6 taken 9 (fallthrough)
+branch  7 taken 0 (throw)
+        9:   57-block  3
+branch  8 taken 7 (fallthrough)
+branch  9 taken 2
+        7:   57-block  4
+call   10 returned 7
+branch 11 taken 1 (fallthrough)
+branch 12 taken 6
+       12:   57-block  5
+        6:   57-block  6
+       18:   57-block  7
+branch 13 taken 12 (fallthrough)
+branch 14 taken 6
+       12:   58:            tokensToLoop.push(token);
+       12:   58-block  0
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+        6:   59:        } else if(token == "loop") {
+        6:   59-block  0
+call    0 returned 6
+branch  1 taken 5 (fallthrough)
+branch  2 taken 1
+        5:   60:            CheckSemicolon(tokens);
+        5:   60-block  0
+call    0 returned 5
+branch  1 taken 5 (fallthrough)
+branch  2 taken 0 (throw)
+       10:   61:            return;
+        5:   61-block  0
+        5:   61-block  1
+        -:   62:        }
+        -:   63:
+        -:   64:        else {
+        1:   65:            token += " ?";
+        1:   65-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   66:            throw std::runtime_error(token);
+        1:   66-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   66-block  1
+call    4 returned 1
+    $$$$$:   66-block  2
+call    5 never executed
+        -:   67:        }
+        -:   68:    }
+        1:   69:    throw std::runtime_error("There is no \"loop ;\" at the end of \"do\"");
+        1:   69-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   69-block  1
+call    4 returned 0
+    $$$$$:   69-block  2
+call    5 never executed
+        -:   70:}
+        -:   71:
+        -:   72:namespace {
+        -:   73:    FactoryComplexFuncInitializer<Loop> Registration("do");
+        -:   74:}

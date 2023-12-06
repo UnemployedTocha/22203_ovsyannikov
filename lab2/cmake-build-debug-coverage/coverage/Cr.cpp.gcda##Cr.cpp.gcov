@@ -1,0 +1,17 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Cr.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Cr.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Cr.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Cr.h"
+        -:    2:#include "FactoryInitializer.h"
+        -:    3:
+function _ZN2Cr7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 3 returned 100% blocks executed 100%
+        3:    4:void Cr::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader){
+        3:    5:    output += "\n";
+        3:    5-block  0
+call    0 returned 3
+        3:    6:}
+        -:    7:
+        -:    8:namespace {
+        -:    9:    FactoryInitializer<Cr> Registration("cr");
+        -:   10:}

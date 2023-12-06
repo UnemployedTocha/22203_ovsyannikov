@@ -1,0 +1,156 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Interpreter.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Interpreter.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Interpreter.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Interpreter.h"
+        -:    2:#include "Reader.h"
+        -:    3:#include "Tokens.h"
+        -:    4:#include "Utility.h"
+        -:    5:#include <memory>
+        -:    6:#include "Factory.h"
+        -:    7:
+function _ZN11Interpreter14TextProccesingERSiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 54 returned 52% blocks executed 96%
+       54:    8:void Interpreter::TextProccesing(std::istream& inputFile, std::string& output){
+       54:    9:    Reader reader(inputFile);
+       54:    9-block  0
+call    0 returned 54
+branch  1 taken 54 (fallthrough)
+branch  2 taken 0 (throw)
+      108:   10:    Tokens tokens;
+       54:   10-block  0
+call    0 returned 54
+branch  1 taken 54 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 28
+       26:   10-block  1
+call    4 returned 26
+      108:   11:    Operands operands;
+       54:   11-block  0
+call    0 returned 54
+branch  1 taken 54 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 28
+       26:   11-block  1
+call    4 returned 26
+        -:   12:
+      108:   13:    std::string token;
+       54:   13-block  0
+call    0 returned 54
+       28:   13-block  1
+call    1 returned 28
+       26:   13-block  2
+call    2 returned 26
+       54:   14:    auto pFactory = Factory<Command, std::string, Command*(*)()>::getInstance();
+call    0 returned 54
+       82:   15:    while(reader.SplitStringToTokens(tokens)) {
+       82:   15-block  0
+call    0 returned 82
+branch  1 taken 82 (fallthrough)
+branch  2 taken 0 (throw)
+       82:   15-block  1
+branch  3 taken 54 (fallthrough)
+branch  4 taken 28
+       28:   15-block  2
+      186:   16:        while (!tokens.IsEmpty()) {
+      186:   16-block  0
+call    0 returned 186
+branch  1 taken 186 (fallthrough)
+branch  2 taken 0 (throw)
+      186:   16-block  1
+branch  3 taken 158 (fallthrough)
+branch  4 taken 28
+      132:   16-block  2
+      158:   17:            token = tokens.GetAndPop();
+      158:   17-block  0
+call    0 returned 158
+branch  1 taken 158 (fallthrough)
+branch  2 taken 0 (throw)
+      158:   17-block  1
+call    3 returned 158
+call    4 returned 158
+      158:   18:            if (isNumber(token)) {
+call    0 returned 158
+branch  1 taken 158 (fallthrough)
+branch  2 taken 0 (throw)
+      158:   18-block  0
+branch  3 taken 80 (fallthrough)
+branch  4 taken 78
+       80:   19:                operands_.Push(std::stoi(token));
+       80:   19-block  0
+call    0 returned 80
+branch  1 taken 80 (fallthrough)
+branch  2 taken 0 (throw)
+       80:   19-block  1
+call    3 returned 80
+branch  4 taken 80 (fallthrough)
+branch  5 taken 0 (throw)
+        -:   20:
+        -:   21:            }
+       78:   22:            else if (pFactory->isRegist3red(token)) {
+       78:   22-block  0
+call    0 returned 78
+branch  1 taken 78 (fallthrough)
+branch  2 taken 0 (throw)
+       78:   22-block  1
+branch  3 taken 77 (fallthrough)
+branch  4 taken 1
+      154:   23:                auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+       77:   23-block  0
+call    0 returned 77
+branch  1 taken 77 (fallthrough)
+branch  2 taken 0 (throw)
+       77:   23-block  1
+call    3 returned 77
+       52:   23-block  2
+call    4 returned 52
+       25:   23-block  3
+call    5 returned 25
+       77:   24:                pCommand->Execute(operands_, tokens, output, reader);
+call    0 returned 77
+call    1 returned 77
+branch  2 taken 52 (fallthrough)
+branch  3 taken 25 (throw)
+        -:   25:            }
+        1:   26:            else if (!token.empty()) {
+        1:   26-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+        1:   27:                token += " ?";
+        1:   27-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28:                throw std::runtime_error(token);
+        1:   28-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   28-block  1
+call    4 returned 1
+    $$$$$:   28-block  2
+call    5 never executed
+        -:   29:            }
+        -:   30:        }
+        -:   31:    }
+        -:   32:
+       28:   33:    if(!output.empty() && output.back() == ' ') {
+       28:   33-block  0
+call    0 returned 28
+branch  1 taken 25 (fallthrough)
+branch  2 taken 3
+       25:   33-block  1
+call    3 returned 25
+branch  4 taken 23 (fallthrough)
+branch  5 taken 2
+       23:   33-block  2
+        5:   33-block  3
+       28:   33-block  4
+branch  6 taken 23 (fallthrough)
+branch  7 taken 5
+       23:   34:        output.pop_back();
+       23:   34-block  0
+call    0 returned 23
+        -:   35:    }
+       28:   36:}

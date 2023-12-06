@@ -1,5 +1,4 @@
 #include "Over.h"
-#include <stdexcept>
 #include "FactoryInitializer.h"
 
 void Over::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {

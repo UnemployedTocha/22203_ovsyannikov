@@ -1,4 +1,3 @@
-#include <stdexcept>
 #include "FactoryInitializer.h"
 #include "Mod.h"
 

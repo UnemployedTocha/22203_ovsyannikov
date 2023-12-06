@@ -1,0 +1,6332 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Test.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Test.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Test.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <gtest/gtest.h>
+        -:    2:#include "Interpreter.h"
+        -:    3:#include "Utility.h"
+        -:    4:#include "Factory.h"
+        -:    5:#include "StringOutput.h"
+        -:    6:#include "Command.h"
+        -:    7:#include <sstream>
+        -:    8:
+        4:    9:TEST(TestInterpretator, TestBigger) {
+        2:   10:    Interpreter H;
+        2:   11:    std::string out;
+        3:   12:    std::istringstream in("1 2 > .");
+        -:   13:
+        1:   14:    H.TextProccesing(in, out);
+       1*:   15:    EXPECT_EQ(out, "0");
+        -:   16:
+        1:   17:}
+------------------
+_ZN33TestInterpretator_TestBigger_TestC1Ev:
+function _ZN33TestInterpretator_TestBigger_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:    9:TEST(TestInterpretator, TestBigger) {
+        1:    9-block  0
+call    0 returned 1
+------------------
+_ZN33TestInterpretator_TestBigger_TestD0Ev:
+function _ZN33TestInterpretator_TestBigger_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:    9:TEST(TestInterpretator, TestBigger) {
+        1:    9-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN33TestInterpretator_TestBigger_TestD1Ev:
+function _ZN33TestInterpretator_TestBigger_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:    9:TEST(TestInterpretator, TestBigger) {
+        1:    9-block  0
+call    0 returned 1
+------------------
+_ZN33TestInterpretator_TestBigger_Test8TestBodyEv:
+function _ZN33TestInterpretator_TestBigger_Test8TestBodyEv called 1 returned 100% blocks executed 38%
+        1:    9:TEST(TestInterpretator, TestBigger) {
+        2:   10:    Interpreter H;
+        1:   10-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   10-block  1
+call    4 never executed
+        2:   11:    std::string out;
+        1:   11-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   11-block  1
+call    2 never executed
+        3:   12:    std::istringstream in("1 2 > .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   12-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   12-block  1
+    $$$$$:   12-block  2
+    $$$$$:   12-block  3
+call    9 never executed
+        -:   13:
+        1:   14:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   15:    EXPECT_EQ(out, "0");
+        1:   15-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   15-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   15-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   15-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   15-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   15-block  5
+call   16 never executed
+call   17 never executed
+        1:   15-block  6
+call   18 returned 1
+    $$$$$:   15-block  7
+call   19 never executed
+    $$$$$:   15-block  8
+    $$$$$:   15-block  9
+call   20 never executed
+    $$$$$:   15-block 10
+    $$$$$:   15-block 11
+call   21 never executed
+        -:   16:
+        1:   17:}
+------------------
+        -:   18:
+        4:   19:TEST(TestInterpretator, TestLess) {
+        2:   20:    Interpreter H;
+        2:   21:    std::string out;
+        3:   22:    std::istringstream in("1 2 < .");
+        -:   23:
+        1:   24:    H.TextProccesing(in, out);
+       1*:   25:    EXPECT_EQ(out, "1");
+        -:   26:
+        1:   27:}
+------------------
+_ZN31TestInterpretator_TestLess_TestC1Ev:
+function _ZN31TestInterpretator_TestLess_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   19:TEST(TestInterpretator, TestLess) {
+        1:   19-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestLess_TestD0Ev:
+function _ZN31TestInterpretator_TestLess_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   19:TEST(TestInterpretator, TestLess) {
+        1:   19-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN31TestInterpretator_TestLess_TestD1Ev:
+function _ZN31TestInterpretator_TestLess_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   19:TEST(TestInterpretator, TestLess) {
+        1:   19-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestLess_Test8TestBodyEv:
+function _ZN31TestInterpretator_TestLess_Test8TestBodyEv called 1 returned 100% blocks executed 38%
+        1:   19:TEST(TestInterpretator, TestLess) {
+        2:   20:    Interpreter H;
+        1:   20-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   20-block  1
+call    4 never executed
+        2:   21:    std::string out;
+        1:   21-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   21-block  1
+call    2 never executed
+        3:   22:    std::istringstream in("1 2 < .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   22-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   22-block  1
+    $$$$$:   22-block  2
+    $$$$$:   22-block  3
+call    9 never executed
+        -:   23:
+        1:   24:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   25:    EXPECT_EQ(out, "1");
+        1:   25-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   25-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   25-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   25-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   25-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   25-block  5
+call   16 never executed
+call   17 never executed
+        1:   25-block  6
+call   18 returned 1
+    $$$$$:   25-block  7
+call   19 never executed
+    $$$$$:   25-block  8
+    $$$$$:   25-block  9
+call   20 never executed
+    $$$$$:   25-block 10
+    $$$$$:   25-block 11
+call   21 never executed
+        -:   26:
+        1:   27:}
+------------------
+        -:   28:
+        4:   29:TEST(TestInterpretator, TestCr) {
+        2:   30:    Interpreter H;
+        2:   31:    std::string out;
+        3:   32:    std::istringstream in("cr cr cr");
+        -:   33:
+        1:   34:    H.TextProccesing(in, out);
+       1*:   35:    EXPECT_EQ(out, "\n\n\n");
+        1:   36:    out.clear();
+        1:   37:}
+------------------
+_ZN29TestInterpretator_TestCr_TestC1Ev:
+function _ZN29TestInterpretator_TestCr_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   29:TEST(TestInterpretator, TestCr) {
+        1:   29-block  0
+call    0 returned 1
+------------------
+_ZN29TestInterpretator_TestCr_TestD0Ev:
+function _ZN29TestInterpretator_TestCr_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   29:TEST(TestInterpretator, TestCr) {
+        1:   29-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN29TestInterpretator_TestCr_TestD1Ev:
+function _ZN29TestInterpretator_TestCr_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   29:TEST(TestInterpretator, TestCr) {
+        1:   29-block  0
+call    0 returned 1
+------------------
+_ZN29TestInterpretator_TestCr_Test8TestBodyEv:
+function _ZN29TestInterpretator_TestCr_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:   29:TEST(TestInterpretator, TestCr) {
+        2:   30:    Interpreter H;
+        1:   30-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   30-block  1
+call    4 never executed
+        2:   31:    std::string out;
+        1:   31-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   31-block  1
+call    2 never executed
+        3:   32:    std::istringstream in("cr cr cr");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   32-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   32-block  1
+    $$$$$:   32-block  2
+    $$$$$:   32-block  3
+call    9 never executed
+        -:   33:
+        1:   34:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   35:    EXPECT_EQ(out, "\n\n\n");
+        1:   35-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   35-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   35-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   35-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   35-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   35-block  5
+call   16 never executed
+call   17 never executed
+        1:   35-block  6
+call   18 returned 1
+    $$$$$:   35-block  7
+call   19 never executed
+    $$$$$:   35-block  8
+    $$$$$:   35-block  9
+call   20 never executed
+    $$$$$:   35-block 10
+    $$$$$:   35-block 11
+call   21 never executed
+        1:   36:    out.clear();
+call    0 returned 1
+        1:   37:}
+------------------
+        -:   38:
+        4:   39:TEST(TestInterpretator, TestDiv) {
+        2:   40:    Interpreter H;
+        2:   41:    std::string out;
+        3:   42:    std::istringstream in1("1 2 / .");
+        -:   43:
+        1:   44:    H.TextProccesing(in1, out);
+       1*:   45:    EXPECT_EQ(out, "0");
+        1:   46:    out.clear();
+        -:   47:
+        3:   48:    std::istringstream in2("5 2 / .");
+        1:   49:    H.TextProccesing(in2, out);
+       1*:   50:    EXPECT_EQ(out, "2");
+        1:   51:    out.clear();
+        -:   52:
+        3:   53:    std::istringstream in3("100 0 / .");
+       2*:   54:    EXPECT_THROW(H.TextProccesing(in3, out), std::runtime_error);
+        1:   55:    out.clear();
+        -:   56:
+        3:   57:    std::istringstream in4("1000 / .");
+       2*:   58:    EXPECT_THROW(H.TextProccesing(in4, out), std::underflow_error);
+        1:   59:    out.clear();
+        1:   60:}
+------------------
+_ZN30TestInterpretator_TestDiv_TestC1Ev:
+function _ZN30TestInterpretator_TestDiv_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   39:TEST(TestInterpretator, TestDiv) {
+        1:   39-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestDiv_TestD0Ev:
+function _ZN30TestInterpretator_TestDiv_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   39:TEST(TestInterpretator, TestDiv) {
+        1:   39-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30TestInterpretator_TestDiv_TestD1Ev:
+function _ZN30TestInterpretator_TestDiv_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   39:TEST(TestInterpretator, TestDiv) {
+        1:   39-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestDiv_Test8TestBodyEv:
+function _ZN30TestInterpretator_TestDiv_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+        1:   39:TEST(TestInterpretator, TestDiv) {
+        2:   40:    Interpreter H;
+        1:   40-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   40-block  1
+call    4 never executed
+        2:   41:    std::string out;
+        1:   41-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   41-block  1
+call    2 never executed
+        3:   42:    std::istringstream in1("1 2 / .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   42-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   42-block  1
+    $$$$$:   42-block  2
+    $$$$$:   42-block  3
+call    9 never executed
+        -:   43:
+        1:   44:    H.TextProccesing(in1, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   45:    EXPECT_EQ(out, "0");
+        1:   45-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   45-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   45-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   45-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   45-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   45-block  5
+call   16 never executed
+call   17 never executed
+        1:   45-block  6
+call   18 returned 1
+    $$$$$:   45-block  7
+call   19 never executed
+    $$$$$:   45-block  8
+    $$$$$:   45-block  9
+call   20 never executed
+    $$$$$:   45-block 10
+    $$$$$:   45-block 11
+call   21 never executed
+        1:   46:    out.clear();
+call    0 returned 1
+        -:   47:
+        3:   48:    std::istringstream in2("5 2 / .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   48-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   48-block  1
+    $$$$$:   48-block  2
+    $$$$$:   48-block  3
+call    9 never executed
+        1:   49:    H.TextProccesing(in2, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   50:    EXPECT_EQ(out, "2");
+        1:   50-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   50-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   50-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   50-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   50-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   50-block  5
+call   16 never executed
+call   17 never executed
+        1:   50-block  6
+call   18 returned 1
+    $$$$$:   50-block  7
+call   19 never executed
+    $$$$$:   50-block  8
+    $$$$$:   50-block  9
+call   20 never executed
+    $$$$$:   50-block 10
+    $$$$$:   50-block 11
+call   21 never executed
+        1:   51:    out.clear();
+call    0 returned 1
+        -:   52:
+        3:   53:    std::istringstream in3("100 0 / .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   53-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   53-block  1
+    $$$$$:   53-block  2
+    $$$$$:   53-block  3
+call    9 never executed
+       2*:   54:    EXPECT_THROW(H.TextProccesing(in3, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   54-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   54-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:   54-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:   54-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:   54-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:   54-block  5
+    %%%%%:   54-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:   54-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:   54-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:   54-block  9
+call   27 never executed
+call   28 never executed
+        1:   54-block 10
+call   29 returned 1
+        1:   54-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:   54-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:   54-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:   54-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:   54-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:   54-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:   54-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:   54-block 18
+call   53 never executed
+    $$$$$:   54-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:   54-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:   54-block 21
+call   61 never executed
+    $$$$$:   54-block 22
+    $$$$$:   54-block 23
+call   62 never executed
+    $$$$$:   54-block 24
+call   63 never executed
+    $$$$$:   54-block 25
+call   64 never executed
+    $$$$$:   54-block 26
+    $$$$$:   54-block 27
+call   65 never executed
+    $$$$$:   54-block 28
+    $$$$$:   54-block 29
+call   66 never executed
+        1:   55:    out.clear();
+call    0 returned 1
+        -:   56:
+        3:   57:    std::istringstream in4("1000 / .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   57-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   57-block  1
+    $$$$$:   57-block  2
+    $$$$$:   57-block  3
+call    9 never executed
+       2*:   58:    EXPECT_THROW(H.TextProccesing(in4, out), std::underflow_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   58-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   58-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:   58-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:   58-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:   58-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:   58-block  5
+    %%%%%:   58-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:   58-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:   58-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:   58-block  9
+call   27 never executed
+call   28 never executed
+        1:   58-block 10
+call   29 returned 1
+        1:   58-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:   58-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:   58-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:   58-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:   58-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:   58-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:   58-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:   58-block 18
+call   53 never executed
+    $$$$$:   58-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:   58-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:   58-block 21
+call   61 never executed
+    $$$$$:   58-block 22
+    $$$$$:   58-block 23
+call   62 never executed
+    $$$$$:   58-block 24
+call   63 never executed
+    $$$$$:   58-block 25
+call   64 never executed
+    $$$$$:   58-block 26
+    $$$$$:   58-block 27
+call   65 never executed
+    $$$$$:   58-block 28
+    $$$$$:   58-block 29
+call   66 never executed
+        1:   59:    out.clear();
+call    0 returned 1
+        1:   60:}
+------------------
+        -:   61:
+        4:   62:TEST(TestInterpretator, TestDrop) {
+        2:   63:    Interpreter H;
+        2:   64:    std::string out;
+        3:   65:    std::istringstream in("10 20 30 drop . .");
+        -:   66:
+        1:   67:    H.TextProccesing(in, out);
+       1*:   68:    EXPECT_EQ(out, "20 10");
+        1:   69:    out.clear();
+        1:   70:}
+------------------
+_ZN31TestInterpretator_TestDrop_TestC1Ev:
+function _ZN31TestInterpretator_TestDrop_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   62:TEST(TestInterpretator, TestDrop) {
+        1:   62-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestDrop_TestD0Ev:
+function _ZN31TestInterpretator_TestDrop_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   62:TEST(TestInterpretator, TestDrop) {
+        1:   62-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN31TestInterpretator_TestDrop_TestD1Ev:
+function _ZN31TestInterpretator_TestDrop_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   62:TEST(TestInterpretator, TestDrop) {
+        1:   62-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestDrop_Test8TestBodyEv:
+function _ZN31TestInterpretator_TestDrop_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:   62:TEST(TestInterpretator, TestDrop) {
+        2:   63:    Interpreter H;
+        1:   63-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   63-block  1
+call    4 never executed
+        2:   64:    std::string out;
+        1:   64-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   64-block  1
+call    2 never executed
+        3:   65:    std::istringstream in("10 20 30 drop . .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   65-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   65-block  1
+    $$$$$:   65-block  2
+    $$$$$:   65-block  3
+call    9 never executed
+        -:   66:
+        1:   67:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   68:    EXPECT_EQ(out, "20 10");
+        1:   68-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   68-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   68-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   68-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   68-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   68-block  5
+call   16 never executed
+call   17 never executed
+        1:   68-block  6
+call   18 returned 1
+    $$$$$:   68-block  7
+call   19 never executed
+    $$$$$:   68-block  8
+    $$$$$:   68-block  9
+call   20 never executed
+    $$$$$:   68-block 10
+    $$$$$:   68-block 11
+call   21 never executed
+        1:   69:    out.clear();
+call    0 returned 1
+        1:   70:}
+------------------
+        -:   71:
+        4:   72:TEST(TestInterpretator, TestDup) {
+        2:   73:    Interpreter H;
+        2:   74:    std::string out;
+        3:   75:    std::istringstream in("10 20 300 dup . .");
+        -:   76:
+        1:   77:    H.TextProccesing(in, out);
+       1*:   78:    EXPECT_EQ(out, "300 300");
+        1:   79:    out.clear();
+        1:   80:}
+------------------
+_ZN30TestInterpretator_TestDup_TestC1Ev:
+function _ZN30TestInterpretator_TestDup_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   72:TEST(TestInterpretator, TestDup) {
+        1:   72-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestDup_TestD0Ev:
+function _ZN30TestInterpretator_TestDup_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   72:TEST(TestInterpretator, TestDup) {
+        1:   72-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30TestInterpretator_TestDup_TestD1Ev:
+function _ZN30TestInterpretator_TestDup_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   72:TEST(TestInterpretator, TestDup) {
+        1:   72-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestDup_Test8TestBodyEv:
+function _ZN30TestInterpretator_TestDup_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:   72:TEST(TestInterpretator, TestDup) {
+        2:   73:    Interpreter H;
+        1:   73-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   73-block  1
+call    4 never executed
+        2:   74:    std::string out;
+        1:   74-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   74-block  1
+call    2 never executed
+        3:   75:    std::istringstream in("10 20 300 dup . .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   75-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   75-block  1
+    $$$$$:   75-block  2
+    $$$$$:   75-block  3
+call    9 never executed
+        -:   76:
+        1:   77:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   78:    EXPECT_EQ(out, "300 300");
+        1:   78-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   78-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   78-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   78-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   78-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   78-block  5
+call   16 never executed
+call   17 never executed
+        1:   78-block  6
+call   18 returned 1
+    $$$$$:   78-block  7
+call   19 never executed
+    $$$$$:   78-block  8
+    $$$$$:   78-block  9
+call   20 never executed
+    $$$$$:   78-block 10
+    $$$$$:   78-block 11
+call   21 never executed
+        1:   79:    out.clear();
+call    0 returned 1
+        1:   80:}
+------------------
+        -:   81:
+        4:   82:TEST(TestInterpretator, TestEmit) {
+        2:   83:    Interpreter H;
+        2:   84:    std::string out;
+        3:   85:    std::istringstream in("79 emit");
+        -:   86:
+        1:   87:    H.TextProccesing(in, out);
+       1*:   88:    EXPECT_EQ(out, "O");
+        1:   89:    out.clear();
+        1:   90:}
+------------------
+_ZN31TestInterpretator_TestEmit_TestC1Ev:
+function _ZN31TestInterpretator_TestEmit_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   82:TEST(TestInterpretator, TestEmit) {
+        1:   82-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestEmit_TestD0Ev:
+function _ZN31TestInterpretator_TestEmit_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   82:TEST(TestInterpretator, TestEmit) {
+        1:   82-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN31TestInterpretator_TestEmit_TestD1Ev:
+function _ZN31TestInterpretator_TestEmit_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   82:TEST(TestInterpretator, TestEmit) {
+        1:   82-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestEmit_Test8TestBodyEv:
+function _ZN31TestInterpretator_TestEmit_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:   82:TEST(TestInterpretator, TestEmit) {
+        2:   83:    Interpreter H;
+        1:   83-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   83-block  1
+call    4 never executed
+        2:   84:    std::string out;
+        1:   84-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   84-block  1
+call    2 never executed
+        3:   85:    std::istringstream in("79 emit");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   85-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   85-block  1
+    $$$$$:   85-block  2
+    $$$$$:   85-block  3
+call    9 never executed
+        -:   86:
+        1:   87:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   88:    EXPECT_EQ(out, "O");
+        1:   88-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   88-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   88-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   88-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   88-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   88-block  5
+call   16 never executed
+call   17 never executed
+        1:   88-block  6
+call   18 returned 1
+    $$$$$:   88-block  7
+call   19 never executed
+    $$$$$:   88-block  8
+    $$$$$:   88-block  9
+call   20 never executed
+    $$$$$:   88-block 10
+    $$$$$:   88-block 11
+call   21 never executed
+        1:   89:    out.clear();
+call    0 returned 1
+        1:   90:}
+------------------
+        -:   91:
+        4:   92:TEST(TestInterpretator, TestEquality) {
+        2:   93:    Interpreter H;
+        2:   94:    std::string out;
+        3:   95:    std::istringstream in("1400 1400 = .");
+        -:   96:
+        1:   97:    H.TextProccesing(in, out);
+       1*:   98:    EXPECT_EQ(out, "1");
+        1:   99:    out.clear();
+        1:  100:}
+------------------
+_ZN35TestInterpretator_TestEquality_TestC1Ev:
+function _ZN35TestInterpretator_TestEquality_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   92:TEST(TestInterpretator, TestEquality) {
+        1:   92-block  0
+call    0 returned 1
+------------------
+_ZN35TestInterpretator_TestEquality_TestD0Ev:
+function _ZN35TestInterpretator_TestEquality_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   92:TEST(TestInterpretator, TestEquality) {
+        1:   92-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN35TestInterpretator_TestEquality_TestD1Ev:
+function _ZN35TestInterpretator_TestEquality_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   92:TEST(TestInterpretator, TestEquality) {
+        1:   92-block  0
+call    0 returned 1
+------------------
+_ZN35TestInterpretator_TestEquality_Test8TestBodyEv:
+function _ZN35TestInterpretator_TestEquality_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:   92:TEST(TestInterpretator, TestEquality) {
+        2:   93:    Interpreter H;
+        1:   93-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   93-block  1
+call    4 never executed
+        2:   94:    std::string out;
+        1:   94-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   94-block  1
+call    2 never executed
+        3:   95:    std::istringstream in("1400 1400 = .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   95-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:   95-block  1
+    $$$$$:   95-block  2
+    $$$$$:   95-block  3
+call    9 never executed
+        -:   96:
+        1:   97:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   98:    EXPECT_EQ(out, "1");
+        1:   98-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   98-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   98-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:   98-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:   98-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:   98-block  5
+call   16 never executed
+call   17 never executed
+        1:   98-block  6
+call   18 returned 1
+    $$$$$:   98-block  7
+call   19 never executed
+    $$$$$:   98-block  8
+    $$$$$:   98-block  9
+call   20 never executed
+    $$$$$:   98-block 10
+    $$$$$:   98-block 11
+call   21 never executed
+        1:   99:    out.clear();
+call    0 returned 1
+        1:  100:}
+------------------
+        -:  101:
+        4:  102:TEST(TestInterpretator, TestIf) {
+        2:  103:    Interpreter H;
+        2:  104:    std::string out;
+        -:  105:
+        3:  106:    std::istringstream in1("0 if 4 5 + . else 40 50 + . then ;");
+        1:  107:    H.TextProccesing(in1, out);
+       1*:  108:    EXPECT_EQ(out, "90");
+        1:  109:    out.clear();
+        -:  110:
+        3:  111:    std::istringstream in2("1 if 4 5 + . else 40 50 + . then ;");
+        1:  112:    H.TextProccesing(in2, out);
+       1*:  113:    EXPECT_EQ(out, "9");
+        1:  114:    out.clear();
+        -:  115:
+        3:  116:    std::istringstream in3("0 if if 1 2 + . else 2 3 + then ; else if 10 20 + . else 20 30 + . then ; then ;");
+        1:  117:    H.TextProccesing(in3, out);
+       1*:  118:    EXPECT_EQ(out, "50");
+        1:  119:    out.clear();
+        -:  120:
+        3:  121:    std::istringstream in200("1 if if 1 2 + . else 2 3 + then ; else if 10 20 + . else 20 30 + . then ; then ;");
+        1:  122:    H.TextProccesing(in200, out);
+       1*:  123:    EXPECT_EQ(out, "3");
+        1:  124:    out.clear();
+        -:  125:
+        3:  126:    std::istringstream in4("0 if 1 2 + else else 2 3 +");
+       2*:  127:    EXPECT_THROW(H.TextProccesing(in4, out), std::runtime_error);
+        1:  128:    out.clear();
+        -:  129:
+        3:  130:    std::istringstream in5("1 if 1 2 + else else 2 3 +");
+       2*:  131:    EXPECT_THROW(H.TextProccesing(in5, out), std::runtime_error);
+        1:  132:    out.clear();
+        -:  133:
+        3:  134:    std::istringstream in6(" 0 if 1 2 + else 2 3 + then");
+       2*:  135:    EXPECT_THROW(H.TextProccesing(in6, out), std::runtime_error);
+        1:  136:    out.clear();
+        -:  137:
+        3:  138:    std::istringstream in100(" 0 if 1 2 + 2 3 + then");
+       2*:  139:    EXPECT_THROW(H.TextProccesing(in100, out), std::runtime_error);
+        1:  140:    out.clear();
+        -:  141:
+        3:  142:    std::istringstream in300(" 0 if 1 2 + 2 3 + then ;");
+        1:  143:    H.TextProccesing(in300, out);
+       1*:  144:    EXPECT_EQ(out, "");
+        1:  145:    out.clear();
+        -:  146:
+        3:  147:    std::istringstream in7("1 if 1 2 + then ");
+       2*:  148:    EXPECT_THROW(H.TextProccesing(in7, out), std::runtime_error);
+        1:  149:    out.clear();
+        -:  150:
+        3:  151:    std::istringstream in8("1 if 1 2 + else then");
+       2*:  152:    EXPECT_THROW(H.TextProccesing(in8, out), std::runtime_error);
+        1:  153:    out.clear();
+        -:  154:
+        3:  155:    std::istringstream in9("1 if DAAAA + else 2 3 + then");
+       2*:  156:    EXPECT_THROW(H.TextProccesing(in9, out), std::runtime_error);
+        1:  157:    out.clear();
+        -:  158:
+        3:  159:    std::istringstream in10("1 if 1 2 + else DAAAA then");
+       2*:  160:    EXPECT_THROW(H.TextProccesing(in10, out), std::runtime_error);
+        1:  161:    out.clear();
+        -:  162:
+        3:  163:    std::istringstream in11("0 if DAAAA + else 2 3 + then");
+       2*:  164:    EXPECT_THROW(H.TextProccesing(in11, out), std::runtime_error);
+        1:  165:    out.clear();
+        -:  166:
+        3:  167:    std::istringstream in12("0 if 1 2 + else DAAAA then");
+       2*:  168:    EXPECT_THROW(H.TextProccesing(in12, out), std::runtime_error);
+        1:  169:    out.clear();
+        -:  170:
+        3:  171:    std::istringstream in13("1 if 1 2 + else 1 2 3 4 5 +");
+       2*:  172:    EXPECT_THROW(H.TextProccesing(in13, out), std::runtime_error);
+        1:  173:    out.clear();
+        -:  174:
+        3:  175:    std::istringstream in14("0 if 1 2 3 4 5 +");
+       2*:  176:    EXPECT_THROW(H.TextProccesing(in14, out), std::runtime_error);
+        1:  177:    out.clear();
+        -:  178:
+        3:  179:    std::istringstream in15("1 if ");
+       2*:  180:    EXPECT_THROW(H.TextProccesing(in15, out), std::runtime_error);
+        1:  181:    out.clear();
+        -:  182:
+        3:  183:    std::istringstream in16("1 if 100 200 300 + then ;");
+        1:  184:    H.TextProccesing(in16, out);
+       1*:  185:    EXPECT_EQ(out, "");
+        1:  186:    out.clear();
+        -:  187:
+        3:  188:    std::istringstream in17("0 if if if 1 . then ; then ; else then ;");
+        1:  189:    H.TextProccesing(in17, out);
+       1*:  190:    EXPECT_EQ(out, "");
+        1:  191:    out.clear();
+        -:  192:
+        3:  193:    std::istringstream in18("1 if 500 10 / . else if  else if if 1 . then ; then ; then ; then ;");
+        1:  194:    H.TextProccesing(in18, out);
+       1*:  195:    EXPECT_EQ(out, "50");
+        1:  196:    out.clear();
+        -:  197:
+        3:  198:    std::istringstream in19("1 if  else if if if then ; else else then ; then;");
+       2*:  199:    EXPECT_THROW(H.TextProccesing(in19, out), std::runtime_error);
+        1:  200:    out.clear();
+        -:  201:
+        3:  202:    std::istringstream in20("0 if if if SUDO CHMOD if then ; else then ; else then;");
+       2*:  203:    EXPECT_THROW(H.TextProccesing(in20, out), std::runtime_error);
+        1:  204:    out.clear();
+        -:  205:
+        3:  206:    std::istringstream in21("0 if if else SUDO then ; if if then ; else then ; then;");
+       2*:  207:    EXPECT_THROW(H.TextProccesing(in21, out), std::runtime_error);
+        1:  208:    out.clear();
+        -:  209:
+        3:  210:    std::istringstream in22("0 if if if else 2 3 + .");
+       2*:  211:    EXPECT_THROW(H.TextProccesing(in22, out), std::runtime_error);
+        1:  212:    out.clear();
+        1:  213:}
+------------------
+_ZN29TestInterpretator_TestIf_TestC1Ev:
+function _ZN29TestInterpretator_TestIf_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  102:TEST(TestInterpretator, TestIf) {
+        1:  102-block  0
+call    0 returned 1
+------------------
+_ZN29TestInterpretator_TestIf_TestD0Ev:
+function _ZN29TestInterpretator_TestIf_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  102:TEST(TestInterpretator, TestIf) {
+        1:  102-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN29TestInterpretator_TestIf_TestD1Ev:
+function _ZN29TestInterpretator_TestIf_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  102:TEST(TestInterpretator, TestIf) {
+        1:  102-block  0
+call    0 returned 1
+------------------
+_ZN29TestInterpretator_TestIf_Test8TestBodyEv:
+function _ZN29TestInterpretator_TestIf_Test8TestBodyEv called 1 returned 100% blocks executed 29%
+        1:  102:TEST(TestInterpretator, TestIf) {
+        2:  103:    Interpreter H;
+        1:  103-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  103-block  1
+call    4 never executed
+        2:  104:    std::string out;
+        1:  104-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  104-block  1
+call    2 never executed
+        -:  105:
+        3:  106:    std::istringstream in1("0 if 4 5 + . else 40 50 + . then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  106-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  106-block  1
+    $$$$$:  106-block  2
+    $$$$$:  106-block  3
+call    9 never executed
+        1:  107:    H.TextProccesing(in1, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  108:    EXPECT_EQ(out, "90");
+        1:  108-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  108-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  108-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  108-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  108-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  108-block  5
+call   16 never executed
+call   17 never executed
+        1:  108-block  6
+call   18 returned 1
+    $$$$$:  108-block  7
+call   19 never executed
+    $$$$$:  108-block  8
+    $$$$$:  108-block  9
+call   20 never executed
+    $$$$$:  108-block 10
+    $$$$$:  108-block 11
+call   21 never executed
+        1:  109:    out.clear();
+call    0 returned 1
+        -:  110:
+        3:  111:    std::istringstream in2("1 if 4 5 + . else 40 50 + . then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  111-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  111-block  1
+    $$$$$:  111-block  2
+    $$$$$:  111-block  3
+call    9 never executed
+        1:  112:    H.TextProccesing(in2, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  113:    EXPECT_EQ(out, "9");
+        1:  113-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  113-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  113-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  113-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  113-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  113-block  5
+call   16 never executed
+call   17 never executed
+        1:  113-block  6
+call   18 returned 1
+    $$$$$:  113-block  7
+call   19 never executed
+    $$$$$:  113-block  8
+    $$$$$:  113-block  9
+call   20 never executed
+    $$$$$:  113-block 10
+    $$$$$:  113-block 11
+call   21 never executed
+        1:  114:    out.clear();
+call    0 returned 1
+        -:  115:
+        3:  116:    std::istringstream in3("0 if if 1 2 + . else 2 3 + then ; else if 10 20 + . else 20 30 + . then ; then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  116-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  116-block  1
+    $$$$$:  116-block  2
+    $$$$$:  116-block  3
+call    9 never executed
+        1:  117:    H.TextProccesing(in3, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  118:    EXPECT_EQ(out, "50");
+        1:  118-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  118-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  118-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  118-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  118-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  118-block  5
+call   16 never executed
+call   17 never executed
+        1:  118-block  6
+call   18 returned 1
+    $$$$$:  118-block  7
+call   19 never executed
+    $$$$$:  118-block  8
+    $$$$$:  118-block  9
+call   20 never executed
+    $$$$$:  118-block 10
+    $$$$$:  118-block 11
+call   21 never executed
+        1:  119:    out.clear();
+call    0 returned 1
+        -:  120:
+        3:  121:    std::istringstream in200("1 if if 1 2 + . else 2 3 + then ; else if 10 20 + . else 20 30 + . then ; then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  121-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  121-block  1
+    $$$$$:  121-block  2
+    $$$$$:  121-block  3
+call    9 never executed
+        1:  122:    H.TextProccesing(in200, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  123:    EXPECT_EQ(out, "3");
+        1:  123-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  123-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  123-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  123-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  123-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  123-block  5
+call   16 never executed
+call   17 never executed
+        1:  123-block  6
+call   18 returned 1
+    $$$$$:  123-block  7
+call   19 never executed
+    $$$$$:  123-block  8
+    $$$$$:  123-block  9
+call   20 never executed
+    $$$$$:  123-block 10
+    $$$$$:  123-block 11
+call   21 never executed
+        1:  124:    out.clear();
+call    0 returned 1
+        -:  125:
+        3:  126:    std::istringstream in4("0 if 1 2 + else else 2 3 +");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  126-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  126-block  1
+    $$$$$:  126-block  2
+    $$$$$:  126-block  3
+call    9 never executed
+       2*:  127:    EXPECT_THROW(H.TextProccesing(in4, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  127-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  127-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  127-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  127-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  127-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  127-block  5
+    %%%%%:  127-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  127-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  127-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  127-block  9
+call   27 never executed
+call   28 never executed
+        1:  127-block 10
+call   29 returned 1
+        1:  127-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  127-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  127-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  127-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  127-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  127-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  127-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  127-block 18
+call   53 never executed
+    $$$$$:  127-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  127-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  127-block 21
+call   61 never executed
+    $$$$$:  127-block 22
+    $$$$$:  127-block 23
+call   62 never executed
+    $$$$$:  127-block 24
+call   63 never executed
+    $$$$$:  127-block 25
+call   64 never executed
+    $$$$$:  127-block 26
+    $$$$$:  127-block 27
+call   65 never executed
+    $$$$$:  127-block 28
+    $$$$$:  127-block 29
+call   66 never executed
+        1:  128:    out.clear();
+call    0 returned 1
+        -:  129:
+        3:  130:    std::istringstream in5("1 if 1 2 + else else 2 3 +");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  130-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  130-block  1
+    $$$$$:  130-block  2
+    $$$$$:  130-block  3
+call    9 never executed
+       2*:  131:    EXPECT_THROW(H.TextProccesing(in5, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  131-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  131-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  131-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  131-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  131-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  131-block  5
+    %%%%%:  131-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  131-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  131-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  131-block  9
+call   27 never executed
+call   28 never executed
+        1:  131-block 10
+call   29 returned 1
+        1:  131-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  131-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  131-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  131-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  131-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  131-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  131-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  131-block 18
+call   53 never executed
+    $$$$$:  131-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  131-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  131-block 21
+call   61 never executed
+    $$$$$:  131-block 22
+    $$$$$:  131-block 23
+call   62 never executed
+    $$$$$:  131-block 24
+call   63 never executed
+    $$$$$:  131-block 25
+call   64 never executed
+    $$$$$:  131-block 26
+    $$$$$:  131-block 27
+call   65 never executed
+    $$$$$:  131-block 28
+    $$$$$:  131-block 29
+call   66 never executed
+        1:  132:    out.clear();
+call    0 returned 1
+        -:  133:
+        3:  134:    std::istringstream in6(" 0 if 1 2 + else 2 3 + then");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  134-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  134-block  1
+    $$$$$:  134-block  2
+    $$$$$:  134-block  3
+call    9 never executed
+       2*:  135:    EXPECT_THROW(H.TextProccesing(in6, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  135-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  135-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  135-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  135-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  135-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  135-block  5
+    %%%%%:  135-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  135-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  135-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  135-block  9
+call   27 never executed
+call   28 never executed
+        1:  135-block 10
+call   29 returned 1
+        1:  135-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  135-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  135-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  135-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  135-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  135-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  135-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  135-block 18
+call   53 never executed
+    $$$$$:  135-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  135-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  135-block 21
+call   61 never executed
+    $$$$$:  135-block 22
+    $$$$$:  135-block 23
+call   62 never executed
+    $$$$$:  135-block 24
+call   63 never executed
+    $$$$$:  135-block 25
+call   64 never executed
+    $$$$$:  135-block 26
+    $$$$$:  135-block 27
+call   65 never executed
+    $$$$$:  135-block 28
+    $$$$$:  135-block 29
+call   66 never executed
+        1:  136:    out.clear();
+call    0 returned 1
+        -:  137:
+        3:  138:    std::istringstream in100(" 0 if 1 2 + 2 3 + then");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  138-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  138-block  1
+    $$$$$:  138-block  2
+    $$$$$:  138-block  3
+call    9 never executed
+       2*:  139:    EXPECT_THROW(H.TextProccesing(in100, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  139-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  139-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  139-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  139-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  139-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  139-block  5
+    %%%%%:  139-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  139-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  139-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  139-block  9
+call   27 never executed
+call   28 never executed
+        1:  139-block 10
+call   29 returned 1
+        1:  139-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  139-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  139-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  139-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  139-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  139-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  139-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  139-block 18
+call   53 never executed
+    $$$$$:  139-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  139-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  139-block 21
+call   61 never executed
+    $$$$$:  139-block 22
+    $$$$$:  139-block 23
+call   62 never executed
+    $$$$$:  139-block 24
+call   63 never executed
+    $$$$$:  139-block 25
+call   64 never executed
+    $$$$$:  139-block 26
+    $$$$$:  139-block 27
+call   65 never executed
+    $$$$$:  139-block 28
+    $$$$$:  139-block 29
+call   66 never executed
+        1:  140:    out.clear();
+call    0 returned 1
+        -:  141:
+        3:  142:    std::istringstream in300(" 0 if 1 2 + 2 3 + then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  142-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  142-block  1
+    $$$$$:  142-block  2
+    $$$$$:  142-block  3
+call    9 never executed
+        1:  143:    H.TextProccesing(in300, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  144:    EXPECT_EQ(out, "");
+        1:  144-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  144-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  144-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  144-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  144-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  144-block  5
+call   16 never executed
+call   17 never executed
+        1:  144-block  6
+call   18 returned 1
+    $$$$$:  144-block  7
+call   19 never executed
+    $$$$$:  144-block  8
+    $$$$$:  144-block  9
+call   20 never executed
+    $$$$$:  144-block 10
+    $$$$$:  144-block 11
+call   21 never executed
+        1:  145:    out.clear();
+call    0 returned 1
+        -:  146:
+        3:  147:    std::istringstream in7("1 if 1 2 + then ");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  147-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  147-block  1
+    $$$$$:  147-block  2
+    $$$$$:  147-block  3
+call    9 never executed
+       2*:  148:    EXPECT_THROW(H.TextProccesing(in7, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  148-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  148-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  148-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  148-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  148-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  148-block  5
+    %%%%%:  148-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  148-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  148-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  148-block  9
+call   27 never executed
+call   28 never executed
+        1:  148-block 10
+call   29 returned 1
+        1:  148-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  148-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  148-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  148-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  148-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  148-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  148-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  148-block 18
+call   53 never executed
+    $$$$$:  148-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  148-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  148-block 21
+call   61 never executed
+    $$$$$:  148-block 22
+    $$$$$:  148-block 23
+call   62 never executed
+    $$$$$:  148-block 24
+call   63 never executed
+    $$$$$:  148-block 25
+call   64 never executed
+    $$$$$:  148-block 26
+    $$$$$:  148-block 27
+call   65 never executed
+    $$$$$:  148-block 28
+    $$$$$:  148-block 29
+call   66 never executed
+        1:  149:    out.clear();
+call    0 returned 1
+        -:  150:
+        3:  151:    std::istringstream in8("1 if 1 2 + else then");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  151-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  151-block  1
+    $$$$$:  151-block  2
+    $$$$$:  151-block  3
+call    9 never executed
+       2*:  152:    EXPECT_THROW(H.TextProccesing(in8, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  152-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  152-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  152-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  152-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  152-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  152-block  5
+    %%%%%:  152-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  152-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  152-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  152-block  9
+call   27 never executed
+call   28 never executed
+        1:  152-block 10
+call   29 returned 1
+        1:  152-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  152-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  152-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  152-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  152-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  152-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  152-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  152-block 18
+call   53 never executed
+    $$$$$:  152-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  152-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  152-block 21
+call   61 never executed
+    $$$$$:  152-block 22
+    $$$$$:  152-block 23
+call   62 never executed
+    $$$$$:  152-block 24
+call   63 never executed
+    $$$$$:  152-block 25
+call   64 never executed
+    $$$$$:  152-block 26
+    $$$$$:  152-block 27
+call   65 never executed
+    $$$$$:  152-block 28
+    $$$$$:  152-block 29
+call   66 never executed
+        1:  153:    out.clear();
+call    0 returned 1
+        -:  154:
+        3:  155:    std::istringstream in9("1 if DAAAA + else 2 3 + then");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  155-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  155-block  1
+    $$$$$:  155-block  2
+    $$$$$:  155-block  3
+call    9 never executed
+       2*:  156:    EXPECT_THROW(H.TextProccesing(in9, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  156-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  156-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  156-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  156-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  156-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  156-block  5
+    %%%%%:  156-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  156-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  156-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  156-block  9
+call   27 never executed
+call   28 never executed
+        1:  156-block 10
+call   29 returned 1
+        1:  156-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  156-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  156-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  156-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  156-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  156-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  156-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  156-block 18
+call   53 never executed
+    $$$$$:  156-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  156-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  156-block 21
+call   61 never executed
+    $$$$$:  156-block 22
+    $$$$$:  156-block 23
+call   62 never executed
+    $$$$$:  156-block 24
+call   63 never executed
+    $$$$$:  156-block 25
+call   64 never executed
+    $$$$$:  156-block 26
+    $$$$$:  156-block 27
+call   65 never executed
+    $$$$$:  156-block 28
+    $$$$$:  156-block 29
+call   66 never executed
+        1:  157:    out.clear();
+call    0 returned 1
+        -:  158:
+        3:  159:    std::istringstream in10("1 if 1 2 + else DAAAA then");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  159-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  159-block  1
+    $$$$$:  159-block  2
+    $$$$$:  159-block  3
+call    9 never executed
+       2*:  160:    EXPECT_THROW(H.TextProccesing(in10, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  160-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  160-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  160-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  160-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  160-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  160-block  5
+    %%%%%:  160-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  160-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  160-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  160-block  9
+call   27 never executed
+call   28 never executed
+        1:  160-block 10
+call   29 returned 1
+        1:  160-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  160-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  160-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  160-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  160-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  160-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  160-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  160-block 18
+call   53 never executed
+    $$$$$:  160-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  160-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  160-block 21
+call   61 never executed
+    $$$$$:  160-block 22
+    $$$$$:  160-block 23
+call   62 never executed
+    $$$$$:  160-block 24
+call   63 never executed
+    $$$$$:  160-block 25
+call   64 never executed
+    $$$$$:  160-block 26
+    $$$$$:  160-block 27
+call   65 never executed
+    $$$$$:  160-block 28
+    $$$$$:  160-block 29
+call   66 never executed
+        1:  161:    out.clear();
+call    0 returned 1
+        -:  162:
+        3:  163:    std::istringstream in11("0 if DAAAA + else 2 3 + then");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  163-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  163-block  1
+    $$$$$:  163-block  2
+    $$$$$:  163-block  3
+call    9 never executed
+       2*:  164:    EXPECT_THROW(H.TextProccesing(in11, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  164-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  164-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  164-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  164-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  164-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  164-block  5
+    %%%%%:  164-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  164-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  164-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  164-block  9
+call   27 never executed
+call   28 never executed
+        1:  164-block 10
+call   29 returned 1
+        1:  164-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  164-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  164-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  164-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  164-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  164-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  164-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  164-block 18
+call   53 never executed
+    $$$$$:  164-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  164-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  164-block 21
+call   61 never executed
+    $$$$$:  164-block 22
+    $$$$$:  164-block 23
+call   62 never executed
+    $$$$$:  164-block 24
+call   63 never executed
+    $$$$$:  164-block 25
+call   64 never executed
+    $$$$$:  164-block 26
+    $$$$$:  164-block 27
+call   65 never executed
+    $$$$$:  164-block 28
+    $$$$$:  164-block 29
+call   66 never executed
+        1:  165:    out.clear();
+call    0 returned 1
+        -:  166:
+        3:  167:    std::istringstream in12("0 if 1 2 + else DAAAA then");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  167-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  167-block  1
+    $$$$$:  167-block  2
+    $$$$$:  167-block  3
+call    9 never executed
+       2*:  168:    EXPECT_THROW(H.TextProccesing(in12, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  168-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  168-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  168-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  168-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  168-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  168-block  5
+    %%%%%:  168-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  168-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  168-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  168-block  9
+call   27 never executed
+call   28 never executed
+        1:  168-block 10
+call   29 returned 1
+        1:  168-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  168-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  168-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  168-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  168-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  168-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  168-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  168-block 18
+call   53 never executed
+    $$$$$:  168-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  168-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  168-block 21
+call   61 never executed
+    $$$$$:  168-block 22
+    $$$$$:  168-block 23
+call   62 never executed
+    $$$$$:  168-block 24
+call   63 never executed
+    $$$$$:  168-block 25
+call   64 never executed
+    $$$$$:  168-block 26
+    $$$$$:  168-block 27
+call   65 never executed
+    $$$$$:  168-block 28
+    $$$$$:  168-block 29
+call   66 never executed
+        1:  169:    out.clear();
+call    0 returned 1
+        -:  170:
+        3:  171:    std::istringstream in13("1 if 1 2 + else 1 2 3 4 5 +");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  171-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  171-block  1
+    $$$$$:  171-block  2
+    $$$$$:  171-block  3
+call    9 never executed
+       2*:  172:    EXPECT_THROW(H.TextProccesing(in13, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  172-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  172-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  172-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  172-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  172-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  172-block  5
+    %%%%%:  172-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  172-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  172-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  172-block  9
+call   27 never executed
+call   28 never executed
+        1:  172-block 10
+call   29 returned 1
+        1:  172-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  172-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  172-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  172-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  172-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  172-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  172-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  172-block 18
+call   53 never executed
+    $$$$$:  172-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  172-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  172-block 21
+call   61 never executed
+    $$$$$:  172-block 22
+    $$$$$:  172-block 23
+call   62 never executed
+    $$$$$:  172-block 24
+call   63 never executed
+    $$$$$:  172-block 25
+call   64 never executed
+    $$$$$:  172-block 26
+    $$$$$:  172-block 27
+call   65 never executed
+    $$$$$:  172-block 28
+    $$$$$:  172-block 29
+call   66 never executed
+        1:  173:    out.clear();
+call    0 returned 1
+        -:  174:
+        3:  175:    std::istringstream in14("0 if 1 2 3 4 5 +");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  175-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  175-block  1
+    $$$$$:  175-block  2
+    $$$$$:  175-block  3
+call    9 never executed
+       2*:  176:    EXPECT_THROW(H.TextProccesing(in14, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  176-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  176-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  176-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  176-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  176-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  176-block  5
+    %%%%%:  176-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  176-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  176-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  176-block  9
+call   27 never executed
+call   28 never executed
+        1:  176-block 10
+call   29 returned 1
+        1:  176-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  176-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  176-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  176-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  176-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  176-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  176-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  176-block 18
+call   53 never executed
+    $$$$$:  176-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  176-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  176-block 21
+call   61 never executed
+    $$$$$:  176-block 22
+    $$$$$:  176-block 23
+call   62 never executed
+    $$$$$:  176-block 24
+call   63 never executed
+    $$$$$:  176-block 25
+call   64 never executed
+    $$$$$:  176-block 26
+    $$$$$:  176-block 27
+call   65 never executed
+    $$$$$:  176-block 28
+    $$$$$:  176-block 29
+call   66 never executed
+        1:  177:    out.clear();
+call    0 returned 1
+        -:  178:
+        3:  179:    std::istringstream in15("1 if ");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  179-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  179-block  1
+    $$$$$:  179-block  2
+    $$$$$:  179-block  3
+call    9 never executed
+       2*:  180:    EXPECT_THROW(H.TextProccesing(in15, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  180-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  180-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  180-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  180-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  180-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  180-block  5
+    %%%%%:  180-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  180-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  180-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  180-block  9
+call   27 never executed
+call   28 never executed
+        1:  180-block 10
+call   29 returned 1
+        1:  180-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  180-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  180-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  180-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  180-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  180-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  180-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  180-block 18
+call   53 never executed
+    $$$$$:  180-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  180-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  180-block 21
+call   61 never executed
+    $$$$$:  180-block 22
+    $$$$$:  180-block 23
+call   62 never executed
+    $$$$$:  180-block 24
+call   63 never executed
+    $$$$$:  180-block 25
+call   64 never executed
+    $$$$$:  180-block 26
+    $$$$$:  180-block 27
+call   65 never executed
+    $$$$$:  180-block 28
+    $$$$$:  180-block 29
+call   66 never executed
+        1:  181:    out.clear();
+call    0 returned 1
+        -:  182:
+        3:  183:    std::istringstream in16("1 if 100 200 300 + then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  183-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  183-block  1
+    $$$$$:  183-block  2
+    $$$$$:  183-block  3
+call    9 never executed
+        1:  184:    H.TextProccesing(in16, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  185:    EXPECT_EQ(out, "");
+        1:  185-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  185-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  185-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  185-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  185-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  185-block  5
+call   16 never executed
+call   17 never executed
+        1:  185-block  6
+call   18 returned 1
+    $$$$$:  185-block  7
+call   19 never executed
+    $$$$$:  185-block  8
+    $$$$$:  185-block  9
+call   20 never executed
+    $$$$$:  185-block 10
+    $$$$$:  185-block 11
+call   21 never executed
+        1:  186:    out.clear();
+call    0 returned 1
+        -:  187:
+        3:  188:    std::istringstream in17("0 if if if 1 . then ; then ; else then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  188-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  188-block  1
+    $$$$$:  188-block  2
+    $$$$$:  188-block  3
+call    9 never executed
+        1:  189:    H.TextProccesing(in17, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  190:    EXPECT_EQ(out, "");
+        1:  190-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  190-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  190-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  190-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  190-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  190-block  5
+call   16 never executed
+call   17 never executed
+        1:  190-block  6
+call   18 returned 1
+    $$$$$:  190-block  7
+call   19 never executed
+    $$$$$:  190-block  8
+    $$$$$:  190-block  9
+call   20 never executed
+    $$$$$:  190-block 10
+    $$$$$:  190-block 11
+call   21 never executed
+        1:  191:    out.clear();
+call    0 returned 1
+        -:  192:
+        3:  193:    std::istringstream in18("1 if 500 10 / . else if  else if if 1 . then ; then ; then ; then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  193-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  193-block  1
+    $$$$$:  193-block  2
+    $$$$$:  193-block  3
+call    9 never executed
+        1:  194:    H.TextProccesing(in18, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  195:    EXPECT_EQ(out, "50");
+        1:  195-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  195-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  195-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  195-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  195-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  195-block  5
+call   16 never executed
+call   17 never executed
+        1:  195-block  6
+call   18 returned 1
+    $$$$$:  195-block  7
+call   19 never executed
+    $$$$$:  195-block  8
+    $$$$$:  195-block  9
+call   20 never executed
+    $$$$$:  195-block 10
+    $$$$$:  195-block 11
+call   21 never executed
+        1:  196:    out.clear();
+call    0 returned 1
+        -:  197:
+        3:  198:    std::istringstream in19("1 if  else if if if then ; else else then ; then;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  198-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  198-block  1
+    $$$$$:  198-block  2
+    $$$$$:  198-block  3
+call    9 never executed
+       2*:  199:    EXPECT_THROW(H.TextProccesing(in19, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  199-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  199-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  199-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  199-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  199-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  199-block  5
+    %%%%%:  199-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  199-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  199-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  199-block  9
+call   27 never executed
+call   28 never executed
+        1:  199-block 10
+call   29 returned 1
+        1:  199-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  199-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  199-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  199-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  199-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  199-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  199-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  199-block 18
+call   53 never executed
+    $$$$$:  199-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  199-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  199-block 21
+call   61 never executed
+    $$$$$:  199-block 22
+    $$$$$:  199-block 23
+call   62 never executed
+    $$$$$:  199-block 24
+call   63 never executed
+    $$$$$:  199-block 25
+call   64 never executed
+    $$$$$:  199-block 26
+    $$$$$:  199-block 27
+call   65 never executed
+    $$$$$:  199-block 28
+    $$$$$:  199-block 29
+call   66 never executed
+        1:  200:    out.clear();
+call    0 returned 1
+        -:  201:
+        3:  202:    std::istringstream in20("0 if if if SUDO CHMOD if then ; else then ; else then;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  202-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  202-block  1
+    $$$$$:  202-block  2
+    $$$$$:  202-block  3
+call    9 never executed
+       2*:  203:    EXPECT_THROW(H.TextProccesing(in20, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  203-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  203-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  203-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  203-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  203-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  203-block  5
+    %%%%%:  203-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  203-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  203-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  203-block  9
+call   27 never executed
+call   28 never executed
+        1:  203-block 10
+call   29 returned 1
+        1:  203-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  203-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  203-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  203-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  203-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  203-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  203-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  203-block 18
+call   53 never executed
+    $$$$$:  203-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  203-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  203-block 21
+call   61 never executed
+    $$$$$:  203-block 22
+    $$$$$:  203-block 23
+call   62 never executed
+    $$$$$:  203-block 24
+call   63 never executed
+    $$$$$:  203-block 25
+call   64 never executed
+    $$$$$:  203-block 26
+    $$$$$:  203-block 27
+call   65 never executed
+    $$$$$:  203-block 28
+    $$$$$:  203-block 29
+call   66 never executed
+        1:  204:    out.clear();
+call    0 returned 1
+        -:  205:
+        3:  206:    std::istringstream in21("0 if if else SUDO then ; if if then ; else then ; then;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  206-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  206-block  1
+    $$$$$:  206-block  2
+    $$$$$:  206-block  3
+call    9 never executed
+       2*:  207:    EXPECT_THROW(H.TextProccesing(in21, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  207-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  207-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  207-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  207-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  207-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  207-block  5
+    %%%%%:  207-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  207-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  207-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  207-block  9
+call   27 never executed
+call   28 never executed
+        1:  207-block 10
+call   29 returned 1
+        1:  207-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  207-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  207-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  207-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  207-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  207-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  207-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  207-block 18
+call   53 never executed
+    $$$$$:  207-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  207-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  207-block 21
+call   61 never executed
+    $$$$$:  207-block 22
+    $$$$$:  207-block 23
+call   62 never executed
+    $$$$$:  207-block 24
+call   63 never executed
+    $$$$$:  207-block 25
+call   64 never executed
+    $$$$$:  207-block 26
+    $$$$$:  207-block 27
+call   65 never executed
+    $$$$$:  207-block 28
+    $$$$$:  207-block 29
+call   66 never executed
+        1:  208:    out.clear();
+call    0 returned 1
+        -:  209:
+        3:  210:    std::istringstream in22("0 if if if else 2 3 + .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  210-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  210-block  1
+    $$$$$:  210-block  2
+    $$$$$:  210-block  3
+call    9 never executed
+       2*:  211:    EXPECT_THROW(H.TextProccesing(in22, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  211-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  211-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  211-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  211-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  211-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  211-block  5
+    %%%%%:  211-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  211-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  211-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  211-block  9
+call   27 never executed
+call   28 never executed
+        1:  211-block 10
+call   29 returned 1
+        1:  211-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  211-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  211-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  211-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  211-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  211-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  211-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  211-block 18
+call   53 never executed
+    $$$$$:  211-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  211-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  211-block 21
+call   61 never executed
+    $$$$$:  211-block 22
+    $$$$$:  211-block 23
+call   62 never executed
+    $$$$$:  211-block 24
+call   63 never executed
+    $$$$$:  211-block 25
+call   64 never executed
+    $$$$$:  211-block 26
+    $$$$$:  211-block 27
+call   65 never executed
+    $$$$$:  211-block 28
+    $$$$$:  211-block 29
+call   66 never executed
+        1:  212:    out.clear();
+call    0 returned 1
+        1:  213:}
+------------------
+        -:  214:
+        4:  215:TEST(TestInterpretator, TestLoop) {
+        2:  216:    Interpreter H;
+        2:  217:    std::string out;
+        3:  218:    std::istringstream in("10 0 do i . loop ;");
+        -:  219:
+        1:  220:    H.TextProccesing(in, out);
+       1*:  221:    EXPECT_EQ(out, "0 1 2 3 4 5 6 7 8 9");
+        1:  222:    out.clear();
+        -:  223:
+        3:  224:    std::istringstream in2("11 1 do 7 . loop ;");
+        1:  225:    H.TextProccesing(in2, out);
+       1*:  226:    EXPECT_EQ(out, "7 7 7 7 7 7 7 7 7 7");
+        1:  227:    out.clear();
+        -:  228:
+        3:  229:    std::istringstream in3("20 0 do 1 2 loop ; 0 if do do 21 . loop ; loop ; else 200 . then ;");
+        1:  230:    H.TextProccesing(in3, out);
+       1*:  231:    EXPECT_EQ(out, "200");
+        1:  232:    out.clear();
+        -:  233:
+        3:  234:    std::istringstream in4("20 0 do 1 2 loop ; 0 if do do DAAA loop ; loop ; else 200 . then ;");
+       2*:  235:    EXPECT_THROW(H.TextProccesing(in4, out), std::runtime_error);
+        1:  236:    out.clear();
+        -:  237:
+        3:  238:    std::istringstream in5("20 0 do 1 2 loop ; 0 if do do 5 . ");
+       2*:  239:    EXPECT_THROW(H.TextProccesing(in5, out), std::runtime_error);
+        1:  240:    out.clear();
+        -:  241:
+        3:  242:    std::istringstream in6("10 0 do OOP 1 2 loop ;");
+       2*:  243:    EXPECT_THROW(H.TextProccesing(in6, out), std::runtime_error);
+        1:  244:    out.clear();
+        -:  245:
+        3:  246:    std::istringstream in7("10 0 do 1 2 ");
+       2*:  247:    EXPECT_THROW(H.TextProccesing(in7, out), std::runtime_error);
+        1:  248:    out.clear();
+        1:  249:}
+------------------
+_ZN31TestInterpretator_TestLoop_TestC1Ev:
+function _ZN31TestInterpretator_TestLoop_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  215:TEST(TestInterpretator, TestLoop) {
+        1:  215-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestLoop_TestD0Ev:
+function _ZN31TestInterpretator_TestLoop_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  215:TEST(TestInterpretator, TestLoop) {
+        1:  215-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN31TestInterpretator_TestLoop_TestD1Ev:
+function _ZN31TestInterpretator_TestLoop_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  215:TEST(TestInterpretator, TestLoop) {
+        1:  215-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestLoop_Test8TestBodyEv:
+function _ZN31TestInterpretator_TestLoop_Test8TestBodyEv called 1 returned 100% blocks executed 30%
+        1:  215:TEST(TestInterpretator, TestLoop) {
+        2:  216:    Interpreter H;
+        1:  216-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  216-block  1
+call    4 never executed
+        2:  217:    std::string out;
+        1:  217-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  217-block  1
+call    2 never executed
+        3:  218:    std::istringstream in("10 0 do i . loop ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  218-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  218-block  1
+    $$$$$:  218-block  2
+    $$$$$:  218-block  3
+call    9 never executed
+        -:  219:
+        1:  220:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  221:    EXPECT_EQ(out, "0 1 2 3 4 5 6 7 8 9");
+        1:  221-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  221-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  221-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  221-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  221-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  221-block  5
+call   16 never executed
+call   17 never executed
+        1:  221-block  6
+call   18 returned 1
+    $$$$$:  221-block  7
+call   19 never executed
+    $$$$$:  221-block  8
+    $$$$$:  221-block  9
+call   20 never executed
+    $$$$$:  221-block 10
+    $$$$$:  221-block 11
+call   21 never executed
+        1:  222:    out.clear();
+call    0 returned 1
+        -:  223:
+        3:  224:    std::istringstream in2("11 1 do 7 . loop ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  224-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  224-block  1
+    $$$$$:  224-block  2
+    $$$$$:  224-block  3
+call    9 never executed
+        1:  225:    H.TextProccesing(in2, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  226:    EXPECT_EQ(out, "7 7 7 7 7 7 7 7 7 7");
+        1:  226-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  226-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  226-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  226-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  226-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  226-block  5
+call   16 never executed
+call   17 never executed
+        1:  226-block  6
+call   18 returned 1
+    $$$$$:  226-block  7
+call   19 never executed
+    $$$$$:  226-block  8
+    $$$$$:  226-block  9
+call   20 never executed
+    $$$$$:  226-block 10
+    $$$$$:  226-block 11
+call   21 never executed
+        1:  227:    out.clear();
+call    0 returned 1
+        -:  228:
+        3:  229:    std::istringstream in3("20 0 do 1 2 loop ; 0 if do do 21 . loop ; loop ; else 200 . then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  229-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  229-block  1
+    $$$$$:  229-block  2
+    $$$$$:  229-block  3
+call    9 never executed
+        1:  230:    H.TextProccesing(in3, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  231:    EXPECT_EQ(out, "200");
+        1:  231-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  231-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  231-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  231-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  231-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  231-block  5
+call   16 never executed
+call   17 never executed
+        1:  231-block  6
+call   18 returned 1
+    $$$$$:  231-block  7
+call   19 never executed
+    $$$$$:  231-block  8
+    $$$$$:  231-block  9
+call   20 never executed
+    $$$$$:  231-block 10
+    $$$$$:  231-block 11
+call   21 never executed
+        1:  232:    out.clear();
+call    0 returned 1
+        -:  233:
+        3:  234:    std::istringstream in4("20 0 do 1 2 loop ; 0 if do do DAAA loop ; loop ; else 200 . then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  234-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  234-block  1
+    $$$$$:  234-block  2
+    $$$$$:  234-block  3
+call    9 never executed
+       2*:  235:    EXPECT_THROW(H.TextProccesing(in4, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  235-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  235-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  235-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  235-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  235-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  235-block  5
+    %%%%%:  235-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  235-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  235-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  235-block  9
+call   27 never executed
+call   28 never executed
+        1:  235-block 10
+call   29 returned 1
+        1:  235-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  235-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  235-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  235-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  235-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  235-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  235-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  235-block 18
+call   53 never executed
+    $$$$$:  235-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  235-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  235-block 21
+call   61 never executed
+    $$$$$:  235-block 22
+    $$$$$:  235-block 23
+call   62 never executed
+    $$$$$:  235-block 24
+call   63 never executed
+    $$$$$:  235-block 25
+call   64 never executed
+    $$$$$:  235-block 26
+    $$$$$:  235-block 27
+call   65 never executed
+    $$$$$:  235-block 28
+    $$$$$:  235-block 29
+call   66 never executed
+        1:  236:    out.clear();
+call    0 returned 1
+        -:  237:
+        3:  238:    std::istringstream in5("20 0 do 1 2 loop ; 0 if do do 5 . ");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  238-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  238-block  1
+    $$$$$:  238-block  2
+    $$$$$:  238-block  3
+call    9 never executed
+       2*:  239:    EXPECT_THROW(H.TextProccesing(in5, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  239-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  239-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  239-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  239-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  239-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  239-block  5
+    %%%%%:  239-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  239-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  239-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  239-block  9
+call   27 never executed
+call   28 never executed
+        1:  239-block 10
+call   29 returned 1
+        1:  239-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  239-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  239-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  239-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  239-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  239-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  239-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  239-block 18
+call   53 never executed
+    $$$$$:  239-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  239-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  239-block 21
+call   61 never executed
+    $$$$$:  239-block 22
+    $$$$$:  239-block 23
+call   62 never executed
+    $$$$$:  239-block 24
+call   63 never executed
+    $$$$$:  239-block 25
+call   64 never executed
+    $$$$$:  239-block 26
+    $$$$$:  239-block 27
+call   65 never executed
+    $$$$$:  239-block 28
+    $$$$$:  239-block 29
+call   66 never executed
+        1:  240:    out.clear();
+call    0 returned 1
+        -:  241:
+        3:  242:    std::istringstream in6("10 0 do OOP 1 2 loop ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  242-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  242-block  1
+    $$$$$:  242-block  2
+    $$$$$:  242-block  3
+call    9 never executed
+       2*:  243:    EXPECT_THROW(H.TextProccesing(in6, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  243-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  243-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  243-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  243-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  243-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  243-block  5
+    %%%%%:  243-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  243-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  243-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  243-block  9
+call   27 never executed
+call   28 never executed
+        1:  243-block 10
+call   29 returned 1
+        1:  243-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  243-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  243-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  243-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  243-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  243-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  243-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  243-block 18
+call   53 never executed
+    $$$$$:  243-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  243-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  243-block 21
+call   61 never executed
+    $$$$$:  243-block 22
+    $$$$$:  243-block 23
+call   62 never executed
+    $$$$$:  243-block 24
+call   63 never executed
+    $$$$$:  243-block 25
+call   64 never executed
+    $$$$$:  243-block 26
+    $$$$$:  243-block 27
+call   65 never executed
+    $$$$$:  243-block 28
+    $$$$$:  243-block 29
+call   66 never executed
+        1:  244:    out.clear();
+call    0 returned 1
+        -:  245:
+        3:  246:    std::istringstream in7("10 0 do 1 2 ");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  246-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  246-block  1
+    $$$$$:  246-block  2
+    $$$$$:  246-block  3
+call    9 never executed
+       2*:  247:    EXPECT_THROW(H.TextProccesing(in7, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  247-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  247-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  247-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  247-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  247-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  247-block  5
+    %%%%%:  247-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  247-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  247-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  247-block  9
+call   27 never executed
+call   28 never executed
+        1:  247-block 10
+call   29 returned 1
+        1:  247-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  247-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  247-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  247-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  247-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  247-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  247-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  247-block 18
+call   53 never executed
+    $$$$$:  247-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  247-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  247-block 21
+call   61 never executed
+    $$$$$:  247-block 22
+    $$$$$:  247-block 23
+call   62 never executed
+    $$$$$:  247-block 24
+call   63 never executed
+    $$$$$:  247-block 25
+call   64 never executed
+    $$$$$:  247-block 26
+    $$$$$:  247-block 27
+call   65 never executed
+    $$$$$:  247-block 28
+    $$$$$:  247-block 29
+call   66 never executed
+        1:  248:    out.clear();
+call    0 returned 1
+        1:  249:}
+------------------
+        -:  250:
+        4:  251:TEST(TestInterpretator, TestMod) {
+        2:  252:    Interpreter H;
+        2:  253:    std::string out;
+        3:  254:    std::istringstream in("21 2 mod .");
+        -:  255:
+        1:  256:    H.TextProccesing(in, out);
+       1*:  257:    EXPECT_EQ(out, "1");
+        1:  258:    out.clear();
+        1:  259:}
+------------------
+_ZN30TestInterpretator_TestMod_TestC1Ev:
+function _ZN30TestInterpretator_TestMod_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  251:TEST(TestInterpretator, TestMod) {
+        1:  251-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestMod_TestD0Ev:
+function _ZN30TestInterpretator_TestMod_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  251:TEST(TestInterpretator, TestMod) {
+        1:  251-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30TestInterpretator_TestMod_TestD1Ev:
+function _ZN30TestInterpretator_TestMod_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  251:TEST(TestInterpretator, TestMod) {
+        1:  251-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestMod_Test8TestBodyEv:
+function _ZN30TestInterpretator_TestMod_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:  251:TEST(TestInterpretator, TestMod) {
+        2:  252:    Interpreter H;
+        1:  252-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  252-block  1
+call    4 never executed
+        2:  253:    std::string out;
+        1:  253-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  253-block  1
+call    2 never executed
+        3:  254:    std::istringstream in("21 2 mod .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  254-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  254-block  1
+    $$$$$:  254-block  2
+    $$$$$:  254-block  3
+call    9 never executed
+        -:  255:
+        1:  256:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  257:    EXPECT_EQ(out, "1");
+        1:  257-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  257-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  257-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  257-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  257-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  257-block  5
+call   16 never executed
+call   17 never executed
+        1:  257-block  6
+call   18 returned 1
+    $$$$$:  257-block  7
+call   19 never executed
+    $$$$$:  257-block  8
+    $$$$$:  257-block  9
+call   20 never executed
+    $$$$$:  257-block 10
+    $$$$$:  257-block 11
+call   21 never executed
+        1:  258:    out.clear();
+call    0 returned 1
+        1:  259:}
+------------------
+        -:  260:
+        4:  261:TEST(TestInterpretator, TestMul) {
+        2:  262:    Interpreter H;
+        2:  263:    std::string out;
+        3:  264:    std::istringstream in("7 3 * .");
+        -:  265:
+        1:  266:    H.TextProccesing(in, out);
+       1*:  267:    EXPECT_EQ(out, "21");
+        1:  268:    out.clear();
+        1:  269:}
+------------------
+_ZN30TestInterpretator_TestMul_TestC1Ev:
+function _ZN30TestInterpretator_TestMul_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  261:TEST(TestInterpretator, TestMul) {
+        1:  261-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestMul_TestD0Ev:
+function _ZN30TestInterpretator_TestMul_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  261:TEST(TestInterpretator, TestMul) {
+        1:  261-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30TestInterpretator_TestMul_TestD1Ev:
+function _ZN30TestInterpretator_TestMul_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  261:TEST(TestInterpretator, TestMul) {
+        1:  261-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestMul_Test8TestBodyEv:
+function _ZN30TestInterpretator_TestMul_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:  261:TEST(TestInterpretator, TestMul) {
+        2:  262:    Interpreter H;
+        1:  262-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  262-block  1
+call    4 never executed
+        2:  263:    std::string out;
+        1:  263-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  263-block  1
+call    2 never executed
+        3:  264:    std::istringstream in("7 3 * .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  264-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  264-block  1
+    $$$$$:  264-block  2
+    $$$$$:  264-block  3
+call    9 never executed
+        -:  265:
+        1:  266:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  267:    EXPECT_EQ(out, "21");
+        1:  267-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  267-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  267-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  267-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  267-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  267-block  5
+call   16 never executed
+call   17 never executed
+        1:  267-block  6
+call   18 returned 1
+    $$$$$:  267-block  7
+call   19 never executed
+    $$$$$:  267-block  8
+    $$$$$:  267-block  9
+call   20 never executed
+    $$$$$:  267-block 10
+    $$$$$:  267-block 11
+call   21 never executed
+        1:  268:    out.clear();
+call    0 returned 1
+        1:  269:}
+------------------
+        -:  270:
+        4:  271:TEST(TestInterpretator, TestOver) {
+        2:  272:    Interpreter H;
+        2:  273:    std::string out;
+        3:  274:    std::istringstream in("7 3 over .");
+        -:  275:
+        1:  276:    H.TextProccesing(in, out);
+       1*:  277:    EXPECT_EQ(out, "7");
+        1:  278:    out.clear();
+        1:  279:}
+------------------
+_ZN31TestInterpretator_TestOver_TestC1Ev:
+function _ZN31TestInterpretator_TestOver_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  271:TEST(TestInterpretator, TestOver) {
+        1:  271-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestOver_TestD0Ev:
+function _ZN31TestInterpretator_TestOver_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  271:TEST(TestInterpretator, TestOver) {
+        1:  271-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN31TestInterpretator_TestOver_TestD1Ev:
+function _ZN31TestInterpretator_TestOver_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  271:TEST(TestInterpretator, TestOver) {
+        1:  271-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestOver_Test8TestBodyEv:
+function _ZN31TestInterpretator_TestOver_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:  271:TEST(TestInterpretator, TestOver) {
+        2:  272:    Interpreter H;
+        1:  272-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  272-block  1
+call    4 never executed
+        2:  273:    std::string out;
+        1:  273-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  273-block  1
+call    2 never executed
+        3:  274:    std::istringstream in("7 3 over .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  274-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  274-block  1
+    $$$$$:  274-block  2
+    $$$$$:  274-block  3
+call    9 never executed
+        -:  275:
+        1:  276:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  277:    EXPECT_EQ(out, "7");
+        1:  277-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  277-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  277-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  277-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  277-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  277-block  5
+call   16 never executed
+call   17 never executed
+        1:  277-block  6
+call   18 returned 1
+    $$$$$:  277-block  7
+call   19 never executed
+    $$$$$:  277-block  8
+    $$$$$:  277-block  9
+call   20 never executed
+    $$$$$:  277-block 10
+    $$$$$:  277-block 11
+call   21 never executed
+        1:  278:    out.clear();
+call    0 returned 1
+        1:  279:}
+------------------
+        -:  280:
+        4:  281:TEST(TestInterpretator, TestRot) {
+        2:  282:    Interpreter H;
+        2:  283:    std::string out;
+        3:  284:    std::istringstream in("10 20 30 rot . . .");
+        -:  285:
+        1:  286:    H.TextProccesing(in, out);
+       1*:  287:    EXPECT_EQ(out, "30 10 20");
+        1:  288:    out.clear();
+        1:  289:}
+------------------
+_ZN30TestInterpretator_TestRot_TestC1Ev:
+function _ZN30TestInterpretator_TestRot_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  281:TEST(TestInterpretator, TestRot) {
+        1:  281-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestRot_TestD0Ev:
+function _ZN30TestInterpretator_TestRot_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  281:TEST(TestInterpretator, TestRot) {
+        1:  281-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30TestInterpretator_TestRot_TestD1Ev:
+function _ZN30TestInterpretator_TestRot_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  281:TEST(TestInterpretator, TestRot) {
+        1:  281-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestRot_Test8TestBodyEv:
+function _ZN30TestInterpretator_TestRot_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:  281:TEST(TestInterpretator, TestRot) {
+        2:  282:    Interpreter H;
+        1:  282-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  282-block  1
+call    4 never executed
+        2:  283:    std::string out;
+        1:  283-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  283-block  1
+call    2 never executed
+        3:  284:    std::istringstream in("10 20 30 rot . . .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  284-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  284-block  1
+    $$$$$:  284-block  2
+    $$$$$:  284-block  3
+call    9 never executed
+        -:  285:
+        1:  286:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  287:    EXPECT_EQ(out, "30 10 20");
+        1:  287-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  287-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  287-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  287-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  287-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  287-block  5
+call   16 never executed
+call   17 never executed
+        1:  287-block  6
+call   18 returned 1
+    $$$$$:  287-block  7
+call   19 never executed
+    $$$$$:  287-block  8
+    $$$$$:  287-block  9
+call   20 never executed
+    $$$$$:  287-block 10
+    $$$$$:  287-block 11
+call   21 never executed
+        1:  288:    out.clear();
+call    0 returned 1
+        1:  289:}
+------------------
+        -:  290:
+        4:  291:TEST(TestInterpretator, TestStringOutput) {
+        2:  292:    Interpreter H;
+        2:  293:    std::string out;
+        3:  294:    std::istringstream in("0 if .\" DAAA\" else .\" NEEET\" then ;");
+        -:  295:
+        1:  296:    H.TextProccesing(in, out);
+       1*:  297:    EXPECT_EQ(out, "NEEET");
+        1:  298:    out.clear();
+        -:  299:
+        3:  300:    std::istringstream in2("0 if .\" DAAA else .\" NEEET\" then ;");
+       2*:  301:    EXPECT_THROW(H.TextProccesing(in2, out), std::runtime_error);
+        1:  302:    out.clear();
+        -:  303:
+        3:  304:    std::istringstream in3("0 if .\" DAAA\" else .\" NEEET then ;");
+       2*:  305:    EXPECT_THROW(H.TextProccesing(in3, out), std::runtime_error);
+        1:  306:    out.clear();
+        1:  307:}
+------------------
+_ZN39TestInterpretator_TestStringOutput_TestC1Ev:
+function _ZN39TestInterpretator_TestStringOutput_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  291:TEST(TestInterpretator, TestStringOutput) {
+        1:  291-block  0
+call    0 returned 1
+------------------
+_ZN39TestInterpretator_TestStringOutput_TestD0Ev:
+function _ZN39TestInterpretator_TestStringOutput_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  291:TEST(TestInterpretator, TestStringOutput) {
+        1:  291-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN39TestInterpretator_TestStringOutput_TestD1Ev:
+function _ZN39TestInterpretator_TestStringOutput_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  291:TEST(TestInterpretator, TestStringOutput) {
+        1:  291-block  0
+call    0 returned 1
+------------------
+_ZN39TestInterpretator_TestStringOutput_Test8TestBodyEv:
+function _ZN39TestInterpretator_TestStringOutput_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+        1:  291:TEST(TestInterpretator, TestStringOutput) {
+        2:  292:    Interpreter H;
+        1:  292-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  292-block  1
+call    4 never executed
+        2:  293:    std::string out;
+        1:  293-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  293-block  1
+call    2 never executed
+        3:  294:    std::istringstream in("0 if .\" DAAA\" else .\" NEEET\" then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  294-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  294-block  1
+    $$$$$:  294-block  2
+    $$$$$:  294-block  3
+call    9 never executed
+        -:  295:
+        1:  296:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  297:    EXPECT_EQ(out, "NEEET");
+        1:  297-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  297-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  297-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  297-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  297-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  297-block  5
+call   16 never executed
+call   17 never executed
+        1:  297-block  6
+call   18 returned 1
+    $$$$$:  297-block  7
+call   19 never executed
+    $$$$$:  297-block  8
+    $$$$$:  297-block  9
+call   20 never executed
+    $$$$$:  297-block 10
+    $$$$$:  297-block 11
+call   21 never executed
+        1:  298:    out.clear();
+call    0 returned 1
+        -:  299:
+        3:  300:    std::istringstream in2("0 if .\" DAAA else .\" NEEET\" then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  300-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  300-block  1
+    $$$$$:  300-block  2
+    $$$$$:  300-block  3
+call    9 never executed
+       2*:  301:    EXPECT_THROW(H.TextProccesing(in2, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  301-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  301-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  301-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  301-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  301-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  301-block  5
+    %%%%%:  301-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  301-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  301-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  301-block  9
+call   27 never executed
+call   28 never executed
+        1:  301-block 10
+call   29 returned 1
+        1:  301-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  301-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  301-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  301-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  301-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  301-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  301-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  301-block 18
+call   53 never executed
+    $$$$$:  301-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  301-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  301-block 21
+call   61 never executed
+    $$$$$:  301-block 22
+    $$$$$:  301-block 23
+call   62 never executed
+    $$$$$:  301-block 24
+call   63 never executed
+    $$$$$:  301-block 25
+call   64 never executed
+    $$$$$:  301-block 26
+    $$$$$:  301-block 27
+call   65 never executed
+    $$$$$:  301-block 28
+    $$$$$:  301-block 29
+call   66 never executed
+        1:  302:    out.clear();
+call    0 returned 1
+        -:  303:
+        3:  304:    std::istringstream in3("0 if .\" DAAA\" else .\" NEEET then ;");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  304-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  304-block  1
+    $$$$$:  304-block  2
+    $$$$$:  304-block  3
+call    9 never executed
+       2*:  305:    EXPECT_THROW(H.TextProccesing(in3, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  305-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  305-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  305-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  305-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  305-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  305-block  5
+    %%%%%:  305-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  305-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  305-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  305-block  9
+call   27 never executed
+call   28 never executed
+        1:  305-block 10
+call   29 returned 1
+        1:  305-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  305-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  305-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  305-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  305-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  305-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  305-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  305-block 18
+call   53 never executed
+    $$$$$:  305-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  305-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  305-block 21
+call   61 never executed
+    $$$$$:  305-block 22
+    $$$$$:  305-block 23
+call   62 never executed
+    $$$$$:  305-block 24
+call   63 never executed
+    $$$$$:  305-block 25
+call   64 never executed
+    $$$$$:  305-block 26
+    $$$$$:  305-block 27
+call   65 never executed
+    $$$$$:  305-block 28
+    $$$$$:  305-block 29
+call   66 never executed
+        1:  306:    out.clear();
+call    0 returned 1
+        1:  307:}
+------------------
+        -:  308:
+        4:  309:TEST(TestInterpretator, TestSub) {
+        2:  310:    Interpreter H;
+        2:  311:    std::string out;
+        3:  312:    std::istringstream in("100 90 - .");
+        -:  313:
+        1:  314:    H.TextProccesing(in, out);
+       1*:  315:    EXPECT_EQ(out, "10");
+        1:  316:    out.clear();
+        1:  317:}
+------------------
+_ZN30TestInterpretator_TestSub_TestC1Ev:
+function _ZN30TestInterpretator_TestSub_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  309:TEST(TestInterpretator, TestSub) {
+        1:  309-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestSub_TestD0Ev:
+function _ZN30TestInterpretator_TestSub_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  309:TEST(TestInterpretator, TestSub) {
+        1:  309-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30TestInterpretator_TestSub_TestD1Ev:
+function _ZN30TestInterpretator_TestSub_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  309:TEST(TestInterpretator, TestSub) {
+        1:  309-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestSub_Test8TestBodyEv:
+function _ZN30TestInterpretator_TestSub_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:  309:TEST(TestInterpretator, TestSub) {
+        2:  310:    Interpreter H;
+        1:  310-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  310-block  1
+call    4 never executed
+        2:  311:    std::string out;
+        1:  311-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  311-block  1
+call    2 never executed
+        3:  312:    std::istringstream in("100 90 - .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  312-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  312-block  1
+    $$$$$:  312-block  2
+    $$$$$:  312-block  3
+call    9 never executed
+        -:  313:
+        1:  314:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  315:    EXPECT_EQ(out, "10");
+        1:  315-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  315-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  315-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  315-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  315-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  315-block  5
+call   16 never executed
+call   17 never executed
+        1:  315-block  6
+call   18 returned 1
+    $$$$$:  315-block  7
+call   19 never executed
+    $$$$$:  315-block  8
+    $$$$$:  315-block  9
+call   20 never executed
+    $$$$$:  315-block 10
+    $$$$$:  315-block 11
+call   21 never executed
+        1:  316:    out.clear();
+call    0 returned 1
+        1:  317:}
+------------------
+        -:  318:
+        4:  319:TEST(TestInterpretator, TestSwap) {
+        2:  320:    Interpreter H;
+        2:  321:    std::string out;
+        3:  322:    std::istringstream in("250 500 swap . .");
+        -:  323:
+        1:  324:    H.TextProccesing(in, out);
+       1*:  325:    EXPECT_EQ(out, "250 500");
+        1:  326:    out.clear();
+        1:  327:}
+------------------
+_ZN31TestInterpretator_TestSwap_TestC1Ev:
+function _ZN31TestInterpretator_TestSwap_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  319:TEST(TestInterpretator, TestSwap) {
+        1:  319-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestSwap_TestD0Ev:
+function _ZN31TestInterpretator_TestSwap_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  319:TEST(TestInterpretator, TestSwap) {
+        1:  319-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN31TestInterpretator_TestSwap_TestD1Ev:
+function _ZN31TestInterpretator_TestSwap_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  319:TEST(TestInterpretator, TestSwap) {
+        1:  319-block  0
+call    0 returned 1
+------------------
+_ZN31TestInterpretator_TestSwap_Test8TestBodyEv:
+function _ZN31TestInterpretator_TestSwap_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:  319:TEST(TestInterpretator, TestSwap) {
+        2:  320:    Interpreter H;
+        1:  320-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  320-block  1
+call    4 never executed
+        2:  321:    std::string out;
+        1:  321-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  321-block  1
+call    2 never executed
+        3:  322:    std::istringstream in("250 500 swap . .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  322-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  322-block  1
+    $$$$$:  322-block  2
+    $$$$$:  322-block  3
+call    9 never executed
+        -:  323:
+        1:  324:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  325:    EXPECT_EQ(out, "250 500");
+        1:  325-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  325-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  325-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  325-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  325-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  325-block  5
+call   16 never executed
+call   17 never executed
+        1:  325-block  6
+call   18 returned 1
+    $$$$$:  325-block  7
+call   19 never executed
+    $$$$$:  325-block  8
+    $$$$$:  325-block  9
+call   20 never executed
+    $$$$$:  325-block 10
+    $$$$$:  325-block 11
+call   21 never executed
+        1:  326:    out.clear();
+call    0 returned 1
+        1:  327:}
+------------------
+        -:  328:
+        4:  329:TEST(TestInterpretator, TestSum) {
+        2:  330:    Interpreter H;
+        2:  331:    std::string out;
+        3:  332:    std::istringstream in("-500 -500 + .");
+        -:  333:
+        1:  334:    H.TextProccesing(in, out);
+       1*:  335:    EXPECT_EQ(out, "-1000");
+        1:  336:    out.clear();
+        1:  337:}
+------------------
+_ZN30TestInterpretator_TestSum_TestC1Ev:
+function _ZN30TestInterpretator_TestSum_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  329:TEST(TestInterpretator, TestSum) {
+        1:  329-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestSum_TestD0Ev:
+function _ZN30TestInterpretator_TestSum_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  329:TEST(TestInterpretator, TestSum) {
+        1:  329-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30TestInterpretator_TestSum_TestD1Ev:
+function _ZN30TestInterpretator_TestSum_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  329:TEST(TestInterpretator, TestSum) {
+        1:  329-block  0
+call    0 returned 1
+------------------
+_ZN30TestInterpretator_TestSum_Test8TestBodyEv:
+function _ZN30TestInterpretator_TestSum_Test8TestBodyEv called 1 returned 100% blocks executed 39%
+        1:  329:TEST(TestInterpretator, TestSum) {
+        2:  330:    Interpreter H;
+        1:  330-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  330-block  1
+call    4 never executed
+        2:  331:    std::string out;
+        1:  331-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  331-block  1
+call    2 never executed
+        3:  332:    std::istringstream in("-500 -500 + .");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  332-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  332-block  1
+    $$$$$:  332-block  2
+    $$$$$:  332-block  3
+call    9 never executed
+        -:  333:
+        1:  334:    H.TextProccesing(in, out);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:  335:    EXPECT_EQ(out, "-1000");
+        1:  335-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  335-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:  335-block  2
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+    %%%%%:  335-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed
+branch 12 never executed
+    %%%%%:  335-block  4
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  335-block  5
+call   16 never executed
+call   17 never executed
+        1:  335-block  6
+call   18 returned 1
+    $$$$$:  335-block  7
+call   19 never executed
+    $$$$$:  335-block  8
+    $$$$$:  335-block  9
+call   20 never executed
+    $$$$$:  335-block 10
+    $$$$$:  335-block 11
+call   21 never executed
+        1:  336:    out.clear();
+call    0 returned 1
+        1:  337:}
+------------------
+        -:  338:
+        4:  339:TEST(TestInterpretator, TestUtility) {
+        2:  340:    std::string out;
+        2:  341:    Tokens tokens;
+        -:  342:
+       1*:  343:    EXPECT_EQ(isNumber(out), false);
+        1:  344:    out.clear();
+        -:  345:
+        1:  346:    tokens.Push("qwerty");
+        1:  347:    tokens.Push("12345");
+       2*:  348:    EXPECT_THROW(CheckSemicolon(tokens), std::runtime_error);
+        1:  349:}
+------------------
+_ZN34TestInterpretator_TestUtility_TestC1Ev:
+function _ZN34TestInterpretator_TestUtility_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  339:TEST(TestInterpretator, TestUtility) {
+        1:  339-block  0
+call    0 returned 1
+------------------
+_ZN34TestInterpretator_TestUtility_TestD0Ev:
+function _ZN34TestInterpretator_TestUtility_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  339:TEST(TestInterpretator, TestUtility) {
+        1:  339-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN34TestInterpretator_TestUtility_TestD1Ev:
+function _ZN34TestInterpretator_TestUtility_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  339:TEST(TestInterpretator, TestUtility) {
+        1:  339-block  0
+call    0 returned 1
+------------------
+_ZN34TestInterpretator_TestUtility_Test8TestBodyEv:
+function _ZN34TestInterpretator_TestUtility_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+        1:  339:TEST(TestInterpretator, TestUtility) {
+        2:  340:    std::string out;
+        1:  340-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  340-block  1
+call    2 never executed
+        2:  341:    Tokens tokens;
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  341-block  0
+call    4 never executed
+        -:  342:
+       1*:  343:    EXPECT_EQ(isNumber(out), false);
+        1:  343-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  343-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  343-block  2
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:  343-block  3
+call    9 never executed
+branch 10 never executed
+branch 11 never executed
+    %%%%%:  343-block  4
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+    %%%%%:  343-block  5
+call   16 never executed
+branch 17 never executed
+branch 18 never executed
+    %%%%%:  343-block  6
+call   19 never executed
+call   20 never executed
+        1:  343-block  7
+call   21 returned 1
+    $$$$$:  343-block  8
+    $$$$$:  343-block  9
+    $$$$$:  343-block 10
+call   22 never executed
+    $$$$$:  343-block 11
+    $$$$$:  343-block 12
+call   23 never executed
+    $$$$$:  343-block 13
+    $$$$$:  343-block 14
+call   24 never executed
+        1:  344:    out.clear();
+call    0 returned 1
+        -:  345:
+        1:  346:    tokens.Push("qwerty");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  346-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  346-block  1
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  346-block  2
+call    9 never executed
+    $$$$$:  346-block  3
+    $$$$$:  346-block  4
+call   10 never executed
+    $$$$$:  346-block  5
+        1:  347:    tokens.Push("12345");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  347-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  347-block  1
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  347-block  2
+call    9 never executed
+    $$$$$:  347-block  3
+    $$$$$:  347-block  4
+call   10 never executed
+    $$$$$:  347-block  5
+       2*:  348:    EXPECT_THROW(CheckSemicolon(tokens), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  348-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  348-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  348-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  348-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  348-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  348-block  5
+    %%%%%:  348-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  348-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  348-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  348-block  9
+call   27 never executed
+call   28 never executed
+        1:  348-block 10
+call   29 returned 1
+        1:  348-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  348-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  348-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  348-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  348-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  348-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  348-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  348-block 18
+call   53 never executed
+    $$$$$:  348-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  348-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  348-block 21
+call   61 never executed
+    $$$$$:  348-block 22
+    $$$$$:  348-block 23
+call   62 never executed
+    $$$$$:  348-block 24
+call   63 never executed
+    $$$$$:  348-block 25
+call   64 never executed
+    $$$$$:  348-block 26
+    $$$$$:  348-block 27
+call   65 never executed
+    $$$$$:  348-block 28
+    $$$$$:  348-block 29
+call   66 never executed
+        1:  349:}
+------------------
+        -:  350:
+        4:  351:TEST(TestInterpretator, TestCommand) {
+        2:  352:    Command command;
+        2:  353:    Operands operands;
+        2:  354:    Tokens tokens;
+        2:  355:    std::string output;
+        3:  356:    std::istringstream in("123");
+        1:  357:    Reader reader(in);
+        -:  358:
+        1:  359:    command.Execute(operands, tokens, output, reader);
+        1:  360:    command.Check(tokens, reader);
+        1:  361:}
+------------------
+_ZN34TestInterpretator_TestCommand_TestC1Ev:
+function _ZN34TestInterpretator_TestCommand_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  351:TEST(TestInterpretator, TestCommand) {
+        1:  351-block  0
+call    0 returned 1
+------------------
+_ZN34TestInterpretator_TestCommand_TestD0Ev:
+function _ZN34TestInterpretator_TestCommand_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  351:TEST(TestInterpretator, TestCommand) {
+        1:  351-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN34TestInterpretator_TestCommand_TestD1Ev:
+function _ZN34TestInterpretator_TestCommand_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  351:TEST(TestInterpretator, TestCommand) {
+        1:  351-block  0
+call    0 returned 1
+------------------
+_ZN34TestInterpretator_TestCommand_Test8TestBodyEv:
+function _ZN34TestInterpretator_TestCommand_Test8TestBodyEv called 1 returned 100% blocks executed 54%
+        1:  351:TEST(TestInterpretator, TestCommand) {
+        2:  352:    Command command;
+        1:  352-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  352-block  1
+call    4 never executed
+        2:  353:    Operands operands;
+        1:  353-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  353-block  1
+call    4 never executed
+        2:  354:    Tokens tokens;
+        1:  354-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  354-block  1
+call    4 never executed
+        2:  355:    std::string output;
+        1:  355-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  355-block  1
+call    2 never executed
+        3:  356:    std::istringstream in("123");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  356-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+        1:  356-block  1
+call    8 returned 1
+    $$$$$:  356-block  2
+    $$$$$:  356-block  3
+    $$$$$:  356-block  4
+call    9 never executed
+        1:  357:    Reader reader(in);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  358:
+        1:  359:    command.Execute(operands, tokens, output, reader);
+        1:  359-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  360:    command.Check(tokens, reader);
+        1:  360-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  361:}
+------------------
+        -:  362:
+        4:  363:TEST(TestInterpretator, TestInterprerator) {
+        2:  364:    Interpreter H;
+        2:  365:    std::string out;
+        3:  366:    std::istringstream in("QWERTY");
+        -:  367:
+       2*:  368:    EXPECT_THROW(H.TextProccesing(in, out), std::runtime_error);
+        1:  369:    out.clear();
+        1:  370:}
+------------------
+_ZN40TestInterpretator_TestInterprerator_TestC1Ev:
+function _ZN40TestInterpretator_TestInterprerator_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  363:TEST(TestInterpretator, TestInterprerator) {
+        1:  363-block  0
+call    0 returned 1
+------------------
+_ZN40TestInterpretator_TestInterprerator_TestD0Ev:
+function _ZN40TestInterpretator_TestInterprerator_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  363:TEST(TestInterpretator, TestInterprerator) {
+        1:  363-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN40TestInterpretator_TestInterprerator_TestD1Ev:
+function _ZN40TestInterpretator_TestInterprerator_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  363:TEST(TestInterpretator, TestInterprerator) {
+        1:  363-block  0
+call    0 returned 1
+------------------
+_ZN40TestInterpretator_TestInterprerator_Test8TestBodyEv:
+function _ZN40TestInterpretator_TestInterprerator_Test8TestBodyEv called 1 returned 100% blocks executed 32%
+        1:  363:TEST(TestInterpretator, TestInterprerator) {
+        2:  364:    Interpreter H;
+        1:  364-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  364-block  1
+call    4 never executed
+        2:  365:    std::string out;
+        1:  365-block  0
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  365-block  1
+call    2 never executed
+        3:  366:    std::istringstream in("QWERTY");
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  366-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+call    7 returned 1
+call    8 returned 1
+    $$$$$:  366-block  1
+    $$$$$:  366-block  2
+    $$$$$:  366-block  3
+call    9 never executed
+        -:  367:
+       2*:  368:    EXPECT_THROW(H.TextProccesing(in, out), std::runtime_error);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  368-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  368-block  1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  368-block  2
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  368-block  3
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  368-block  4
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  368-block  5
+    %%%%%:  368-block  6
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  368-block  7
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  368-block  8
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  368-block  9
+call   27 never executed
+call   28 never executed
+        1:  368-block 10
+call   29 returned 1
+        1:  368-block 11
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  368-block 12
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  368-block 13
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  368-block 14
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  368-block 15
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  368-block 16
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  368-block 17
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  368-block 18
+call   53 never executed
+    $$$$$:  368-block 19
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  368-block 20
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  368-block 21
+call   61 never executed
+    $$$$$:  368-block 22
+    $$$$$:  368-block 23
+call   62 never executed
+    $$$$$:  368-block 24
+call   63 never executed
+    $$$$$:  368-block 25
+call   64 never executed
+    $$$$$:  368-block 26
+    $$$$$:  368-block 27
+call   65 never executed
+    $$$$$:  368-block 28
+    $$$$$:  368-block 29
+call   66 never executed
+        1:  369:    out.clear();
+call    0 returned 1
+        1:  370:}
+------------------
+        -:  371:
+        -:  372:
+function _Z18createStringOutputv called 1 returned 100% blocks executed 83%
+        1:  373:Command *createStringOutput() {
+        1:  374:    return new StringOutput();
+        1:  374-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  374-block  1
+        1:  374-block  2
+    $$$$$:  374-block  3
+call    4 never executed
+        -:  375:}
+        4:  376:TEST(TestInterpretator, TestFactory) {
+        1:  377:    auto pFactory = Factory<Command, std::string, Command*(*)()>::getInstance();
+        2:  378:    auto p = std::unique_ptr<Command>(createStringOutput());
+       1*:  379:    EXPECT_EQ(pFactory->regist3r("if", createStringOutput), false);
+       1*:  380:    EXPECT_EQ(pFactory->complexFuncRegist3r("if", createStringOutput), false);
+        1:  381:}
+------------------
+_ZN34TestInterpretator_TestFactory_TestC1Ev:
+function _ZN34TestInterpretator_TestFactory_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  376:TEST(TestInterpretator, TestFactory) {
+        1:  376-block  0
+call    0 returned 1
+------------------
+_ZN34TestInterpretator_TestFactory_TestD0Ev:
+function _ZN34TestInterpretator_TestFactory_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  376:TEST(TestInterpretator, TestFactory) {
+        1:  376-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN34TestInterpretator_TestFactory_TestD1Ev:
+function _ZN34TestInterpretator_TestFactory_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  376:TEST(TestInterpretator, TestFactory) {
+        1:  376-block  0
+call    0 returned 1
+------------------
+_ZN34TestInterpretator_TestFactory_Test8TestBodyEv:
+function _ZN34TestInterpretator_TestFactory_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+        1:  376:TEST(TestInterpretator, TestFactory) {
+        1:  377:    auto pFactory = Factory<Command, std::string, Command*(*)()>::getInstance();
+        1:  377-block  0
+call    0 returned 1
+        2:  378:    auto p = std::unique_ptr<Command>(createStringOutput());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  378-block  0
+call    3 returned 1
+call    4 returned 1
+    $$$$$:  378-block  1
+call    5 never executed
+       1*:  379:    EXPECT_EQ(pFactory->regist3r("if", createStringOutput), false);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  379-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  379-block  1
+call    7 returned 1
+branch  8 taken 1 (fallthrough)
+branch  9 taken 0 (throw)
+        1:  379-block  2
+call   10 returned 1
+call   11 returned 1
+call   12 returned 1
+branch 13 taken 0 (fallthrough)
+branch 14 taken 1
+    %%%%%:  379-block  3
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:  379-block  4
+call   18 never executed
+call   19 never executed
+branch 20 never executed
+branch 21 never executed
+    %%%%%:  379-block  5
+call   22 never executed
+branch 23 never executed
+branch 24 never executed
+    %%%%%:  379-block  6
+call   25 never executed
+call   26 never executed
+        1:  379-block  7
+call   27 returned 1
+    $$$$$:  379-block  8
+    $$$$$:  379-block  9
+    $$$$$:  379-block 10
+    $$$$$:  379-block 11
+    $$$$$:  379-block 12
+call   28 never executed
+    $$$$$:  379-block 13
+    $$$$$:  379-block 14
+call   29 never executed
+    $$$$$:  379-block 15
+    $$$$$:  379-block 16
+call   30 never executed
+       1*:  380:    EXPECT_EQ(pFactory->complexFuncRegist3r("if", createStringOutput), false);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  380-block  0
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  380-block  1
+call    7 returned 1
+branch  8 taken 1 (fallthrough)
+branch  9 taken 0 (throw)
+        1:  380-block  2
+call   10 returned 1
+call   11 returned 1
+call   12 returned 1
+branch 13 taken 0 (fallthrough)
+branch 14 taken 1
+    %%%%%:  380-block  3
+call   15 never executed
+branch 16 never executed
+branch 17 never executed
+    %%%%%:  380-block  4
+call   18 never executed
+call   19 never executed
+branch 20 never executed
+branch 21 never executed
+    %%%%%:  380-block  5
+call   22 never executed
+branch 23 never executed
+branch 24 never executed
+    %%%%%:  380-block  6
+call   25 never executed
+call   26 never executed
+        1:  380-block  7
+call   27 returned 1
+    $$$$$:  380-block  8
+    $$$$$:  380-block  9
+    $$$$$:  380-block 10
+    $$$$$:  380-block 11
+    $$$$$:  380-block 12
+call   28 never executed
+    $$$$$:  380-block 13
+    $$$$$:  380-block 14
+call   29 never executed
+    $$$$$:  380-block 15
+    $$$$$:  380-block 16
+call   30 never executed
+        1:  381:}
+------------------
+        -:  382:
+        4:  383:TEST(TestInterpretator, TestOperands) {
+        2:  384:    Operands operands;
+        -:  385:
+       2*:  386:    EXPECT_THROW(operands.Top(), std::underflow_error);
+        1:  387:}
+------------------
+_ZN35TestInterpretator_TestOperands_TestC1Ev:
+function _ZN35TestInterpretator_TestOperands_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  383:TEST(TestInterpretator, TestOperands) {
+        1:  383-block  0
+call    0 returned 1
+------------------
+_ZN35TestInterpretator_TestOperands_TestD0Ev:
+function _ZN35TestInterpretator_TestOperands_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  383:TEST(TestInterpretator, TestOperands) {
+        1:  383-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN35TestInterpretator_TestOperands_TestD1Ev:
+function _ZN35TestInterpretator_TestOperands_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  383:TEST(TestInterpretator, TestOperands) {
+        1:  383-block  0
+call    0 returned 1
+------------------
+_ZN35TestInterpretator_TestOperands_Test8TestBodyEv:
+function _ZN35TestInterpretator_TestOperands_Test8TestBodyEv called 1 returned 100% blocks executed 27%
+        1:  383:TEST(TestInterpretator, TestOperands) {
+        2:  384:    Operands operands;
+        1:  384-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:  384-block  1
+call    4 never executed
+        -:  385:
+       2*:  386:    EXPECT_THROW(operands.Top(), std::underflow_error);
+        1:  386-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  386-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  386-block  2
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  386-block  3
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1 (throw)
+        1:  386-block  4
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  386-block  5
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+    %%%%%:  386-block  6
+    %%%%%:  386-block  7
+call   17 never executed
+branch 18 never executed
+branch 19 never executed
+    %%%%%:  386-block  8
+call   20 never executed
+call   21 never executed
+branch 22 never executed
+branch 23 never executed
+    %%%%%:  386-block  9
+call   24 never executed
+branch 25 never executed
+branch 26 never executed
+    %%%%%:  386-block 10
+call   27 never executed
+call   28 never executed
+        1:  386-block 11
+call   29 returned 1
+        1:  386-block 12
+call   30 returned 1
+call   31 returned 1
+    $$$$$:  386-block 13
+call   32 never executed
+call   33 never executed
+branch 34 never executed
+branch 35 never executed
+    $$$$$:  386-block 14
+call   36 never executed
+branch 37 never executed
+branch 38 never executed
+    $$$$$:  386-block 15
+call   39 never executed
+branch 40 never executed
+branch 41 never executed
+    $$$$$:  386-block 16
+call   42 never executed
+call   43 never executed
+branch 44 never executed
+branch 45 never executed
+    $$$$$:  386-block 17
+call   46 never executed
+call   47 never executed
+branch 48 never executed
+branch 49 never executed
+    $$$$$:  386-block 18
+call   50 never executed
+branch 51 never executed
+branch 52 never executed
+    $$$$$:  386-block 19
+call   53 never executed
+    $$$$$:  386-block 20
+call   54 never executed
+call   55 never executed
+branch 56 never executed
+branch 57 never executed
+    $$$$$:  386-block 21
+call   58 never executed
+branch 59 never executed
+branch 60 never executed
+    $$$$$:  386-block 22
+call   61 never executed
+    $$$$$:  386-block 23
+    $$$$$:  386-block 24
+call   62 never executed
+    $$$$$:  386-block 25
+call   63 never executed
+    $$$$$:  386-block 26
+call   64 never executed
+    $$$$$:  386-block 27
+    $$$$$:  386-block 28
+call   65 never executed
+    $$$$$:  386-block 29
+    $$$$$:  386-block 30
+call   66 never executed
+        1:  387:}
+------------------
+        -:  388:
+function main called 1 returned 100% blocks executed 100%
+        1:  389:int main() {
+        1:  390:    testing::InitGoogleTest();
+        1:  390-block  0
+call    0 returned 1
+        1:  391:    return RUN_ALL_TESTS();
+call    0 returned 1
+        -:  392:}

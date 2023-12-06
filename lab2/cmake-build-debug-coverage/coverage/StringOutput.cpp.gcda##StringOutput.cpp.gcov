@@ -1,0 +1,89 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/StringOutput.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\StringOutput.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\StringOutput.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "StringOutput.h"
+        -:    2:#include <iostream>
+        -:    3:#include "FactoryComplexFuncInitializer.h"
+        -:    4:#include <fstream>
+        -:    5:#include <exception>
+        -:    6:
+function _ZN12StringOutput7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 2 returned 50% blocks executed 82%
+        2:    7:void StringOutput::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader){
+        2:    8:    if(!tokens.IsEmpty()) {
+        2:    8-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0
+        2:    9:        std::string token = tokens.GetAndPop();
+        2:    9-block  0
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:    9-block  1
+call    3 never executed
+        2:   10:        if(token.back() == '"') {
+        2:   10-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1
+        1:   11:            output += token;
+        1:   11-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   12:            output.pop_back();
+        1:   12-block  0
+call    0 returned 1
+        2:   13:            return;
+        1:   13-block  0
+        -:   14:        }
+        -:   15:    }
+        1:   16:    throw std::runtime_error("String is incorrect");
+        1:   16-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   16-block  1
+call    4 returned 0
+    $$$$$:   16-block  2
+call    5 never executed
+        -:   17:}
+        -:   18:
+function _ZN12StringOutput5CheckER6TokensR6Reader called 3 returned 67% blocks executed 89%
+        3:   19:void StringOutput::Check(Tokens& tokens, Reader& reader) {
+        3:   20:    if(!tokens.IsEmpty()) {
+        3:   20-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0
+        3:   21:        std::string token = tokens.GetAndPop();
+        3:   21-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   22:        if(token.back() == '"') {
+        3:   22-block  0
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        4:   23:            return;
+        2:   23-block  0
+        2:   23-block  1
+        -:   24:        }
+        -:   25:    }
+        1:   26:    throw std::runtime_error("String is incorrect");
+        1:   26-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   26-block  1
+call    4 returned 0
+    $$$$$:   26-block  2
+call    5 never executed
+        -:   27:}
+        -:   28:namespace {
+        -:   29:    FactoryComplexFuncInitializer<StringOutput> Registration(".\"");
+        -:   30:}

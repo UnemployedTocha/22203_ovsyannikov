@@ -1,0 +1,1001 @@
+        -:    0:Source:d:/mingw/include/stdlib.h
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Test.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Test.cpp.gcda
+        -:    0:Runs:1
+        -:    1:/*
+        -:    2: * stdlib.h
+        -:    3: *
+        -:    4: * ANSI/POSIX + Microsoft compatible standard library function prototypes,
+        -:    5: * associated macros, and manifest constant definitions.
+        -:    6: *
+        -:    7: * $Id: stdlib.h,v c5acb0e27565 2020/04/19 12:02:24 keith $
+        -:    8: *
+        -:    9: * Written by Colin Peters <colin@bird.fu.is.saga-u.ac.jp>
+        -:   10: * Copyright (C) 1997-2009, 2011, 2014-2016, 2018, 2020, MinGW.org Project.
+        -:   11: *
+        -:   12: *
+        -:   13: * Permission is hereby granted, free of charge, to any person obtaining a
+        -:   14: * copy of this software and associated documentation files (the "Software"),
+        -:   15: * to deal in the Software without restriction, including without limitation
+        -:   16: * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+        -:   17: * and/or sell copies of the Software, and to permit persons to whom the
+        -:   18: * Software is furnished to do so, subject to the following conditions:
+        -:   19: *
+        -:   20: * The above copyright notice, this permission notice, and the following
+        -:   21: * disclaimer shall be included in all copies or substantial portions of
+        -:   22: * the Software.
+        -:   23: *
+        -:   24: * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+        -:   25: * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        -:   26: * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+        -:   27: * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        -:   28: * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+        -:   29: * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF OR OTHER
+        -:   30: * DEALINGS IN THE SOFTWARE.
+        -:   31: *
+        -:   32: */
+        -:   33:#ifndef _STDLIB_H
+        -:   34:#pragma GCC system_header
+        -:   35:
+        -:   36:/* Some of the content of this header is made selectively accessible,
+        -:   37: * when indirectly included via <wchar.h>; only when we have established
+        -:   38: * that this inclusion is NOT via this selective method...
+        -:   39: */
+        -:   40:#ifndef __WCHAR_H_SOURCED__
+        -:   41: /* ...do we define the repeat inclusion guard for <stdlib.h> itself.
+        -:   42:  */
+        -:   43:#define _STDLIB_H
+        -:   44:
+        -:   45:/* All MinGW headers must include <_mingw.h>; if included via <wchar.h>,
+        -:   46: * we assume that this has been done already, otherwise we must attend to
+        -:   47: * it for <stdlib.h>.
+        -:   48: */
+        -:   49:#include <_mingw.h>
+        -:   50:
+        -:   51:#ifndef RC_INVOKED
+        -:   52:#define __need_size_t
+        -:   53:#define __need_wchar_t
+        -:   54:#define __need_NULL
+        -:   55:#include <stddef.h>
+        -:   56:#endif /* RC_INVOKED */
+        -:   57:
+        -:   58:/* RAND_MAX is the maximum value that may be returned by rand.
+        -:   59: * The minimum is zero.
+        -:   60: */
+        -:   61:#define RAND_MAX	0x7FFF
+        -:   62:
+        -:   63:/* These values may be used as exit status codes.
+        -:   64: */
+        -:   65:#define EXIT_SUCCESS	0
+        -:   66:#define EXIT_FAILURE	1
+        -:   67:
+        -:   68:/* Definitions for path name functions.
+        -:   69: * NOTE: All of these values have simply been chosen to be conservatively
+        -:   70: * high.  Remember that with long file names we can no longer depend on
+        -:   71: * extensions being short.
+        -:   72: */
+        -:   73:#ifndef __STRICT_ANSI__
+        -:   74:
+        -:   75:#ifndef MAX_PATH
+        -:   76:#define MAX_PATH	(260)
+        -:   77:#endif
+        -:   78:
+        -:   79:#define _MAX_PATH	MAX_PATH
+        -:   80:#define _MAX_DRIVE	(3)
+        -:   81:#define _MAX_DIR	256
+        -:   82:#define _MAX_FNAME	256
+        -:   83:#define _MAX_EXT	256
+        -:   84:
+        -:   85:#endif	/* !__STRICT_ANSI__ */
+        -:   86:#endif	/* !__WCHAR_H_SOURCED__ */
+        -:   87:
+        -:   88:#ifndef RC_INVOKED
+        -:   89:
+        -:   90:_BEGIN_C_DECLS
+        -:   91:
+        -:   92:#ifdef _STDLIB_H
+        -:   93:#if ! defined __STRICT_ANSI__
+        -:   94:/* This seems like a convenient place to declare these variables, which
+        -:   95: * give programs using WinMain (or main for that matter) access to main-ish
+        -:   96: * argc and argv. environ is a pointer to a table of environment variables.
+        -:   97: * NOTE: Strings in _argv and environ are ANSI strings.
+        -:   98: */
+        -:   99:extern int     _argc;
+        -:  100:extern char  **_argv;
+        -:  101:
+        -:  102:#ifdef __MSVCRT__
+        -:  103:/* Imports from the runtime DLL, for the above variables.
+        -:  104: */
+        -:  105:extern __cdecl __MINGW_NOTHROW  int       *__p___argc(void);
+        -:  106:extern __cdecl __MINGW_NOTHROW  char    ***__p___argv(void);
+        -:  107:extern __cdecl __MINGW_NOTHROW  wchar_t ***__p___wargv(void);
+        -:  108:
+        -:  109:#define __argc (*__p___argc())
+        -:  110:#define __argv (*__p___argv())
+        -:  111:#define __wargv (*__p___wargv())
+        -:  112:
+        -:  113:#else  /* ! __MSVCRT__ */
+        -:  114:
+        -:  115:#ifndef __DECLSPEC_SUPPORTED
+        -:  116:
+        -:  117:extern int    *_imp____argc_dll;
+        -:  118:extern char ***_imp____argv_dll;
+        -:  119:
+        -:  120:#define __argc (*_imp____argc_dll)
+        -:  121:#define __argv (*_imp____argv_dll)
+        -:  122:
+        -:  123:#else  /* __DECLSPEC_SUPPORTED */
+        -:  124:
+        -:  125:__MINGW_IMPORT int    __argc_dll;
+        -:  126:__MINGW_IMPORT char **__argv_dll;
+        -:  127:
+        -:  128:#define __argc __argc_dll
+        -:  129:#define __argv __argv_dll
+        -:  130:
+        -:  131:#endif  /* __DECLSPEC_SUPPORTED */
+        -:  132:
+        -:  133:#endif  /* __MSVCRT__ */
+        -:  134:#endif  /* __STRICT_ANSI__ */
+        -:  135:
+        -:  136:#ifndef MB_CUR_MAX
+        -:  137:/* FIXME: also defined in <ctype.h>; should be factored out.
+        -:  138: */
+        -:  139:#ifdef __DECLSPEC_SUPPORTED
+        -:  140:# ifdef __MSVCRT__
+        -:  141:#  define MB_CUR_MAX __mb_cur_max
+        -:  142:   __MINGW_IMPORT int __mb_cur_max;
+        -:  143:# else  /* ! __MSVCRT__ */
+        -:  144:#  define MB_CUR_MAX __mb_cur_max_dll
+        -:  145:   __MINGW_IMPORT int __mb_cur_max_dll;
+        -:  146:# endif  /* ! __MSVCRT__ */
+        -:  147:
+        -:  148:#else  /* ! __DECLSPEC_SUPPORTED */
+        -:  149:# ifdef __MSVCRT__
+        -:  150:   extern int* _imp____mb_cur_max;
+        -:  151:#  define MB_CUR_MAX (*_imp____mb_cur_max)
+        -:  152:# else  /* ! __MSVCRT__ */
+        -:  153:   extern int*  _imp____mb_cur_max_dll;
+        -:  154:#  define MB_CUR_MAX (*_imp____mb_cur_max_dll)
+        -:  155:# endif  /* ! __MSVCRT__ */
+        -:  156:#endif  /*  __DECLSPEC_SUPPORTED */
+        -:  157:#endif  /* MB_CUR_MAX */
+        -:  158:
+        -:  159:/* In MSVCR80.DLL, Microsoft introduced the following pair of errno
+        -:  160: * accessor functions; they subsequently became available in MSVCRT.DLL
+        -:  161: * from Vista onward.  Although they are not required by ISO-C, and they
+        -:  162: * are more cumbersome to use, than referring to errno directly, the GCC
+        -:  163: * developers have gratuitously chosen to assume, in GCC-9.x, that they
+        -:  164: * are always supported on MS-Windows, regardless of Windows version.
+        -:  165: * Logically, we might expect these to be declared in <errno.h>, but
+        -:  166: * Microsoft's documentation insists that they are actually declared
+        -:  167: * here; thus, to satisfy the GCC-9.x requirement, we will declare
+        -:  168: * them unconditionally here ...
+        -:  169: */
+        -:  170:__cdecl __MINGW_NOTHROW  int _get_errno(int *);
+        -:  171:__cdecl __MINGW_NOTHROW  int _set_errno(int);
+        -:  172:
+        -:  173:/* ... then provide in-line implementations, (depending on gratuitous
+        -:  174: * exposure of EINVAL, which strictly belongs in <errno.h> only, while
+        -:  175: * also requiring declaring the ISO-C errno feature, which Microsoft
+        -:  176: * documentation calls for both here, and in <errno.h>; we satisfy
+        -:  177: * both of these requirements by selective <errno.h> inclusion).
+        -:  178: */
+        -:  179:#define __STDLIB_H_SOURCED__ 1
+        -:  180:#include "errno.h"
+        -:  181:
+        -:  182:#if __MSVCRT_VERSION__ < __MSVCR80_DLL && _WIN32_WINNT < _WIN32_WINNT_VISTA
+        -:  183:/* These in-line implementations will support universal use of this API,
+        -:  184: * even on legacy Windows versions pre-dating Vista, without requiring use
+        -:  185: * of non-free MSVCRT80.DLL or later.
+        -:  186: */
+        -:  187:__CRT_ALIAS __cdecl __MINGW_NOTHROW  int _get_errno( int *__val )
+        -:  188:{ return (__val == NULL) ? (errno = EINVAL) : 0 & (*__val = errno); }
+        -:  189:
+        -:  190:__CRT_ALIAS __cdecl __MINGW_NOTHROW  int _set_errno( int __val )
+        -:  191:{ errno = __val; return 0; }
+        -:  192:
+        -:  193:#endif
+        -:  194:#undef __STDLIB_H_SOURCED__
+        -:  195:
+        -:  196:_CRTIMP __cdecl __MINGW_NOTHROW  int *__doserrno(void);
+        -:  197:#define _doserrno  (*__doserrno())
+        -:  198:
+        -:  199:#if !defined (__STRICT_ANSI__)
+        -:  200:/* Use environ from the DLL, not as a global.
+        -:  201: */
+        -:  202:#ifdef __MSVCRT__
+        -:  203:# define _environ  (*__p__environ())
+        -:  204:extern _CRTIMP __cdecl __MINGW_NOTHROW  char ***__p__environ(void);
+        -:  205:# define _wenviron  (*__p__wenviron())
+        -:  206:extern _CRTIMP __cdecl __MINGW_NOTHROW  wchar_t ***__p__wenviron(void);
+        -:  207:
+        -:  208:#else  /* ! __MSVCRT__ */
+        -:  209:# ifndef __DECLSPEC_SUPPORTED
+        -:  210:# define _environ (*_imp___environ_dll)
+        -:  211:extern char ***_imp___environ_dll;
+        -:  212:
+        -:  213:# else  /* __DECLSPEC_SUPPORTED */
+        -:  214:# define _environ  _environ_dll
+        -:  215:__MINGW_IMPORT char ** _environ_dll;
+        -:  216:# endif  /* __DECLSPEC_SUPPORTED */
+        -:  217:#endif  /* ! __MSVCRT__ */
+        -:  218:
+        -:  219:#define environ _environ
+        -:  220:
+        -:  221:#ifdef	__MSVCRT__
+        -:  222:/* One of the MSVCRTxx libraries */
+        -:  223:
+        -:  224:#ifndef __DECLSPEC_SUPPORTED
+        -:  225:# define sys_nerr  (*_imp___sys_nerr)
+        -:  226:extern int *_imp___sys_nerr;
+        -:  227:
+        -:  228:#else /* __DECLSPEC_SUPPORTED */
+        -:  229:__MINGW_IMPORT int _sys_nerr;
+        -:  230:
+        -:  231:# ifndef _UWIN
+        -:  232:# define sys_nerr  _sys_nerr
+        -:  233:# endif  /* _UWIN */
+        -:  234:#endif  /* __DECLSPEC_SUPPORTED */
+        -:  235:
+        -:  236:#else  /* ! __MSVCRT__ */
+        -:  237:/* CRTDLL run time library */
+        -:  238:
+        -:  239:#ifndef __DECLSPEC_SUPPORTED
+        -:  240:  extern int*	_imp___sys_nerr_dll;
+        -:  241:# define sys_nerr	(*_imp___sys_nerr_dll)
+        -:  242:#else  /* __DECLSPEC_SUPPORTED */
+        -:  243:  __MINGW_IMPORT int	_sys_nerr_dll;
+        -:  244:# define sys_nerr	_sys_nerr_dll
+        -:  245:#endif  /* __DECLSPEC_SUPPORTED */
+        -:  246:
+        -:  247:#endif  /* ! __MSVCRT__ */
+        -:  248:
+        -:  249:#ifndef __DECLSPEC_SUPPORTED
+        -:  250:#define sys_errlist  (*_imp___sys_errlist)
+        -:  251:extern char ***_imp__sys_errlist;
+        -:  252:
+        -:  253:#else  /* __DECLSPEC_SUPPORTED */
+        -:  254:__MINGW_IMPORT char *_sys_errlist[];
+        -:  255:
+        -:  256:#ifndef _UWIN
+        -:  257:#define sys_errlist  _sys_errlist
+        -:  258:#endif  /* _UWIN */
+        -:  259:#endif  /* __DECLSPEC_SUPPORTED */
+        -:  260:
+        -:  261:/* OS version and such constants.
+        -:  262: */
+        -:  263:#ifdef	__MSVCRT__ /* MSVCRT.DLL and MSVCRxx.DLL variants */
+        -:  264:
+        -:  265:extern _CRTIMP __cdecl __MINGW_NOTHROW  unsigned int *__p__osver(void);
+        -:  266:extern _CRTIMP __cdecl __MINGW_NOTHROW  unsigned int *__p__winver(void);
+        -:  267:extern _CRTIMP __cdecl __MINGW_NOTHROW  unsigned int *__p__winmajor(void);
+        -:  268:extern _CRTIMP __cdecl __MINGW_NOTHROW  unsigned int *__p__winminor(void);
+        -:  269:
+        -:  270:#ifndef __DECLSPEC_SUPPORTED
+        -:  271:# define _osver     (*__p__osver())
+        -:  272:# define _winver    (*__p__winver())
+        -:  273:# define _winmajor  (*__p__winmajor())
+        -:  274:# define _winminor  (*__p__winminor())
+        -:  275:
+        -:  276:#else /* __DECLSPEC_SUPPORTED */
+        -:  277:__MINGW_IMPORT  unsigned int _osver;
+        -:  278:__MINGW_IMPORT  unsigned int _winver;
+        -:  279:__MINGW_IMPORT  unsigned int _winmajor;
+        -:  280:__MINGW_IMPORT  unsigned int _winminor;
+        -:  281:#endif  /* __DECLSPEC_SUPPORTED */
+        -:  282:
+        -:  283:#else  /* ! __MSVCRT__; thus CRTDLL */
+        -:  284:#ifndef __DECLSPEC_SUPPORTED
+        -:  285:
+        -:  286:#define _osver	    (*_imp___osver_dll)
+        -:  287:#define _winver    (*_imp___winver_dll)
+        -:  288:#define _winmajor  (*_imp___winmajor_dll)
+        -:  289:#define _winminor  (*_imp___winminor_dll)
+        -:  290:
+        -:  291:extern unsigned int *_imp___osver_dll;
+        -:  292:extern unsigned int *_imp___winver_dll;
+        -:  293:extern unsigned int *_imp___winmajor_dll;
+        -:  294:extern unsigned int *_imp___winminor_dll;
+        -:  295:
+        -:  296:#else  /* __DECLSPEC_SUPPORTED */
+        -:  297:
+        -:  298:#define _osver	    _osver_dll
+        -:  299:#define _winver    _winver_dll
+        -:  300:#define _winmajor  _winmajor_dll
+        -:  301:#define _winminor  _winminor_dll
+        -:  302:
+        -:  303:__MINGW_IMPORT unsigned int _osver_dll;
+        -:  304:__MINGW_IMPORT unsigned int _winver_dll;
+        -:  305:__MINGW_IMPORT unsigned int _winmajor_dll;
+        -:  306:__MINGW_IMPORT unsigned int _winminor_dll;
+        -:  307:
+        -:  308:#endif  /* __DECLSPEC_SUPPORTED */
+        -:  309:#endif  /* CRTDLL */
+        -:  310:
+        -:  311:#if defined  __MSVCRT__
+        -:  312:/* Although _pgmptr is exported as DATA, be safe and use the access
+        -:  313: * function __p__pgmptr() to get it.
+        -:  314: */
+        -:  315:#define _pgmptr  (*__p__pgmptr())
+        -:  316:_CRTIMP __cdecl __MINGW_NOTHROW  char **__p__pgmptr(void);
+        -:  317:
+        -:  318:#define _wpgmptr  (*__p__wpgmptr())
+        -:  319:_CRTIMP __cdecl __MINGW_NOTHROW  wchar_t **__p__wpgmptr(void);
+        -:  320:
+        -:  321:#else  /* ! __MSVCRT__; thus CRTDLL */
+        -:  322:
+        -:  323:# ifndef __DECLSPEC_SUPPORTED
+        -:  324:# define _pgmptr  (*_imp___pgmptr_dll)
+        -:  325:extern char **__imp__pgmptr_dll;
+        -:  326:
+        -:  327:# else  /* __DECLSPEC_SUPPORTED */
+        -:  328:
+        -:  329:# define _pgmptr _pgmptr_dll
+        -:  330:__MINGW_IMPORT  char *_pgmptr_dll;
+        -:  331:/* no wide version in CRTDLL */
+        -:  332:
+        -:  333:# endif /* __DECLSPEC_SUPPORTED */
+        -:  334:#endif	/* CRTDLL */
+        -:  335:
+        -:  336:/* This variable determines the default file mode.
+        -:  337: * TODO: Which flags work?
+        -:  338: */
+        -:  339:#if !defined (__DECLSPEC_SUPPORTED) || defined (__IN_MINGW_RUNTIME)
+        -:  340:
+        -:  341:#ifdef __MSVCRT__
+        -:  342:#define _fmode  (*_imp___fmode)
+        -:  343:extern int *_imp___fmode;
+        -:  344:#else
+        -:  345:/* CRTDLL */
+        -:  346:#define _fmode  (*_imp___fmode_dll)
+        -:  347:extern int *_imp___fmode_dll;
+        -:  348:#endif
+        -:  349:
+        -:  350:#else  /* __DECLSPEC_SUPPORTED */
+        -:  351:#ifdef __MSVCRT__
+        -:  352:__MINGW_IMPORT  int _fmode;
+        -:  353:
+        -:  354:#else  /* ! __MSVCRT__ */
+        -:  355:#define _fmode	_fmode_dll
+        -:  356:__MINGW_IMPORT  int _fmode_dll;
+        -:  357:
+        -:  358:#endif  /* !__MSVCRT__ */
+        -:  359:#endif  /* __DECLSPEC_SUPPORTED */
+        -:  360:#endif  /* !__STRICT_ANSI__ */
+        -:  361:
+        -:  362:_CRTIMP __cdecl __MINGW_NOTHROW  int atoi (const char *);
+        -:  363:_CRTIMP __cdecl __MINGW_NOTHROW  long atol (const char *);
+        -:  364:
+        -:  365:_CRTIMP __cdecl __MINGW_NOTHROW  double strtod (const char *, char **);
+        -:  366:_CRTIMP __cdecl __MINGW_NOTHROW  double atof (const char *);
+        -:  367:
+        -:  368:#if !defined (__STRICT_ANSI__)
+        -:  369:_CRTIMP __cdecl __MINGW_NOTHROW  double _wtof (const wchar_t *);
+        -:  370:_CRTIMP __cdecl __MINGW_NOTHROW  int _wtoi (const wchar_t *);
+        -:  371:_CRTIMP __cdecl __MINGW_NOTHROW  long _wtol (const wchar_t *);
+        -:  372:#endif
+        -:  373:
+        -:  374:#if __USE_MINGW_ANSI_STDIO
+        -:  375:/* Microsoft's strtod() and atof() implementations, (in MSVCRT.DLL),
+        -:  376: * mishandle infinities and NaNs; on the basis that this conditional
+        -:  377: * exposes a more ISO-C conforming printf() I/O family implementaion,
+        -:  378: * we substitute a similarly more conforming implementation for each
+        -:  379: * of this pair of (somewhat related) functions.
+        -:  380: *
+        -:  381: * Note that we provide neither __JMPSTUB__ nor __LIBIMPL__ external
+        -:  382: * equivalents for either of these two inline functions, because they
+        -:  383: * would conflict with the runtime DLL implementations; users needing
+        -:  384: * an address reference for either must provide an equivalent of the
+        -:  385: * inline implementation, as non-inlined within their own code.
+        -:  386: */
+        -:  387:extern __cdecl __MINGW_NOTHROW
+        -:  388:double __strtod (const char *__restrict__, char **__restrict__);
+        -:  389:
+        -:  390:__CRT_ALIAS __cdecl __MINGW_NOTHROW
+        -:  391:double strtod (const char *__restrict__ __nptr, char **__restrict__ __endptr)
+        -:  392:{ return __strtod( __nptr, __endptr ); }
+        -:  393:
+        -:  394:__CRT_ALIAS __cdecl __MINGW_NOTHROW
+        -:  395:double atof (const char *__nptr) { return __strtod( __nptr, NULL ); }
+        -:  396:
+        -:  397:#endif  /* __USE_MINGW_ANSI_STDIO */
+        -:  398:
+        -:  399:#ifdef _ISOC99_SOURCE
+        -:  400:/* Irrespective of requested standards conformity, where MSVCRT.DLL
+        -:  401: * falls short, ISO-C99 offers this pair of alternative return type
+        -:  402: * specific variants of strtod(), which MSVCRT.DLL does not, but we
+        -:  403: * do, in libmingwex.a:
+        -:  404: */
+        -:  405:__cdecl __MINGW_NOTHROW
+        -:  406:float strtof (const char *__restrict__, char **__restrict__);
+        -:  407:
+        -:  408:__cdecl __MINGW_NOTHROW
+        -:  409:long double strtold (const char *__restrict__, char **__restrict__);
+        -:  410:#endif  /* _ISOC99_SOURCE */
+        -:  411:
+        -:  412:_CRTIMP __cdecl __MINGW_NOTHROW  long strtol (const char *, char **, int);
+        -:  413:_CRTIMP __cdecl __MINGW_NOTHROW  unsigned long strtoul (const char *, char **, int);
+        -:  414:
+        -:  415:#endif	/* _STDLIB_H only */
+        -:  416:#if ! (defined _STDLIB_H && defined _WCHAR_H)
+        -:  417:/* Prototypes which are to be declared both here, in <stdlib.h>,
+        -:  418: * and also in <wchar.h>; declare them here, such that they may be
+        -:  419: * selectively included by <wchar.h>.
+        -:  420: */
+        -:  421:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  422:long wcstol (const wchar_t *, wchar_t **, int);
+        -:  423:
+        -:  424:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  425:unsigned long wcstoul (const wchar_t *, wchar_t **, int);
+        -:  426:
+        -:  427:_CRTIMP __cdecl __MINGW_NOTHROW  double wcstod (const wchar_t *, wchar_t **);
+        -:  428:
+        -:  429:/* The following MinGW specific alternatives to wcstod(), which may
+        -:  430: * offer more robust performance than the MSVCRT.DLL implementation,
+        -:  431: * are provided in libmingwex.a; (the float and long double variants
+        -:  432: * are simply aliases for the ISO-C99 equivalents which follow).
+        -:  433: */
+        -:  434:__cdecl __MINGW_NOTHROW
+        -:  435:double __mingw_wcstod (const wchar_t *__restrict__, wchar_t **__restrict__);
+        -:  436:
+        -:  437:__cdecl __MINGW_NOTHROW
+        -:  438:float __mingw_wcstof (const wchar_t *__restrict__, wchar_t **__restrict__);
+        -:  439:
+        -:  440:__cdecl __MINGW_NOTHROW
+        -:  441:long double __mingw_wcstold (const wchar_t *__restrict__, wchar_t **__restrict__);
+        -:  442:
+        -:  443:#ifdef _ISOC99_SOURCE
+        -:  444:/* Variants on wcstod(), specified by ISO-C99; once again, MSVCRT.DLL
+        -:  445: * doesn't have them, but we offer them in libmingwex.a
+        -:  446: */
+        -:  447:__cdecl __MINGW_NOTHROW
+        -:  448:float wcstof (const wchar_t *__restrict__, wchar_t **__restrict__);
+        -:  449:
+        -:  450:__cdecl __MINGW_NOTHROW
+        -:  451:long double wcstold (const wchar_t *__restrict__, wchar_t **__restrict__);
+        -:  452:#endif  /* _ISOC99_SOURCE */
+        -:  453:
+        -:  454:#ifdef __MSVCRT__
+        -:  455:#if __MSVCRT_VERSION__ >= __MSVCR70_DLL || _WIN32_WINNT >= _WIN32_WINNT_WINXP
+        -:  456:/* This pair of wide character equivalents for ISO-C99's strtoll() and
+        -:  457: * strtoull() require either WinXP (or later), or a non-free MSVC runtime
+        -:  458: * from MSVCR70.DLL onwards...
+        -:  459: */
+        -:  460:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  461:__int64 _wcstoi64(const wchar_t *, wchar_t **, int);
+        -:  462:
+        -:  463:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  464:unsigned __int64 _wcstoui64(const wchar_t *, wchar_t **, int);
+        -:  465:
+        -:  466:#endif	/* WinXP || MSVCR70.DLL || later */
+        -:  467:
+        -:  468:#if __MSVCRT_VERSION__ >= __MSVCR80_DLL || _WIN32_WINNT >= _WIN32_WINNT_VISTA
+        -:  469:/* ...while the following pair require Win-Vista (or later), or non-free
+        -:  470: * MSVCRT runtime from MSVCR80.DLL onwards; they also require...
+        -:  471: */
+        -:  472:#ifndef __have_typedef_locale_t
+        -:  473:/* ...this opaque data type, which we may obtain by selective inclusion
+        -:  474: * from <locale.h>.  (Note that this may render them unusable for users of
+        -:  475: * MSVCRT.DLL; see the explanation in <locale.h>, regarding the difficulty
+        -:  476: * in creating, or otherwise acquiring a reference to, a _locale_t object,
+        -:  477: * notwithstanding the availability of the functions in MSVCRT.DLL, from
+        -:  478: * the release of Win-Vista onwards).
+        -:  479: */
+        -:  480:#define __need_locale_t
+        -:  481:#include <locale.h>
+        -:  482:#endif	/* !__have_typedef_locale_t */
+        -:  483:
+        -:  484:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  485:__int64 _wcstoi64_l(const wchar_t *, wchar_t **, int, _locale_t);
+        -:  486:
+        -:  487:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  488:unsigned __int64 _wcstoui64_l(const wchar_t *, wchar_t **, int, _locale_t);
+        -:  489:
+        -:  490:#endif	/* Win-Vista || MSVCR80.DLL || later */
+        -:  491:
+        -:  492:_CRTIMP __cdecl __MINGW_NOTHROW  wchar_t *_wgetenv (const wchar_t *);
+        -:  493:_CRTIMP __cdecl __MINGW_NOTHROW  int _wputenv (const wchar_t *);
+        -:  494:
+        -:  495:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  496:void _wsearchenv (const wchar_t *, const wchar_t *, wchar_t *);
+        -:  497:
+        -:  498:_CRTIMP __cdecl __MINGW_NOTHROW  int _wsystem (const wchar_t *);
+        -:  499:
+        -:  500:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  501:void _wmakepath (wchar_t *, const wchar_t *, const wchar_t *, const wchar_t *,
+        -:  502:    const wchar_t *
+        -:  503:  );
+        -:  504:
+        -:  505:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  506:void _wsplitpath (const wchar_t *, wchar_t *, wchar_t *, wchar_t *, wchar_t *);
+        -:  507:
+        -:  508:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  509:wchar_t *_wfullpath (wchar_t *, const wchar_t *, size_t);
+        -:  510:
+        -:  511:#endif	/* __MSVCRT__ */
+        -:  512:#endif	/* _STDLIB_H || _WCHAR_H */
+        -:  513:
+        -:  514:#ifdef _STDLIB_H  /* <stdlib.h> only */
+        -:  515:_CRTIMP __cdecl __MINGW_NOTHROW  size_t wcstombs (char *, const wchar_t *, size_t);
+        -:  516:_CRTIMP __cdecl __MINGW_NOTHROW  int wctomb (char *, wchar_t);
+        -:  517:
+        -:  518:_CRTIMP __cdecl __MINGW_NOTHROW  int mblen (const char *, size_t);
+        -:  519:_CRTIMP __cdecl __MINGW_NOTHROW  size_t mbstowcs (wchar_t *, const char *, size_t);
+        -:  520:_CRTIMP __cdecl __MINGW_NOTHROW  int mbtowc (wchar_t *, const char *, size_t);
+        -:  521:
+        -:  522:_CRTIMP __cdecl __MINGW_NOTHROW  int rand (void);
+        -:  523:_CRTIMP __cdecl __MINGW_NOTHROW  void srand (unsigned int);
+        -:  524:
+        -:  525:/* rand() is devoid of entropy, and is thus a mediocre pseudo-random number
+        -:  526: * generator.  Microsoft do offer a better quality (bogusly dubbed as a more
+        -:  527: * secure) PRNG, in the guise of rand_s(), but it
+        -:  528: *
+        -:  529: *   1) must be explicitly enabled, by user defined feature test macro;
+        -:  530: */
+        -:  531:#ifdef _CRT_RAND_S
+        -:  532:/*
+        -:  533: *   2) is not supported on Win9x, nor any WinNT version prior to WinXP;
+        -:  534: *   3) on WinXP, requires linking with non-free MSVCR80.DLL, or later;
+        -:  535: *   4) is provided by MSVCRT.DLL, only from Vista onward.
+        -:  536: */
+        -:  537:#if __MSVCRT_VERSION__ >= __MSVCR80_DLL || _WIN32_WINNT >= _WIN32_WINNT_VISTA
+        -:  538:
+        -:  539:_CRTIMP __cdecl __MINGW_NOTHROW  int rand_s (unsigned int *);
+        -:  540:
+        -:  541:#endif	/* Win-Vista || MSVCR80.DLL || later */
+        -:  542:#endif	/* _CRT_RAND_S enabled */
+        -:  543:
+        -:  544:_CRTIMP __cdecl __MINGW_NOTHROW  void abort (void) __MINGW_ATTRIB_NORETURN;
+        -:  545:_CRTIMP __cdecl __MINGW_NOTHROW  void exit (int) __MINGW_ATTRIB_NORETURN;
+        -:  546:
+        -:  547:/* Note: this is in startup code, not imported directly from the runtime DLL
+        -:  548: */
+        -:  549:int __cdecl __MINGW_NOTHROW atexit (void (*)(void));
+        -:  550:
+        -:  551:_CRTIMP __cdecl __MINGW_NOTHROW  int system (const char *);
+        -:  552:_CRTIMP __cdecl __MINGW_NOTHROW  char *getenv (const char *);
+        -:  553:
+        -:  554:#ifndef __STRICT_ANSI__
+        -:  555:/* For GNU compatibility, in addition to the standard memory allocation
+        -:  556: * functions (declared below), we also include the non-standard alloca()
+        -:  557: * API declarations here, in accordance with GNU convention.
+        -:  558: */
+        -:  559:# include "alloca.h"
+        -:  560:#endif	/* !__STRICT_ANSI__ */
+        -:  561:
+        -:  562:_CRTIMP __cdecl __MINGW_NOTHROW  void *calloc (size_t, size_t) __MINGW_ATTRIB_MALLOC;
+        -:  563:_CRTIMP __cdecl __MINGW_NOTHROW  void *malloc (size_t) __MINGW_ATTRIB_MALLOC;
+        -:  564:_CRTIMP __cdecl __MINGW_NOTHROW  void *realloc (void *, size_t);
+        -:  565:_CRTIMP __cdecl __MINGW_NOTHROW  void free (void *);
+        -:  566:
+        -:  567:/* The following pair of MinGW alternatives to realloc() and free() are
+        -:  568: * always suitable as substitutes for their MSVCRT.DLL counterparts; the
+        -:  569: * advantage of such substitutions is that these alternatives are able to
+        -:  570: * operate on heap memory which has been allocated by the MinGW aligned
+        -:  571: * memory allocation API functions, (but NOT the corresponding Microsoft
+        -:  572: * functions), in addition to memory allocated by malloc() or calloc().
+        -:  573: */
+        -:  574:__cdecl __MINGW_NOTHROW  void *__mingw_realloc (void *, size_t);
+        -:  575:__cdecl __MINGW_NOTHROW  void __mingw_free (void *);
+        -:  576:
+        -:  577:/* Since MinGW's __mingw_free() and __mingw_realloc() are able to
+        -:  578: * operate transparently on pointers returned by any of Microsoft's
+        -:  579: * heap allocators, except their over-aligned variants, just as they
+        -:  580: * operate on pointers returned by MinGW's over-aligned allocators,
+        -:  581: * and all of ISO-C11, C++17, and POSIX.1 require this capability,
+        -:  582: * always prefer these replacements for free() and realloc().
+        -:  583: */
+        -:  584:__JMPSTUB__(( LIB = memalign, FUNCTION = free ))
+        -:  585:__CRT_ALIAS __cdecl __MINGW_NOTHROW  void free (void *__ptr)
+    #####:  586:{ __mingw_free (__ptr); }
+call    0 never executed
+        -:  587:
+        -:  588:__JMPSTUB__(( LIB = memalign, FUNCTION = realloc ))
+        -:  589:__CRT_ALIAS __cdecl __MINGW_NOTHROW  void *realloc (void *__ptr, size_t __want)
+        -:  590:{ return __mingw_realloc (__ptr, __want); }
+        -:  591:
+        -:  592:#if __STDC_VERSION__ >= 201112L || __cplusplus >= 201703L
+        -:  593:/* ISO-C99 adds support for over-aligned heap memory allocation, by use
+        -:  594: * of the aligned_alloc() function, (which was subsequently incorporated
+        -:  595: * into ISO-C++17 as std::aligned_alloc()); we may conveniently support
+        -:  596: * this by use of MinGW's __mingw_aligned_offset_malloc(), which is
+        -:  597: * nominally declared in <malloc.h>, and reproduced here:
+        -:  598: */
+        -:  599:__cdecl __MINGW_NOTHROW __MINGW_ATTRIB_MALLOC
+        -:  600:void *__mingw_aligned_offset_malloc (size_t, size_t, size_t);
+        -:  601:
+        -:  602:__CRT_ALIAS __LIBIMPL__(( LIB = memalign, FUNCTION = aligned_alloc ))
+        -:  603:
+        -:  604:__cdecl __MINGW_NOTHROW __MINGW_ATTRIB_MALLOC
+        -:  605:void *aligned_alloc (size_t __alignment, size_t __want)
+        -:  606:{ return __mingw_aligned_offset_malloc( __want, __alignment, (size_t)(0) ); }
+        -:  607:
+        -:  608:/* For the ISO-C++17 case, we need to ensure that the feature test
+        -:  609: * macro _GLIBCXX_HAVE_ALIGNED_ALLOC is defined, with non-zero value;
+        -:  610: * (it is interpreted in <cstdlib>, but only for C++17 and later).
+        -:  611: */
+        -:  612:#undef  _GLIBCXX_HAVE_ALIGNED_ALLOC
+        -:  613:#define _GLIBCXX_HAVE_ALIGNED_ALLOC  1
+        -:  614:#endif	/* ISO-C11 || ISO-C++17 */
+        -:  615:
+        -:  616:#if _POSIX_C_SOURCE >= 200112L
+        -:  617:/* POSIX.1-2001 supports an (earlier) alternative to the preceding
+        -:  618: * ISO-C11 aligned_alloc(), namely posix_memalign().  Once again, we
+        -:  619: * may conveniently use __mingw_aligned_offset_malloc() to implement
+        -:  620: * this, (duplicating its prototype once again, just in case we did
+        -:  621: * not implement the ISO-C11 function).
+        -:  622: */
+        -:  623:__cdecl __MINGW_NOTHROW __MINGW_ATTRIB_MALLOC
+        -:  624:void *__mingw_aligned_offset_malloc (size_t, size_t, size_t);
+        -:  625:
+        -:  626:__CRT_ALIAS __LIBIMPL__(( LIB = memalign, FUNCTION = memalign ))
+        -:  627:
+        -:  628:/* posix_memalign() differs semantically from aligned_alloc(), in
+        -:  629: * returning a status code, which is zero on success, or the value
+        -:  630: * of errno on failure, with the allocated memory pointer returned
+        -:  631: * via a reference parameter.  Normally, the reference to errno as
+        -:  632: * a possible return value would preclude inline implementation of
+        -:  633: * this function, but since Microsoft gratuitously defines errno
+        -:  634: * here, in <stdlib.h>, as well as in <errno.h>, this is okay.
+        -:  635: */
+        -:  636:__cdecl __MINGW_NOTHROW
+        -:  637:int posix_memalign (void **__p, size_t __alignment, size_t __want)
+        -:  638:{ if( sizeof (void *) > __alignment ) __alignment = (sizeof (void *) << 1) - 1;
+        -:  639:  *__p = __mingw_aligned_offset_malloc (__want, __alignment, (size_t)(0));
+        -:  640:  return (*__p == NULL) ? errno : 0;
+        -:  641:}
+        -:  642:#endif	/* POSIX.1-2001 */
+        -:  643:
+        -:  644:/* bsearch() and qsort() are declared both here, in <stdlib.h>, and in
+        -:  645: * non-ANSI header <search.h>; we reproduce these declarations in both,
+        -:  646: * with no attempt to guard them, so the compiler may verify that they
+        -:  647: * are consistent, if both headers are included.
+        -:  648: */
+        -:  649:_CRTIMP __cdecl  void *bsearch
+        -:  650:(const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
+        -:  651:
+        -:  652:_CRTIMP __cdecl  void qsort
+        -:  653:(void *, size_t, size_t, int (*)(const void *, const void *));
+        -:  654:
+        -:  655:_CRTIMP __cdecl __MINGW_NOTHROW  int abs (int) __MINGW_ATTRIB_CONST;
+        -:  656:_CRTIMP __cdecl __MINGW_NOTHROW  long labs (long) __MINGW_ATTRIB_CONST;
+        -:  657:
+        -:  658:/* div_t and ldiv_t are structures used to return the results of div()
+        -:  659: * and ldiv() functions.
+        -:  660: *
+        -:  661: * NOTE: div() and ldiv() appear not to work correctly unless
+        -:  662: *       -fno-pcc-struct-return is specified. This is included in the
+        -:  663: *       mingw32 specs file.
+        -:  664: */
+        -:  665:typedef struct { int quot, rem; } div_t;
+        -:  666:typedef struct { long quot, rem; } ldiv_t;
+        -:  667:
+        -:  668:_CRTIMP __cdecl __MINGW_NOTHROW  div_t div (int, int) __MINGW_ATTRIB_CONST;
+        -:  669:_CRTIMP __cdecl __MINGW_NOTHROW  ldiv_t ldiv (long, long) __MINGW_ATTRIB_CONST;
+        -:  670:
+        -:  671:#if !defined __STRICT_ANSI__ || (defined _ISOC99_SOURCE && !defined __NO_INLINE__)
+        -:  672:/* Although not nominally valid in "__STRICT_ANSI__" mode, when compiling C99
+        -:  673: * source, we use Microsoft's _exit() function to facilitate our provision of
+        -:  674: * an inline implementation of ISO-C99's _Exit() function.
+        -:  675: */
+        -:  676:_CRTIMP __cdecl __MINGW_NOTHROW  void _exit (int) __MINGW_ATTRIB_NORETURN;
+        -:  677:
+        -:  678:#ifdef __MSVCRT__
+        -:  679:/* Similarly, we use Microsoft's MSVCRT.DLL specific _atoi64() function,
+        -:  680: * to facilitate an inline implementation of ISO-C99's atoll() function.
+        -:  681: */
+        -:  682:_CRTIMP __cdecl __MINGW_NOTHROW  __int64 _atoi64 (const char *);
+        -:  683:
+        -:  684:#endif	/* __MSVCRT__ */
+        -:  685:#endif	/* !__STRICT_ANSI__ || (_ISOC99_SOURCE && !__NO_INLINE__) */
+        -:  686:
+        -:  687:#if !defined (__STRICT_ANSI__)
+        -:  688:/* NOTE: Officially the three following functions are obsolete. The Win32 API
+        -:  689: *       functions SetErrorMode, Beep and Sleep are their replacements.
+        -:  690: */
+        -:  691:_CRTIMP __cdecl __MINGW_NOTHROW  void _beep (unsigned int, unsigned int) __MINGW_ATTRIB_DEPRECATED;
+        -:  692:/* Not to be confused with  _set_error_mode (int).  */
+        -:  693:_CRTIMP __cdecl __MINGW_NOTHROW  void _seterrormode (int) __MINGW_ATTRIB_DEPRECATED;
+        -:  694:_CRTIMP __cdecl __MINGW_NOTHROW  void _sleep (unsigned long) __MINGW_ATTRIB_DEPRECATED;
+        -:  695:
+        -:  696:/* _onexit is a Microsoft extension. Use atexit for portability. */
+        -:  697:/* Note: This is in startup code, not imported directly from dll */
+        -:  698:typedef  int (* _onexit_t)(void);
+        -:  699:__cdecl __MINGW_NOTHROW  _onexit_t _onexit( _onexit_t );
+        -:  700:
+        -:  701:_CRTIMP __cdecl __MINGW_NOTHROW  int _putenv (const char *);
+        -:  702:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  703:void _searchenv (const char *, const char *, char *);
+        -:  704:
+        -:  705:_CRTIMP __cdecl __MINGW_NOTHROW  char *_ecvt (double, int, int *, int *);
+        -:  706:_CRTIMP __cdecl __MINGW_NOTHROW  char *_fcvt (double, int, int *, int *);
+        -:  707:_CRTIMP __cdecl __MINGW_NOTHROW  char *_gcvt (double, int, char *);
+        -:  708:
+        -:  709:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  710:void _makepath (char *, const char *, const char *, const char *, const char *);
+        -:  711:
+        -:  712:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  713:void _splitpath (const char *, char *, char *, char *, char *);
+        -:  714:
+        -:  715:_CRTIMP __cdecl __MINGW_NOTHROW  char *_fullpath (char*, const char*, size_t);
+        -:  716:
+        -:  717:_CRTIMP __cdecl __MINGW_NOTHROW  char *_itoa (int, char *, int);
+        -:  718:_CRTIMP __cdecl __MINGW_NOTHROW  char *_ltoa (long, char *, int);
+        -:  719:_CRTIMP __cdecl __MINGW_NOTHROW  char *_ultoa(unsigned long, char *, int);
+        -:  720:_CRTIMP __cdecl __MINGW_NOTHROW  wchar_t *_itow (int, wchar_t *, int);
+        -:  721:_CRTIMP __cdecl __MINGW_NOTHROW  wchar_t *_ltow (long, wchar_t *, int);
+        -:  722:_CRTIMP __cdecl __MINGW_NOTHROW  wchar_t *_ultow (unsigned long, wchar_t *, int);
+        -:  723:
+        -:  724:#ifdef __MSVCRT__
+        -:  725:_CRTIMP __cdecl __MINGW_NOTHROW  char* _i64toa (__int64, char *, int);
+        -:  726:_CRTIMP __cdecl __MINGW_NOTHROW  char* _ui64toa (unsigned __int64, char *, int);
+        -:  727:_CRTIMP __cdecl __MINGW_NOTHROW  __int64 _wtoi64 (const wchar_t *);
+        -:  728:_CRTIMP __cdecl __MINGW_NOTHROW  wchar_t* _i64tow (__int64, wchar_t *, int);
+        -:  729:_CRTIMP __cdecl __MINGW_NOTHROW  wchar_t* _ui64tow (unsigned __int64, wchar_t *, int);
+        -:  730:
+        -:  731:_CRTIMP __cdecl __MINGW_NOTHROW  unsigned int (_rotl)(unsigned int, int) __MINGW_ATTRIB_CONST;
+        -:  732:_CRTIMP __cdecl __MINGW_NOTHROW  unsigned int (_rotr)(unsigned int, int) __MINGW_ATTRIB_CONST;
+        -:  733:_CRTIMP __cdecl __MINGW_NOTHROW  unsigned long (_lrotl)(unsigned long, int) __MINGW_ATTRIB_CONST;
+        -:  734:_CRTIMP __cdecl __MINGW_NOTHROW  unsigned long (_lrotr)(unsigned long, int) __MINGW_ATTRIB_CONST;
+        -:  735:
+        -:  736:_CRTIMP __cdecl __MINGW_NOTHROW  int _set_error_mode (int);
+        -:  737:
+        -:  738:# define _OUT_TO_DEFAULT	0
+        -:  739:# define _OUT_TO_STDERR 	1
+        -:  740:# define _OUT_TO_MSGBOX 	2
+        -:  741:# define _REPORT_ERRMODE	3
+        -:  742:
+        -:  743:# if __MSVCRT_VERSION__ >= __MSVCR80_DLL
+        -:  744:#  ifndef _UINTPTR_T_DEFINED
+        -:  745:#   define _UINTPTR_T_DEFINED
+        -:  746:#   ifdef _WIN64
+        -:  747:      typedef unsigned __int64 uintptr_t;
+        -:  748:#   else
+        -:  749:      typedef unsigned int uintptr_t;
+        -:  750:#   endif
+        -:  751:#  endif
+        -:  752:
+        -:  753:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  754:unsigned int _set_abort_behavior (unsigned int, unsigned int);
+        -:  755:
+        -:  756:/* These masks work with msvcr80.dll version 8.0.50215.44 (a beta release).
+        -:  757: */
+        -:  758:#  define _WRITE_ABORT_MSG	1
+        -:  759:#  define _CALL_REPORTFAULT	2
+        -:  760:
+        -:  761:typedef void
+        -:  762:(* _invalid_parameter_handler) (
+        -:  763:    const wchar_t *,
+        -:  764:    const wchar_t *,
+        -:  765:    const wchar_t *,
+        -:  766:    unsigned int,
+        -:  767:    uintptr_t);
+        -:  768:_invalid_parameter_handler _set_invalid_parameter_handler (_invalid_parameter_handler);
+        -:  769:
+        -:  770:# endif /* __MSVCRT_VERSION__ >= __MSVCR80_DLL */
+        -:  771:#endif	/* __MSVCRT__ */
+        -:  772:
+        -:  773:#ifndef _NO_OLDNAMES
+        -:  774:_CRTIMP __cdecl __MINGW_NOTHROW  int putenv (const char*);
+        -:  775:_CRTIMP __cdecl __MINGW_NOTHROW  void searchenv (const char*, const char*, char*);
+        -:  776:
+        -:  777:_CRTIMP __cdecl __MINGW_NOTHROW  char* itoa (int, char*, int);
+        -:  778:_CRTIMP __cdecl __MINGW_NOTHROW  char* ltoa (long, char*, int);
+        -:  779:
+        -:  780:#ifndef _UWIN
+        -:  781:_CRTIMP __cdecl __MINGW_NOTHROW  char* ecvt (double, int, int*, int*);
+        -:  782:_CRTIMP __cdecl __MINGW_NOTHROW  char* fcvt (double, int, int*, int*);
+        -:  783:_CRTIMP __cdecl __MINGW_NOTHROW  char* gcvt (double, int, char*);
+        -:  784:
+        -:  785:#endif	/* ! _UWIN */
+        -:  786:#endif	/* ! _NO_OLDNAMES */
+        -:  787:#endif	/* ! __STRICT_ANSI__ */
+        -:  788:
+        -:  789:#ifdef _ISOC99_SOURCE
+        -:  790:/* Further APIs required to support ISO-C99, but missing from MSVCRT.DLL;
+        -:  791: * we provide them in libmingwex.a:
+        -:  792: *
+        -:  793: * ISO-C99 name for _exit()
+        -:  794: */
+        -:  795:__cdecl __MINGW_NOTHROW  void _Exit(int) __MINGW_ATTRIB_NORETURN;
+        -:  796:
+        -:  797:#ifndef __NO_INLINE__
+        -:  798:__CRT_INLINE __JMPSTUB__(( FUNCTION = _Exit, REMAPPED = _exit ))
+        -:  799:__cdecl __MINGW_NOTHROW  void _Exit( int __status ){ _exit (__status); }
+        -:  800:#endif
+        -:  801:
+        -:  802:typedef struct { long long quot, rem; } lldiv_t;
+        -:  803:__cdecl __MINGW_NOTHROW  lldiv_t lldiv (long long, long long) __MINGW_ATTRIB_CONST;
+        -:  804:
+        -:  805:__cdecl __MINGW_NOTHROW  long long llabs (long long);
+        -:  806:
+        -:  807:#ifndef __NO_INLINE__
+        -:  808:__CRT_INLINE
+        -:  809:/* No JMPSTUB or LIBIMPL reference here -- we provide a free-standing
+        -:  810: * implementation, along with imaxabs(), in mingwex/imaxabs.c
+        -:  811: */
+        -:  812:__cdecl __MINGW_NOTHROW  long long llabs( long long __j )
+        -:  813:{ return __j >= 0 ? __j : -__j; }
+        -:  814:#endif
+        -:  815:
+        -:  816:__cdecl __MINGW_NOTHROW
+        -:  817:long long strtoll (const char *__restrict__, char **__restrict, int);
+        -:  818:
+        -:  819:__cdecl __MINGW_NOTHROW
+        -:  820:unsigned long long strtoull (const char *__restrict__, char **__restrict__, int);
+        -:  821:
+        -:  822:#ifdef __MSVCRT__
+        -:  823:/* MSVCRT.DLL does not provide ISO-C99's atoll() function, but it does
+        -:  824: * provide an analogue, in _atoi64(); map it accordingly.
+        -:  825: */
+        -:  826:__cdecl __MINGW_NOTHROW  long long atoll (const char *);
+        -:  827:
+        -:  828:#ifndef __NO_INLINE__
+        -:  829:__CRT_INLINE __JMPSTUB__(( FUNCTION = atoll, REMAPPED = _atoi64 ))
+        -:  830:__cdecl __MINGW_NOTHROW  long long atoll (const char * _c){ return _atoi64 (_c); }
+        -:  831:#endif
+        -:  832:
+        -:  833:#endif  /* __MSVCRT__ */
+        -:  834:#endif  /* _ISOC99_SOURCE */
+        -:  835:
+        -:  836:#if defined __MSVCRT__ && ! defined __STRICT_ANSI__
+        -:  837:#if __MSVCRT_VERSION__ >= __MSVCR70_DLL || _WIN32_WINNT >= _WIN32_WINNT_WINXP
+        -:  838:/* Microsoft specific alternatives to ISO-C99 strtoll() and strtoull(); the
+        -:  839: * first pair require WinXP (or later) or non-free MSVCR70.DLL onwards...
+        -:  840: */
+        -:  841:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  842:__int64 _strtoi64(const char*, char **, int);
+        -:  843:
+        -:  844:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  845:unsigned __int64 _strtoui64(const char*, char **, int);
+        -:  846:
+        -:  847:#endif	/* WinXP || MSVCR70.DLL || later */
+        -:  848:#if __MSVCRT_VERSION__ >= __MSVCR80_DLL || _WIN32_WINNT >= _WIN32_WINNT_VISTA
+        -:  849:/* ...while the following pair require Win-Vista (or later), or non-free
+        -:  850: * MSVCR80.DLL onwards; (note that, like their wide character counterparts,
+        -:  851: * they may actually be unusable without MSVCR80.DLL onwards, because of
+        -:  852: * the difficulty in acquiring a reference to a _locale_t object).
+        -:  853: */
+        -:  854:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  855:__int64 _strtoi64_l(const char *, char **, int, _locale_t);
+        -:  856:
+        -:  857:_CRTIMP __cdecl __MINGW_NOTHROW
+        -:  858:unsigned __int64 _strtoui64_l(const char *, char **, int, _locale_t);
+        -:  859:
+        -:  860:#endif	/* Win-Vista || MSVCR80.DLL || later */
+        -:  861:
+        -:  862:/* Type long long analogues for MSVCRT.DLL specific type long functions;
+        -:  863: * none are actually provided by any version of MSVCRT.DLL, with names as
+        -:  864: * specified here, but rather as called by the inline functions used to
+        -:  865: * implement them, (i.e. the REMAPPED name specified in each__JMPSTUB__
+        -:  866: * function reference respectively).
+        -:  867: *
+        -:  868: * FIXME: Not one of these is specified by ISO-C99, nor by POSIX, either;
+        -:  869: * is there really any justification for us to specify them at all?  For
+        -:  870: * the time being, declare as deprecated; perhaps remove later?
+        -:  871: */
+        -:  872:__cdecl __MINGW_NOTHROW __MINGW_ATTRIB_DEPRECATED  long long wtoll (const wchar_t *);
+        -:  873:__cdecl __MINGW_NOTHROW __MINGW_ATTRIB_DEPRECATED  char *lltoa (long long, char *, int);
+        -:  874:__cdecl __MINGW_NOTHROW __MINGW_ATTRIB_DEPRECATED  char *ulltoa (unsigned long long , char *, int);
+        -:  875:__cdecl __MINGW_NOTHROW __MINGW_ATTRIB_DEPRECATED  wchar_t *lltow (long long, wchar_t *, int);
+        -:  876:__cdecl __MINGW_NOTHROW __MINGW_ATTRIB_DEPRECATED  wchar_t *ulltow (unsigned long long, wchar_t *, int);
+        -:  877:
+        -:  878:#ifndef __NO_INLINE__
+        -:  879:/* None of these functions would exist at all, without either these inline
+        -:  880: * implementations, or their respective __JMPSTUB__ equivalents.
+        -:  881: */
+        -:  882:__CRT_INLINE __JMPSTUB__(( FUNCTION = lltoa, REMAPPED = _i64toa ))
+        -:  883:__cdecl __MINGW_NOTHROW  char *lltoa (long long __n, char * __c, int __i)
+        -:  884:{ return _i64toa (__n, __c, __i); }
+        -:  885:
+        -:  886:__CRT_INLINE __JMPSTUB__(( FUNCTION = ulltoa, REMAPPED = _ui64toa ))
+        -:  887:__cdecl __MINGW_NOTHROW  char *ulltoa (unsigned long long __n, char * __c, int __i)
+        -:  888:{ return _ui64toa (__n, __c, __i); }
+        -:  889:
+        -:  890:__CRT_INLINE __JMPSTUB__(( FUNCTION = wtoll, REMAPPED = _wtoi64 ))
+        -:  891:__cdecl __MINGW_NOTHROW  long long wtoll (const wchar_t * __w){ return _wtoi64 (__w); }
+        -:  892:
+        -:  893:__CRT_INLINE __JMPSTUB__(( FUNCTION = lltow, REMAPPED = _i64tow ))
+        -:  894:__cdecl __MINGW_NOTHROW  wchar_t *lltow (long long __n, wchar_t * __w, int __i)
+        -:  895:{ return _i64tow (__n, __w, __i); }
+        -:  896:
+        -:  897:__CRT_INLINE __JMPSTUB__(( FUNCTION = ulltow, REMAPPED = _ui64tow ))
+        -:  898:__cdecl __MINGW_NOTHROW  wchar_t *ulltow (unsigned long long __n, wchar_t * __w, int __i)
+        -:  899:{ return _ui64tow (__n, __w, __i); }
+        -:  900:
+        -:  901:#endif  /* ! __NO_INLINE__ */
+        -:  902:#endif  /* __MSVCRT__ && ! __STRICT_ANSI__ */
+        -:  903:
+        -:  904:/* POSIX/BSD extensions in libmingwex.a; these should be exposed only on
+        -:  905: * the basis of appropriate POSIX or BSD specific feature tests...
+        -:  906: *
+        -:  907: * mkstemp(3) function support; added per feature request #2003.
+        -:  908: * POSIX wants _XOPEN_SOURCE >= 500, (implying _POSIX_C_SOURCE >= 200112L).
+        -:  909: */
+        -:  910:#if _POSIX_C_SOURCE >= 200112L
+        -:  911:
+        -:  912:__cdecl __MINGW_NOTHROW  int mkstemp (char *);
+        -:  913:__cdecl __MINGW_NOTHROW  int __mingw_mkstemp (int, char *);
+        -:  914:
+        -:  915:/* On POSIX platforms, programmers may adopt an idiom such as:
+        -:  916: *
+        -:  917: *   if( mkstemp( template ) >= 0 )
+        -:  918: *   { unlink( template );
+        -:  919: *     . . .
+        -:  920: *   }
+        -:  921: *
+        -:  922: * to ensure that a temporary file does NOT persist after it is
+        -:  923: * closed; MS-Windows does not allow such use of unlink(2), while
+        -:  924: * the file remains open.  Thus, MS-Windows programmers must take
+        -:  925: * extra care, to close and unlink temporary files AFTER use, if
+        -:  926: * similar behaviour is desired.
+        -:  927: *
+        -:  928: * To mitigate this MS-Windows limitation, we provide support for
+        -:  929: * an alternative, MinGW specific idiom:
+        -:  930: *
+        -:  931: *   #include <fcntl.h>
+        -:  932: *
+        -:  933: *   _MKSTEMP_SETMODE( _O_TEMPORARY );
+        -:  934: *   if( mkstemp( template ) >= 0 )
+        -:  935: *   {
+        -:  936: *     . . .
+        -:  937: *   }
+        -:  938: *
+        -:  939: * to achieve a similar effect to that of the above POSIX idiom; the
+        -:  940: * following macros are a MinGW specific extension, to facilite such
+        -:  941: * use of _O_TEMPORARY, (in addition to the POSIX required attributes),
+        -:  942: * when creating the temporary file.  Note that they require <fcntl.h>,
+        -:  943: * which <stdlib.h> should NOT automatically include; we leave it to
+        -:  944: * the user to explicitly include it, if using _MKSTEMP_SETMODE.
+        -:  945: */
+        -:  946:#define _MKSTEMP_INVOKE       0
+        -:  947:#define _MKSTEMP_DEFAULT     _O_CREAT | _O_EXCL | _O_RDWR
+        -:  948:#define _MKSTEMP_SETMODE(M) __mingw_mkstemp( _MKSTEMP_DEFAULT | (M), NULL )
+        -:  949:
+        -:  950:#ifndef _NO_OLDNAMES
+        -:  951:#define MKSTEMP_SETMODE(M)  __mingw_mkstemp( _MKSTEMP_DEFAULT | (M), NULL )
+        -:  952:#endif
+        -:  953:
+        -:  954:__CRT_ALIAS __LIBIMPL__(( FUNCTION = mkstemp ))
+        -:  955:__cdecl __MINGW_NOTHROW  int mkstemp (char *__filename_template)
+        -:  956:{ return __mingw_mkstemp( _MKSTEMP_INVOKE, __filename_template ); }
+        -:  957:
+        -:  958:#endif	/* _POSIX_C_SOURCE >= 200112L (for mkstemp()) */
+        -:  959:
+        -:  960:/* mkdtemp(3) function support: added as adjunct to feature request #2003.
+        -:  961: * POSIX wants _XOPEN_SOURCE >= 700, (implying _POSIX_C_SOURCE >= 200809L).
+        -:  962: */
+        -:  963:#if _POSIX_C_SOURCE >= 200809L
+        -:  964:
+        -:  965:__cdecl __MINGW_NOTHROW  char *mkdtemp (char *);
+        -:  966:__cdecl __MINGW_NOTHROW  char *__mingw_mkdtemp (char *);
+        -:  967:
+        -:  968:__CRT_ALIAS __JMPSTUB__(( FUNCTION = mkdtemp ))
+        -:  969:__cdecl __MINGW_NOTHROW  char *mkdtemp (char *__dirname_template)
+        -:  970:{ return __mingw_mkdtemp( __dirname_template ); }
+        -:  971:
+        -:  972:#endif	/* _POSIX_C_SOURCE >= 200809L (for mkdtemp()) */
+        -:  973:
+        -:  974:#if _POSIX_C_SOURCE >= 200112L
+        -:  975:/* setenv() and unsetenv() are also available, from POSIX.1-2001 onwards.
+        -:  976: */
+        -:  977:__cdecl __MINGW_NOTHROW  int setenv( const char *, const char *, int );
+        -:  978:__cdecl __MINGW_NOTHROW  int unsetenv( const char * );
+        -:  979:
+        -:  980:__cdecl __MINGW_NOTHROW  int __mingw_setenv( const char *, const char *, int );
+        -:  981:
+        -:  982:__CRT_ALIAS __JMPSTUB__(( FUNCTION = setenv ))
+        -:  983:__cdecl __MINGW_NOTHROW  int setenv( const char *__n, const char *__v, int __f )
+        -:  984:{ return __mingw_setenv( __n, __v, __f ); }
+        -:  985:
+        -:  986:__CRT_ALIAS __LIBIMPL__(( FUNCTION = unsetenv ))
+        -:  987:__cdecl __MINGW_NOTHROW  int unsetenv( const char *__name )
+        -:  988:{ return __mingw_setenv( __name, NULL, 1 ); }
+        -:  989:
+        -:  990:#endif	/* _POSIX_C_SOURCE >= 200112L (for setenv()) */
+        -:  991:#endif	/* _STDLIB_H */
+        -:  992:
+        -:  993:_END_C_DECLS
+        -:  994:
+        -:  995:#endif	/* ! RC_INVOKED */
+        -:  996:#endif	/* ! _STDLIB_H: $RCSfile: stdlib.h,v $: end of file */

@@ -3,10 +3,16 @@ project(OOP_LAB2)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(OOP_LAB2 main.cpp
+enable_testing()
+
+#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
+#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=leak")
+#set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=undefined")
+
+add_executable(OOP_LAB2 Test.cpp
         Interpreter.cpp
         Factory.h
-        Command.cpp
+        Command.h
         Sum.cpp
         Sub.cpp
         Sub.h
@@ -54,4 +60,7 @@ add_executable(OOP_LAB2 main.cpp
         StringOutput.h
         Operands.cpp
         Operands.h
+        Command.cpp
 )
+
+target_link_libraries(OOP_LAB2 gtest gmock)

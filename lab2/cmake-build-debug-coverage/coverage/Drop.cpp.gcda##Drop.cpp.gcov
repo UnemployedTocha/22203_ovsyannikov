@@ -1,0 +1,18 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Drop.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Drop.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Drop.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Drop.h"
+        -:    2:#include <stdexcept>
+        -:    3:#include "FactoryInitializer.h"
+        -:    4:
+function _ZN4Drop7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 1 returned 100% blocks executed 100%
+        1:    5:void Drop::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+        1:    6:    operands.GetAndPop();
+        1:    6-block  0
+call    0 returned 1
+        1:    7:}
+        -:    8:
+        -:    9:namespace {
+        -:   10:    FactoryInitializer<Drop> Registration("drop");
+        -:   11:}

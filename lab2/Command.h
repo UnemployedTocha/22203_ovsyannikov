@@ -3,7 +3,6 @@
 #include "Operands.h"
 #include "Reader.h"
 #include "Tokens.h"
-#include <stack>
 
 class Command {
 public:

@@ -1,0 +1,656 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/If.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\If.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\If.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "If.h"
+        -:    2:#include "FactoryComplexFuncInitializer.h"
+        -:    3:#include "Utility.h"
+        -:    4:#include <memory>
+        -:    5:
+function _ZN2If7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 33 returned 36% blocks executed 90%
+       33:    6:void If::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+       33:    7:    auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
+       33:    7-block  0
+call    0 returned 33
+       66:    8:    Tokens tempTokens(tokens);
+call    0 returned 33
+branch  1 taken 33 (fallthrough)
+branch  2 taken 0 (throw)
+       12:    8-block  0
+call    3 returned 12
+       21:    8-block  1
+call    4 returned 21
+        -:    9:
+       33:   10:    int operand = operands.Top();
+       33:   10-block  0
+call    0 returned 33
+branch  1 taken 33 (fallthrough)
+branch  2 taken 0 (throw)
+       33:   11:    if (operand == 0) {
+       33:   11-block  0
+branch  0 taken 20 (fallthrough)
+branch  1 taken 13
+       60:   12:        while (!tokens.IsEmpty()) {
+       60:   12-block  0
+call    0 returned 60
+branch  1 taken 60 (fallthrough)
+branch  2 taken 0 (throw)
+       60:   12-block  1
+branch  3 taken 59 (fallthrough)
+branch  4 taken 1
+       40:   12-block  2
+       71:   13:            std::string token = tokens.GetAndPop();
+       59:   13-block  0
+call    0 returned 59
+branch  1 taken 59 (fallthrough)
+branch  2 taken 0 (throw)
+       12:   13-block  1
+call    3 returned 12
+       59:   14:            if(pFactory->isComplexFuncRegist3red(token)) {
+       59:   14-block  0
+call    0 returned 59
+branch  1 taken 59 (fallthrough)
+branch  2 taken 0 (throw)
+       59:   14-block  1
+branch  3 taken 11 (fallthrough)
+branch  4 taken 48
+       22:   15:                auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+       11:   15-block  0
+call    0 returned 11
+branch  1 taken 11 (fallthrough)
+branch  2 taken 0 (throw)
+       11:   15-block  1
+call    3 returned 11
+        5:   15-block  2
+call    4 returned 5
+        6:   15-block  3
+call    5 returned 6
+       11:   16:                pCommand->Check(tokens, reader);
+call    0 returned 11
+call    1 returned 11
+branch  2 taken 5 (fallthrough)
+branch  3 taken 6 (throw)
+       48:   17:            } else if (token == "else") {
+       48:   17-block  0
+call    0 returned 48
+branch  1 taken 10 (fallthrough)
+branch  2 taken 38
+       25:   18:                while (!tokens.IsEmpty()) {
+       25:   18-block  0
+call    0 returned 25
+branch  1 taken 25 (fallthrough)
+branch  2 taken 0 (throw)
+       25:   18-block  1
+branch  3 taken 25 (fallthrough)
+branch  4 taken 0
+       15:   18-block  2
+       25:   19:                    token = tokens.GetAndPop();
+       25:   19-block  0
+call    0 returned 25
+branch  1 taken 25 (fallthrough)
+branch  2 taken 0 (throw)
+       25:   19-block  1
+call    3 returned 25
+call    4 returned 25
+       25:   20:                    if (isNumber(token)) {
+call    0 returned 25
+branch  1 taken 25 (fallthrough)
+branch  2 taken 0 (throw)
+       25:   20-block  0
+branch  3 taken 7 (fallthrough)
+branch  4 taken 18
+        7:   21:                        operands.Push(std::stoi(token));
+        7:   21-block  0
+call    0 returned 7
+branch  1 taken 7 (fallthrough)
+branch  2 taken 0 (throw)
+        7:   21-block  1
+call    3 returned 7
+branch  4 taken 7 (fallthrough)
+branch  5 taken 0 (throw)
+        -:   22:                    }
+       18:   23:                    else if(pFactory->isRegist3red(token)) {
+       18:   23-block  0
+call    0 returned 18
+branch  1 taken 18 (fallthrough)
+branch  2 taken 0 (throw)
+       18:   23-block  1
+branch  3 taken 9 (fallthrough)
+branch  4 taken 9
+       18:   24:                        auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+        9:   24-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        9:   24-block  1
+call    3 returned 9
+        8:   24-block  2
+call    4 returned 8
+        1:   24-block  3
+call    5 returned 1
+        9:   25:                        pCommand->Execute(operands, tokens, output, reader);
+call    0 returned 9
+call    1 returned 9
+branch  2 taken 8 (fallthrough)
+branch  3 taken 1 (throw)
+        9:   26:                    } else if (token == "else") {
+        9:   26-block  0
+call    0 returned 9
+branch  1 taken 1 (fallthrough)
+branch  2 taken 8
+        1:   27:                        throw std::runtime_error("Incorrect number of \"else\"");
+        1:   27-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   27-block  1
+call    4 returned 1
+    $$$$$:   27-block  2
+call    5 never executed
+        8:   28:                    } else if (token == "then") {
+        8:   28-block  0
+call    0 returned 8
+branch  1 taken 7 (fallthrough)
+branch  2 taken 1
+        7:   29:                        CheckSemicolon(tokens);
+        7:   29-block  0
+call    0 returned 7
+branch  1 taken 6 (fallthrough)
+branch  2 taken 1 (throw)
+        6:   30:                        return;
+        6:   30-block  0
+        -:   31:                    } else {
+        1:   32:                        token += " ?";
+        1:   32-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   33:                        throw std::runtime_error(token);
+        1:   33-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   33-block  1
+call    4 returned 1
+    $$$$$:   33-block  2
+call    5 never executed
+        -:   34:                    }
+        -:   35:                }
+       38:   36:            } else if (token == "then") {
+       38:   36-block  0
+call    0 returned 38
+branch  1 taken 2 (fallthrough)
+branch  2 taken 36
+        2:   37:                CheckSemicolon(tokens);
+        2:   37-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1 (throw)
+        1:   38:                return;
+        1:   38-block  0
+       36:   39:            } else if(!pFactory->isRegist3red(token) && !isNumber(token)) {
+       36:   39-block  0
+call    0 returned 36
+branch  1 taken 36 (fallthrough)
+branch  2 taken 0 (throw)
+       36:   39-block  1
+branch  3 taken 24 (fallthrough)
+branch  4 taken 12
+       24:   39-block  2
+call    5 returned 24
+branch  6 taken 24 (fallthrough)
+branch  7 taken 0 (throw)
+       24:   39-block  3
+branch  8 taken 1 (fallthrough)
+branch  9 taken 23
+        1:   39-block  4
+       35:   39-block  5
+       36:   39-block  6
+branch 10 taken 1 (fallthrough)
+branch 11 taken 35
+        1:   40:                token += " ?";
+        1:   40-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   41:                throw std::runtime_error(token);
+        1:   41-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   41-block  1
+call    4 returned 1
+    $$$$$:   41-block  2
+call    5 never executed
+        -:   42:            }
+        -:   43:        }
+        -:   44:    }
+        -:   45:    else {
+       46:   46:        while (!tokens.IsEmpty()) {
+       46:   46-block  0
+call    0 returned 46
+branch  1 taken 46 (fallthrough)
+branch  2 taken 0 (throw)
+       46:   46-block  1
+branch  3 taken 44 (fallthrough)
+branch  4 taken 2
+       33:   46-block  2
+       50:   47:            std::string token = tokens.GetAndPop();
+       44:   47-block  0
+call    0 returned 44
+branch  1 taken 44 (fallthrough)
+branch  2 taken 0 (throw)
+        6:   47-block  1
+call    3 returned 6
+       44:   48:            if (isNumber(token)) {
+       44:   48-block  0
+call    0 returned 44
+branch  1 taken 44 (fallthrough)
+branch  2 taken 0 (throw)
+       44:   48-block  1
+branch  3 taken 19 (fallthrough)
+branch  4 taken 25
+       19:   49:                operands.Push(std::stoi(token));
+       19:   49-block  0
+call    0 returned 19
+branch  1 taken 19 (fallthrough)
+branch  2 taken 0 (throw)
+       19:   49-block  1
+call    3 returned 19
+branch  4 taken 19 (fallthrough)
+branch  5 taken 0 (throw)
+       25:   50:            } else if(pFactory->isRegist3red(token)) {
+       25:   50-block  0
+call    0 returned 25
+branch  1 taken 25 (fallthrough)
+branch  2 taken 0 (throw)
+       25:   50-block  1
+branch  3 taken 13 (fallthrough)
+branch  4 taken 12
+       26:   51:                auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+       13:   51-block  0
+call    0 returned 13
+branch  1 taken 13 (fallthrough)
+branch  2 taken 0 (throw)
+       13:   51-block  1
+call    3 returned 13
+       13:   51-block  2
+call    4 returned 13
+    $$$$$:   51-block  3
+call    5 never executed
+       13:   52:                pCommand->Execute(operands, tokens, output, reader);
+call    0 returned 13
+call    1 returned 13
+branch  2 taken 13 (fallthrough)
+branch  3 taken 0 (throw)
+       12:   53:            } else if(token == "else") {
+       12:   53-block  0
+call    0 returned 12
+branch  1 taken 9 (fallthrough)
+branch  2 taken 3
+       24:   54:                while(!tokens.IsEmpty()) {
+       24:   54-block  0
+call    0 returned 24
+branch  1 taken 24 (fallthrough)
+branch  2 taken 0 (throw)
+       24:   54-block  1
+branch  3 taken 23 (fallthrough)
+branch  4 taken 1
+       15:   54-block  2
+       23:   55:                    token = tokens.GetAndPop();
+       23:   55-block  0
+call    0 returned 23
+branch  1 taken 23 (fallthrough)
+branch  2 taken 0 (throw)
+       23:   55-block  1
+call    3 returned 23
+call    4 returned 23
+       23:   56:                    if(pFactory->isComplexFuncRegist3red(token)) {
+call    0 returned 23
+branch  1 taken 23 (fallthrough)
+branch  2 taken 0 (throw)
+       23:   56-block  0
+branch  3 taken 3 (fallthrough)
+branch  4 taken 20
+        6:   57:                        auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+        3:   57-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   57-block  1
+call    3 returned 3
+        2:   57-block  2
+call    4 returned 2
+        1:   57-block  3
+call    5 returned 1
+        3:   58:                        pCommand->Check(tokens, reader);
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 2 (fallthrough)
+branch  3 taken 1 (throw)
+       20:   59:                    } else if(token == "else") {
+       20:   59-block  0
+call    0 returned 20
+branch  1 taken 1 (fallthrough)
+branch  2 taken 19
+        1:   60:                        throw std::runtime_error("Incorrect number of \"else\"");
+        1:   60-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   60-block  1
+call    4 returned 1
+    $$$$$:   60-block  2
+call    5 never executed
+       19:   61:                    } else if (token == "then") {
+       19:   61-block  0
+call    0 returned 19
+branch  1 taken 5 (fallthrough)
+branch  2 taken 14
+        5:   62:                        CheckSemicolon(tokens);
+        5:   62-block  0
+call    0 returned 5
+branch  1 taken 4 (fallthrough)
+branch  2 taken 1 (throw)
+        4:   63:                        return;
+        4:   63-block  0
+       14:   64:                    } else if(!pFactory->isRegist3red(token) && !isNumber(token)) {
+       14:   64-block  0
+call    0 returned 14
+branch  1 taken 14 (fallthrough)
+branch  2 taken 0 (throw)
+       14:   64-block  1
+branch  3 taken 10 (fallthrough)
+branch  4 taken 4
+       10:   64-block  2
+call    5 returned 10
+branch  6 taken 10 (fallthrough)
+branch  7 taken 0 (throw)
+       10:   64-block  3
+branch  8 taken 1 (fallthrough)
+branch  9 taken 9
+        1:   64-block  4
+       13:   64-block  5
+       14:   64-block  6
+branch 10 taken 1 (fallthrough)
+branch 11 taken 13
+        1:   65:                        token += " ?";
+        1:   65-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   66:                        throw std::runtime_error(token);
+        1:   66-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   66-block  1
+call    4 returned 1
+    $$$$$:   66-block  2
+call    5 never executed
+        -:   67:                    }
+        -:   68:                }
+        3:   69:            } else if(token == "then") {
+        3:   69-block  0
+call    0 returned 3
+branch  1 taken 2 (fallthrough)
+branch  2 taken 1
+        2:   70:                CheckSemicolon(tokens);
+        2:   70-block  0
+call    0 returned 2
+branch  1 taken 1 (fallthrough)
+branch  2 taken 1 (throw)
+        1:   71:                return;
+        1:   71-block  0
+        -:   72:            } else {
+        1:   73:                token += " ?";
+        1:   73-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   74:                throw std::runtime_error(token);
+        1:   74-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   74-block  1
+call    4 returned 1
+    $$$$$:   74-block  2
+call    5 never executed
+        -:   75:            }
+        -:   76:        }
+        -:   77:    }
+        3:   78:    throw std::runtime_error("There is no then at the end of condition");
+        3:   78-block  0
+call    0 returned 3
+call    1 returned 3
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0 (throw)
+        3:   78-block  1
+call    4 returned 3
+    $$$$$:   78-block  2
+call    5 never executed
+        -:   79:}
+        -:   80:
+function _ZN2If5CheckER6TokensR6Reader called 15 returned 53% blocks executed 89%
+       15:   81:void If::Check(Tokens& tokens, Reader& reader) {
+       15:   82:    auto pFactory = Factory<Command, std::string, Command *(*)()>::getInstance();
+       15:   82-block  0
+call    0 returned 15
+       31:   83:    while (!tokens.IsEmpty()) {
+       31:   83-block  0
+call    0 returned 31
+branch  1 taken 30 (fallthrough)
+branch  2 taken 1
+       16:   83-block  1
+       36:   84:        std::string token = tokens.GetAndPop();
+       30:   84-block  0
+call    0 returned 30
+branch  1 taken 30 (fallthrough)
+branch  2 taken 0 (throw)
+        6:   84-block  1
+call    3 returned 6
+       30:   85:        if(pFactory->isComplexFuncRegist3red(token)) {
+       30:   85-block  0
+call    0 returned 30
+branch  1 taken 30 (fallthrough)
+branch  2 taken 0 (throw)
+       30:   85-block  1
+branch  3 taken 6 (fallthrough)
+branch  4 taken 24
+       12:   86:            auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+        6:   86-block  0
+call    0 returned 6
+branch  1 taken 6 (fallthrough)
+branch  2 taken 0 (throw)
+        6:   86-block  1
+call    3 returned 6
+        3:   86-block  2
+call    4 returned 3
+        3:   86-block  3
+call    5 returned 3
+        6:   87:            pCommand->Check(tokens, reader);
+call    0 returned 6
+call    1 returned 6
+branch  2 taken 3 (fallthrough)
+branch  3 taken 3 (throw)
+        -:   88:        }
+       24:   89:        else if (token == "else") {
+       24:   89-block  0
+call    0 returned 24
+branch  1 taken 6 (fallthrough)
+branch  2 taken 18
+       18:   90:            while (!tokens.IsEmpty()) {
+       18:   90-block  0
+call    0 returned 18
+branch  1 taken 18 (fallthrough)
+branch  2 taken 0 (throw)
+       18:   90-block  1
+branch  3 taken 17 (fallthrough)
+branch  4 taken 1
+       12:   90-block  2
+       17:   91:                token = tokens.GetAndPop();
+       17:   91-block  0
+call    0 returned 17
+branch  1 taken 17 (fallthrough)
+branch  2 taken 0 (throw)
+       17:   91-block  1
+call    3 returned 17
+call    4 returned 17
+       17:   92:                if(pFactory->isComplexFuncRegist3red(token)) {
+call    0 returned 17
+branch  1 taken 17 (fallthrough)
+branch  2 taken 0 (throw)
+       17:   92-block  0
+branch  3 taken 1 (fallthrough)
+branch  4 taken 16
+        2:   93:                    auto pCommand = std::unique_ptr<Command>(pFactory->createProductByName(token));
+        1:   93-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   93-block  1
+call    3 returned 1
+        1:   93-block  2
+call    4 returned 1
+    $$$$$:   93-block  3
+call    5 never executed
+        1:   94:                    pCommand->Check(tokens, reader);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+       16:   95:                } else if (token == "else") {
+       16:   95-block  0
+call    0 returned 16
+branch  1 taken 1 (fallthrough)
+branch  2 taken 15
+        1:   96:                    throw std::runtime_error("Incorrect number of \"else\"");
+        1:   96-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   96-block  1
+call    4 returned 1
+    $$$$$:   96-block  2
+call    5 never executed
+       15:   97:                } else if (token == "then") {
+       15:   97-block  0
+call    0 returned 15
+branch  1 taken 3 (fallthrough)
+branch  2 taken 12
+        3:   98:                    CheckSemicolon(tokens);
+        3:   98-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   99:                    return;
+        3:   99-block  0
+       12:  100:                } else if (!isNumber(token) && !pFactory->isRegist3red(token)){
+       12:  100-block  0
+call    0 returned 12
+branch  1 taken 12 (fallthrough)
+branch  2 taken 0 (throw)
+       12:  100-block  1
+branch  3 taken 6 (fallthrough)
+branch  4 taken 6
+        6:  100-block  2
+call    5 returned 6
+branch  6 taken 6 (fallthrough)
+branch  7 taken 0 (throw)
+        6:  100-block  3
+branch  8 taken 1 (fallthrough)
+branch  9 taken 5
+        1:  100-block  4
+       11:  100-block  5
+       12:  100-block  6
+branch 10 taken 1 (fallthrough)
+branch 11 taken 11
+        1:  101:                    token += " ?";
+        1:  101-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  102:                    throw std::runtime_error(token);
+        1:  102-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  102-block  1
+call    4 returned 1
+    $$$$$:  102-block  2
+call    5 never executed
+        -:  103:                }
+        -:  104:            }
+       18:  105:        } else if (token == "then") {
+       18:  105-block  0
+call    0 returned 18
+branch  1 taken 5 (fallthrough)
+branch  2 taken 13
+        5:  106:            CheckSemicolon(tokens);
+        5:  106-block  0
+call    0 returned 5
+branch  1 taken 5 (fallthrough)
+branch  2 taken 0 (throw)
+        5:  107:            return;
+        5:  107-block  0
+       13:  108:        } else if(!isNumber(token) && !pFactory->isRegist3red(token)) {
+       13:  108-block  0
+call    0 returned 13
+branch  1 taken 13 (fallthrough)
+branch  2 taken 0 (throw)
+       13:  108-block  1
+branch  3 taken 7 (fallthrough)
+branch  4 taken 6
+        7:  108-block  2
+call    5 returned 7
+branch  6 taken 7 (fallthrough)
+branch  7 taken 0 (throw)
+        7:  108-block  3
+branch  8 taken 1 (fallthrough)
+branch  9 taken 6
+        1:  108-block  4
+       12:  108-block  5
+       13:  108-block  6
+branch 10 taken 1 (fallthrough)
+branch 11 taken 12
+        1:  109:            token += " ?";
+        1:  109-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  110:            throw std::runtime_error(token);
+        1:  110-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  110-block  1
+call    4 returned 1
+    $$$$$:  110-block  2
+call    5 never executed
+        -:  111:        }
+        -:  112:    }
+        1:  113:    throw std::runtime_error("Incorrect form of condition");
+        1:  113-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:  113-block  1
+call    4 returned 0
+    $$$$$:  113-block  2
+call    5 never executed
+        -:  114:}
+        -:  115:
+        -:  116:namespace {
+        -:  117:    FactoryComplexFuncInitializer<If> Registration("if");
+        -:  118:}

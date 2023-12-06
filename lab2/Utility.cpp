@@ -6,7 +6,7 @@ bool isNumber(const std::string& str) {
         return false;
     }
 
-    if(str[0] == '-' && str.length() == 1) {
+    if(str.size() == 1  && str.front() == '-') {
         return false;
     }
 

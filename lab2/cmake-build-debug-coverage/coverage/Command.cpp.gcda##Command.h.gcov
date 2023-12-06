@@ -1,0 +1,33 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Command.h
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Command.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Command.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include "Operands.h"
+        -:    4:#include "Reader.h"
+        -:    5:#include "Tokens.h"
+        -:    6:
+     290*:    7:class Command {
+------------------
+_ZN7CommandD0Ev:
+function _ZN7CommandD0Ev called 0 returned 0% blocks executed 0%
+    #####:    7:class Command {
+    %%%%%:    7-block  0
+call    0 never executed
+call    1 never executed
+------------------
+_ZN7CommandD2Ev:
+function _ZN7CommandD2Ev called 145 returned 100% blocks executed 100%
+      145:    7:class Command {
+------------------
+_ZN7CommandC2Ev:
+function _ZN7CommandC2Ev called 145 returned 100% blocks executed 100%
+      145:    7:class Command {
+------------------
+        -:    8:public:
+        -:    9:    Command();
+        -:   10:    virtual void Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader);
+        -:   11:    virtual void Check(Tokens& tokens, Reader& reader);
+        -:   12:    virtual ~Command();
+        -:   13:};

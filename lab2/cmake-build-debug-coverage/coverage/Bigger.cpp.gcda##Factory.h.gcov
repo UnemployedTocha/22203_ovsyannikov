@@ -1,0 +1,95 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Factory.h
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Bigger.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Bigger.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:#include <map>
+        -:    3:#include <assert.h>
+        -:    4:#include "Command.h"
+        -:    5:
+        -:    6:template<class Product, class Id, class Creator>
+        -:    7:class Factory {
+        -:    8:public:
+function _ZN7FactoryI7CommandNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPS0_vEE11getInstanceEv called 0 returned 0% blocks executed 0%
+    #####:    9:    static Factory* getInstance() {
+    #####:   10:        static Factory f;
+    %%%%%:   10-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   10-block  1
+call    2 never executed
+branch  3 never executed
+branch  4 never executed
+    %%%%%:   10-block  2
+call    5 never executed
+call    6 never executed
+call    7 never executed
+    #####:   11:        return &f;
+    %%%%%:   11-block  0
+        -:   12:    }
+        -:   13:
+        -:   14:    Product* createProductByName(const Id& name) {
+        -:   15:        auto creator  = creators_.at(name);
+        -:   16:        return creator();
+        -:   17:    }
+        -:   18:
+function _ZN7FactoryI7CommandNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPS0_vEE8regist3rERKS6_S9_ called 0 returned 0% blocks executed 0%
+    #####:   19:    bool regist3r(const Id& name, Creator creator) {
+    #####:   20:        assert(creator);
+    %%%%%:   20-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   20-block  1
+call    2 never executed
+        -:   21:
+    #####:   22:        if(isRegist3red(name)) {
+    %%%%%:   22-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   23:            return false;
+    %%%%%:   23-block  0
+        -:   24:        }
+    #####:   25:        creators_[name] = creator;
+    %%%%%:   25-block  0
+call    0 never executed
+    #####:   26:        return true;
+        -:   27:    }
+        -:   28:
+function _ZN7FactoryI7CommandNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPS0_vEE12isRegist3redERKS6_ called 0 returned 0% blocks executed 0%
+    #####:   29:    bool isRegist3red(const Id& name) {
+    #####:   30:        return creators_.find(name) != creators_.end();
+    %%%%%:   30-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   30-block  1
+call    4 never executed
+    %%%%%:   30-block  2
+        -:   31:    }
+        -:   32:
+        -:   33:    bool isComplexFuncRegist3red(const Id& name) {
+        -:   34:        return complexCreators_.find(name) != complexCreators_.end();
+        -:   35:    }
+        -:   36:
+        -:   37:    bool complexFuncRegist3r(const Id& name, Creator creator) {
+        -:   38:        assert(creator);
+        -:   39:
+        -:   40:        if(isComplexFuncRegist3red(name)) {
+        -:   41:            return false;
+        -:   42:        }
+        -:   43:        creators_[name] = creator;
+        -:   44:        complexCreators_[name] = creator;
+        -:   45:        return true;
+        -:   46:    }
+        -:   47:private:
+function _ZN7FactoryI7CommandNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPS0_vEEC1Ev called 0 returned 0% blocks executed 0%
+    #####:   48:    Factory() = default;
+    %%%%%:   48-block  0
+call    0 never executed
+call    1 never executed
+        -:   49:
+        -:   50:    std::map<Id, Creator> creators_;
+        -:   51:    std::map<Id, Creator> complexCreators_;
+        -:   52:};

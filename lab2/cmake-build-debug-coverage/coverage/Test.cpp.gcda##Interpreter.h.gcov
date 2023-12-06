@@ -1,0 +1,20 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Interpreter.h
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Test.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Test.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include <string>
+        -:    4:#include "Operands.h"
+        -:    5:
+        -:    6:class Interpreter {
+        -:    7:public:
+function _ZN11InterpreterC1Ev called 19 returned 100% blocks executed 100%
+       19:    8:    Interpreter() = default;
+       19:    8-block  0
+call    0 returned 19
+        -:    9:    void TextProccesing(std::istream& inputFile, std::string& output);
+        -:   10:
+        -:   11:private:
+        -:   12:    Operands operands_;
+        -:   13:};

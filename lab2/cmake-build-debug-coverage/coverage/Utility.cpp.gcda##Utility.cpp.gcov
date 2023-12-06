@@ -1,0 +1,122 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Utility.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Utility.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Utility.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Utility.h"
+        -:    2:#include <stdexcept>
+        -:    3:
+function _Z8isNumberRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 470 returned 100% blocks executed 100%
+      470:    4:bool isNumber(const std::string& str) {
+      470:    5:    if(str.empty()) {
+      470:    5-block  0
+call    0 returned 470
+branch  1 taken 1 (fallthrough)
+branch  2 taken 469
+        1:    6:        return false;
+        1:    6-block  0
+        -:    7:    }
+        -:    8:
+      469:    9:    if(str.size() == 1  && str.front() == '-') {
+      469:    9-block  0
+call    0 returned 469
+branch  1 taken 337 (fallthrough)
+branch  2 taken 132
+      337:    9-block  1
+call    3 returned 337
+branch  4 taken 1 (fallthrough)
+branch  5 taken 336
+        1:    9-block  2
+      468:    9-block  3
+      469:    9-block  4
+branch  6 taken 1 (fallthrough)
+branch  7 taken 468
+        1:   10:        return false;
+        1:   10-block  0
+        -:   11:    }
+        -:   12:
+      826:   13:    for(size_t i = 0; i < str.length(); ++i) {
+      468:   13-block  0
+      826:   13-block  1
+call    0 returned 826
+branch  1 taken 535 (fallthrough)
+branch  2 taken 291
+      358:   13-block  2
+      535:   14:        if(i == 0 && str[i] == '-') {
+      535:   14-block  0
+branch  0 taken 468 (fallthrough)
+branch  1 taken 67
+      468:   14-block  1
+call    2 returned 468
+branch  3 taken 2 (fallthrough)
+branch  4 taken 466
+        2:   14-block  2
+      533:   14-block  3
+      535:   14-block  4
+branch  5 taken 2 (fallthrough)
+branch  6 taken 533
+        2:   15:            continue;
+        2:   15-block  0
+        -:   16:        }
+      533:   17:        if(!std::isdigit(str[i])) {
+      533:   17-block  0
+call    0 returned 533
+branch  1 taken 177 (fallthrough)
+branch  2 taken 356
+      177:   18:            return false;
+      177:   18-block  0
+        -:   19:        }
+        -:   20:    }
+      291:   21:    return true;
+      291:   21-block  0
+        -:   22:}
+        -:   23:
+function _Z14CheckSemicolonR6Tokens called 32 returned 84% blocks executed 80%
+       32:   24:void CheckSemicolon(Tokens& tokens) {
+       32:   25:    if(tokens.IsEmpty()) {
+       32:   25-block  0
+call    0 returned 32
+branch  1 taken 32 (fallthrough)
+branch  2 taken 0 (throw)
+       32:   25-block  1
+branch  3 taken 4 (fallthrough)
+branch  4 taken 28
+        4:   26:        throw std::runtime_error("There is no ; at the end of condition");
+        4:   26-block  0
+call    0 returned 4
+call    1 returned 4
+branch  2 taken 4 (fallthrough)
+branch  3 taken 0 (throw)
+        4:   26-block  1
+call    4 returned 4
+    $$$$$:   26-block  2
+call    5 never executed
+        -:   27:    }
+       56:   28:    std::string token = tokens.GetAndPop();
+       28:   28-block  0
+call    0 returned 28
+branch  1 taken 28 (fallthrough)
+branch  2 taken 0 (throw)
+       27:   28-block  1
+call    3 returned 27
+        1:   28-block  2
+call    4 returned 1
+       28:   29:    if(token != ";") {
+       28:   29-block  0
+call    0 returned 28
+branch  1 taken 28 (fallthrough)
+branch  2 taken 0 (throw)
+       28:   29-block  1
+branch  3 taken 1 (fallthrough)
+branch  4 taken 27
+        1:   30:        throw std::runtime_error("There is no ; at the end of condition");
+        1:   30-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   30-block  1
+call    4 returned 1
+    $$$$$:   30-block  2
+call    5 never executed
+        -:   31:    }
+       27:   32:}

@@ -1,0 +1,4 @@
+C:/Users/Pepega/CLionProjects/OOP_LAB2/cmake-build-debug-coverage/CMakeFiles/OOP_LAB2.dir
+C:/Users/Pepega/CLionProjects/OOP_LAB2/cmake-build-debug-coverage/CMakeFiles/test.dir
+C:/Users/Pepega/CLionProjects/OOP_LAB2/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+C:/Users/Pepega/CLionProjects/OOP_LAB2/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir

@@ -49,20 +49,14 @@ cmake_ninja_workdir = C$:/Users/Pepega/CLionProjects/OOP_LAB2/cmake-build-debug/
 
 build cmake_object_order_depends_target_OOP_LAB2: phony || CMakeFiles/OOP_LAB2.dir
 
-build CMakeFiles/OOP_LAB2.dir/main.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_Debug C$:/Users/Pepega/CLionProjects/OOP_LAB2/main.cpp || cmake_object_order_depends_target_OOP_LAB2
-  DEP_FILE = CMakeFiles\OOP_LAB2.dir\main.cpp.obj.d
+build CMakeFiles/OOP_LAB2.dir/Test.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_Debug C$:/Users/Pepega/CLionProjects/OOP_LAB2/Test.cpp || cmake_object_order_depends_target_OOP_LAB2
+  DEP_FILE = CMakeFiles\OOP_LAB2.dir\Test.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
   OBJECT_FILE_DIR = CMakeFiles\OOP_LAB2.dir
 
 build CMakeFiles/OOP_LAB2.dir/Interpreter.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_Debug C$:/Users/Pepega/CLionProjects/OOP_LAB2/Interpreter.cpp || cmake_object_order_depends_target_OOP_LAB2
   DEP_FILE = CMakeFiles\OOP_LAB2.dir\Interpreter.cpp.obj.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
-  OBJECT_FILE_DIR = CMakeFiles\OOP_LAB2.dir
-
-build CMakeFiles/OOP_LAB2.dir/Command.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_Debug C$:/Users/Pepega/CLionProjects/OOP_LAB2/Command.cpp || cmake_object_order_depends_target_OOP_LAB2
-  DEP_FILE = CMakeFiles\OOP_LAB2.dir\Command.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
   OBJECT_FILE_DIR = CMakeFiles\OOP_LAB2.dir
@@ -205,6 +199,12 @@ build CMakeFiles/OOP_LAB2.dir/Operands.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned
   OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
   OBJECT_FILE_DIR = CMakeFiles\OOP_LAB2.dir
 
+build CMakeFiles/OOP_LAB2.dir/Command.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned_Debug C$:/Users/Pepega/CLionProjects/OOP_LAB2/Command.cpp || cmake_object_order_depends_target_OOP_LAB2
+  DEP_FILE = CMakeFiles\OOP_LAB2.dir\Command.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
+  OBJECT_FILE_DIR = CMakeFiles\OOP_LAB2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target OOP_LAB2
@@ -213,15 +213,27 @@ build CMakeFiles/OOP_LAB2.dir/Operands.cpp.obj: CXX_COMPILER__OOP_LAB2_unscanned
 #############################################
 # Link the executable OOP_LAB2.exe
 
-build OOP_LAB2.exe: CXX_EXECUTABLE_LINKER__OOP_LAB2_Debug CMakeFiles/OOP_LAB2.dir/main.cpp.obj CMakeFiles/OOP_LAB2.dir/Interpreter.cpp.obj CMakeFiles/OOP_LAB2.dir/Command.cpp.obj CMakeFiles/OOP_LAB2.dir/Sum.cpp.obj CMakeFiles/OOP_LAB2.dir/Sub.cpp.obj CMakeFiles/OOP_LAB2.dir/Mul.cpp.obj CMakeFiles/OOP_LAB2.dir/Div.cpp.obj CMakeFiles/OOP_LAB2.dir/Mod.cpp.obj CMakeFiles/OOP_LAB2.dir/Dup.cpp.obj CMakeFiles/OOP_LAB2.dir/Drop.cpp.obj CMakeFiles/OOP_LAB2.dir/Dot.cpp.obj CMakeFiles/OOP_LAB2.dir/swap.cpp.obj CMakeFiles/OOP_LAB2.dir/Rot.cpp.obj CMakeFiles/OOP_LAB2.dir/Over.cpp.obj CMakeFiles/OOP_LAB2.dir/Emit.cpp.obj CMakeFiles/OOP_LAB2.dir/Cr.cpp.obj CMakeFiles/OOP_LAB2.dir/Bigger.cpp.obj CMakeFiles/OOP_LAB2.dir/Less.cpp.obj CMakeFiles/OOP_LAB2.dir/Equal.cpp.obj CMakeFiles/OOP_LAB2.dir/StringOutput.cpp.obj CMakeFiles/OOP_LAB2.dir/If.cpp.obj CMakeFiles/OOP_LAB2.dir/Reader.cpp.obj CMakeFiles/OOP_LAB2.dir/Tokens.cpp.obj CMakeFiles/OOP_LAB2.dir/Utility.cpp.obj CMakeFiles/OOP_LAB2.dir/Loop.cpp.obj CMakeFiles/OOP_LAB2.dir/Operands.cpp.obj
+build OOP_LAB2.exe: CXX_EXECUTABLE_LINKER__OOP_LAB2_Debug CMakeFiles/OOP_LAB2.dir/Test.cpp.obj CMakeFiles/OOP_LAB2.dir/Interpreter.cpp.obj CMakeFiles/OOP_LAB2.dir/Sum.cpp.obj CMakeFiles/OOP_LAB2.dir/Sub.cpp.obj CMakeFiles/OOP_LAB2.dir/Mul.cpp.obj CMakeFiles/OOP_LAB2.dir/Div.cpp.obj CMakeFiles/OOP_LAB2.dir/Mod.cpp.obj CMakeFiles/OOP_LAB2.dir/Dup.cpp.obj CMakeFiles/OOP_LAB2.dir/Drop.cpp.obj CMakeFiles/OOP_LAB2.dir/Dot.cpp.obj CMakeFiles/OOP_LAB2.dir/swap.cpp.obj CMakeFiles/OOP_LAB2.dir/Rot.cpp.obj CMakeFiles/OOP_LAB2.dir/Over.cpp.obj CMakeFiles/OOP_LAB2.dir/Emit.cpp.obj CMakeFiles/OOP_LAB2.dir/Cr.cpp.obj CMakeFiles/OOP_LAB2.dir/Bigger.cpp.obj CMakeFiles/OOP_LAB2.dir/Less.cpp.obj CMakeFiles/OOP_LAB2.dir/Equal.cpp.obj CMakeFiles/OOP_LAB2.dir/StringOutput.cpp.obj CMakeFiles/OOP_LAB2.dir/If.cpp.obj CMakeFiles/OOP_LAB2.dir/Reader.cpp.obj CMakeFiles/OOP_LAB2.dir/Tokens.cpp.obj CMakeFiles/OOP_LAB2.dir/Utility.cpp.obj CMakeFiles/OOP_LAB2.dir/Loop.cpp.obj CMakeFiles/OOP_LAB2.dir/Operands.cpp.obj CMakeFiles/OOP_LAB2.dir/Command.cpp.obj
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lgtest  -lgmock  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\OOP_LAB2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = OOP_LAB2.exe
   TARGET_IMPLIB = libOOP_LAB2.dll.a
   TARGET_PDB = OOP_LAB2.exe.dbg
+
+
+#############################################
+# Utility command for test
+
+build CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
+  DESC = Running tests...
+  pool = console
+  restat = 1
+
+build test: phony CMakeFiles/test.util
 
 
 #############################################

@@ -15,9 +15,6 @@ std::string Tokens::GetAndPop() {
     return s;
 }
 
-std::string Tokens::Top() {
-    return tokens_.front();
-}
 bool Tokens::IsEmpty() {
     return tokens_.empty();
 }

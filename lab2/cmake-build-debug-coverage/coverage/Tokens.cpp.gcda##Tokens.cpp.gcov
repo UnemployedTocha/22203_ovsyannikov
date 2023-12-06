@@ -1,0 +1,44 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Tokens.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Tokens.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Tokens.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Tokens.h"
+        -:    2:
+        -:    3:Tokens::Tokens() = default;
+        -:    4:
+function _ZN6TokensC2ERKS_ called 33 returned 100% blocks executed 80%
+       33:    5:Tokens::Tokens(const Tokens& t) {
+       33:    5-block  0
+call    0 returned 33
+    $$$$$:    5-block  1
+call    1 never executed
+       33:    6:    tokens_ = t.tokens_;
+call    0 returned 33
+branch  1 taken 33 (fallthrough)
+branch  2 taken 0 (throw)
+       33:    7:}
+       33:    7-block  0
+function _ZN6Tokens4PushERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 482 returned 100% blocks executed 100%
+      482:    8:void Tokens::Push(const std::string& s) {
+      482:    9:    tokens_.push(s);
+      482:    9-block  0
+call    0 returned 482
+      482:   10:}
+        -:   11:
+function _ZN6Tokens9GetAndPopB5cxx11Ev called 417 returned 100% blocks executed 100%
+      417:   12:std::string Tokens::GetAndPop() {
+      417:   13:    std::string s = tokens_.front();
+      417:   13-block  0
+call    0 returned 417
+call    1 returned 417
+      417:   14:    tokens_.pop();
+call    0 returned 417
+      417:   15:    return s;
+        -:   16:}
+        -:   17:
+function _ZN6Tokens7IsEmptyEv called 457 returned 100% blocks executed 100%
+      457:   18:bool Tokens::IsEmpty() {
+      457:   19:    return tokens_.empty();
+      457:   19-block  0
+call    0 returned 457
+        -:   20:}

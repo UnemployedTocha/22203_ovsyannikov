@@ -1,0 +1,22 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Tokens.h
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Tokens.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Tokens.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#pragma once
+        -:    2:
+        -:    3:#include <queue>
+        -:    4:#include <string>
+        -:    5:
+function _ZN6TokensC2Ev called 56 returned 100% blocks executed 100%
+       56:    6:class Tokens {
+       56:    6-block  0
+call    0 returned 56
+        -:    7:public:
+        -:    8:    Tokens();
+        -:    9:    Tokens(const Tokens& t);
+        -:   10:    void Push(const std::string& s);
+        -:   11:    std::string GetAndPop();
+        -:   12:    bool IsEmpty();
+        -:   13:private:
+        -:   14:    std::queue<std::string> tokens_;
+        -:   15:};

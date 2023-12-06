@@ -1,0 +1,21 @@
+        -:    0:Source:C:/Users/Pepega/CLionProjects/OOP_LAB2/Sum.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Sum.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\OOP_LAB2\cmake-build-debug-coverage\CMakeFiles\OOP_LAB2.dir\Sum.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "Sum.h"
+        -:    2:#include "FactoryInitializer.h"
+        -:    3:
+function _ZN3Sum7ExecuteER8OperandsR6TokensRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER6Reader called 12 returned 100% blocks executed 100%
+       12:    4:void Sum::Execute(Operands& operands, Tokens& tokens, std::string& output, Reader& reader) {
+       12:    5:    int operand1 = operands.GetAndPop();
+       12:    5-block  0
+call    0 returned 12
+       12:    6:    int operand2 = operands.GetAndPop();
+call    0 returned 12
+       12:    7:    operands.Push(operand1 + operand2);
+call    0 returned 12
+       12:    8:}
+        -:    9:
+        -:   10:namespace {
+        -:   11:    FactoryInitializer<Sum> Registration("+");
+        -:   12:}
