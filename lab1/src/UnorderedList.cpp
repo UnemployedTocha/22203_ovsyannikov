@@ -5,7 +5,7 @@ typedef std::string Key;
 Value::Value(): age(0), weight(0) {}
 
 Value::Value(unsigned age, unsigned weight): age(age), weight(weight) {}
-    
+
 bool operator==(const Value& A, const Value& B){
     if((A.age == B.age) && (A.weight == B.weight)){
         return true;
@@ -85,15 +85,17 @@ List& List::operator=(const List& L) {
     }
 
     _sz = L._sz;
+
     CopyList(L);
     return *this;
 }
 
 void List::MoveTopNode(List& listFrom) {
     this -> Push(*(listFrom.Pop()));
+    return;
 }
-const List::ListNode& List::Top() const{
-    return *(this -> _pFirstNode);
+const std::string& List::TopNodeKey() const{
+    return _pFirstNode -> key;
 }
 
 bool List::IsEmpty() const {
@@ -180,14 +182,11 @@ List::Iterator List::End() const{
 //List::Iterator::Iterator() : _pNode(nullptr) {};
 List::Iterator::Iterator(ListNode* pNode) : _pNode(pNode) {}
 List::Iterator& List::Iterator::operator++() {
-    if(!_pNode) {
-        return *this;//???
-    }
     _pNode = _pNode -> pNext;
     return *this;
 }
-List::ListNode& List::Iterator::operator*() {
-    return *_pNode;
+std::string& List::Iterator::operator*() {
+    return _pNode -> key;
 }
 
 bool operator==(const List& A, const List& B) {
@@ -197,7 +196,7 @@ bool operator==(const List& A, const List& B) {
         bool isEqualNodeExist = false;
 
         while(itListB != B.End()) {
-            if((*itListA).key == (*itListB).key){
+            if((*itListA) == (*itListB)){
                 isEqualNodeExist = true;
             }
             ++itListB;

@@ -22,7 +22,6 @@ TEST(TestList, OperatorEquality){
     List B;
     B = A;
 
-
     EXPECT_EQ(A, B);
     EXPECT_EQ(B, A);
 

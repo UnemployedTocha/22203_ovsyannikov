@@ -1,441 +1,443 @@
-        -:    0:Source:C:/Users/Pepega/CLionProjects/OOPLAB1/HashTable.cpp
-        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOPLAB1\cmake-build-debug-coverage\CMakeFiles\OOPLAB1.dir\HashTable.cpp.gcno
-        -:    0:Data:C:\Users\Pepega\CLionProjects\OOPLAB1\cmake-build-debug-coverage\CMakeFiles\OOPLAB1.dir\HashTable.cpp.gcda
+        -:    0:Source:C:/Users/Pepega/CLionProjects/NewLab1/HashTable.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\NewLab1\cmake-build-debug-coverage\CMakeFiles\NewLab1.dir\HashTable.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\NewLab1\cmake-build-debug-coverage\CMakeFiles\NewLab1.dir\HashTable.cpp.gcda
         -:    0:Runs:1
         -:    1:#include "HashTable.h"
         -:    2:#include <algorithm>
-        -:    3:
+        -:    3:#include <stdexcept>
+        -:    4:
 function _ZN9HashTableC2Ev called 16 returned 100% blocks executed 47%
-      48*:    4:HashTable::HashTable(): _cap(DEFAULT_SIZE_CAP), _sz(0), _arr(new List[_cap]) {}
-       16:    4-block  0
+      48*:    5:HashTable::HashTable(): _cap(DEFAULT_SIZE_CAP), _sz(0), _arr(new List[_cap]) {}
+       16:    5-block  0
 branch  0 taken 16 (fallthrough)
 branch  1 taken 0
-       16:    4-block  1
-    %%%%%:    4-block  2
-       16:    4-block  3
+       16:    5-block  1
+    %%%%%:    5-block  2
+       16:    5-block  3
 call    2 returned 16
-       48:    4-block  4
+       48:    5-block  4
 branch  3 taken 32 (fallthrough)
 branch  4 taken 16
-       32:    4-block  5
+       32:    5-block  5
 call    5 returned 32
 branch  6 taken 32 (fallthrough)
 branch  7 taken 0 (throw)
-       32:    4-block  6
-       16:    4-block  7
-    $$$$$:    4-block  8
-    $$$$$:    4-block  9
+       32:    5-block  6
+       16:    5-block  7
+    $$$$$:    5-block  8
+    $$$$$:    5-block  9
 call    8 never executed
-    $$$$$:    4-block 10
+    $$$$$:    5-block 10
 branch  9 never executed
 branch 10 never executed
-    $$$$$:    4-block 11
-    $$$$$:    4-block 12
-    $$$$$:    4-block 13
+    $$$$$:    5-block 11
+    $$$$$:    5-block 12
+    $$$$$:    5-block 13
 call   11 never executed
-        -:    5:
+        -:    6:
 function _ZN9HashTableD2Ev called 23 returned 100% blocks executed 100%
-       46:    6:HashTable::~HashTable() {
-    15135:    7:    delete[] _arr;
-       23:    7-block  0
+       46:    7:HashTable::~HashTable() {
+    15135:    8:    delete[] _arr;
+       23:    8-block  0
 branch  0 taken 22 (fallthrough)
 branch  1 taken 1
-       22:    7-block  1
-    15134:    7-block  2
+       22:    8-block  1
+    15134:    8-block  2
 branch  2 taken 15112 (fallthrough)
 branch  3 taken 22
-    15112:    7-block  3
+    15112:    8-block  3
 call    4 returned 15112
-       22:    7-block  4
+       22:    8-block  4
 call    5 returned 22
-        -:    8:
-       23:    9:}
-        -:   10:
+        -:    9:
+       23:   10:}
+        -:   11:
 function _ZN9HashTableC2ERKS_ called 6 returned 100% blocks executed 50%
-    3462*:   11:HashTable::HashTable(const HashTable& B): _cap(B._cap), _sz(B._sz), _arr(new List[_cap]) {
-        6:   11-block  0
+    3462*:   12:HashTable::HashTable(const HashTable& B): _cap(B._cap), _sz(B._sz), _arr(new List[_cap]) {
+        6:   12-block  0
 branch  0 taken 6 (fallthrough)
 branch  1 taken 0
-        6:   11-block  1
-    %%%%%:   11-block  2
-        6:   11-block  3
+        6:   12-block  1
+    %%%%%:   12-block  2
+        6:   12-block  3
 call    2 returned 6
-     3462:   11-block  4
+     3462:   12-block  4
 branch  3 taken 3456 (fallthrough)
 branch  4 taken 6
-     3456:   11-block  5
+     3456:   12-block  5
 call    5 returned 3456
 branch  6 taken 3456 (fallthrough)
 branch  7 taken 0 (throw)
-     3456:   11-block  6
-    $$$$$:   11-block  7
-    $$$$$:   11-block  8
+     3456:   12-block  6
+    $$$$$:   12-block  7
+    $$$$$:   12-block  8
 call    8 never executed
-    $$$$$:   11-block  9
+    $$$$$:   12-block  9
 branch  9 never executed
 branch 10 never executed
-    $$$$$:   11-block 10
-    $$$$$:   11-block 11
-    $$$$$:   11-block 12
+    $$$$$:   12-block 10
+    $$$$$:   12-block 11
+    $$$$$:   12-block 12
 call   11 never executed
-        6:   12:    std::copy(B._arr, B._arr + _cap, _arr);
-        6:   12-block  0
+        6:   13:    std::copy(B._arr, B._arr + _cap, _arr);
+        6:   13-block  0
 call    0 returned 6
-        6:   13:}
-        -:   14:
+        6:   14:}
+        -:   15:
 function _ZN9HashTableC2EOS_ called 1 returned 100% blocks executed 100%
-        1:   15:HashTable::HashTable(HashTable&& B) noexcept : _cap(B._cap), _sz(B._sz), _arr(B._arr) {
-        1:   16:    B._arr = nullptr;
-        1:   17:}
-        -:   18:
+        1:   16:HashTable::HashTable(HashTable&& B) noexcept : _cap(B._cap), _sz(B._sz), _arr(B._arr) {
+        1:   17:    B._arr = nullptr;
+        1:   18:}
+        -:   19:
 function _ZN9HashTable4SwapERS_ called 2 returned 100% blocks executed 100%
-        2:   19:void HashTable::Swap(HashTable& B) {
-        2:   20:    std::swap(_arr, B._arr);
-        2:   20-block  0
+        2:   20:void HashTable::Swap(HashTable& B) {
+        2:   21:    std::swap(_arr, B._arr);
+        2:   21-block  0
 call    0 returned 2
-        2:   21:    std::swap(_cap, B._cap);
+        2:   22:    std::swap(_cap, B._cap);
 call    0 returned 2
-        2:   22:    std::swap(_sz, B._sz);
+        2:   23:    std::swap(_sz, B._sz);
 call    0 returned 2
-        2:   23:}
-        -:   24:
+        2:   24:}
+        -:   25:
 function _ZN9HashTableaSERKS_ called 2 returned 100% blocks executed 100%
-        2:   25:HashTable& HashTable::operator=(const HashTable& B) {
-        2:   26:    if(this == &B) {
-        2:   26-block  0
+        2:   26:HashTable& HashTable::operator=(const HashTable& B) {
+        2:   27:    if(this == &B) {
+        2:   27-block  0
 branch  0 taken 1 (fallthrough)
 branch  1 taken 1
-        1:   27:        return *this;
-        1:   27-block  0
-        -:   28:    }
-        1:   29:    HashTable A = B;
-        1:   29-block  0
+        1:   28:        return *this;
+        1:   28-block  0
+        -:   29:    }
+        1:   30:    HashTable A = B;
+        1:   30-block  0
 call    0 returned 1
 branch  1 taken 1 (fallthrough)
 branch  2 taken 0 (throw)
-        1:   30:    Swap(A);
-        1:   30-block  0
+        1:   31:    Swap(A);
+        1:   31-block  0
 call    0 returned 1
-        1:   31:    return *this;
+        1:   32:    return *this;
 call    0 returned 1
-        -:   32:}
-        -:   33:
+        -:   33:}
+        -:   34:
 function _ZN9HashTable5ClearEv called 4 returned 100% blocks executed 67%
-        4:   34:void HashTable::Clear() {
-     4100:   35:    delete[] _arr;
-        4:   35-block  0
+        4:   35:void HashTable::Clear() {
+     4100:   36:    delete[] _arr;
+        4:   36-block  0
 branch  0 taken 4 (fallthrough)
 branch  1 taken 0
-        4:   35-block  1
-     4100:   35-block  2
+        4:   36-block  1
+     4100:   36-block  2
 branch  2 taken 4096 (fallthrough)
 branch  3 taken 4
-     4096:   35-block  3
+     4096:   36-block  3
 call    4 returned 4096
-        4:   35-block  4
+        4:   36-block  4
 call    5 returned 4
-       12:   36:    _arr = new List[DEFAULT_SIZE_CAP];
-        4:   36-block  0
+       12:   37:    _arr = new List[DEFAULT_SIZE_CAP];
+        4:   37-block  0
 call    0 returned 4
-       12:   36-block  1
+       12:   37-block  1
 branch  1 taken 8 (fallthrough)
 branch  2 taken 4
-        8:   36-block  2
+        8:   37-block  2
 call    3 returned 8
 branch  4 taken 8 (fallthrough)
 branch  5 taken 0 (throw)
-        8:   36-block  3
-    $$$$$:   36-block  4
-    $$$$$:   36-block  5
+        8:   37-block  3
+    $$$$$:   37-block  4
+    $$$$$:   37-block  5
 call    6 never executed
-    $$$$$:   36-block  6
+    $$$$$:   37-block  6
 call    7 never executed
-        4:   37:    _cap = DEFAULT_SIZE_CAP;
-        4:   38:    _sz = 0;
-        4:   39:}
-        4:   39-block  0
-        -:   40:
+        4:   38:    _cap = DEFAULT_SIZE_CAP;
+        4:   39:    _sz = 0;
+        4:   40:}
+        4:   40-block  0
+        -:   41:
 function _ZN9HashTable5EraseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 3005 returned 100% blocks executed 100%
-     3005:   41:bool HashTable::Erase(const Key& key) {
-     3005:   42:    const size_t index = Hash(key);
-     3005:   42-block  0
+     3005:   42:bool HashTable::Erase(const Key& key) {
+     3005:   43:    const size_t index = Hash(key);
+     3005:   43-block  0
 call    0 returned 3005
-     3005:   43:    bool isErased = _arr[index].Erase(key);
+     3005:   44:    bool isErased = _arr[index].Erase(key);
 call    0 returned 3005
-     3005:   44:    _sz = _sz - isErased;
-     3005:   45:    return isErased;
-        -:   46:}
-        -:   47:
+     3005:   45:    _sz = _sz - isErased;
+     3005:   46:    return isErased;
+        -:   47:}
+        -:   48:
 function _ZN9HashTable6InsertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK5Value called 17304 returned 100% blocks executed 100%
-    17304:   48:bool HashTable::Insert(const Key& key, const Value& data) {
-    17304:   49:    if(Contains(key)){
-    17304:   49-block  0
+    17304:   49:bool HashTable::Insert(const Key& key, const Value& data) {
+    17304:   50:    if(Contains(key)){
+    17304:   50-block  0
 call    0 returned 17304
 branch  1 taken 2000 (fallthrough)
 branch  2 taken 15304
-     2000:   50:        return false;
-     2000:   50-block  0
-        -:   51:    }
-        -:   52:
-    15304:   53:    if(_sz >= _cap) {
-    15304:   53-block  0
+     2000:   51:        return false;
+     2000:   51-block  0
+        -:   52:    }
+        -:   53:
+    15304:   54:    if(_sz >= _cap) {
+    15304:   54-block  0
 branch  0 taken 137 (fallthrough)
 branch  1 taken 15167
-      137:   54:        Resize(_cap * 2);
-      137:   54-block  0
+      137:   55:        Resize(_cap * 2);
+      137:   55-block  0
 call    0 returned 137
-        -:   55:    }
-    15304:   56:    const size_t index = Hash(key);
-    15304:   56-block  0
+        -:   56:    }
+    15304:   57:    const size_t index = Hash(key);
+    15304:   57-block  0
 call    0 returned 15304
-    15304:   57:    _arr[index].Push(key, data);
+    15304:   58:    _arr[index].Push(key, data);
 call    0 returned 15304
-    15304:   58:    ++_sz;
-    15304:   59:    return true;
-        -:   60:}
-        -:   61:
+    15304:   59:    ++_sz;
+    15304:   60:    return true;
+        -:   61:}
+        -:   62:
 function _ZNK9HashTable8ContainsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 29536 returned 100% blocks executed 100%
-    29536:   62:bool HashTable::Contains(const Key& key) const {
-    29536:   63:    return _arr[Hash(key)].Contains(key);
-    29536:   63-block  0
+    29536:   63:bool HashTable::Contains(const Key& key) const {
+    29536:   64:    return _arr[Hash(key)].Contains(key);
+    29536:   64-block  0
 call    0 returned 29536
 call    1 returned 29536
-        -:   64:}
-        -:   65:
+        -:   65:}
+        -:   66:
 function _ZN9HashTableixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 3000 returned 100% blocks executed 100%
-     3000:   66:Value& HashTable::operator[](const Key& key) {
-     3000:   67:    const size_t index = Hash(key);
-     3000:   67-block  0
+     3000:   67:Value& HashTable::operator[](const Key& key) {
+     3000:   68:    const size_t index = Hash(key);
+     3000:   68-block  0
 call    0 returned 3000
-     3000:   68:    _arr[index].ValueByKey(key);
+     3000:   69:    _arr[index].ValueByKey(key);
 call    0 returned 3000
-     3000:   69:    return _arr[index].ValueByKey(key);
+     3000:   70:    return _arr[index].ValueByKey(key);
 call    0 returned 3000
-        -:   70:}
-        -:   71:
+        -:   71:}
+        -:   72:
 function _ZN9HashTable2AtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2000 returned 50% blocks executed 91%
-     2000:   72:Value& HashTable::At(const Key& key) {
-     2000:   73:    size_t index = Hash(key);
-     2000:   73-block  0
+     2000:   73:Value& HashTable::At(const Key& key) {
+     2000:   74:    size_t index = Hash(key);
+     2000:   74-block  0
 call    0 returned 2000
-     2000:   74:    if(Contains(key)){
+     2000:   75:    if(Contains(key)){
 call    0 returned 2000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 1000
-     1000:   75:        return _arr[index].ValueByKey(key);
-     1000:   75-block  0
+     1000:   76:        return _arr[index].ValueByKey(key);
+     1000:   76-block  0
 call    0 returned 1000
-     1000:   75-block  1
-        -:   76:    }
-     1000:   77:    throw std::runtime_error("No such element");
-     1000:   77-block  0
+     1000:   76-block  1
+        -:   77:    }
+     1000:   78:    throw std::runtime_error("No such element");
+     1000:   78-block  0
 call    0 returned 1000
 call    1 returned 1000
 branch  2 taken 1000 (fallthrough)
 branch  3 taken 0 (throw)
-     1000:   77-block  1
+     1000:   78-block  1
 call    4 returned 0
-    $$$$$:   77-block  2
+    $$$$$:   78-block  2
 call    5 never executed
-        -:   78:}
-        -:   79:
+        -:   79:}
+        -:   80:
 function _ZNK9HashTable2AtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 2000 returned 50% blocks executed 91%
-     2000:   80:const Value& HashTable::At(const Key& key) const {
-     2000:   81:    size_t index = Hash(key);
-     2000:   81-block  0
+     2000:   81:const Value& HashTable::At(const Key& key) const {
+     2000:   82:    size_t index = Hash(key);
+     2000:   82-block  0
 call    0 returned 2000
-     2000:   82:    if(Contains(key)) {
+     2000:   83:    if(Contains(key)) {
 call    0 returned 2000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 1000
-     1000:   83:        return _arr[index].ValueByKey(key);
-     1000:   83-block  0
+     1000:   84:        return _arr[index].ValueByKey(key);
+     1000:   84-block  0
 call    0 returned 1000
-     1000:   83-block  1
-        -:   84:    }
-     1000:   85:    throw std::runtime_error("No such element");
-     1000:   85-block  0
+     1000:   84-block  1
+        -:   85:    }
+     1000:   86:    throw std::runtime_error("No such element");
+     1000:   86-block  0
 call    0 returned 1000
 call    1 returned 1000
 branch  2 taken 1000 (fallthrough)
 branch  3 taken 0 (throw)
-     1000:   85-block  1
+     1000:   86-block  1
 call    4 returned 0
-    $$$$$:   85-block  2
+    $$$$$:   86-block  2
 call    5 never executed
-        -:   86:}
-        -:   87:
+        -:   87:}
+        -:   88:
 function _ZeqRK9HashTableS1_ called 10 returned 100% blocks executed 96%
-       10:   88:bool operator==(const HashTable& A, const HashTable& B) {
-       10:   89:    if(A.Size() != B.Size()) {
-       10:   89-block  0
+       10:   89:bool operator==(const HashTable& A, const HashTable& B) {
+       10:   90:    if(A.Size() != B.Size()) {
+       10:   90-block  0
 call    0 returned 10
 call    1 returned 10
 branch  2 taken 1 (fallthrough)
 branch  3 taken 9
-        1:   90:        return false;
-        1:   90-block  0
-        -:   91:    }
-        9:   92:    size_t size = A.Size();
-        9:   92-block  0
+        1:   91:        return false;
+        1:   91-block  0
+        -:   92:    }
+        9:   93:    size_t size = A.Size();
+        9:   93-block  0
 call    0 returned 9
-     6108:   93:    for(size_t i = 0; i < size; ++i) {
-     6108:   93-block  0
+     6108:   94:    for(size_t i = 0; i < size; ++i) {
+     6108:   94-block  0
 branch  0 taken 6100 (fallthrough)
 branch  1 taken 8
-     6099:   93-block  1
-     6100:   94:        List::Iterator it = A._arr[i].Begin();
-     6100:   94-block  0
+     6099:   94-block  1
+     6100:   95:        List::Iterator it = A._arr[i].Begin();
+     6100:   95-block  0
 call    0 returned 6100
 branch  1 taken 6100 (fallthrough)
 branch  2 taken 0 (throw)
-    12231:   95:        while(A._arr[i].End() != it) {
-    12231:   95-block  0
+    12231:   96:        while(A._arr[i].End() != it) {
+    12231:   96-block  0
 call    0 returned 12231
 branch  1 taken 12231 (fallthrough)
 branch  2 taken 0 (throw)
-    12231:   95-block  1
+    12231:   96-block  1
 call    3 returned 12231
 branch  4 taken 12231 (fallthrough)
 branch  5 taken 0 (throw)
-    12231:   95-block  2
+    12231:   96-block  2
 branch  6 taken 6132 (fallthrough)
 branch  7 taken 6099
-     6131:   95-block  3
-    $$$$$:   95-block  4
-     6132:   96:            bool isEqualNodeExist = false;
-     6132:   97:            if(B.Contains((*it).key)) {
-     6132:   97-block  0
+     6131:   96-block  3
+    $$$$$:   96-block  4
+     6132:   97:            bool isEqualNodeExist = false;
+     6132:   98:            if(B.Contains((*it))) {
+     6132:   98-block  0
 call    0 returned 6132
 branch  1 taken 6132 (fallthrough)
 branch  2 taken 0 (throw)
-     6132:   97-block  1
+     6132:   98-block  1
 call    3 returned 6132
 branch  4 taken 6132 (fallthrough)
 branch  5 taken 0 (throw)
-     6132:   97-block  2
+     6132:   98-block  2
 branch  6 taken 6131 (fallthrough)
 branch  7 taken 1
-     6131:   98:                isEqualNodeExist = true;
-     6131:   98-block  0
-        -:   99:            }
-     6132:  100:            if(!isEqualNodeExist) {
-     6132:  100-block  0
+     6131:   99:                isEqualNodeExist = true;
+     6131:   99-block  0
+        -:  100:            }
+     6132:  101:            if(!isEqualNodeExist) {
+     6132:  101-block  0
 branch  0 taken 1 (fallthrough)
 branch  1 taken 6131
-        1:  101:                return false;
-        1:  101-block  0
-        -:  102:            }
-     6131:  103:            ++it;
-     6131:  103-block  0
+        1:  102:                return false;
+        1:  102-block  0
+        -:  103:            }
+     6131:  104:            ++it;
+     6131:  104-block  0
 call    0 returned 6131
 branch  1 taken 6131 (fallthrough)
 branch  2 taken 0 (throw)
-        -:  104:        }
-        -:  105:    }
-        8:  106:    return true;
-        8:  106-block  0
-        -:  107:}
-        -:  108:
+        -:  105:        }
+        -:  106:    }
+        8:  107:    return true;
+        8:  107-block  0
+        -:  108:}
+        -:  109:
 function _ZneRK9HashTableS1_ called 1 returned 100% blocks executed 100%
-        1:  109:bool operator!=(const HashTable& A, const HashTable& B) {
-        1:  110:    return !(A == B);
-        1:  110-block  0
+        1:  110:bool operator!=(const HashTable& A, const HashTable& B) {
+        1:  111:    return !(A == B);
+        1:  111-block  0
 call    0 returned 1
-        -:  111:}
-        -:  112:
+        -:  112:}
+        -:  113:
 function _ZNK9HashTable4SizeEv called 31 returned 100% blocks executed 100%
-       31:  113:size_t HashTable::Size() const {
-       31:  114:    return _sz;
-       31:  114-block  0
-        -:  115:}
+       31:  114:size_t HashTable::Size() const {
+       31:  115:    return _sz;
+       31:  115-block  0
+        -:  116:}
 function _ZNK9HashTable5EmptyEv called 1 returned 100% blocks executed 100%
-        1:  116:bool HashTable::Empty() const {
-        1:  117:    return _sz == 0;
-        1:  117-block  0
-        -:  118:}
-        -:  119:
+        1:  117:bool HashTable::Empty() const {
+        1:  118:    return _sz == 0;
+        1:  118-block  0
+        -:  119:}
+        -:  120:
 function _ZNK9HashTable4HashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 70557 returned 100% blocks executed 100%
-    70557:  120:size_t HashTable::Hash(const Key& key) const {
-    70557:  121:    size_t hash = 0;
-   280460:  122:    for(char i : key) {
-    70557:  122-block  0
+    70557:  121:size_t HashTable::Hash(const Key& key) const {
+    70557:  122:    size_t hash = 0;
+   280460:  123:    for(char i : key) {
+    70557:  123-block  0
 call    0 returned 70557
 call    1 returned 70557
-   280460:  122-block  1
+   280460:  123-block  1
 call    2 returned 280460
 branch  3 taken 209903 (fallthrough)
 branch  4 taken 70557
-   209903:  122-block  2
+   209903:  123-block  2
 call    5 returned 209903
-   209903:  123:        hash += i;
-   209903:  124:        hash %= _cap;
+   209903:  124:        hash += i;
+   209903:  125:        hash %= _cap;
 call    0 returned 209903
-        -:  125:    }
-    70557:  126:    return hash;
-    70557:  126-block  0
-        -:  127:}
-        -:  128:
+        -:  126:    }
+    70557:  127:    return hash;
+    70557:  127-block  0
+        -:  128:}
+        -:  129:
 function _ZN9HashTable6ResizeEj called 137 returned 100% blocks executed 70%
-      137:  129:void HashTable::Resize(size_t newSize) {
-      137:  130:    List* pTemp = _arr;
-      137:  131:    size_t oldCapacity = _cap;
-        -:  132:
-   31561*:  133:    _arr = new List[newSize];
-      137:  133-block  0
+      137:  130:void HashTable::Resize(size_t newSize) {
+      137:  131:    List* pTemp = _arr;
+      137:  132:    size_t oldCapacity = _cap;
+        -:  133:
+   31561*:  134:    _arr = new List[newSize];
+      137:  134-block  0
 branch  0 taken 137 (fallthrough)
 branch  1 taken 0
-      137:  133-block  1
-    %%%%%:  133-block  2
-      137:  133-block  3
+      137:  134-block  1
+    %%%%%:  134-block  2
+      137:  134-block  3
 call    2 returned 137
-    31561:  133-block  4
+    31561:  134-block  4
 branch  3 taken 31424 (fallthrough)
 branch  4 taken 137
-    31424:  133-block  5
+    31424:  134-block  5
 call    5 returned 31424
 branch  6 taken 31424 (fallthrough)
 branch  7 taken 0 (throw)
-    31424:  133-block  6
-    $$$$$:  133-block  7
-    $$$$$:  133-block  8
+    31424:  134-block  6
+    $$$$$:  134-block  7
+    $$$$$:  134-block  8
 call    8 never executed
-    $$$$$:  133-block  9
+    $$$$$:  134-block  9
 branch  9 never executed
 branch 10 never executed
-    $$$$$:  133-block 10
-    $$$$$:  133-block 11
-    $$$$$:  133-block 12
+    $$$$$:  134-block 10
+    $$$$$:  134-block 11
+    $$$$$:  134-block 12
 call   11 never executed
-      137:  134:    _cap = newSize;
-        -:  135:
-    15849:  136:    for(size_t i = 0; i < oldCapacity; ++i) {
-      137:  136-block  0
-    15849:  136-block  1
+      137:  135:    _cap = newSize;
+        -:  136:
+    15849:  137:    for(size_t i = 0; i < oldCapacity; ++i) {
+      137:  137-block  0
+    15849:  137-block  1
 branch  0 taken 15712 (fallthrough)
 branch  1 taken 137
-    15712:  136-block  2
-    31424:  137:        while(pTemp[i].Size() > 0) {
-    31424:  137-block  0
+    15712:  137-block  2
+    31424:  138:        while(pTemp[i].Size() > 0) {
+    31424:  138-block  0
 call    0 returned 31424
 branch  1 taken 15712 (fallthrough)
 branch  2 taken 15712
-    15712:  138:            size_t index = Hash(pTemp[i].Top().key);
-    15712:  138-block  0
+    15712:  139:            size_t index = Hash(pTemp[i].TopNodeKey());
+    15712:  139-block  0
 call    0 returned 15712
 call    1 returned 15712
-    15712:  139:            _arr[index].MoveTopNode(pTemp[i]);
+    15712:  140:            _arr[index].MoveTopNode(pTemp[i]);
 call    0 returned 15712
-        -:  140:        }
-        -:  141:    }
-    15986:  142:    delete[] pTemp;
-      137:  142-block  0
+        -:  141:        }
+        -:  142:    }
+    15986:  143:    delete[] pTemp;
+      137:  143-block  0
 branch  0 taken 137 (fallthrough)
 branch  1 taken 0
-      137:  142-block  1
-    15712:  142-block  2
+      137:  143-block  1
+    15712:  143-block  2
 call    2 returned 15712
-      137:  142-block  3
+      137:  143-block  3
 call    3 returned 137
-      137:  143:}
-      137:  143-block  0
+      137:  144:}
+      137:  144-block  0
+        -:  145:

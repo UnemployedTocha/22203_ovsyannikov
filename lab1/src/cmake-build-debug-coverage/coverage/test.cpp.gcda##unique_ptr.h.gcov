@@ -1,6 +1,6 @@
         -:    0:Source:d:/mingw/lib/gcc/mingw32/9.2.0/include/c++/bits/unique_ptr.h
-        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOPLAB1\cmake-build-debug-coverage\CMakeFiles\OOPLAB1.dir\test.cpp.gcno
-        -:    0:Data:C:\Users\Pepega\CLionProjects\OOPLAB1\cmake-build-debug-coverage\CMakeFiles\OOPLAB1.dir\test.cpp.gcda
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\NewLab1\cmake-build-debug-coverage\CMakeFiles\NewLab1.dir\test.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\NewLab1\cmake-build-debug-coverage\CMakeFiles\NewLab1.dir\test.cpp.gcda
         -:    0:Runs:1
         -:    1:// unique_ptr implementation -*- C++ -*-
         -:    2:

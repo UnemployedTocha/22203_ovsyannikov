@@ -6,7 +6,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeSystem.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.26.4/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -15,11 +15,11 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeCCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.26.4/CMakeCCompiler.cmake"
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -83,7 +83,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeRCCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.26.4/CMakeRCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -149,8 +149,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/Pepega/CLionProjects/OOPLAB1/cmake-build-debug-coverage",
-		"source" : "C:/Users/Pepega/CLionProjects/OOPLAB1"
+		"build" : "C:/Users/Pepega/CLionProjects/NewLab1/cmake-build-debug",
+		"source" : "C:/Users/Pepega/CLionProjects/NewLab1"
 	},
 	"version" : 
 	{

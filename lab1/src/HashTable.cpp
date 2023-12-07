@@ -1,5 +1,6 @@
 #include "HashTable.h"
 #include <algorithm>
+#include <stdexcept>
 
 HashTable::HashTable(): _cap(DEFAULT_SIZE_CAP), _sz(0), _arr(new List[_cap]) {}
 
@@ -94,7 +95,7 @@ bool operator==(const HashTable& A, const HashTable& B) {
         List::Iterator it = A._arr[i].Begin();
         while(A._arr[i].End() != it) {
             bool isEqualNodeExist = false;
-            if(B.Contains((*it).key)) {
+            if(B.Contains((*it))) {
                 isEqualNodeExist = true;
             }
             if(!isEqualNodeExist) {
@@ -135,9 +136,10 @@ void HashTable::Resize(size_t newSize) {
 
     for(size_t i = 0; i < oldCapacity; ++i) {
         while(pTemp[i].Size() > 0) {
-            size_t index = Hash(pTemp[i].Top().key);
+            size_t index = Hash(pTemp[i].TopNodeKey());
             _arr[index].MoveTopNode(pTemp[i]);
         }
     }
     delete[] pTemp;
 }
+

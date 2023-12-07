@@ -1,6 +1,6 @@
-        -:    0:Source:C:/Users/Pepega/CLionProjects/OOPLAB1/UnorderedList.cpp
-        -:    0:Graph:C:\Users\Pepega\CLionProjects\OOPLAB1\cmake-build-debug-coverage\CMakeFiles\OOPLAB1.dir\UnorderedList.cpp.gcno
-        -:    0:Data:C:\Users\Pepega\CLionProjects\OOPLAB1\cmake-build-debug-coverage\CMakeFiles\OOPLAB1.dir\UnorderedList.cpp.gcda
+        -:    0:Source:C:/Users/Pepega/CLionProjects/NewLab1/UnorderedList.cpp
+        -:    0:Graph:C:\Users\Pepega\CLionProjects\NewLab1\cmake-build-debug-coverage\CMakeFiles\NewLab1.dir\UnorderedList.cpp.gcno
+        -:    0:Data:C:\Users\Pepega\CLionProjects\NewLab1\cmake-build-debug-coverage\CMakeFiles\NewLab1.dir\UnorderedList.cpp.gcda
         -:    0:Runs:1
         -:    1:#include "UnorderedList.h"
         -:    2:
@@ -155,279 +155,274 @@ branch  2 taken 240
         -:   85:    }
         -:   86:
       240:   87:    _sz = L._sz;
-      240:   88:    CopyList(L);
-      240:   88-block  0
+        -:   88:
+      240:   89:    CopyList(L);
+      240:   89-block  0
 call    0 returned 240
-      240:   89:    return *this;
-        -:   90:}
-        -:   91:
+      240:   90:    return *this;
+        -:   91:}
+        -:   92:
 function _ZN4List11MoveTopNodeERS_ called 15712 returned 100% blocks executed 100%
-    15712:   92:void List::MoveTopNode(List& listFrom) {
-    15712:   93:    this -> Push(*(listFrom.Pop()));
-    15712:   93-block  0
+    15712:   93:void List::MoveTopNode(List& listFrom) {
+    15712:   94:    this -> Push(*(listFrom.Pop()));
+    15712:   94-block  0
 call    0 returned 15712
 call    1 returned 15712
-    15712:   94:}
-function _ZNK4List3TopEv called 15712 returned 100% blocks executed 100%
-    15712:   95:const List::ListNode& List::Top() const{
-    15712:   96:    return *(this -> _pFirstNode);
-    15712:   96-block  0
-        -:   97:}
-        -:   98:
+    15712:   95:    return;
+        -:   96:}
+function _ZNK4List10TopNodeKeyB5cxx11Ev called 15712 returned 100% blocks executed 100%
+    15712:   97:const std::string& List::TopNodeKey() const{
+    15712:   98:    return _pFirstNode -> key;
+    15712:   98-block  0
+        -:   99:}
+        -:  100:
 function _ZNK4List7IsEmptyEv called 6462 returned 100% blocks executed 100%
-     6462:   99:bool List::IsEmpty() const {
-     6462:  100:    return _sz == 0;
-     6462:  100-block  0
-        -:  101:}
-        -:  102:
+     6462:  101:bool List::IsEmpty() const {
+     6462:  102:    return _sz == 0;
+     6462:  102-block  0
+        -:  103:}
+        -:  104:
 function _ZNK4List8ContainsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 29536 returned 100% blocks executed 100%
-    29536:  103:bool List::Contains(const std::string& key) const {
-    29536:  104:    ListNode* pTemp = _pFirstNode;
-    29536:  104-block  0
-   611933:  105:    while(nullptr != pTemp) {
-   611933:  105-block  0
+    29536:  105:bool List::Contains(const std::string& key) const {
+    29536:  106:    ListNode* pTemp = _pFirstNode;
+    29536:  106-block  0
+   611933:  107:    while(nullptr != pTemp) {
+   611933:  107-block  0
 branch  0 taken 594528 (fallthrough)
 branch  1 taken 17405
-   594528:  106:        if(pTemp -> key == key) {
-   594528:  106-block  0
+   594528:  108:        if(pTemp -> key == key) {
+   594528:  108-block  0
 call    0 returned 594528
 branch  1 taken 12131 (fallthrough)
 branch  2 taken 582397
-    12131:  107:            return true;
-    12131:  107-block  0
-        -:  108:        }
-   582397:  109:        pTemp = pTemp -> pNext;
-   582397:  109-block  0
-        -:  110:    }
-    17405:  111:    return false;
-    17405:  111-block  0
-        -:  112:}
-        -:  113:
+    12131:  109:            return true;
+    12131:  109-block  0
+        -:  110:        }
+   582397:  111:        pTemp = pTemp -> pNext;
+   582397:  111-block  0
+        -:  112:    }
+    17405:  113:    return false;
+    17405:  113-block  0
+        -:  114:}
+        -:  115:
 function _ZN4List10ValueByKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 8000 returned 100% blocks executed 100%
-     8000:  114:Value& List::ValueByKey(const std::string& key) {
-     8000:  115:    ListNode* pTemp = _pFirstNode;
-     8000:  115-block  0
-   280412:  116:    while(nullptr != pTemp) {
-   280412:  116-block  0
+     8000:  116:Value& List::ValueByKey(const std::string& key) {
+     8000:  117:    ListNode* pTemp = _pFirstNode;
+     8000:  117-block  0
+   280412:  118:    while(nullptr != pTemp) {
+   280412:  118-block  0
 branch  0 taken 279412 (fallthrough)
 branch  1 taken 1000
-   279412:  117:        if(pTemp -> key == key) {
-   279412:  117-block  0
+   279412:  119:        if(pTemp -> key == key) {
+   279412:  119-block  0
 call    0 returned 279412
 branch  1 taken 7000 (fallthrough)
 branch  2 taken 272412
-     7000:  118:            return pTemp -> data;
-     7000:  118-block  0
-        -:  119:        }
-   272412:  120:        pTemp = pTemp -> pNext;
-   272412:  120-block  0
-        -:  121:    }
-     1000:  122:    Value data;
-     1000:  122-block  0
+     7000:  120:            return pTemp -> data;
+     7000:  120-block  0
+        -:  121:        }
+   272412:  122:        pTemp = pTemp -> pNext;
+   272412:  122-block  0
+        -:  123:    }
+     1000:  124:    Value data;
+     1000:  124-block  0
 call    0 returned 1000
-     1000:  123:    Push(key, data);
+     1000:  125:    Push(key, data);
 call    0 returned 1000
 branch  1 taken 1000 (fallthrough)
 branch  2 taken 0 (throw)
-     1000:  124:    return _pFirstNode -> data;
-     1000:  124-block  0
-        -:  125:}
-        -:  126:
+     1000:  126:    return _pFirstNode -> data;
+     1000:  126-block  0
+        -:  127:}
+        -:  128:
 function _ZN4List7NewNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK5Value called 17305 returned 100% blocks executed 100%
-    17305:  127:List::ListNode* List::NewNode(const std::string& key,const Value& data) {
-    17305:  128:    List::ListNode* newNode = new ListNode;
-    17305:  128-block  0
+    17305:  129:List::ListNode* List::NewNode(const std::string& key,const Value& data) {
+    17305:  130:    List::ListNode* newNode = new ListNode;
+    17305:  130-block  0
 call    0 returned 17305
 call    1 returned 17305
-    17305:  129:    newNode -> key = key;
+    17305:  131:    newNode -> key = key;
 call    0 returned 17305
-    17305:  130:    newNode -> data = data;
-    17305:  131:    return newNode;
-        -:  132:}
-        -:  133:
+    17305:  132:    newNode -> data = data;
+    17305:  133:    return newNode;
+        -:  134:}
+        -:  135:
 function _ZN4List8FillDataEPNS_8ListNodeES1_ called 4300 returned 100% blocks executed 100%
-     4300:  134:void List::FillData(ListNode* pNodeTo, ListNode* pNodeFrom) {
-     4300:  135:    pNodeTo -> data = pNodeFrom -> data;
-     4300:  136:    pNodeTo -> key = pNodeFrom -> key;
-     4300:  136-block  0
+     4300:  136:void List::FillData(ListNode* pNodeTo, ListNode* pNodeFrom) {
+     4300:  137:    pNodeTo -> data = pNodeFrom -> data;
+     4300:  138:    pNodeTo -> key = pNodeFrom -> key;
+     4300:  138-block  0
 call    0 returned 4300
-     4300:  137:}
-        -:  138:
+     4300:  139:}
+        -:  140:
 function _ZN4List8CopyListERKS_ called 240 returned 100% blocks executed 100%
-      240:  139:void List::CopyList(const List& L) {
-      240:  140:    if(nullptr != L._pFirstNode) {
-      240:  140-block  0
+      240:  141:void List::CopyList(const List& L) {
+      240:  142:    if(nullptr != L._pFirstNode) {
+      240:  142-block  0
 branch  0 taken 240 (fallthrough)
 branch  1 taken 0
-      240:  141:        ListNode* pTemp = L._pFirstNode;
-        -:  142:
-      240:  143:        ListNode* newNode = new ListNode;
-      240:  143-block  0
+      240:  143:        ListNode* pTemp = L._pFirstNode;
+        -:  144:
+      240:  145:        ListNode* newNode = new ListNode;
+      240:  145-block  0
 call    0 returned 240
 call    1 returned 240
-      240:  144:        FillData(newNode, pTemp);
+      240:  146:        FillData(newNode, pTemp);
 call    0 returned 240
-      240:  145:        _pFirstNode = newNode;
-        -:  146:
-      240:  147:        pTemp = pTemp -> pNext;
-     4300:  148:        while(nullptr != pTemp) {
-     4300:  148-block  0
+      240:  147:        _pFirstNode = newNode;
+        -:  148:
+      240:  149:        pTemp = pTemp -> pNext;
+     4300:  150:        while(nullptr != pTemp) {
+     4300:  150-block  0
 branch  0 taken 4060 (fallthrough)
 branch  1 taken 240
-     4060:  149:            ListNode* pPrevTemp = newNode;
-     4060:  150:            newNode = new ListNode;
-     4060:  150-block  0
+     4060:  151:            ListNode* pPrevTemp = newNode;
+     4060:  152:            newNode = new ListNode;
+     4060:  152-block  0
 call    0 returned 4060
 call    1 returned 4060
-     4060:  151:            pPrevTemp -> pNext = newNode;
-        -:  152:
-     4060:  153:            FillData(newNode, pTemp);
+     4060:  153:            pPrevTemp -> pNext = newNode;
+        -:  154:
+     4060:  155:            FillData(newNode, pTemp);
 call    0 returned 4060
-     4060:  154:            pTemp = pTemp -> pNext;
-        -:  155:        }
-        -:  156:    }
-      240:  157:}
-        -:  158:
+     4060:  156:            pTemp = pTemp -> pNext;
+        -:  157:        }
+        -:  158:    }
+      240:  159:}
+        -:  160:
 function _ZN4List8FreeListEv called 38379 returned 100% blocks executed 100%
-    38379:  159:void List::FreeList() {
-    38379:  160:    ListNode* pTemp = this -> _pFirstNode;
-    38379:  160-block  0
-    56982:  161:    while(nullptr != pTemp) {
-    56982:  161-block  0
+    38379:  161:void List::FreeList() {
+    38379:  162:    ListNode* pTemp = this -> _pFirstNode;
+    38379:  162-block  0
+    56982:  163:    while(nullptr != pTemp) {
+    56982:  163-block  0
 branch  0 taken 18603 (fallthrough)
 branch  1 taken 38379
-    18603:  162:        ListNode* pNextNode = pTemp -> pNext;
-    18603:  163:        delete pTemp;
-    18603:  163-block  0
+    18603:  164:        ListNode* pNextNode = pTemp -> pNext;
+    18603:  165:        delete pTemp;
+    18603:  165-block  0
 branch  0 taken 18603 (fallthrough)
 branch  1 taken 0
-    18603:  163-block  1
+    18603:  165-block  1
 call    2 returned 18603
 call    3 returned 18603
-    18603:  164:        pTemp = pNextNode;
-    18603:  164-block  0
-        -:  165:    }
-    38379:  166:}
-        -:  167:
+    18603:  166:        pTemp = pNextNode;
+    18603:  166-block  0
+        -:  167:    }
+    38379:  168:}
+        -:  169:
 function _ZNK4List4SizeEv called 31424 returned 100% blocks executed 100%
-    31424:  168:size_t List::Size() const {
-    31424:  169:    return _sz;
-    31424:  169-block  0
-        -:  170:}
+    31424:  170:size_t List::Size() const {
+    31424:  171:    return _sz;
+    31424:  171-block  0
+        -:  172:}
 function _ZNK4List5BeginEv called 9105 returned 100% blocks executed 100%
-     9105:  171:List::Iterator List::Begin() const{
-     9105:  172:    Iterator it(_pFirstNode);
-     9105:  172-block  0
+     9105:  173:List::Iterator List::Begin() const{
+     9105:  174:    Iterator it(_pFirstNode);
+     9105:  174-block  0
 call    0 returned 9105
-     9105:  173:    return it;
-        -:  174:}
+     9105:  175:    return it;
+        -:  176:}
 function _ZNK4List3EndEv called 3019236 returned 100% blocks executed 100%
-  3019236:  175:List::Iterator List::End() const{
-  3019236:  176:    Iterator it(nullptr);
-  3019236:  176-block  0
+  3019236:  177:List::Iterator List::End() const{
+  3019236:  178:    Iterator it(nullptr);
+  3019236:  178-block  0
 call    0 returned 3019236
-  3019236:  177:    return it;
-        -:  178:}
-        -:  179:
-        -:  180://List::Iterator::Iterator() : _pNode(nullptr) {};
+  3019236:  179:    return it;
+        -:  180:}
+        -:  181:
+        -:  182://List::Iterator::Iterator() : _pNode(nullptr) {};
 function _ZN4List8IteratorC2EPNS_8ListNodeE called 3028341 returned 100% blocks executed 100%
-  3028341:  181:List::Iterator::Iterator(ListNode* pNode) : _pNode(pNode) {}
-function _ZN4List8IteratorppEv called 3010131 returned 100% blocks executed 75%
-  3010131:  182:List::Iterator& List::Iterator::operator++() {
-  3010131:  183:    if(!_pNode) {
-  3010131:  183-block  0
-branch  0 taken 0 (fallthrough)
-branch  1 taken 3010131
-    #####:  184:        return *this;
-    %%%%%:  184-block  0
-        -:  185:    }
-  3010131:  186:    _pNode = _pNode -> pNext;
-  3010131:  187:    return *this;
-  3010131:  187-block  0
-        -:  188:}
-function _ZN4List8IteratordeEv called 6008132 returned 100% blocks executed 100%
-  6008132:  189:List::ListNode& List::Iterator::operator*() {
-  6008132:  190:    return *_pNode;
-  6008132:  190-block  0
-        -:  191:}
-        -:  192:
+  3028341:  183:List::Iterator::Iterator(ListNode* pNode) : _pNode(pNode) {}
+function _ZN4List8IteratorppEv called 3010131 returned 100% blocks executed 100%
+  3010131:  184:List::Iterator& List::Iterator::operator++() {
+  3010131:  185:    _pNode = _pNode -> pNext;
+  3010131:  186:    return *this;
+  3010131:  186-block  0
+        -:  187:}
+function _ZN4List8IteratordeB5cxx11Ev called 6008132 returned 100% blocks executed 100%
+  6008132:  188:std::string& List::Iterator::operator*() {
+  6008132:  189:    return _pNode -> key;
+  6008132:  189-block  0
+        -:  190:}
+        -:  191:
 function _ZeqRK4ListS1_ called 4 returned 100% blocks executed 96%
-        4:  193:bool operator==(const List& A, const List& B) {
-        4:  194:    auto itListA = A.Begin();
-        4:  194-block  0
+        4:  192:bool operator==(const List& A, const List& B) {
+        4:  193:    auto itListA = A.Begin();
+        4:  193-block  0
 call    0 returned 4
 branch  1 taken 4 (fallthrough)
 branch  2 taken 0 (throw)
-     3004:  195:    while(itListA != A.End()) {
-     3004:  195-block  0
+     3004:  194:    while(itListA != A.End()) {
+     3004:  194-block  0
 call    0 returned 3004
 branch  1 taken 3004 (fallthrough)
 branch  2 taken 0 (throw)
-     3004:  195-block  1
+     3004:  194-block  1
 call    3 returned 3004
 branch  4 taken 3001 (fallthrough)
 branch  5 taken 3
-     3001:  196:        auto itListB = B.Begin();
-     3001:  196-block  0
+     3001:  195:        auto itListB = B.Begin();
+     3001:  195-block  0
 call    0 returned 3001
 branch  1 taken 3001 (fallthrough)
 branch  2 taken 0 (throw)
-     3001:  197:        bool isEqualNodeExist = false;
-     3001:  197-block  0
-        -:  198:
-  3004001:  199:        while(itListB != B.End()) {
-  3004001:  199-block  0
+     3001:  196:        bool isEqualNodeExist = false;
+     3001:  196-block  0
+        -:  197:
+  3004001:  198:        while(itListB != B.End()) {
+  3004001:  198-block  0
 call    0 returned 3004001
 branch  1 taken 3004001 (fallthrough)
 branch  2 taken 0 (throw)
-  3004001:  199-block  1
+  3004001:  198-block  1
 call    3 returned 3004001
 branch  4 taken 3001000 (fallthrough)
 branch  5 taken 3001
-  3001000:  200:            if((*itListA).key == (*itListB).key){
-  3001000:  200-block  0
+  3001000:  199:            if((*itListA) == (*itListB)){
+  3001000:  199-block  0
 call    0 returned 3001000
 call    1 returned 3001000
 call    2 returned 3001000
 branch  3 taken 3000 (fallthrough)
 branch  4 taken 2998000
-     3000:  201:                isEqualNodeExist = true;
-     3000:  201-block  0
-        -:  202:            }
-  3001000:  203:            ++itListB;
-  3001000:  203-block  0
+     3000:  200:                isEqualNodeExist = true;
+     3000:  200-block  0
+        -:  201:            }
+  3001000:  202:            ++itListB;
+  3001000:  202-block  0
 call    0 returned 3001000
-        -:  204:        }
-     3001:  205:        if(!isEqualNodeExist) {
-     3001:  205-block  0
+        -:  203:        }
+     3001:  204:        if(!isEqualNodeExist) {
+     3001:  204-block  0
 branch  0 taken 1 (fallthrough)
 branch  1 taken 3000
-        1:  206:            return false;
-        1:  206-block  0
-        -:  207:        }
-     3000:  208:        ++itListA;
-     3000:  208-block  0
+        1:  205:            return false;
+        1:  205-block  0
+        -:  206:        }
+     3000:  207:        ++itListA;
+     3000:  207-block  0
 call    0 returned 3000
-        -:  209:    }
-        3:  210:    return true;
-        3:  210-block  0
-        -:  211:}
+        -:  208:    }
+        3:  209:    return true;
+        3:  209-block  0
+        -:  210:}
 function _ZneRK4ListS1_ called 1 returned 100% blocks executed 100%
-        1:  212:bool operator!=(const List& A, const List& B) {
-        1:  213:    return !(A == B);
-        1:  213-block  0
+        1:  211:bool operator!=(const List& A, const List& B) {
+        1:  212:    return !(A == B);
+        1:  212-block  0
 call    0 returned 1
-        -:  214:}
+        -:  213:}
 function _ZeqRKN4List8IteratorES2_ called 3019236 returned 100% blocks executed 100%
-  3019236:  215:bool operator==(const List::Iterator& A, const List::Iterator& B) {
-  3019236:  216:    return A._pNode == B._pNode;
-  3019236:  216-block  0
-        -:  217:}
+  3019236:  214:bool operator==(const List::Iterator& A, const List::Iterator& B) {
+  3019236:  215:    return A._pNode == B._pNode;
+  3019236:  215-block  0
+        -:  216:}
 function _ZneRKN4List8IteratorES2_ called 3019236 returned 100% blocks executed 100%
-  3019236:  218:bool operator!=(const List::Iterator& A, const List::Iterator& B) {
-  3019236:  219:    return !(A == B);
-  3019236:  219-block  0
+  3019236:  217:bool operator!=(const List::Iterator& A, const List::Iterator& B) {
+  3019236:  218:    return !(A == B);
+  3019236:  218-block  0
 call    0 returned 3019236
-        -:  220:}
+        -:  219:}
+        -:  220:
         -:  221:
-        -:  222:
