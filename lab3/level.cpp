@@ -2,7 +2,6 @@
 #include <stdexcept>
 #include <QFile>
 #include <QTextStream>
-#include <iostream>
 
 FieldType Level::QCharToFieldTypeConvertion(QChar ch) {
     switch(ch.toLatin1()) {

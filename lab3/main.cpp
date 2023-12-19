@@ -2,10 +2,6 @@
 
 #include <QApplication>
 
-#include <QString>
-#include <QFile>
-#include <iostream>
-#include <QDebug>
 
 int main(int argc, char *argv[])
 {

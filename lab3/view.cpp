@@ -1,7 +1,6 @@
 #include "view.h"
 
 #include <QGraphicsView>
-#include <iostream>
 View::View(QGraphicsScene* scene)
 {
     scene_ = scene;
