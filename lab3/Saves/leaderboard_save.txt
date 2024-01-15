@@ -1,4 +1,6 @@
-#include "level.h"
+2 44 USERNAME
+1 32 
+1 32 #include "level.h"
 #include <stdexcept>
 #include <QFile>
 #include <QDir>
@@ -507,6 +509,7 @@ void Level::saveUserData(const QString& userName)
 
     leaderboardFile.close();
 }
+//        s << completedLevels << " " << steps << " " << "User" << '\n';
 
 void Level::restart()
 {
@@ -581,3 +584,11 @@ unsigned Level::GetLevelNumb()
     unsigned levelNumber = dir.count();
     return levelNumber;
 }
+
+1 32 wfqwfqwfqwf
+1 35 SOMENAME2
+1 36 
+1 47 SOME
+0 0 
+0 0 USER
+0 0 USER123123123

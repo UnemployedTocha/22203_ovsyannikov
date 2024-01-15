@@ -1,25 +1,26 @@
 #include "view.h"
 
 #include <QGraphicsView>
+#include <QGraphicsItem>
+#include <QFile>
+
 View::View(QGraphicsScene* scene)
 {
     scene_ = scene;
 }
 
-//QRectF rectItem(lineObjCounter * 25, i * 25, 25, 25);
-//scene_->addRect(rectItem,  QPen(), QBrush(Qt::cyan));
-
 void View::PaintField(Level* lvl)
 {
     scene_->clear();
+    size_t lineObjCounter = 0;
 
     for (size_t i = 0; i < lvl->GetLineNumb(); i++) {
-        size_t lineObjCounter = 0;
+        lineObjCounter = 0;
         for (auto it = lvl->Begin(i); it != lvl->End(i); ++it) {
 
 
             QBrush brush("azure");
-            QPen pen("black");
+            QPen pen(Qt::NoPen);
             switch(*it) {
             case FieldType::PLAYER :
                 brush.setColor("darkred");
@@ -50,5 +51,32 @@ void View::PaintField(Level* lvl)
             ++lineObjCounter;
         }
     }
+    QGraphicsTextItem * stepsNum = new QGraphicsTextItem;
+    QGraphicsTextItem * text = new QGraphicsTextItem;
+    stepsNum->setPlainText(QString::number(lvl->GetStepsCounter()));
+    text->setPlainText("Steps: ");
+    text->setPos(0, lvl->GetLineNumb() * 30);
+    stepsNum->setPos(35, lvl->GetLineNumb() * 30);
+    scene_->addItem(text);
+    scene_->addItem(stepsNum);
+
+}
+
+void View::PaintLeaderBoard() {
+    scene_->clear();
+    QString path = "C:/Users/Pepega/Documents/Qt/PeepoSad3/Saves/leaderboard_save";
+    QFile leaderboardFile(path);
+
+    if (leaderboardFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+
+    }
+
+
+    leaderboardFile.close();
+}
+
+void View::ProcessLine(const QString &line)
+{
+
 }
 

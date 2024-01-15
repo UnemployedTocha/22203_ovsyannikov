@@ -18,32 +18,53 @@ class Level
 {
 public:
     Level() = delete;
-    Level(int lvlNum);
+    Level(QString lvlNum);
 
     void MoveUp();
     void MoveDown();
     void MoveLeft();
     void MoveRight();
 
-    void load(int lvlNum);
+    void loadSave(QString saveName);
+    void loadLevel(QString lvlNum);
+
+    void saveGame(QString fileName = "user_save");
+    void saveUserData(const QString& userName);
+
+    void restart();
+    bool CheckWin();
+
+    void InitializeUserData();
     const unsigned GetLineNumb();
+    const unsigned GetStepsCounter();
+    unsigned GetLevelNumb();
 
     std::vector<FieldType>::iterator Begin(unsigned lineNum);
     std::vector<FieldType>::iterator End(unsigned lineNum);
-private:
 
+private:
     std::vector<std::vector<FieldType>> gameField_;
     std::pair<unsigned, unsigned> playerPos_;
     unsigned lineNum_ = 0;
     unsigned maxColumnNum_= 0;
-    unsigned goalNum_;
-    unsigned boxOnGoalNum_;
+    unsigned goalNum_ = 0;
+    unsigned boxOnGoalNum_ = 0;
+
+    QString currentLevel = 0;
+    QString loadCurrentLevel = 0;
+    unsigned loadStepsNum = 0;
+    unsigned steps = 0;
+
+    std::vector<std::pair<unsigned, unsigned>> UserData_;
     bool isPlayerOnGoal_;
+
 
     FieldType ObjAfterMoving();
     void IncrementData(const FieldType& obj);
     FieldType QCharToFieldTypeConvertion(QChar ch);
-    QString GetLvlPath(int lvlNum);
+    QChar FieldTypeToQCharConvertion(FieldType obj);
+    QString GetLvlPath(QString lvlName);
+    QString GetSavePath(QString saveName);
 };
 
 #endif // LEVEL_H
