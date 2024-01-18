@@ -51,8 +51,8 @@ private:
     unsigned boxOnGoalNum_ = 0;
 
     QString currentLevel = 0;
-    QString loadCurrentLevel = 0;
-    unsigned loadStepsNum = 0;
+    QString saveCurrentLevel = 0;
+    unsigned saveSteps = 0;
     unsigned steps = 0;
 
     std::vector<std::pair<unsigned, unsigned>> UserData_;
@@ -60,11 +60,11 @@ private:
 
 
     FieldType ObjAfterMoving();
-    void IncrementData(const FieldType& obj);
+    void IncrementFieldData(const FieldType& obj);
     FieldType QCharToFieldTypeConvertion(QChar ch);
-    QChar FieldTypeToQCharConvertion(FieldType obj);
-    QString GetLvlPath(QString lvlName);
-    QString GetSavePath(QString saveName);
+    QChar FieldTypeToQCharConvertion(const FieldType& obj);
+    QString GetLvlPath(const QString& lvlName);
+    QString GetSavePath(const QString& saveName);
 };
 
 #endif // LEVEL_H

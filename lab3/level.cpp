@@ -25,7 +25,7 @@ FieldType Level::QCharToFieldTypeConvertion(QChar ch) {
     }
 }
 
-QChar Level::FieldTypeToQCharConvertion(FieldType obj)
+QChar Level::FieldTypeToQCharConvertion(const FieldType& obj)
 {
     switch(obj) {
     case FieldType::WALL:
@@ -47,7 +47,7 @@ QChar Level::FieldTypeToQCharConvertion(FieldType obj)
     }
 }
 
-QString Level::GetLvlPath(QString lvlName)
+QString Level::GetLvlPath(const QString& lvlName)
 {
     QString path = "C:/Users/Pepega/Documents/Qt/PeepoSad3/Levels/";
     path += lvlName;
@@ -55,7 +55,7 @@ QString Level::GetLvlPath(QString lvlName)
     return path;
 }
 
-QString Level::GetSavePath(QString saveName)
+QString Level::GetSavePath(const QString& saveName)
 {
     QString path = "C:/Users/Pepega/Documents/Qt/PeepoSad3/Saves/";
     path += saveName;
@@ -66,7 +66,9 @@ QString Level::GetSavePath(QString saveName)
 Level::Level(QString lvlNum)
 {
     currentLevel = lvlNum;
+    InitializeUserData();
     loadLevel(lvlNum);
+
 }
 
 
@@ -338,9 +340,15 @@ void Level::MoveRight()
 
 void Level::loadSave(QString saveName)
 {
-    currentLevel = loadCurrentLevel;
-    steps = loadStepsNum;
+    lineNum_ = 0;
+    maxColumnNum_= 0;
+    goalNum_ = 0;
+    boxOnGoalNum_ = 0;
+
+    currentLevel = saveCurrentLevel;
+    steps = saveSteps;
     gameField_.clear();
+    gameField_.shrink_to_fit();
 
     QString path = GetSavePath(saveName);
     QFile lvlFile(path);
@@ -356,7 +364,7 @@ void Level::loadSave(QString saveName)
             for(size_t j = 0; j < str.size(); ++j) {
                 FieldType obj = QCharToFieldTypeConvertion(str[j]);
 
-                IncrementData(obj);
+                IncrementFieldData(obj);
                 if(obj == FieldType::PLAYER || obj == FieldType::PLAYER_ON_GOAL) {
                     playerPos_.first = lineNum_;
                     playerPos_.second = j;
@@ -385,9 +393,15 @@ void Level::loadSave(QString saveName)
 
 void Level::loadLevel(QString lvlNum)
 {
+    lineNum_ = 0;
+    maxColumnNum_= 0;
+    goalNum_ = 0;
+    boxOnGoalNum_ = 0;
+
     currentLevel = lvlNum;
     steps = 0;
     gameField_.clear();
+    gameField_.shrink_to_fit();
 
     QString path = GetLvlPath(lvlNum);
     QFile lvlFile(path);
@@ -398,20 +412,20 @@ void Level::loadLevel(QString lvlNum)
         QString str = stream.readLine();
         lineNum_ = 0;
         while(!str.isNull()){
-            std::vector<FieldType> tmpGameField;
+            std::vector<FieldType> tmpGameLine;
             unsigned tmpMaxColumnNum = 0;
             for(size_t j = 0; j < str.size(); ++j) {
                 FieldType obj = QCharToFieldTypeConvertion(str[j]);
 
-                IncrementData(obj);
+                IncrementFieldData(obj);
                 if(obj == FieldType::PLAYER || obj == FieldType::PLAYER_ON_GOAL) {
                     playerPos_.first = lineNum_;
                     playerPos_.second = j;
                 }
-                tmpGameField.push_back(obj);
+                tmpGameLine.push_back(obj);
                 ++tmpMaxColumnNum;
             }
-            gameField_.push_back(tmpGameField);
+            gameField_.push_back(tmpGameLine);
             if(tmpMaxColumnNum > maxColumnNum_) {
                 maxColumnNum_ = tmpMaxColumnNum;
             }
@@ -432,8 +446,8 @@ void Level::loadLevel(QString lvlNum)
 
 void Level::saveGame(QString fileName)
 {
-    loadCurrentLevel = currentLevel;
-    loadStepsNum = steps;
+    saveCurrentLevel = currentLevel;
+    saveSteps = steps;
     QString path = GetSavePath(fileName);
     QFile saveFile(path);
 
@@ -533,7 +547,7 @@ std::vector<FieldType>::iterator Level::End(unsigned lineNum)
 {
     return gameField_[lineNum].end();
 }
-#include <iostream>
+
 bool Level::CheckWin()
 {
     if(boxOnGoalNum_ == goalNum_) {
@@ -556,17 +570,19 @@ void Level::InitializeUserData()
     }
 }
 
-void Level::IncrementData(const FieldType& obj)
+void Level::IncrementFieldData(const FieldType& obj)
 {
     switch(obj) {
     case FieldType::BOX_ON_GOAL:
         ++boxOnGoalNum_;
+        ++goalNum_;
         break;
     case FieldType::GOAL:
         ++goalNum_;
         break;
     case FieldType::PLAYER_ON_GOAL:
         isPlayerOnGoal_ = true;
+        ++goalNum_;
         break;
     case FieldType::PLAYER:
         isPlayerOnGoal_ = false;

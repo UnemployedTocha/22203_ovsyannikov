@@ -3,6 +3,9 @@
 #include <QGraphicsView>
 #include <QGraphicsItem>
 #include <QFile>
+#include <QDirIterator>
+#include <QDebug>
+
 
 View::View(QGraphicsScene* scene, QTableWidget* leaderBoard)
 {
@@ -17,11 +20,9 @@ void View::PaintField(Level* lvl)
 
     for (size_t i = 0; i < lvl->GetLineNumb(); i++) {
         lineObjCounter = 0;
-        for (auto it = lvl->Begin(i); it != lvl->End(i); ++it) {
-
-
+        QPen pen(Qt::NoPen);
+        for (auto it = lvl->Begin(i); it != lvl->End(i); ++it) {    
             QBrush brush("azure");
-            QPen pen(Qt::NoPen);
             switch(*it) {
             case FieldType::PLAYER :
                 brush.setColor("darkred");
@@ -64,17 +65,25 @@ void View::PaintField(Level* lvl)
 }
 
 void View::PaintLeaderBoard() {
-    QString path = "C:/Users/Pepega/Documents/Qt/PeepoSad3/Saves/leaderboard_save.txt";
-    QFile leaderboardFile(path);
+    QString path = "C:/Users/Pepega/Documents/Qt/PeepoSad3/LeaderboardSaves";
 
-    if (leaderboardFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        while (!leaderboardFile.atEnd()) {
-            QString line = leaderboardFile.readLine();
-            ProcessLine(line);
-        }
+    QDir dir(path);
+    dir.setFilter( QDir::Files | QDir::NoDotAndDotDot);
+    if(dir.isEmpty()) {
+        return;
     }
 
-    leaderboardFile.close();
+    QDirIterator it(dir);
+    std::vector<UserData> userDataArr;
+    do{
+        QFile userData(it.next());
+        if (userData.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QString line = userData.readLine();
+            userDataArr.push_back(userData);
+            //            ProcessLine(line);
+        }
+        userData.close();
+    }while(it.hasNext());
 }
 
 void View::ProcessLine(const QString &line)

@@ -5,7 +5,7 @@
 #include <QGraphicsScene>
 #include "view.h"
 #include "level.h"
-#include "leaderboard.h"
+#include <QPixmap>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,7 +24,8 @@ private:
     QGraphicsScene* scene;
     View* view;
     Level* lvl;
-    LeaderBoard* leaderBoard;
+    QPixmap menuPic;
+    QPixmap winPic;
 
     bool isSokobanStarted = false;
 

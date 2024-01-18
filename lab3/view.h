@@ -4,7 +4,6 @@
 #include "level.h"
 #include <QGraphicsScene>
 #include <QTableWidget>
-
 class View
 {
 public:
@@ -12,6 +11,12 @@ public:
     void PaintField(Level* lvl);
     void PaintLeaderBoard();
 private:
+    struct UserData {
+        QString lvlPassed;
+        QString stepsTaken;
+        QString userName;
+    };
+
     QGraphicsScene* scene_;
     QTableWidget* leaderBoard_;
 
