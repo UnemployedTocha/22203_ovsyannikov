@@ -8,12 +8,14 @@
 #include <QKeyEvent>
 #include <QInputDialog>
 #include <QString>
+#include <QDebug>
 
 Sokoban::Sokoban(QMainWindow *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("Sokoban");
     ui->stackedWidget->setFixedSize(ui->centralwidget->size());
     scene = new QGraphicsScene();
     ui->graphicsView->setScene(scene);
@@ -90,8 +92,7 @@ void Sokoban::resizeEvent(QResizeEvent *event)
 {
     ui->stackedWidget->setFixedHeight(ui->centralwidget->height());
     ui->stackedWidget->setFixedWidth(ui->centralwidget->width());
-    ui->graphicsView->setFixedHeight(ui->centralwidget->height());
-    ui->graphicsView->setFixedWidth(ui->centralwidget->width());
+    ui->graphicsView->resize(ui->centralwidget->size());
     ui->label_pic->resize(ui->centralwidget->size());
     ui->label_pic->setPixmap(menuPic.scaled(ui->label_pic->size(), Qt::IgnoreAspectRatio));
     ui->label_pic_2->resize(ui->centralwidget->size());
@@ -121,11 +122,9 @@ void Sokoban::on_actionNew_game_triggered()
     ui->actionLoad_2->setEnabled(true);
 
     lvl = new Level("1");
-    view = new View(scene, ui->tableWidget);
+    view = new View(ui->graphicsView, scene, ui->tableWidget);
 
     view->PaintField(lvl);
-    view->PaintLeaderBoard();
-    ui->graphicsView->fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }
 
 void Sokoban::on_actionRestart_triggered()
@@ -146,12 +145,15 @@ void Sokoban::on_actionSave_triggered()
 void Sokoban::on_actionSave_2_triggered()
 {
     QString userName = QInputDialog::getText(this, "", "Enter USERNAME");
-    lvl->saveUserData(userName);
+    std::string s = userName.toStdString();
+    qDebug() << QString::fromStdString(s.substr(0, 20));
+    lvl->saveUserData(QString::fromStdString(s.substr(0, 20)));
 }
 
 
 void Sokoban::on_actionLoad_2_triggered()
 {
+    view->PaintLeaderBoard();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -160,8 +162,6 @@ void Sokoban::on_actionLvl_1_triggered()
     ui->stackedWidget->setCurrentIndex(0);
     lvl->loadLevel("1");
     view->PaintField(lvl);
-    scene->setSceneRect(scene->itemsBoundingRect());
-    ui->graphicsView->fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }
 
 void Sokoban::on_actionLvl_2_triggered()
@@ -169,49 +169,34 @@ void Sokoban::on_actionLvl_2_triggered()
     ui->stackedWidget->setCurrentIndex(0);
     lvl->loadLevel("2");
     view->PaintField(lvl);
-    scene->setSceneRect(scene->itemsBoundingRect());
-    ui->graphicsView->fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }
 
 void Sokoban::on_actionLvl_3_triggered()
 {
-    scene->setSceneRect(QRectF());
     ui->stackedWidget->setCurrentIndex(0);
     lvl->loadLevel("3");
     view->PaintField(lvl);
-    scene->setSceneRect(scene->itemsBoundingRect());
-    ui->graphicsView->fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }
 
 void Sokoban::on_actionLvl_4_triggered()
 {
-    scene->setSceneRect(QRectF());
     ui->stackedWidget->setCurrentIndex(0);
     lvl->loadLevel("4");
     view->PaintField(lvl);
-    scene->setSceneRect(scene->itemsBoundingRect());
-    ui->graphicsView->fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }
 
 void Sokoban::on_actionLvl_5_triggered()
 {
-    scene->setSceneRect(QRectF());
     ui->stackedWidget->setCurrentIndex(0);
     lvl->loadLevel("5");
     view->PaintField(lvl);
-    scene->setSceneRect(scene->itemsBoundingRect());
-    ui->graphicsView->fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }
 
 
 void Sokoban::on_actionLoad_triggered()
 {
-//    UpdateScene();
-    scene->setSceneRect(QRectF());
     ui->stackedWidget->setCurrentIndex(0);
     lvl->loadSave("user_save");
     view->PaintField(lvl);
-    scene->setSceneRect(scene->itemsBoundingRect());
-    ui->graphicsView->fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }
 

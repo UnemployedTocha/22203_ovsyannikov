@@ -63,6 +63,14 @@ QString Level::GetSavePath(const QString& saveName)
     return path;
 }
 
+QString Level::GetUserDataSavePath(const QString& saveName)
+{
+    QString path = "C:/Users/Pepega/Documents/Qt/PeepoSad3/LeaderboardSaves/";
+    path += saveName;
+    path += ".txt";
+    return path;
+}
+
 Level::Level(QString lvlNum)
 {
     currentLevel = lvlNum;
@@ -466,57 +474,20 @@ void Level::saveGame(QString fileName)
 
 void Level::saveUserData(const QString& userName)
 {
-    QString path = GetSavePath("leaderboard_save");
+    QString path = GetUserDataSavePath(userName);
     QFile leaderboardFile(path);
-     std::vector<QString> temp;
-    if(leaderboardFile.open(QIODevice::ReadOnly| QIODevice::Text)) {
-        QTextStream s(&leaderboardFile);
-
-        unsigned completedLevels = 0;
-        unsigned steps = 0;
-        for(size_t i = 0; i < GetLevelNumb(); ++i) {
-            completedLevels += UserData_[i].first;
-            if(UserData_[i].first) {
-                steps += UserData_[i].second;
-            }
-        }
-        QString str = s.readLine();
-        while(!str.isNull()) {
-            temp.push_back(str);
-            str = s.readLine();
-        }
-
-        QString tempCompletedLevels, tempSteps, tempUserName;
-        auto it = temp.begin();
-        for(; it != temp.end() ; ++it) {
-            QTextStream ss(&(*it));
-
-            ss >> tempCompletedLevels;
-            ss >> tempSteps;
-            ss >> tempUserName;
-            if(completedLevels > tempCompletedLevels.toInt()) {
-                break;
-            }
-            else if(completedLevels == tempCompletedLevels.toInt()) {
-                while(completedLevels == tempCompletedLevels.toInt() && steps > tempSteps.toInt() && (++it) != temp.end()) {
-                    QTextStream ss(&(*it));
-                    ss >> tempCompletedLevels;
-                    ss >> tempSteps;
-                    ss >> tempUserName;
-                }
-                break;
-            }
-        }
-        temp.insert(it, QString::number(completedLevels) + " " + QString::number(steps) + " " + userName);
-    }
-    leaderboardFile.close();
 
     if(leaderboardFile.open(QIODevice::WriteOnly | QFile::Truncate)) {
         QTextStream s(&leaderboardFile);
-        for(auto it = temp.begin(); it != temp.end(); ++it) {
-            s << (*it);
-            s << '\n';
-        }
+        int tempSum = 0;
+        std::for_each(UserData_.begin(), UserData_.end(), [&tempSum](std::pair<unsigned, unsigned> pair){tempSum += pair.first;});
+        s << tempSum;
+        s << " ";
+        tempSum = 0;
+        std::for_each(UserData_.begin(), UserData_.end(), [&tempSum](std::pair<unsigned, unsigned> pair){tempSum += pair.second;});
+        s << tempSum;
+        s << " ";
+        s << userName;
     }
 
     leaderboardFile.close();
@@ -564,7 +535,7 @@ void Level::InitializeUserData()
 
     std::pair<unsigned, unsigned> levelData;
     levelData.first = 0;
-    levelData.second = UINT_MAX;
+    levelData.second = 0;
     for(size_t i = 0; i < GetLevelNumb(); ++i) {
         UserData_.push_back(levelData);
     }

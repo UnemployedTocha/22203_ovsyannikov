@@ -65,6 +65,7 @@ private:
     QChar FieldTypeToQCharConvertion(const FieldType& obj);
     QString GetLvlPath(const QString& lvlName);
     QString GetSavePath(const QString& saveName);
+    QString GetUserDataSavePath(const QString& saveName);
 };
 
 #endif // LEVEL_H

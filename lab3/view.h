@@ -4,10 +4,11 @@
 #include "level.h"
 #include <QGraphicsScene>
 #include <QTableWidget>
+#include <QGraphicsView>
 class View
 {
 public:
-    View(QGraphicsScene* scene, QTableWidget* leaderBoard);
+    View(QGraphicsView* graphicsView, QGraphicsScene* scene, QTableWidget* leaderBoard);
     void PaintField(Level* lvl);
     void PaintLeaderBoard();
 private:
@@ -17,10 +18,12 @@ private:
         QString userName;
     };
 
+    bool isleaderBoardPainted = false;
+    QGraphicsView* graphicsView_;
     QGraphicsScene* scene_;
     QTableWidget* leaderBoard_;
 
-    void ProcessLine(const QString& line);
+    static bool Compare(const UserData& a, const UserData& b);
 };
 
 #endif // VIEW_H

@@ -4,11 +4,11 @@
 #include <QGraphicsItem>
 #include <QFile>
 #include <QDirIterator>
-#include <QDebug>
+#include <algorithm>
 
-
-View::View(QGraphicsScene* scene, QTableWidget* leaderBoard)
+View::View(QGraphicsView* graphicsView,QGraphicsScene* scene, QTableWidget* leaderBoard)
 {
+    graphicsView_ = graphicsView;
     scene_ = scene;
     leaderBoard_ = leaderBoard;
 }
@@ -62,9 +62,25 @@ void View::PaintField(Level* lvl)
     scene_->addItem(text);
     scene_->addItem(stepsNum);
 
+    scene_->setSceneRect(scene_->itemsBoundingRect());
+    graphicsView_->fitInView(scene_->sceneRect(), Qt::KeepAspectRatio);
+}
+
+bool View::Compare(const UserData& a, const UserData& b)
+{
+    if(a.lvlPassed.toInt() > b.lvlPassed.toInt()) {
+        return true;
+    }
+    else if(a.lvlPassed.toInt() < b.lvlPassed.toInt()) {
+        return false;
+    }
+    else {
+        return (a.stepsTaken.toInt() >= b.stepsTaken.toInt()) ? false : true;
+    }
 }
 
 void View::PaintLeaderBoard() {
+    leaderBoard_->clear();
     QString path = "C:/Users/Pepega/Documents/Qt/PeepoSad3/LeaderboardSaves";
 
     QDir dir(path);
@@ -78,40 +94,49 @@ void View::PaintLeaderBoard() {
     do{
         QFile userData(it.next());
         if (userData.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            QString line = userData.readLine();
-            userDataArr.push_back(userData);
-            //            ProcessLine(line);
+            QTextStream in(&userData);
+            UserData data;
+            in >> data.lvlPassed;
+            in >> data.stepsTaken;
+            data.userName = in.read(50);
+            userDataArr.push_back(data);
         }
         userData.close();
     }while(it.hasNext());
-}
 
-void View::ProcessLine(const QString &line)
-{
-    QStringList ss = line.split(' ');
+    std::sort(userDataArr.begin(), userDataArr.end(), Compare);
 
-//    if(ui->tableWidget->rowCount() < 10) {
-    leaderBoard_->setRowCount(10);
-//    }
-    leaderBoard_->setColumnCount(3);
+    static constexpr size_t columnNum = 3;
+    leaderBoard_->setRowCount(userDataArr.size());
+    leaderBoard_->setColumnCount(columnNum);
+    QStringList labels;
+    labels << "Levels passed" << "Steps taken" << "Username";
+    leaderBoard_->setHorizontalHeaderLabels(labels);
 
-    int row = 0;
-    for(size_t column = 0; column < ss.size(); column++) {
-        QTableWidgetItem* newItem = new QTableWidgetItem(ss.at(column));
+    for(size_t row = 0; row < userDataArr.size(); ++row) {
+        QTableWidgetItem* levels = new QTableWidgetItem(userDataArr[row].lvlPassed);
+        QTableWidgetItem* steps = new QTableWidgetItem(userDataArr[row].stepsTaken);
+        QTableWidgetItem* username = new QTableWidgetItem(userDataArr[row].userName);
         switch(row) {
         case 0:
-            newItem->setBackground(Qt::yellow);
+            levels->setBackground(Qt::yellow);
+            steps->setBackground(Qt::yellow);
+            username->setBackground(Qt::yellow);
             break;
         case 1:
-            newItem->setBackground(Qt::lightGray);
+            levels->setBackground(Qt::lightGray);
+            steps->setBackground(Qt::lightGray);
+            username->setBackground(Qt::lightGray);
             break;
         case 2:
-            newItem->setBackground(Qt::darkRed);
+            levels->setBackground(Qt::darkRed);
+            steps->setBackground(Qt::darkRed);
+            username->setBackground(Qt::darkRed);
             break;
         }
-        leaderBoard_->setItem(row, column, newItem);
+        leaderBoard_->setItem(row, 0, levels);
+        leaderBoard_->setItem(row, 1, steps);
+        leaderBoard_->setItem(row, 2, username);
     }
-
-    row++;
 }
 
