@@ -474,7 +474,8 @@ void Level::saveGame(QString fileName)
 
 void Level::saveUserData(const QString& userName)
 {
-    QString path = GetUserDataSavePath(userName);
+    QDir dir("C:/Users/Pepega/Documents/Qt/PeepoSad3/LeaderboardSaves/");
+    QString path = GetUserDataSavePath(QString::number(dir.count()));
     QFile leaderboardFile(path);
 
     if(leaderboardFile.open(QIODevice::WriteOnly | QFile::Truncate)) {
@@ -493,15 +494,17 @@ void Level::saveUserData(const QString& userName)
     leaderboardFile.close();
 }
 
+void Level::newGame()
+{
+    InitializeUserData();
+    steps = 0;
+    loadLevel("1");
+}
+
 void Level::restart()
 {
     steps = 0;
     loadLevel(currentLevel);
-}
-
-const unsigned int Level::GetLineNumb()
-{
-    return lineNum_;
 }
 
 const unsigned Level::GetStepsCounter()
@@ -567,4 +570,9 @@ unsigned Level::GetLevelNumb()
     dir.setFilter( QDir::AllEntries | QDir::NoDotAndDotDot );
     unsigned levelNumber = dir.count();
     return levelNumber;
+}
+
+const std::vector<std::vector<FieldType> > Level::GetGameField() const
+{
+    return gameField_;
 }

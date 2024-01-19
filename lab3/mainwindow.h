@@ -28,7 +28,7 @@ private:
     QPixmap winPic;
 
     bool isSokobanStarted = false;
-
+    void LevelTrigger(const QString& lvlName);
 protected:
     virtual void keyPressEvent(QKeyEvent *event);
     virtual void resizeEvent(QResizeEvent *event);

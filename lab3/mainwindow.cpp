@@ -4,11 +4,9 @@
 
 #include <QGraphicsView>
 #include <QGraphicsItem>
-#include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QInputDialog>
 #include <QString>
-#include <QDebug>
 
 Sokoban::Sokoban(QMainWindow *parent)
     : QMainWindow(parent)
@@ -57,21 +55,21 @@ void Sokoban::keyPressEvent(QKeyEvent *event)
         switch(event->key()) {
         case Qt::Key_W:
             lvl->MoveUp();
-            view->PaintField(lvl);
+            view->PaintField(lvl->GetGameField(), lvl->GetStepsCounter());
             if(lvl->CheckWin()) {
                 ui->stackedWidget->setCurrentIndex(3);
             }
             break;
         case Qt::Key_S:
             lvl->MoveDown();
-            view->PaintField(lvl);
+            view->PaintField(lvl->GetGameField(), lvl->GetStepsCounter());
             if(lvl->CheckWin()) {
                 ui->stackedWidget->setCurrentIndex(3);
             }
             break;
         case Qt::Key_A:
             lvl->MoveLeft();
-            view->PaintField(lvl);
+            view->PaintField(lvl->GetGameField(), lvl->GetStepsCounter());
             if(lvl->CheckWin()) {
                 ui->stackedWidget->setCurrentIndex(3);
             }
@@ -79,7 +77,7 @@ void Sokoban::keyPressEvent(QKeyEvent *event)
 
         case Qt::Key_D:
             lvl->MoveRight();
-            view->PaintField(lvl);
+            view->PaintField(lvl->GetGameField(), lvl->GetStepsCounter());
             if(lvl->CheckWin()) {
                 ui->stackedWidget->setCurrentIndex(3);
             }
@@ -105,9 +103,9 @@ void Sokoban::resizeEvent(QResizeEvent *event)
 void Sokoban::on_actionNew_game_triggered()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    if(isSokobanStarted) {
-        delete lvl;
-        delete view;
+    if(!isSokobanStarted) {
+        lvl = new Level("1");
+        view = new View(ui->graphicsView, scene, ui->tableWidget);
     }
     isSokobanStarted = true;
     ui->actionLoad->setEnabled(false);
@@ -121,17 +119,16 @@ void Sokoban::on_actionNew_game_triggered()
     ui->actionLvl_5->setEnabled(true);
     ui->actionLoad_2->setEnabled(true);
 
-    lvl = new Level("1");
-    view = new View(ui->graphicsView, scene, ui->tableWidget);
 
-    view->PaintField(lvl);
+    lvl->newGame();
+    view->PaintField(lvl->GetGameField(), lvl->GetStepsCounter());
 }
 
 void Sokoban::on_actionRestart_triggered()
 {
     ui->stackedWidget->setCurrentIndex(0);
     lvl->restart();
-    view->PaintField(lvl);
+    view->PaintField(lvl->GetGameField(), lvl->GetStepsCounter());
 
 }
 
@@ -146,7 +143,6 @@ void Sokoban::on_actionSave_2_triggered()
 {
     QString userName = QInputDialog::getText(this, "", "Enter USERNAME");
     std::string s = userName.toStdString();
-    qDebug() << QString::fromStdString(s.substr(0, 20));
     lvl->saveUserData(QString::fromStdString(s.substr(0, 20)));
 }
 
@@ -157,39 +153,35 @@ void Sokoban::on_actionLoad_2_triggered()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+void Sokoban::LevelTrigger(const QString& lvlName) {
+    ui->stackedWidget->setCurrentIndex(0);
+    lvl->loadLevel(lvlName);
+    view->PaintField(lvl->GetGameField(), lvl->GetStepsCounter());
+}
+
 void Sokoban::on_actionLvl_1_triggered()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    lvl->loadLevel("1");
-    view->PaintField(lvl);
+    LevelTrigger("1");
 }
 
 void Sokoban::on_actionLvl_2_triggered()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    lvl->loadLevel("2");
-    view->PaintField(lvl);
+    LevelTrigger("2");
 }
 
 void Sokoban::on_actionLvl_3_triggered()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    lvl->loadLevel("3");
-    view->PaintField(lvl);
+    LevelTrigger("3");
 }
 
 void Sokoban::on_actionLvl_4_triggered()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    lvl->loadLevel("4");
-    view->PaintField(lvl);
+    LevelTrigger("4");
 }
 
 void Sokoban::on_actionLvl_5_triggered()
 {
-    ui->stackedWidget->setCurrentIndex(0);
-    lvl->loadLevel("5");
-    view->PaintField(lvl);
+    LevelTrigger("5");
 }
 
 
@@ -197,6 +189,6 @@ void Sokoban::on_actionLoad_triggered()
 {
     ui->stackedWidget->setCurrentIndex(0);
     lvl->loadSave("user_save");
-    view->PaintField(lvl);
+    view->PaintField(lvl->GetGameField(), lvl->GetStepsCounter());
 }
 

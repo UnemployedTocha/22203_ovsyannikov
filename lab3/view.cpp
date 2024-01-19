@@ -1,6 +1,5 @@
 #include "view.h"
 
-#include <QGraphicsView>
 #include <QGraphicsItem>
 #include <QFile>
 #include <QDirIterator>
@@ -13,17 +12,18 @@ View::View(QGraphicsView* graphicsView,QGraphicsScene* scene, QTableWidget* lead
     leaderBoard_ = leaderBoard;
 }
 
-void View::PaintField(Level* lvl)
+void View::PaintField(const std::vector<std::vector<FieldType>>& lvlField, unsigned stepsNumb)
 {
     scene_->clear();
-    size_t lineObjCounter = 0;
+    size_t columnObjCounter = 0;
 
-    for (size_t i = 0; i < lvl->GetLineNumb(); i++) {
-        lineObjCounter = 0;
+    for (auto it1 = lvlField.begin(); it1 != lvlField.end(); ++it1) {
+        size_t lineObjCounter = 0;
         QPen pen(Qt::NoPen);
-        for (auto it = lvl->Begin(i); it != lvl->End(i); ++it) {    
+        for (auto it2 = (*it1).begin(); it2 != (*it1).end(); ++it2) {
+
             QBrush brush("azure");
-            switch(*it) {
+            switch(*it2) {
             case FieldType::PLAYER :
                 brush.setColor("darkred");
                 break;
@@ -47,18 +47,18 @@ void View::PaintField(Level* lvl)
                 break;
             }
 
-
-            QRect rectItem(lineObjCounter * 30, i * 30, 30, 30);
+            QRect rectItem(lineObjCounter * 30, columnObjCounter * 30, 30, 30);
             scene_->addRect(rectItem,  pen, brush);
             ++lineObjCounter;
         }
+        ++columnObjCounter;
     }
     QGraphicsTextItem * stepsNum = new QGraphicsTextItem;
     QGraphicsTextItem * text = new QGraphicsTextItem;
-    stepsNum->setPlainText(QString::number(lvl->GetStepsCounter()));
+    stepsNum->setPlainText(QString::number(stepsNumb));
     text->setPlainText("Steps: ");
-    text->setPos(0, lvl->GetLineNumb() * 30);
-    stepsNum->setPos(35, lvl->GetLineNumb() * 30);
+    text->setPos(0, columnObjCounter * 30);
+    stepsNum->setPos(35, columnObjCounter * 30);
     scene_->addItem(text);
     scene_->addItem(stepsNum);
 
