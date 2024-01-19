@@ -98,7 +98,7 @@ void View::PaintLeaderBoard() {
             UserData data;
             in >> data.lvlPassed;
             in >> data.stepsTaken;
-            data.userName = in.read(50);
+            data.userName = in.readAll();
             userDataArr.push_back(data);
         }
         userData.close();
