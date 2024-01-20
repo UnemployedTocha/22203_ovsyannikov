@@ -91,19 +91,20 @@ FieldType Level::ObjAfterMoving()
 
 void Level::MoveUp()
 {
-    ++steps;
 
     unsigned x = playerPos_.first;
     unsigned y = playerPos_.second;
 
     switch(gameField_[x - 1][y]) {
     case FieldType::EMPTY:
+        ++steps;
         gameField_[x][y] = ObjAfterMoving();
         gameField_[x - 1][y] = FieldType::PLAYER;
         playerPos_.first = x - 1;
         playerPos_.second = y;
         break;
     case FieldType::GOAL:
+        ++steps;
         gameField_[x][y] = ObjAfterMoving();
         gameField_[x-1][y] = FieldType::PLAYER_ON_GOAL;
         isPlayerOnGoal_ = true;
@@ -113,6 +114,7 @@ void Level::MoveUp()
     case FieldType::BOX:
         switch(gameField_[x - 2][y]) {
         case FieldType::EMPTY:
+            ++steps;
             gameField_[x - 2][y] = FieldType::BOX;
             gameField_[x - 1][y] = FieldType::PLAYER;
             gameField_[x][y] = ObjAfterMoving();
@@ -120,6 +122,7 @@ void Level::MoveUp()
             playerPos_.second = y;
             break;
         case FieldType::GOAL:
+            ++steps;
             gameField_[x - 2][y] = FieldType::BOX_ON_GOAL;
             gameField_[x - 1][y] = FieldType::PLAYER;
             gameField_[x][y] = ObjAfterMoving();
@@ -132,6 +135,7 @@ void Level::MoveUp()
     case FieldType::BOX_ON_GOAL:
         switch(gameField_[x - 2][y]) {
         case FieldType::EMPTY:
+            ++steps;
             gameField_[x - 2][y] = FieldType::BOX;
             gameField_[x - 1][y] = FieldType::PLAYER_ON_GOAL;
             gameField_[x][y] = ObjAfterMoving();
@@ -141,6 +145,7 @@ void Level::MoveUp()
             playerPos_.second = y;
             break;
         case FieldType::GOAL:
+            ++steps;
             gameField_[x - 2][y] = FieldType::BOX_ON_GOAL;
             gameField_[x - 1][y] = FieldType::PLAYER_ON_GOAL;
             gameField_[x][y] = ObjAfterMoving();
@@ -156,19 +161,20 @@ void Level::MoveUp()
 
 void Level::MoveDown()
 {
-    ++steps;
 
     unsigned x = playerPos_.first;
     unsigned y = playerPos_.second;
 
     switch(gameField_[x + 1][y]) {
     case FieldType::EMPTY:
+        ++steps;
         gameField_[x][y] = ObjAfterMoving();
         gameField_[x + 1][y] = FieldType::PLAYER;
         playerPos_.first = x + 1;
         playerPos_.second = y;
         break;
     case FieldType::GOAL:
+        ++steps;
         gameField_[x][y] = ObjAfterMoving();
         gameField_[x+1][y] = FieldType::PLAYER_ON_GOAL;
         isPlayerOnGoal_ = true;
@@ -178,6 +184,7 @@ void Level::MoveDown()
     case FieldType::BOX:
         switch(gameField_[x + 2][y]) {
         case FieldType::EMPTY:
+            ++steps;
             gameField_[x + 2][y] = FieldType::BOX;
             gameField_[x + 1][y] = FieldType::PLAYER;
             gameField_[x][y] = ObjAfterMoving();
@@ -185,6 +192,7 @@ void Level::MoveDown()
             playerPos_.second = y;
             break;
         case FieldType::GOAL:
+            ++steps;
             gameField_[x + 2][y] = FieldType::BOX_ON_GOAL;
             gameField_[x + 1][y] = FieldType::PLAYER;
             gameField_[x][y] = ObjAfterMoving();
@@ -197,6 +205,7 @@ void Level::MoveDown()
     case FieldType::BOX_ON_GOAL:
         switch(gameField_[x + 2][y]) {
         case FieldType::EMPTY:
+            ++steps;
             gameField_[x + 2][y] = FieldType::BOX;
             gameField_[x + 1][y] = FieldType::PLAYER_ON_GOAL;
             gameField_[x][y] = ObjAfterMoving();
@@ -206,6 +215,7 @@ void Level::MoveDown()
             playerPos_.second = y;
             break;
         case FieldType::GOAL:
+            ++steps;
             gameField_[x + 2][y] = FieldType::BOX_ON_GOAL;
             gameField_[x + 1][y] = FieldType::PLAYER_ON_GOAL;
             gameField_[x][y] = ObjAfterMoving();
@@ -220,19 +230,20 @@ void Level::MoveDown()
 
 void Level::MoveLeft()
 {
-    ++steps;
 
     unsigned x = playerPos_.first;
     unsigned y = playerPos_.second;
 
     switch(gameField_[x][y - 1]) {
     case FieldType::EMPTY:
+        ++steps;
         gameField_[x][y] = ObjAfterMoving();
         gameField_[x][y - 1] = FieldType::PLAYER;
         playerPos_.first = x;
         playerPos_.second = y - 1;
         break;
     case FieldType::GOAL:
+        ++steps;
         gameField_[x][y] = ObjAfterMoving();
         gameField_[x][y-1] = FieldType::PLAYER_ON_GOAL;
         isPlayerOnGoal_ = true;
@@ -242,6 +253,7 @@ void Level::MoveLeft()
     case FieldType::BOX:
         switch(gameField_[x][y - 2]) {
         case FieldType::EMPTY:
+            ++steps;
             gameField_[x][y-2] = FieldType::BOX;
             gameField_[x][y-1] = FieldType::PLAYER;
             gameField_[x][y] = ObjAfterMoving();
@@ -249,6 +261,7 @@ void Level::MoveLeft()
             playerPos_.second = y - 1;
             break;
         case FieldType::GOAL:
+            ++steps;
             gameField_[x][y-2] = FieldType::BOX_ON_GOAL;
             gameField_[x][y-1] = FieldType::PLAYER;
             gameField_[x][y] = ObjAfterMoving();
@@ -261,6 +274,7 @@ void Level::MoveLeft()
     case FieldType::BOX_ON_GOAL:
         switch(gameField_[x][y-2]) {
         case FieldType::EMPTY:
+            ++steps;
             gameField_[x][y-2] = FieldType::BOX;
             gameField_[x][y-1] = FieldType::PLAYER_ON_GOAL;
             gameField_[x][y] = ObjAfterMoving();
@@ -270,6 +284,7 @@ void Level::MoveLeft()
             playerPos_.second = y - 1;
             break;
         case FieldType::GOAL:
+            ++steps;
             gameField_[x][y-2] = FieldType::BOX_ON_GOAL;
             gameField_[x][y-1] = FieldType::PLAYER_ON_GOAL;
             gameField_[x][y] = ObjAfterMoving();
@@ -284,19 +299,20 @@ void Level::MoveLeft()
 
 void Level::MoveRight()
 {
-    ++steps;
 
     unsigned x = playerPos_.first;
     unsigned y = playerPos_.second;
 
     switch(gameField_[x][y + 1]) {
     case FieldType::EMPTY:
+        ++steps;
         gameField_[x][y] = ObjAfterMoving();
         gameField_[x][y + 1] = FieldType::PLAYER;
         playerPos_.first = x;
         playerPos_.second = y + 1;
         break;
     case FieldType::GOAL:
+        ++steps;
         gameField_[x][y] = ObjAfterMoving();
         gameField_[x][y+1] = FieldType::PLAYER_ON_GOAL;
         isPlayerOnGoal_ = true;
@@ -306,6 +322,7 @@ void Level::MoveRight()
     case FieldType::BOX:
         switch(gameField_[x][y + 2]) {
         case FieldType::EMPTY:
+            ++steps;
             gameField_[x][y+2] = FieldType::BOX;
             gameField_[x][y+1] = FieldType::PLAYER;
             gameField_[x][y] = ObjAfterMoving();
@@ -313,6 +330,7 @@ void Level::MoveRight()
             playerPos_.second = y + 1;
             break;
         case FieldType::GOAL:
+            ++steps;
             gameField_[x][y+2] = FieldType::BOX_ON_GOAL;
             gameField_[x][y+1] = FieldType::PLAYER;
             gameField_[x][y] = ObjAfterMoving();
@@ -325,6 +343,7 @@ void Level::MoveRight()
     case FieldType::BOX_ON_GOAL:
         switch(gameField_[x][y+2]) {
         case FieldType::EMPTY:
+            ++steps;
             gameField_[x][y+2] = FieldType::BOX;
             gameField_[x][y+1] = FieldType::PLAYER_ON_GOAL;
             gameField_[x][y] = ObjAfterMoving();
@@ -334,6 +353,7 @@ void Level::MoveRight()
             playerPos_.second = y + 1;
             break;
         case FieldType::GOAL:
+            ++steps;
             gameField_[x][y+2] = FieldType::BOX_ON_GOAL;
             gameField_[x][y+1] = FieldType::PLAYER_ON_GOAL;
             gameField_[x][y] = ObjAfterMoving();
@@ -527,7 +547,6 @@ bool Level::CheckWin()
     if(boxOnGoalNum_ == goalNum_) {
         UserData_[currentLevel.toInt() - 1].first = 1;
         UserData_[currentLevel.toInt() - 1].second = steps;
-
     }
     return boxOnGoalNum_ == goalNum_;
 }
