@@ -6,7 +6,7 @@ void load_lib_and_run_func() {
     void (*dyn_print_hello)(void);
     char* er;
 
-    handle = dlopen("./my_shared_lib.so", RTLD_LAZY | RTLD_GLOBAL);
+    handle = dlopen("./my_shared_lib.so", RTLD_LAZY);
     if(!handle) {
         printf("dlopen() failed: %s\n", dlerror());
         return;
@@ -21,7 +21,10 @@ void load_lib_and_run_func() {
     }
 
     dyn_print_hello();
-    dlclose(handle);
+    if(dlclose(handle) != 0) {
+        printf("dlclose() failed");
+        return;
+    }
 }
 
 int main() {
