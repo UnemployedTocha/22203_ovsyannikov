@@ -19,7 +19,7 @@ int main() {
 //        write(1, "Another syscall!\n", 13);
         execl("/bin/echo", "Another Syscall!", NULL);
     } else if(pid == -1) {
-        printf("%s\n", strerror(errno));
+        perror("Mistake: ");
     }
 
     else {
@@ -28,13 +28,13 @@ int main() {
         wait(&status);
         while (!WIFEXITED(status)){
                 if(ptrace(PTRACE_SYSCALL, pid, 0, 0) == -1) {
-                    printf("%s\n", strerror(errno));
+                    perror("Mistake: ");
                 }
                 wait(&status);
                 if (WIFSTOPPED(status)) {
                         struct user_regs_struct state;
                         if(ptrace(PTRACE_GETREGS, pid, 0, &state) == -1) {
-                            printf("%s\n", strerror(errno));
+                            perror("Mistake: ");
                         }
                         int syscallId = state.orig_rax;
                         printf("SYSCALL: %d\n", syscallId);
