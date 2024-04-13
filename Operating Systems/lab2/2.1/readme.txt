@@ -1,5 +1,5 @@
-gcc print_hello.c -o print_hello
-strace ./print_hello
+gcc hello_world.c -o hello_world
+strace ./hello_world
 
 gcc hello_with_write.c -o hello_with_write
 strace ./hello_with_write
