@@ -8,7 +8,6 @@
 #include <string.h>
 
 int main() {
-    struct user_regs_struct uregs;
     pid_t pid = fork();
 
     if(pid == 0) {
@@ -16,13 +15,11 @@ int main() {
         if(ptrace(PTRACE_TRACEME, 0, 0, 0) == -1) {
             printf("%s ", strerror(errno));
         }
-//        write(1, "Another syscall!\n", 13);
+        // write(1, "Another syscall!\n", 13);
         execl("/bin/echo", "Another Syscall!", NULL);
     } else if(pid == -1) {
         perror("Mistake: ");
-    }
-
-    else {
+    } else {
         // Tracer
         int status = 0;
         wait(&status);
@@ -31,7 +28,7 @@ int main() {
                     perror("Mistake: ");
                 }
                 wait(&status);
-                if (WIFSTOPPED(status)) {
+                if(WIFSTOPPED(status)) {
                         struct user_regs_struct state;
                         if(ptrace(PTRACE_GETREGS, pid, 0, &state) == -1) {
                             perror("Mistake: ");
