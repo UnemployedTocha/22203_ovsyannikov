@@ -30,7 +30,7 @@ char* GetPathReverseDir(char* path) {
 
 	int dirNamePos = GetDirNamePos(path, pathLength);
 	for(size_t i = dirNamePos; i < (pathLength + dirNamePos) / 2; ++i) {
-        swap(&(reverseDirName[i]), &(reverseDirName[pathLength - 1 - i + dirNamePos]));
+        	swap(&(reverseDirName[i]), &(reverseDirName[pathLength - 1 - i + dirNamePos]));
 	}
 
 	return reverseDirName;
@@ -74,7 +74,7 @@ void MakeReverseFile(char* pathOrigDir, char* pathReverseDir, char* fileName) {
 	}
 		
 	FILE* origFile; 
-    FILE* reverseFile;
+	FILE* reverseFile;
 
 	char* pathOrigFile = Concatenate(pathOrigDir, strlen(pathOrigDir), fileName, lenFileName);
 	if((origFile = fopen(pathOrigFile, "rb")) == NULL) {
@@ -89,16 +89,16 @@ void MakeReverseFile(char* pathOrigDir, char* pathReverseDir, char* fileName) {
 		printf("Unable to open file. Filepath:\n%s\n", pathReverseFile);
 		free(pathOrigFile);
 		free(pathReverseFile);
-    fclose(origFile);
-    return;
+		fclose(origFile);
+		return;
 	}
 
-	  // Устанавливает внутренний указатель положения в файле, в новую позицию, которая определяются путем добавления
-    // cмещения к исходному положению.
-    fseek(origFile, -1, SEEK_END);
-    // Возвращается значение соответствующее количеству байт от начала файла.
-	  int sizeOrigFile = ftell(origFile);
-    for(int filePos = sizeOrigFile; filePos >= 0; --filePos) {
+	// Устанавливает внутренний указатель положения в файле, в новую позицию, которая определяются путем добавления
+    	// cмещения к исходному положению.
+	fseek(origFile, -1, SEEK_END);
+    	// Возвращается значение соответствующее количеству байт от начала файла.
+	int sizeOrigFile = ftell(origFile);
+	for(int filePos = sizeOrigFile; filePos >= 0; --filePos) {
 		fseek(origFile, filePos, SEEK_SET);
 		fputc(fgetc(origFile), reverseFile);
 	}
@@ -125,7 +125,6 @@ void ReverseRegularFiles(char* pathOrigDir, char* pathReverseDir) {
                                    не всеми типами файловых систем
     char           d_name[256];  имя файла 
 };
-
 */
     struct dirent* entry;
 	while((entry = readdir(dp)) != NULL) {
@@ -139,7 +138,7 @@ void ReverseRegularFiles(char* pathOrigDir, char* pathReverseDir) {
 
 int MakeReverseDir(char* pathOrigDir) {
 	struct stat dirstat;
-	if (stat(pathOrigDir, &dirstat) == 0) {
+	if(stat(pathOrigDir, &dirstat) == 0) {
 		char* pathReverseDir = GetPathReverseDir(pathOrigDir);
 		mkdir(pathReverseDir, dirstat.st_mode);
 		ReverseRegularFiles(pathOrigDir, pathReverseDir);
