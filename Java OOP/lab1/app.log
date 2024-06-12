@@ -1,0 +1,63 @@
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Reading properties from file
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Loop
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:00:13 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Reading properties from file
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Loop
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:06 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:35 INFO  org.example.factory.Factory - Reading properties from file
+2024-06-13 03:04:35 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command If
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Sum
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Sum
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Div
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dup
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Mod
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Sub
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Sum
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Drop
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Emit
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Getting instance of Factory
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Mul
+2024-06-13 03:04:36 INFO  org.example.factory.Factory - Creating command Dot
