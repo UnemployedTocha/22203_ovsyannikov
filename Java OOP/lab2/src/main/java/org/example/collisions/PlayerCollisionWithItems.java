@@ -1,10 +1,13 @@
 package org.example.collisions;
 
+import org.example.entities.Ghost;
 import org.example.entities.Player;
 import org.example.gameField.GameField;
 
+import java.util.List;
+
 public class PlayerCollisionWithItems extends EntityMovement{
-    static public void CheckPlayerCollisionWithItems(Player player, GameField gameField, int tileSize) {
+    static public void CheckPlayerCollisionWithItems(Player player, GameField gameField, List<Ghost> ghosts, int tileSize) {
     int[][] dotPairs = GetFrontDots(player);
     int x1 = dotPairs[0][0];
     int x2 = dotPairs[1][0];
@@ -12,12 +15,18 @@ public class PlayerCollisionWithItems extends EntityMovement{
     int y2 = dotPairs[1][1];
     if (gameField.GetGameField()[y1 / tileSize][x1 / tileSize].equals(GameField.FieldType.BLOCK_WITH_COINS) &&
         gameField.GetGameField()[y2 / tileSize][x2 / tileSize].equals(GameField.FieldType.BLOCK_WITH_COINS)) {
-            CheckPlayerCoinCollision(player, gameField, tileSize);
+            PlayerCoinCollision(player, gameField, tileSize);
+    } else if(gameField.GetGameField()[y1 / tileSize][x1 / tileSize].equals(GameField.FieldType.POWER_PELLET) &&
+            gameField.GetGameField()[y2 / tileSize][x2 / tileSize].equals(GameField.FieldType.POWER_PELLET)) {
+        gameField.CollectPowerPellet(y1 / tileSize, x1 / tileSize);
+        for(Ghost ghost : ghosts) {
+            ghost.MakeGhostScary();
+        }
     }
 
     }
 
-    static private void CheckPlayerCoinCollision( Player player, GameField gameField, int tileSize) {
+    static private void PlayerCoinCollision(Player player, GameField gameField, int tileSize) {
         int[][] frontDots = GetFrontDots(player);
         int x1 = frontDots[0][0];
         int x2 = frontDots[1][0];
@@ -44,6 +53,7 @@ public class PlayerCollisionWithItems extends EntityMovement{
         if ((x1 >= coinX1 && x1 <= coinX2) && (y1 >= coinY1 && y1 <= coinY2) ||
             (x2 >= coinX1 && x2 <= coinX2) && (y2 >= coinY1 && y2 <= coinY2)) {
             gameField.CollectCoin(y1 / tileSize, x1 / tileSize);
+            player.UpdateScoresByCollectingCoin();
         }
     }
 }

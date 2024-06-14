@@ -1,10 +1,7 @@
 package org.example.collisions;
 
 import org.example.entities.Entity;
-import org.example.entities.Player;
 import org.example.gameField.GameField;
-
-import java.awt.*;
 
 public class EntityMovement {
     static protected int[][] GetFrontDots(Entity entity) {
@@ -55,7 +52,6 @@ public class EntityMovement {
     }
 
     static public GameField.FieldType GetPlayerCell(Entity entity, GameField gameField, int tileSize) {
-//        return gameField.GetGameField()[player.GetX() / tileSize][player.GetY() / tileSize];
         GameField.FieldType entityCell = gameField.GetEntityCell(entity);
         int nextX1, nextX2;
         int nextY1, nextY2;

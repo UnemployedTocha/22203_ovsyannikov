@@ -2,11 +2,10 @@ package org.example.entities;
 
 import org.example.gameField.GameField;
 
-import java.sql.Time;
-import java.util.Timer;
-import java.util.TimerTask;
+import javax.swing.Timer;
 
 public abstract class Ghost extends Entity{
+    int resTime = 5000;
     protected boolean isEatable = false;
     protected boolean isScary = false;
     protected int tileSize;
@@ -28,33 +27,32 @@ public abstract class Ghost extends Entity{
 
     public abstract void UpdateSpeed(GameField gameField);
 
+    public boolean IsScary() {
+        return isScary;
+    }
     public void MakeGhostScary() {
         isScary = true;
         isEatable = true;
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                isSleeping = false;
-                isScary = false;
-            }
-        }, 5000);
+        Timer timer = new Timer(7000, e -> {isScary = false; isEatable = false;});
+        timer.setRepeats(false);
+        timer.start();
     }
     public void KillGhost() {
         x = respawnX;
         y = respawnY;
         SetDefaultSpeed();
         isSleeping = true;
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                isSleeping = false;
-                isScary = false;
-            }
-        }, 10000);
-
+        isScary = false;
+        Timer timer = new Timer(8000, e -> {
+            isSleeping = false;
+        });
+        timer.setRepeats(false);
+        timer.start();
     }
+
+
+    public abstract void RespawnGhost();
+
     void SetDefaultSpeed() {
         dx = defaultDx;
         dy = defaultDy;

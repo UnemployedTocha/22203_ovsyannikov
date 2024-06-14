@@ -1,11 +1,9 @@
 package org.example;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        Pacman pacman = new Pacman();
+        SwingUtilities.invokeLater(new Pacman());
     }
-
-
-    // Swing utility && invoke later.
-    // Swing timer.
 }

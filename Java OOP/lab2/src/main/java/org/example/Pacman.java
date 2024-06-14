@@ -1,23 +1,27 @@
 package org.example;
 
-import org.example.collisions.PlayerCollisionWithItems;
-import org.example.collisions.PlayerEntityCollision;
+import org.example.collisions.PlayerCollisions;
 import org.example.collisions.PlayerMovement;
 
 import org.example.entities.Ghost;
 import org.example.entities.Player;
 import org.example.gameField.GameField;
+import org.example.view.ButtonClickListener;
 import org.example.view.GamePanel;
 import org.example.view.GameWindow;
+import org.example.view.ScorePanel;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pacman implements Runnable{
+public class Pacman implements Runnable {
     private GamePanel gamePanel;
-    private GameWindow gameWindow;
+    private ScorePanel scorePanel;
+    private JPanel cardPanel;
     private GameField gameField;
-    private Thread gameThread;
+    private GameWindow gameWindow;
     private final int fpsLimit = 120;
     private final int possibleMissclickTime = 450;
 
@@ -29,20 +33,19 @@ public class Pacman implements Runnable{
         player = new Player(null, tileSize);
         gameField = new GameField(player, ghosts, tileSize);
 
+        scorePanel = new ScorePanel(player, gameField, ghosts);
         gamePanel = new GamePanel(player, ghosts, gameField.GetGameField(), tileSize);
+        cardPanel = new JPanel(new CardLayout());
+        cardPanel.add(gamePanel, "gamePanel");
+        cardPanel.add(scorePanel, "scorePanel");
 
         gamePanel.addKeyListener(new KeyInputs(player, gamePanel));
-        gameWindow = new GameWindow(gamePanel);
+        gameWindow = new GameWindow(cardPanel, gameField, player, ghosts, gamePanel);
+        scorePanel.setButtonClickListener(gameWindow);
         gamePanel.setFocusable(true);
         gamePanel.requestFocus();
 
-//        run();
-        start();
-    }
-
-    public void start() {
-        gameThread = new Thread(this);
-        gameThread.start();
+        run();
     }
 
     @Override
@@ -70,28 +73,31 @@ public class Pacman implements Runnable{
                 }
 
                 gameField.update(ghosts);
-                PlayerCollisionWithItems.CheckPlayerCollisionWithItems(player, gameField, tileSize);
-                for(Ghost ghost : ghosts) {
-                    boolean flag = PlayerEntityCollision.CheckCollisionWithGhost(player, ghost, gameField.GetGameField(), tileSize);
-                    if(flag) {
-                        ghost.MakeGhostScary();
-                        ghost.KillGhost();
-                    }
-                }
+                boolean isPlayerDead = PlayerCollisions.CheckPlayerCollisions(gameField, player, ghosts, tileSize);
                 gamePanel.repaint();
+                scorePanel.repaint();
                 frameTime = System.currentTimeMillis();
+                if(gameField.isLevelCompleted()) {
+                    gameWindow.SwitchToScoreBoard();
+                }
+                if(isPlayerDead && player.GetLifesNum() == 0) {
+                    gameField.GlobalLevelRestart(player, ghosts);
+                } else if(isPlayerDead){
+                    gameField.LocalRestart(player, ghosts);
+                }
+
             }
+
         }
-
-
     }
 
 
     final int tileSize = 24;
-    final int maxWindowCol = 31;
-    final int maxWindowRow = 28;
-    final int windowWidth = maxWindowCol * tileSize;
-    final int windowHeight = maxWindowRow * tileSize;
+
+//    @Override
+//    public void onButtonClick() {
+//        gameField = new GameField(player, ghosts, tileSize);
+//    }
 }
 
 

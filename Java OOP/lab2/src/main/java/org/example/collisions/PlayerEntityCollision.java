@@ -17,6 +17,7 @@ public class PlayerEntityCollision extends  EntityMovement {
         int entityX2 = entityFrontDots[1][0];
         int entityY1 = entityFrontDots[0][1];
         int entityY2 = entityFrontDots[1][1];
+
         if(playerY1/tileSize == entityY1/tileSize && playerX1/tileSize == entityX1/tileSize
         && playerY2/tileSize == entityY2/tileSize && playerX2/tileSize == entityX2/tileSize) {
             return true;

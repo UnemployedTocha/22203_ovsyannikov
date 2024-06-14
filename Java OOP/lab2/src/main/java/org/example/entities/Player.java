@@ -1,9 +1,10 @@
 package org.example.entities;
 
-import org.example.collisions.EntityMovement;
 import org.example.gameField.GameField;
 
 public class Player extends Entity{
+    private int lifes = 3;
+    private int scores = 0;
     private int inputDx;
     private int inputDy;
     private final int defaultDx = -1;
@@ -16,7 +17,6 @@ public class Player extends Entity{
 
         inputDx = dx;
         inputDy = dy;
-
     }
     public void SetGameField(GameField gameField) {
         this.gameField = gameField;
@@ -40,6 +40,24 @@ public class Player extends Entity{
         lastInputTime = System.currentTimeMillis();
         inputDx = Math.abs(inputDy + inputDx);
         inputDy = 0;
+    }
+    public int GetLifesNum() {
+        return lifes;
+    }
+    public void SetLifesNum(int lifes) {
+        this.lifes = lifes;
+    }
+    public int GetScores() {
+        return scores;
+    }
+    public void UpdateScoresByCollectingCoin() {
+        scores += 10;
+    }
+    public void UpdateScoresByKillingGhost() {
+        scores += 200;
+    }
+    public void NullifyScores() {
+        scores = 0;
     }
     public long GetLastInputTime() {
         return lastInputTime;
