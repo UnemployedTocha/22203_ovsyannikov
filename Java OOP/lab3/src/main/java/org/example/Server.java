@@ -97,7 +97,7 @@ public class Server implements Runnable{
                     while(bitfieldMessage.hasRemaining()) {
                         socketChannel.write(bitfieldMessage);
                     }
-                    logger.info("Bitfield message received! sending handshake back!");
+                    logger.info("Bitfield message received! sending bitfield back!");
                 } else if(PieceManager.GetMessageType(type) == MessageType.Request) {
                     int index = message.getInt();
                     int begin = message.getInt();
