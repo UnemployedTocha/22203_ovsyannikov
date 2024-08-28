@@ -23,7 +23,8 @@ public class Client implements Runnable{
     private PieceManager pieceManager;
     private final int port;
     private List<PeerInfo> peers;
-    Bitfield bitfield;
+    private Bitfield bitfield;
+
 
     public Client(String ip, int port, List<PeerInfo> servers, Bitfield bitfield, Parser parser, PieceManager pieceManager, String fileName) {
         logger = LogManager.getLogger(Client.class);
@@ -33,11 +34,11 @@ public class Client implements Runnable{
         this.parser = parser;
         this.pieceManager = pieceManager;
         this.PIECE_SIZE = parser.GetPieceSize();
-
     }
     private void RegisterConnections(Selector selector, List<PeerInfo> peers) throws IOException {
         for(PeerInfo peer : peers) {
-            if(peer.GetStatus() != Peer.Status.NotConnected) {
+            if(peer.GetStatus() != Peer.Status.NotConnected
+            || peer.GetPort() == port) {
                 continue;
             }
             SocketChannel channel = SocketChannel.open();
@@ -102,7 +103,6 @@ public class Client implements Runnable{
                 case Peer.Status.Connected -> SendHandshake(key);
                 case Peer.Status.SendBitfield -> SendBitfield(key);
                 case Peer.Status.SendRequest -> SendRequest(key);
-                case Peer.Status.SentRequest -> SendHave(key);
             }
         } catch (IOException ex) {
             key.cancel();
@@ -125,9 +125,21 @@ public class Client implements Runnable{
         }
     }
 
+    private void SendHave(SocketChannel socketChannel, int index, int port) throws IOException {
+        logger.info("Have message with piece number {} sent to peer: ", index, port);
+        ByteBuffer buffer = ByteBuffer.allocate(4 + 1 + 4);
+        buffer.putInt(5);
+        buffer.put(PieceManager.GetMessageId(MessageType.Have));
+        buffer.putInt(index);
+        buffer.flip();
+
+        while(buffer.hasRemaining()) {
+            socketChannel.write(buffer);
+        }
+    }
 
     private void SendHandshake(SelectionKey key) throws IOException{
-        byte[] message = (new Handshake(parser.GetInfoHash())).GetHandshakeMessage();
+        byte[] message = (new Handshake(parser.GetInfoHash(), port)).GetHandshakeMessage();
         SocketChannel socketChannel = (SocketChannel) key.channel();
 
         ByteBuffer buffer = ByteBuffer.wrap(message);
@@ -158,7 +170,13 @@ public class Client implements Runnable{
 
     private void SendRequest(SelectionKey key) throws IOException{
         SocketChannel socketChannel = (SocketChannel) key.channel();
-        int index = bitfield.GetFirstRequestablePieceIndex(((PeerInfo)key.attachment()).GetBitSet());
+
+        while(((PeerInfo)key.attachment()).WereAnyPiecesReceived()) {
+            int index = ((PeerInfo)key.attachment()).GetNewReceivedPieceIndex();
+            SendHave(socketChannel, index, ((PeerInfo)key.attachment()).GetPort());
+        }
+
+        int index = bitfield.GetFirstRequestablePieceIndex(((PeerInfo)key.attachment()).GetBitfield());
         if(index != -1) {
             byte messageId = PieceManager.GetMessageId(MessageType.Request);
             int begin = 0;
@@ -178,10 +196,6 @@ public class Client implements Runnable{
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SentRequest);
             logger.info("Sent request: {} to peer: {}", index, ((PeerInfo) key.attachment()).GetPort());
         }
-    }
-
-    private void SendHave(SelectionKey key) {
-        SocketChannel socketChannel = (SocketChannel) key.channel();
     }
 
     private void ReceiveHandshake(SelectionKey key) throws IOException {
@@ -228,17 +242,12 @@ public class Client implements Runnable{
         }
         buffer.flip();
         if (buffer.get() == PieceManager.GetMessageId(MessageType.Bitfield)) {
-            BitSet peerBitSet = new BitSet(parser.GetPiecesNum());
 
             byte[] bitsetBytes = new byte[messageLength - 1];
             buffer.get(bitsetBytes, 0, messageLength - 1);
-            for(int i = 0; i < parser.GetPiecesNum(); ++i) {
-                if(((bitsetBytes[i / 8] & (1 << (i % 8)))) != 0) {
-                    peerBitSet.set(i);
-                }
-            }
+            Bitfield peerBitfield = new Bitfield(bitsetBytes, parser.GetPiecesNum());
 
-            ((PeerInfo)key.attachment()).SetBitset(peerBitSet);
+            ((PeerInfo)key.attachment()).SetBitfield(peerBitfield);
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SendRequest);
             key.interestOps(SelectionKey.OP_WRITE);
             logger.info("Received bitfield from peer: {}", ((PeerInfo) key.attachment()).GetPort());
@@ -277,6 +286,15 @@ public class Client implements Runnable{
             if(Arrays.equals(PieceManager.CalcPieceHash(piece), parser.GetTorrentPieceHash(pieceIndex))) {
                 pieceManager.SetFilePiece(pieceIndex, piece);
                 bitfield.Set(pieceIndex);
+                for(PeerInfo peer : peers) {
+                    if(peer.GetStatus() != Peer.Status.NotConnected
+                    && peer.GetStatus() != Peer.Status.SentHandshake
+                    && peer.GetStatus() != Peer.Status.SendBitfield
+                    && peer.GetStatus() != Peer.Status.SentBitfield) {
+                        peer.AddNewReceivedPieceIndex(pieceIndex);
+                    }
+                }
+
             } else {
                 key.interestOps(SelectionKey.OP_WRITE);
                 ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SendRequest);
@@ -287,7 +305,7 @@ public class Client implements Runnable{
 
             key.interestOps(SelectionKey.OP_WRITE);
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SendRequest);
-            logger.info("Received piece: {}from peer: {}", pieceIndex, ((PeerInfo) key.attachment()).GetPort());
+            logger.info("Received piece: {} from peer: {}", pieceIndex, ((PeerInfo) key.attachment()).GetPort());
         }
     }
 

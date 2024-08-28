@@ -11,6 +11,7 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
@@ -21,6 +22,7 @@ import org.example.message.MessageType;
 import org.example.message.PieceManager;
 
 public class Server implements Runnable{
+    List<PeerInfo> peers;
     Logger logger;
     Parser parser;
     PieceManager pieceManager;
@@ -30,14 +32,14 @@ public class Server implements Runnable{
     Bitfield bitfield;
     private final int port;
 
-    public Server(String ip, int port, Bitfield bitfield, Parser parser, PieceManager pieceManager, String filePath) {
+    public Server(String ip, int port, Bitfield bitfield, Parser parser, PieceManager pieceManager, List<PeerInfo> peers) {
         logger = LogManager.getLogger(Server.class);
         this.bitfield = bitfield;
         this.ip = ip;
         this.port = port;
         this.parser = parser;
         this.pieceManager = pieceManager;
-
+        this.peers = peers;
     }
 
     @Override
@@ -77,14 +79,32 @@ public class Server implements Runnable{
     void HadnleConnection() throws IOException {
         SocketChannel client = serverSocketChannel.accept();
         client.configureBlocking(false);
-        client.register(selector, SelectionKey.OP_READ, serverSocketChannel);
+        client.register(selector, SelectionKey.OP_READ);
+
     }
     private void HandleRead(SelectionKey key) throws IOException{
         SocketChannel socketChannel = (SocketChannel)key.channel();
         try {
             ByteBuffer message = ByteBuffer.wrap(ReadMessage(socketChannel));
             if(Handshake.IsHandshakeMessage(message.array())) {
-                Handshake hs = new Handshake(parser.GetInfoHash());
+                byte[] peerId = new byte[20];
+                message.position(48);
+                message.get(peerId);
+                System.out.print("Server: ");
+                for(int i = 0; i < 20; ++i) {
+                    System.out.print((char)peerId[i]);
+                }
+                System.out.println(" ");
+                for(PeerInfo peer : peers) {
+                    if(Arrays.equals(peer.GetPeerId(), peerId)) {
+                        System.out.println("PeerInfo attached!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111!");
+                        key.attach(peer);
+                        break;
+                    }
+                }
+
+
+                Handshake hs = new Handshake(parser.GetInfoHash(), port);
                 ByteBuffer buffer = ByteBuffer.wrap(hs.GetHandshakeMessage());
                 while(buffer.hasRemaining()) {
                     socketChannel.write(buffer);
@@ -123,6 +143,10 @@ public class Server implements Runnable{
                     } else {
                         logger.info("REQUESTABLE PIECE DOES NOT EXIST");
                     }
+                } else if(PieceManager.GetMessageType(type) == MessageType.Have) {
+                    int index = message.getInt();
+                    ((PeerInfo) key.attachment()).GetBitfield().Set(index);
+                    logger.info("Have message with piece number {}", index);
                 } else {
                     logger.info("Unknown request");
                 }

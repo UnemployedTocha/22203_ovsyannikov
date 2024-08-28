@@ -3,26 +3,34 @@ package org.example;
 import org.example.message.Bitfield;
 
 import java.net.InetSocketAddress;
-import java.util.BitSet;
+import java.util.LinkedList;
 
 public class PeerInfo {
     private final String ip;
     private final int port;
     private Peer.Status status = Peer.Status.NotConnected;
-    private BitSet bitset;
+    private Bitfield bitfield;
+    private LinkedList<Integer> receivedPieces;
+    private byte[] peerId;
 
     public PeerInfo(String ip, int port) {
+        receivedPieces = new LinkedList<>();
         this.ip = ip;
         this.port = port;
     }
 
-    public void SetBitset(BitSet bitset) {
-        this.bitset = bitset;
+    public void SetPeerId(byte[] peerId) {
+        this.peerId = peerId;
     }
-    public BitSet GetBitSet() {
-        return bitset;
+    public byte[] GetPeerId() {
+        return peerId;
     }
-
+    public void SetBitfield(Bitfield bitfield) {
+        this.bitfield = bitfield;
+    }
+    public Bitfield GetBitfield() {
+        return bitfield;
+    }
     public InetSocketAddress GetInetSocketAddress() {
         return new InetSocketAddress(ip, port);
     }
@@ -34,5 +42,17 @@ public class PeerInfo {
     }
     public int GetPort() {
         return port;
+    }
+    public void AddNewReceivedPieceIndex(int index) {
+        receivedPieces.add(index);
+    }
+    public boolean WereAnyPiecesReceived() {
+        return !receivedPieces.isEmpty();
+    }
+    public int GetNewReceivedPieceIndex() {
+        int index = receivedPieces.getFirst();
+        receivedPieces.removeFirst();
+        return index;
+
     }
 }

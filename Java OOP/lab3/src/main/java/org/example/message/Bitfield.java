@@ -30,16 +30,15 @@ public class Bitfield {
                 bitset.put(i, false);
             }
         }
+    }
 
-//        length = parser.GetPiecesNum();
-//        bitSet = new BitSet(length);
-//        for(int i = 0; i < length; ++i) {
-//            byte[] pieceHash = PieceManager.CalcPieceHash(pieceManager.GetFilePiece(i));
-//            if(Arrays.equals(pieceHash, parser.GetTorrentPieceHash(i))) {
-//                bitSet.set(i);
-//            }
-//        }
-
+    public Bitfield(byte[] bytes, int length) {
+        this.length = length;
+        bitset = new ConcurrentHashMap<>();
+        for(int i = 0; i < length; ++i) {
+            boolean value = (bytes[i / 8] & (1 << i % 8)) != 1;
+            bitset.put(i, value);
+        }
     }
 
     public byte[] GetBitfieldMessage() {
@@ -62,9 +61,9 @@ public class Bitfield {
         }
         return bytes;
     }
-    public int GetFirstRequestablePieceIndex(BitSet anotherBitSet) {
+    public int GetFirstRequestablePieceIndex(Bitfield anotherBitfield) {
         for(int i = 0; i < length; ++i) {
-            if(!bitset.get(i) && anotherBitSet.get(i)) {
+            if(!bitset.get(i) && anotherBitfield.bitset.get(i)) {
                 return i;
             }
         }

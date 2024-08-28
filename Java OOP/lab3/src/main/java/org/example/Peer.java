@@ -3,11 +3,10 @@ package org.example;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.message.Bitfield;
+import org.example.message.Handshake;
 import org.example.message.PieceManager;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -22,7 +21,6 @@ public class Peer {
         SentBitfield,
         SendRequest,
         SentRequest,
-        SendHave
     }
     private final Logger logger = LogManager.getLogger(Client.class);
     private final int port;
@@ -37,9 +35,8 @@ public class Peer {
 
         Iterator<PeerInfo> it = this.peers.iterator();
         while(it.hasNext()) {
-            if(it.next().GetPort() == this.port) {
-                it.remove();
-            }
+            PeerInfo peerInfo = it.next();
+            peerInfo.SetPeerId(Handshake.GetPeerId(peerInfo.GetPort()));
         }
     }
 
@@ -51,8 +48,7 @@ public class Peer {
         Bitfield bitfield = GetBitField(parser, pieceManager);
 
         logger.info("Number of pieces: {}/{}", bitfield.GetNumberOfPieces(), parser.GetPiecesNum());
-
-        Thread serverThread = new Thread(new Server("127.0.0.1", port, bitfield, parser, pieceManager, filePath));
+        Thread serverThread = new Thread(new Server("127.0.0.1", port, bitfield, parser, pieceManager, peers));
         serverThread.start();
         Client client = new Client("127.0.0.1", port, peers, bitfield, parser, pieceManager, filePath);
         client.run();
