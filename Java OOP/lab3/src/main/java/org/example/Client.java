@@ -53,7 +53,7 @@ public class Client implements Runnable{
     public void run() {
         try {
             selector = Selector.open();
-            logger.info("Running client at port: " + port);
+            logger.info("Running client");
             while(true) {
                 RegisterConnections(selector, peers);
                 selector.select();
@@ -109,7 +109,7 @@ public class Client implements Runnable{
         } catch (IOException ex) {
             int index = sendingPieces.get((SocketChannel)key.channel());
             if(index != -1) {
-                logger.info("Piece with index {} not sending", index);
+                logger.info("Downloading piece with index {} stopped", index);
                 loadingManager.StopLoading(index);
             }
             key.cancel();
@@ -128,7 +128,7 @@ public class Client implements Runnable{
         } catch (IOException ex) {
             int index = sendingPieces.get((SocketChannel)key.channel());
             if(index != -1) {
-                logger.info("Piece with index {} not sending", index);
+                logger.info("Downloading piece with index {} stopped", index);
                 loadingManager.StopLoading(index);
             }
             key.cancel();
@@ -251,7 +251,6 @@ public class Client implements Runnable{
         buffer.flip();
         if (buffer.get() == MessageClassifier.GetMessageId(MessageType.Bitfield)) {
             BitSet peerBitSet = new BitSet(parser.GetPiecesNum());
-
             byte[] bitsetBytes = new byte[messageLength - 1];
             buffer.get(bitsetBytes, 0, messageLength - 1);
             for(int i = 0; i < parser.GetPiecesNum(); ++i) {

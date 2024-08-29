@@ -13,13 +13,10 @@ import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.message.Bitfield;
-import org.example.message.Handshake;
-import org.example.message.MessageType;
+import org.example.message.*;
 import org.example.util.Hash;
 import org.example.util.Parser;
 import org.example.util.PeerId;
-import org.example.message.MessageClassifier;
 
 public class Server implements Runnable{
     Logger logger;
@@ -112,14 +109,7 @@ public class Server implements Runnable{
                         if(!Arrays.equals(Hash.CalcPieceHash(piece), parser.GetTorrentPieceHash(index))) {
                             logger.error("SERVER SENDS NOT CORRECT PIECE: {}", index);
                         }
-                        ByteBuffer pieceMessage = ByteBuffer.allocate(4 + 1 + 4 + 4 + piece.length);
-                        pieceMessage.putInt(1 + 4 + 4 + piece.length);
-                        pieceMessage.put(MessageClassifier.GetMessageId(MessageType.Piece));
-                        pieceMessage.putInt(index);
-                        pieceMessage.putInt(begin);
-                        pieceMessage.put(piece);
-                        pieceMessage.flip();
-
+                        ByteBuffer pieceMessage = Piece.Get(piece, index, begin);
                         while(pieceMessage.hasRemaining()) {
                             socketChannel.write(pieceMessage);
                         }
@@ -128,6 +118,8 @@ public class Server implements Runnable{
                         logger.info("REQUESTABLE PIECE DOES NOT EXIST");
                     }
                 } else if(MessageClassifier.GetMessageType(messageId) == MessageType.Have) {
+
+
                   logger.info("Have message received!");
                 } else {
                     logger.info("Unknown request");
