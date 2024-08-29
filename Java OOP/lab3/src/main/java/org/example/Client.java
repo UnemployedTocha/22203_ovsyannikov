@@ -175,10 +175,9 @@ public class Client implements Runnable{
         while(peerInfo.WereAnyPiecesReceived()) {
             SendHave(socketChannel, peerInfo.GetReceivedPieceIndex());
         }
-
-        int index = bitfield.GetFirstRequestablePieceIndex(((PeerInfo)key.attachment()).GetBitSet());
+        int index = bitfield.GetFirstRequestablePieceIndex(((PeerInfo)key.attachment()).GetBitfield());
         while(index != -1 && loadingManager.IsPieceLoading(index)) {
-            index = bitfield.GetNextRequestablePieceIndex(((PeerInfo)key.attachment()).GetBitSet(), index);
+            index = bitfield.GetNextRequestablePieceIndex(((PeerInfo)key.attachment()).GetBitfield(), index);
         }
 
         if(index != -1) {
@@ -259,7 +258,7 @@ public class Client implements Runnable{
                 }
             }
 
-            ((PeerInfo)key.attachment()).SetBitset(peerBitSet);
+            ((PeerInfo)key.attachment()).SetBitfield(new Bitfield(peerBitSet, parser.GetPiecesNum()));
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SendRequest);
             key.interestOps(SelectionKey.OP_WRITE);
             logger.info("Received bitfield from peer: {}", ((PeerInfo) key.attachment()).GetPort());

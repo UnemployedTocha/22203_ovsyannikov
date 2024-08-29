@@ -11,7 +11,7 @@ public class PeerInfo {
     private final String ip;
     private final int port;
     private Peer.Status status = Peer.Status.NotConnected;
-    private BitSet bitset;
+    private Bitfield bitfield;
     private byte[] peerId;
     private final LinkedList<Integer> receivedPieces;
 
@@ -34,11 +34,11 @@ public class PeerInfo {
     public void ClearReceivedPiecesIndexes() {
        receivedPieces.clear();
     }
-    public void SetBitset(BitSet bitset) {
-        this.bitset = bitset;
+    public void SetBitfield(Bitfield bitfield) {
+        this.bitfield = bitfield;
     }
-    public BitSet GetBitSet() {
-        return bitset;
+    public Bitfield GetBitfield() {
+        return bitfield;
     }
 
     public InetSocketAddress GetInetSocketAddress() {

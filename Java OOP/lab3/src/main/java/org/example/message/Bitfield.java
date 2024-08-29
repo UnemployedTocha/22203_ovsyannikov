@@ -23,7 +23,18 @@ public class Bitfield {
         }
         System.out.print('\n');
     }
+    public Bitfield(BitSet bitSet, int length) {
+        this.length = length;
 
+        bitset = new ConcurrentHashMap<>();
+        for(int i = 0; i < length; ++i) {
+            if(bitSet.get(i)) {
+                bitset.put(i, true);
+            } else {
+                bitset.put(i, false);
+            }
+        }
+    }
     public Bitfield(Parser parser, PieceManager pieceManager) throws IOException {
         length = parser.GetPiecesNum();
 
@@ -60,17 +71,17 @@ public class Bitfield {
         return arr;
     }
 
-    public int GetFirstRequestablePieceIndex(BitSet anotherBitSet) {
+    public int GetFirstRequestablePieceIndex(Bitfield anotherBitfield) {
         for(int i = 0; i < length; ++i) {
-            if(!bitset.get(i) && anotherBitSet.get(i)) {
+            if(!bitset.get(i) && anotherBitfield.bitset.get(i)) {
                 return i;
             }
         }
         return -1;
     }
-    public int GetNextRequestablePieceIndex(BitSet anotherBitSet, int index) {
+    public int GetNextRequestablePieceIndex(Bitfield anotherBitfield, int index) {
         for(int i = index + 1; i < length; ++i) {
-            if(!bitset.get(i) && anotherBitSet.get(i)) {
+            if(!bitset.get(i) && anotherBitfield.bitset.get(i)) {
                 return i;
             }
         }

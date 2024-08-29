@@ -15,7 +15,7 @@ public class Main {
         }
 
 //        GenerateFile();
-        Peer peer = new Peer(8000, peers, "BigTestFile");
+        Peer peer = new Peer(8001, peers, "BigTestFile");
         peer.Start();
 
     }
