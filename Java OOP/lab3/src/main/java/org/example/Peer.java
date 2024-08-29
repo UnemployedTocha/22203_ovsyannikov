@@ -3,11 +3,10 @@ package org.example;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.message.Bitfield;
-import org.example.message.PieceManager;
+import org.example.util.Hash;
+import org.example.util.Parser;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -77,11 +76,11 @@ public class Peer {
                 System.out.println("End: " + ((parser.GetPiecesNum() / 2) + 1));
                 for (int i = 0; i < (parser.GetPiecesNum() / 2) + 1; ++i) {
                     byte[] piece = pieceManager.GetFilePiece(i);
-                    if(!Arrays.equals(PieceManager.CalcPieceHash(piece), parser.GetTorrentPieceHash(i))) {
+                    if(!Arrays.equals(Hash.CalcPieceHash(piece), parser.GetTorrentPieceHash(i))) {
                         logger.info("FILE WITH ERROR");
                     }
                     pieceManager2.SetFilePiece(i, piece);
-                    if(!Arrays.equals(PieceManager.CalcPieceHash(pieceManager2.GetFilePiece(i)), parser.GetTorrentPieceHash(i))) {
+                    if(!Arrays.equals(Hash.CalcPieceHash(pieceManager2.GetFilePiece(i)), parser.GetTorrentPieceHash(i))) {
                         logger.info("FILE WITH ERROR");
                     }
                 }
@@ -89,11 +88,11 @@ public class Peer {
                 System.out.println("Start: " + (parser.GetPiecesNum() / 2));
                 for (int i = (parser.GetPiecesNum() / 2); i < parser.GetPiecesNum(); ++i) {
                     byte[] piece = pieceManager.GetFilePiece(i);
-                    if(!Arrays.equals(PieceManager.CalcPieceHash(piece), parser.GetTorrentPieceHash(i))) {
+                    if(!Arrays.equals(Hash.CalcPieceHash(piece), parser.GetTorrentPieceHash(i))) {
                         logger.info("GENERATED FILE WITH ERROR");
                     }
                     pieceManager2.SetFilePiece(i, piece);
-                    if(!Arrays.equals(PieceManager.CalcPieceHash(pieceManager2.GetFilePiece(i)), parser.GetTorrentPieceHash(i))) {
+                    if(!Arrays.equals(Hash.CalcPieceHash(pieceManager2.GetFilePiece(i)), parser.GetTorrentPieceHash(i))) {
                         logger.info("GENERATED FILE WITH ERROR");
                     }
                 }

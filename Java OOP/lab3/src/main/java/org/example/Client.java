@@ -2,12 +2,10 @@ package org.example;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.message.Bitfield;
-import org.example.message.Handshake;
-import org.example.message.MessageType;
-import org.example.message.PieceManager;
+import org.example.message.*;
+import org.example.util.Hash;
+import org.example.util.Parser;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -107,7 +105,6 @@ public class Client implements Runnable{
                 case Peer.Status.Connected -> SendHandshake(key);
                 case Peer.Status.SendBitfield -> SendBitfield(key);
                 case Peer.Status.SendRequest -> SendRequest(key);
-                case Peer.Status.SentRequest -> SendHave(key);
             }
         } catch (IOException ex) {
             int index = sendingPieces.get((SocketChannel)key.channel());
@@ -142,7 +139,8 @@ public class Client implements Runnable{
 
 
     private void SendHandshake(SelectionKey key) throws IOException{
-        byte[] message = (new Handshake(parser.GetInfoHash())).GetHandshakeMessage();
+        byte[] peerId = ((PeerInfo)key.attachment()).GetPeerId();
+        byte[] message = (new Handshake(parser.GetInfoHash(), peerId)).GetHandshakeMessage();
         SocketChannel socketChannel = (SocketChannel) key.channel();
 
         ByteBuffer buffer = ByteBuffer.wrap(message);
@@ -173,21 +171,20 @@ public class Client implements Runnable{
 
     private void SendRequest(SelectionKey key) throws IOException{
         SocketChannel socketChannel = (SocketChannel) key.channel();
+        PeerInfo peerInfo = (PeerInfo)key.attachment();
+        while(peerInfo.WereAnyPiecesReceived()) {
+            SendHave(socketChannel, peerInfo.GetReceivedPieceIndex());
+        }
+
         int index = bitfield.GetFirstRequestablePieceIndex(((PeerInfo)key.attachment()).GetBitSet());
         while(index != -1 && loadingManager.IsPieceLoading(index)) {
             index = bitfield.GetNextRequestablePieceIndex(((PeerInfo)key.attachment()).GetBitSet(), index);
         }
 
         if(index != -1) {
-            byte messageId = PieceManager.GetMessageId(MessageType.Request);
+            byte messageId = MessageClassifier.GetMessageId(MessageType.Request);
             int begin = 0;
-            ByteBuffer buffer = ByteBuffer.allocate(4 + 1 + 4 + 4 + 4);
-            buffer.putInt(13);
-            buffer.put(messageId);
-            buffer.putInt(index);
-            buffer.putInt(begin);
-            buffer.putInt(PIECE_SIZE);
-            buffer.flip();
+            ByteBuffer buffer = Request.Get(messageId, index, begin, PIECE_SIZE);
 
             loadingManager.StartLoadingPiece(index);
             sendingPieces.put(socketChannel, index);
@@ -202,8 +199,11 @@ public class Client implements Runnable{
         }
     }
 
-    private void SendHave(SelectionKey key) {
-        SocketChannel socketChannel = (SocketChannel) key.channel();
+    private void SendHave(SocketChannel socketChannel, int index) throws IOException {
+        ByteBuffer message = Have.Get(index);
+        while(message.hasRemaining()) {
+            socketChannel.write(message);
+        }
     }
 
     private void ReceiveHandshake(SelectionKey key) throws IOException {
@@ -249,7 +249,7 @@ public class Client implements Runnable{
             }
         }
         buffer.flip();
-        if (buffer.get() == PieceManager.GetMessageId(MessageType.Bitfield)) {
+        if (buffer.get() == MessageClassifier.GetMessageId(MessageType.Bitfield)) {
             BitSet peerBitSet = new BitSet(parser.GetPiecesNum());
 
             byte[] bitsetBytes = new byte[messageLength - 1];
@@ -271,6 +271,7 @@ public class Client implements Runnable{
 
     private void ReceivePiece(SelectionKey key) throws IOException{
         SocketChannel socketChannel = (SocketChannel) key.channel();
+        PeerInfo peerInfo = (PeerInfo)key.attachment();
         ByteBuffer buffer = ByteBuffer.allocate(4);
 
         while (buffer.hasRemaining()) {
@@ -290,15 +291,26 @@ public class Client implements Runnable{
             }
         }
         buffer.flip();
-        if(buffer.get() == PieceManager.GetMessageId(MessageType.Piece)) {
+        if(buffer.get() == MessageClassifier.GetMessageId(MessageType.Piece)) {
             int pieceIndex = buffer.getInt();
             int begin = buffer.getInt();
             byte[] piece = new byte[messageLen - 9];
             buffer.get(piece, 0, messageLen - 9);
-            if(Arrays.equals(PieceManager.CalcPieceHash(piece), parser.GetTorrentPieceHash(pieceIndex))) {
+            if(Arrays.equals(Hash.CalcPieceHash(piece), parser.GetTorrentPieceHash(pieceIndex))) {
                 bitfield.Set(pieceIndex);
                 pieceManager.SetFilePiece(pieceIndex, piece);
                 loadingManager.StopLoading(pieceIndex);
+
+                for(PeerInfo peer : peers) {
+                    if(peer.GetStatus() != Peer.Status.NotConnected
+                    && peer.GetStatus() != Peer.Status.Connected
+                    && peer.GetStatus() != Peer.Status.SentHandshake
+                    && peer.GetStatus() != Peer.Status.SendBitfield
+                    && peer.GetStatus() != Peer.Status.SentBitfield) {
+                        peer.AddReceivedPieceIndex(pieceIndex);
+                    }
+                }
+                peerInfo.AddReceivedPieceIndex(pieceIndex);
             } else {
                 key.interestOps(SelectionKey.OP_WRITE);
                 ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SendRequest);

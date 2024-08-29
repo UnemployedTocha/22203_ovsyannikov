@@ -1,5 +1,7 @@
 package org.example.message;
 
+import org.example.util.PeerId;
+
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 
@@ -8,15 +10,15 @@ public class Handshake {
     private byte[] infoHash;
     private byte[] peerId;
     private byte[] message;
-    public Handshake(byte[] infoHash) {
-        this.peerId = GetPeerId();
+    public Handshake(byte[] infoHash, byte[] peerId) {
+        this.peerId = peerId;
         this.infoHash = infoHash;
         ByteBuffer buffer = ByteBuffer.allocate(68);
         buffer.put((byte)protocol.length());
         buffer.put(protocol.getBytes());
         buffer.put(new byte[]{0, 0, 0, 0, 0, 0, 0, 0});
         buffer.put(infoHash);
-        buffer.put(GetPeerId());
+        buffer.put(peerId);
         message = buffer.array();
     }
     public byte[] GetInfoHash() {
@@ -43,13 +45,7 @@ public class Handshake {
                 && (Arrays.equals(hsProtocol, "BitTorrent protocol".getBytes()))
                 && (Arrays.equals(protocolExtends, new byte[]{0, 0, 0, 0, 0, 0, 0, 0}));
     }
-    static private byte[] GetPeerId() {
-        byte[] peerId = new byte[20];
-        for(int i = 0; i < 20; ++i) {
-            peerId[i] = (byte)i;
-        }
-        return peerId;
-    }
+
     public byte[] GetHandshakeMessage() {
         return message;
     }

@@ -1,8 +1,6 @@
 package org.example;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -10,7 +8,6 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -19,7 +16,10 @@ import org.apache.logging.log4j.Logger;
 import org.example.message.Bitfield;
 import org.example.message.Handshake;
 import org.example.message.MessageType;
-import org.example.message.PieceManager;
+import org.example.util.Hash;
+import org.example.util.Parser;
+import org.example.util.PeerId;
+import org.example.message.MessageClassifier;
 
 public class Server implements Runnable{
     Logger logger;
@@ -30,6 +30,7 @@ public class Server implements Runnable{
     private final String ip;
     Bitfield bitfield;
     private final int port;
+    private final byte[] myPeerId;
 
     public Server(String ip, int port, Bitfield bitfield, Parser parser, PieceManager pieceManager, String filePath) {
         logger = LogManager.getLogger(Server.class);
@@ -38,6 +39,7 @@ public class Server implements Runnable{
         this.port = port;
         this.parser = parser;
         this.pieceManager = pieceManager;
+        this.myPeerId = PeerId.Calc(port);
 
     }
 
@@ -84,34 +86,35 @@ public class Server implements Runnable{
         SocketChannel socketChannel = (SocketChannel)key.channel();
         try {
             ByteBuffer message = ByteBuffer.wrap(ReadMessage(socketChannel));
+
             if(Handshake.IsHandshakeMessage(message.array())) {
-                Handshake hs = new Handshake(parser.GetInfoHash());
+                Handshake hs = new Handshake(parser.GetInfoHash(), myPeerId);
                 ByteBuffer buffer = ByteBuffer.wrap(hs.GetHandshakeMessage());
                 while(buffer.hasRemaining()) {
                     socketChannel.write(buffer);
                 }
                 logger.info("Handshake message received, sending handshake back!");
             } else {
-                byte type = message.get();
-                if(PieceManager.GetMessageType(type) == MessageType.Bitfield) {
+                byte messageId = message.get();
+                if(MessageClassifier.GetMessageType(messageId) == MessageType.Bitfield) {
                     ByteBuffer bitfieldMessage = ByteBuffer.wrap(bitfield.GetBitfieldMessage());
                     while(bitfieldMessage.hasRemaining()) {
                         socketChannel.write(bitfieldMessage);
                     }
                     logger.info("Bitfield message received! sending handshake back!");
-                } else if(PieceManager.GetMessageType(type) == MessageType.Request) {
+                } else if(MessageClassifier.GetMessageType(messageId) == MessageType.Request) {
                     int index = message.getInt();
                     int begin = message.getInt();
                     int pieceSize = message.getInt();
 
                     if(bitfield.PieceExists(index)) {
                         byte[] piece = pieceManager.GetFilePiece(index);
-                        if(!Arrays.equals(PieceManager.CalcPieceHash(piece), parser.GetTorrentPieceHash(index))) {
-                            logger.info("SERVER SENDS NOT CORRECT PIECE: {}", index);
+                        if(!Arrays.equals(Hash.CalcPieceHash(piece), parser.GetTorrentPieceHash(index))) {
+                            logger.error("SERVER SENDS NOT CORRECT PIECE: {}", index);
                         }
                         ByteBuffer pieceMessage = ByteBuffer.allocate(4 + 1 + 4 + 4 + piece.length);
                         pieceMessage.putInt(1 + 4 + 4 + piece.length);
-                        pieceMessage.put(PieceManager.GetMessageId(MessageType.Piece));
+                        pieceMessage.put(MessageClassifier.GetMessageId(MessageType.Piece));
                         pieceMessage.putInt(index);
                         pieceMessage.putInt(begin);
                         pieceMessage.put(piece);
@@ -124,6 +127,8 @@ public class Server implements Runnable{
                     } else {
                         logger.info("REQUESTABLE PIECE DOES NOT EXIST");
                     }
+                } else if(MessageClassifier.GetMessageType(messageId) == MessageType.Have) {
+                  logger.info("Have message received!");
                 } else {
                     logger.info("Unknown request");
                 }
