@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.message.*;
 import org.example.util.Hash;
 import org.example.util.Parser;
+import org.example.util.PeerId;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -19,15 +20,14 @@ public class Client implements Runnable{
     private Selector selector;
     private Parser parser;
     private PieceManager pieceManager;
-    private final int port;
     private List<PeerInfo> peers;
     Bitfield bitfield;
     LoadingManager loadingManager;
     private final HashMap<SocketChannel, Integer>  sendingPieces;
+    private final byte[] peerId;
 
-    public Client(String ip, int port, List<PeerInfo> servers, Bitfield bitfield, Parser parser, PieceManager pieceManager, String fileName) {
+    public Client(int port, List<PeerInfo> servers, Bitfield bitfield, Parser parser, PieceManager pieceManager) {
         logger = LogManager.getLogger(Client.class);
-        this.port = port;
         this.peers = servers;
         this.bitfield = bitfield;
         this.parser = parser;
@@ -35,6 +35,12 @@ public class Client implements Runnable{
         this.PIECE_SIZE = parser.GetPieceSize();
         loadingManager = new LoadingManager(parser.GetPiecesNum());
         sendingPieces = new HashMap<>();
+        this.peerId = PeerId.Calc(port);
+
+        for(int j = 0; j < 20; ++j) {
+            System.out.print(peerId[j]);
+        }
+        System.out.println(" ");
 
     }
     private void RegisterConnections(Selector selector, List<PeerInfo> peers) throws IOException {
@@ -112,6 +118,7 @@ public class Client implements Runnable{
                 logger.info("Downloading piece with index {} stopped", index);
                 loadingManager.StopLoading(index);
             }
+            ((PeerInfo)key.attachment()).ClearReceivedPiecesIndexes();
             key.cancel();
             key.channel().close();
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.NotConnected);
@@ -131,6 +138,7 @@ public class Client implements Runnable{
                 logger.info("Downloading piece with index {} stopped", index);
                 loadingManager.StopLoading(index);
             }
+            ((PeerInfo)key.attachment()).ClearReceivedPiecesIndexes();
             key.cancel();
             key.channel().close();
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.NotConnected);
@@ -139,13 +147,11 @@ public class Client implements Runnable{
 
 
     private void SendHandshake(SelectionKey key) throws IOException{
-        byte[] peerId = ((PeerInfo)key.attachment()).GetPeerId();
-        byte[] message = (new Handshake(parser.GetInfoHash(), peerId)).GetHandshakeMessage();
+        ByteBuffer message = (Handshake.Get(parser.GetInfoHash(), peerId));
         SocketChannel socketChannel = (SocketChannel) key.channel();
 
-        ByteBuffer buffer = ByteBuffer.wrap(message);
-        while(buffer.hasRemaining()) {
-            socketChannel.write(buffer);
+        while(message.hasRemaining()) {
+            socketChannel.write(message);
         }
 
         key.interestOps(SelectionKey.OP_READ);
@@ -308,7 +314,6 @@ public class Client implements Runnable{
                         peer.AddReceivedPieceIndex(pieceIndex);
                     }
                 }
-                peerInfo.AddReceivedPieceIndex(pieceIndex);
             } else {
                 key.interestOps(SelectionKey.OP_WRITE);
                 ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SendRequest);

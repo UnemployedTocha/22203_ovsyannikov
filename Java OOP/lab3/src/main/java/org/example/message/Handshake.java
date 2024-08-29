@@ -6,23 +6,18 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 public class Handshake {
-    private String protocol = "BitTorrent protocol";
-    private byte[] infoHash;
-    private byte[] peerId;
-    private byte[] message;
-    public Handshake(byte[] infoHash, byte[] peerId) {
-        this.peerId = peerId;
-        this.infoHash = infoHash;
+    public static ByteBuffer Get(byte[] infoHash, byte[] peerId) {
+        String protocol = "BitTorrent protocol";
         ByteBuffer buffer = ByteBuffer.allocate(68);
-        buffer.put((byte)protocol.length());
+        buffer.put((byte)(protocol.length()));
         buffer.put(protocol.getBytes());
-        buffer.put(new byte[]{0, 0, 0, 0, 0, 0, 0, 0});
+        for(int i = 0; i < 8; ++i) {
+            buffer.put((byte)0);
+        }
         buffer.put(infoHash);
         buffer.put(peerId);
-        message = buffer.array();
-    }
-    public byte[] GetInfoHash() {
-        return infoHash;
+        buffer.flip();
+        return buffer;
     }
 
     static public byte[] GetInfoHash(byte[] message) {
@@ -44,13 +39,6 @@ public class Handshake {
         return (protocolLen == 19)
                 && (Arrays.equals(hsProtocol, "BitTorrent protocol".getBytes()))
                 && (Arrays.equals(protocolExtends, new byte[]{0, 0, 0, 0, 0, 0, 0, 0}));
-    }
-
-    public byte[] GetHandshakeMessage() {
-        return message;
-    }
-    public void Debug() {
-        System.out.println(Arrays.toString(message));
     }
 
 }

@@ -1,9 +1,12 @@
 package org.example;
 
+import org.example.util.PeerId;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -15,7 +18,7 @@ public class Main {
         }
 
 //        GenerateFile();
-        Peer peer = new Peer(8001, peers, "BigTestFile");
+        Peer peer = new Peer(8000, peers, "BigTestFile");
         peer.Start();
 
     }

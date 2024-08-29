@@ -43,16 +43,15 @@ public class Peer {
 
     public void Start() {
         File file = new File(filePath + ".txt");
-
         Parser parser = new Parser(filePath + ".torrent");
         PieceManager pieceManager = new PieceManager(file.getName(), parser.GetPieceSize(), parser.GetPiecesNum(), parser.GetLength());
         Bitfield bitfield = GetBitField(parser, pieceManager);
 
         logger.info("Number of pieces: {}/{}", bitfield.GetNumberOfPieces(), parser.GetPiecesNum());
 
-        Thread serverThread = new Thread(new Server("127.0.0.1", port, bitfield, parser, pieceManager, filePath));
+        Thread serverThread = new Thread(new Server("127.0.0.1", port, bitfield, parser, pieceManager, peers));
         serverThread.start();
-        Client client = new Client("127.0.0.1", port, peers, bitfield, parser, pieceManager, filePath);
+        Client client = new Client(port, peers, bitfield, parser, pieceManager);
         client.run();
     }
 

@@ -7,9 +7,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,8 +26,10 @@ public class Server implements Runnable{
     Bitfield bitfield;
     private final int port;
     private final byte[] myPeerId;
+    private final List<PeerInfo> peers;
+    private HashMap<SocketChannel, PeerInfo> map;
 
-    public Server(String ip, int port, Bitfield bitfield, Parser parser, PieceManager pieceManager, String filePath) {
+    public Server(String ip, int port, Bitfield bitfield, Parser parser, PieceManager pieceManager, List<PeerInfo> peers) {
         logger = LogManager.getLogger(Server.class);
         this.bitfield = bitfield;
         this.ip = ip;
@@ -37,7 +37,8 @@ public class Server implements Runnable{
         this.parser = parser;
         this.pieceManager = pieceManager;
         this.myPeerId = PeerId.Calc(port);
-
+        this.peers = peers;
+        map = new HashMap<>();
     }
 
     @Override
@@ -49,7 +50,6 @@ public class Server implements Runnable{
             serverSocketChannel.bind(new InetSocketAddress(ip, port));
             serverSocketChannel.configureBlocking(false);
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
-
             while(true) {
                 selector.select();
                 Set<SelectionKey> keys = selector.selectedKeys();
@@ -78,6 +78,7 @@ public class Server implements Runnable{
         SocketChannel client = serverSocketChannel.accept();
         client.configureBlocking(false);
         client.register(selector, SelectionKey.OP_READ, serverSocketChannel);
+        map.put(client, null);
     }
     private void HandleRead(SelectionKey key) throws IOException{
         SocketChannel socketChannel = (SocketChannel)key.channel();
@@ -85,11 +86,22 @@ public class Server implements Runnable{
             ByteBuffer message = ByteBuffer.wrap(ReadMessage(socketChannel));
 
             if(Handshake.IsHandshakeMessage(message.array())) {
-                Handshake hs = new Handshake(parser.GetInfoHash(), myPeerId);
-                ByteBuffer buffer = ByteBuffer.wrap(hs.GetHandshakeMessage());
+                ByteBuffer buffer = Handshake.Get(parser.GetInfoHash(), myPeerId);
                 while(buffer.hasRemaining()) {
                     socketChannel.write(buffer);
                 }
+                byte nineteen = message.get();
+                byte[] protocol = new byte[19];
+                message.get(protocol);
+                byte[] protocolExtension = new byte[8];
+                message.get(protocolExtension);
+                byte[] infoHash = new byte[20];
+                message.get(infoHash);
+                byte[] clientPeerId = new byte[20];
+                message.get(clientPeerId);
+
+                System.out.println("In Server: "  + "peerId: " + Arrays.toString(clientPeerId) + "  myPeerId: " + Arrays.toString(myPeerId));
+                map.put(socketChannel, FindPeerById(clientPeerId));
                 logger.info("Handshake message received, sending handshake back!");
             } else {
                 byte messageId = message.get();
@@ -118,9 +130,12 @@ public class Server implements Runnable{
                         logger.info("REQUESTABLE PIECE DOES NOT EXIST");
                     }
                 } else if(MessageClassifier.GetMessageType(messageId) == MessageType.Have) {
-
-
-                  logger.info("Have message received!");
+                    if(map.get(socketChannel) == null || (map.get(socketChannel).GetBitfield()) == null) {
+                        return;
+                    }
+                    int index = message.getInt();
+                    map.get(socketChannel).GetBitfield().Set(index);
+                  logger.info("Have message received, piece with index {} may be requested from peer {}", index, map.get(socketChannel).GetPort());
                 } else {
                     logger.info("Unknown request");
                 }
@@ -170,5 +185,15 @@ public class Server implements Runnable{
             }
         }
         return buffer.array();
+    }
+
+    private PeerInfo FindPeerById(byte[] peerId) {
+        for(PeerInfo peer : peers) {
+            if(Arrays.equals(peer.GetPeerId(), peerId)) {
+                return peer;
+            }
+        }
+        System.out.println("Peer has not found");
+        return null;
     }
 }

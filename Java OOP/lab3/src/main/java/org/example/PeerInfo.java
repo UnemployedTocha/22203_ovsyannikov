@@ -40,7 +40,6 @@ public class PeerInfo {
     public Bitfield GetBitfield() {
         return bitfield;
     }
-
     public InetSocketAddress GetInetSocketAddress() {
         return new InetSocketAddress(ip, port);
     }
