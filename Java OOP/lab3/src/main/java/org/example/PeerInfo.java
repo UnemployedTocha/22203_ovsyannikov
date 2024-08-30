@@ -4,7 +4,6 @@ import org.example.message.Bitfield;
 import org.example.util.PeerId;
 
 import java.net.InetSocketAddress;
-import java.util.BitSet;
 import java.util.LinkedList;
 
 public class PeerInfo {

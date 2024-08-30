@@ -18,14 +18,14 @@ public class Main {
         }
 
 //        GenerateFile();
-        Peer peer = new Peer(8000, peers, "BigTestFile");
+        Peer peer = new Peer(8000, peers, "VeryBigTestFile");
         peer.Start();
 
     }
 
     public static void GenerateFile() {
-        String fileName = "BigTestFile.txt";
-        long fileSize = 1024L * 1024 * 1024;
+        String fileName = "VeryBigTestFile.txt";
+        long fileSize = 4 * 1024L * 1024 * 1024;
         long size = 0;
         Random random = new Random();
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {

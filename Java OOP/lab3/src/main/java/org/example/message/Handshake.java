@@ -36,8 +36,7 @@ public class Handshake {
         buffer.get(1, hsProtocol, 0, 19);
         byte[] protocolExtends = new byte[8];
         buffer.get(20, protocolExtends, 0, 8);
-        return (protocolLen == 19)
-                && (Arrays.equals(hsProtocol, "BitTorrent protocol".getBytes()))
+        return (Arrays.equals(hsProtocol, "BitTorrent protocol".getBytes()))
                 && (Arrays.equals(protocolExtends, new byte[]{0, 0, 0, 0, 0, 0, 0, 0}));
     }
 

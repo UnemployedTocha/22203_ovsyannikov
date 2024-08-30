@@ -5,7 +5,6 @@ import org.example.PieceManager;
 import org.example.util.Hash;
 
 import java.io.IOException;
-import java.net.Inet4Address;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.BitSet;
@@ -35,6 +34,15 @@ public class Bitfield {
             }
         }
     }
+    public boolean IsDownloadFinished() {
+        for(int i = 0; i < length; ++i) {
+            if(!bitset.get(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public Bitfield(Parser parser, PieceManager pieceManager) throws IOException {
         length = parser.GetPiecesNum();
 
@@ -47,7 +55,6 @@ public class Bitfield {
                 bitset.put(i, false);
             }
         }
-
     }
 
     public byte[] GetBitfieldMessage() {

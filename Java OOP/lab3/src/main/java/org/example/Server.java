@@ -83,7 +83,7 @@ public class Server implements Runnable{
     private void HandleRead(SelectionKey key) throws IOException{
         SocketChannel socketChannel = (SocketChannel)key.channel();
         try {
-            ByteBuffer message = ByteBuffer.wrap(ReadMessage(socketChannel));
+            ByteBuffer message = ReadMessage(socketChannel);
 
             if(Handshake.IsHandshakeMessage(message.array())) {
                 ByteBuffer buffer = Handshake.Get(parser.GetInfoHash(), myPeerId);
@@ -146,18 +146,15 @@ public class Server implements Runnable{
         }
     }
 
-    private byte[] ReadMessage(SocketChannel socketChannel) throws IOException {
+    private ByteBuffer ReadMessage(SocketChannel socketChannel) throws IOException {
         ByteBuffer tempBuffer = ByteBuffer.allocate(1);
         while(tempBuffer.hasRemaining()) {
             socketChannel.read(tempBuffer);
         }
         tempBuffer.flip();
         byte len = tempBuffer.get();
-        ByteBuffer buffer;
-
         if(len == 19) {
-            logger.info("READING PROVIDED CHECKING HANDSHAKE!!!!!");
-            buffer = ByteBuffer.allocate(68);
+            ByteBuffer buffer = ByteBuffer.allocate(68);
             buffer.put(len);
             while (buffer.hasRemaining()) {
                 int bytesRead = socketChannel.read(buffer);
@@ -165,26 +162,44 @@ public class Server implements Runnable{
                     throw new IOException();
                 }
             }
-        } else {
-            ByteBuffer lenBuffer = ByteBuffer.allocate(4);
-            lenBuffer.put(len);
-            while (lenBuffer.hasRemaining()) {
-                int bytesRead = socketChannel.read(lenBuffer);
-                if (bytesRead == -1) {
-                    throw new IOException();
+            buffer.flip();
+            if(Handshake.IsHandshakeMessage(buffer.array())) {
+                return buffer;
+            } else {
+                int lenInt = buffer.getInt();
+                ByteBuffer message = ByteBuffer.allocate(lenInt);
+                byte[] fakeHandShakeRemaining = new byte[64];
+                message.put(fakeHandShakeRemaining);
+                while(message.hasRemaining()) {
+                    int bytesRead = socketChannel.read(message);
+                    if(bytesRead == -1) {
+                        throw new IOException();
+                    }
                 }
-            }
-            lenBuffer.flip();
-            int length = lenBuffer.getInt();
-            buffer = ByteBuffer.allocate(length);
-            while (buffer.hasRemaining()) {
-                int bytesRead = socketChannel.read(buffer);
-                if (bytesRead == -1) {
-                    throw new IOException();
-                }
+                message.flip();
+                return message;
             }
         }
-        return buffer.array();
+        ByteBuffer lenBuffer = ByteBuffer.allocate(4);
+        lenBuffer.put(len);
+
+        while (lenBuffer.hasRemaining()) {
+            int bytesRead = socketChannel.read(lenBuffer);
+            if (bytesRead == -1) {
+                throw new IOException();
+            }
+        }
+        lenBuffer.flip();
+        int length = lenBuffer.getInt();
+        ByteBuffer message = ByteBuffer.allocate(length);
+        while (message.hasRemaining()) {
+            int bytesRead = socketChannel.read(message);
+            if (bytesRead == -1) {
+                throw new IOException();
+            }
+        }
+        message.flip();
+        return message;
     }
 
     private PeerInfo FindPeerById(byte[] peerId) {

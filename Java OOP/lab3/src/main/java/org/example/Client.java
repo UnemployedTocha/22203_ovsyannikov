@@ -78,7 +78,10 @@ public class Client implements Runnable{
                     if(key.isValid() && key.isReadable()) {
                         HandleRead(key);
                     }
-
+                    if(bitfield.IsDownloadFinished()) {
+                        logger.info("File downloaded (pieces: {}/{}) and client stopped", bitfield.GetNumberOfPieces(), parser.GetPiecesNum());
+                        return;
+                    }
                 }
             }
 
@@ -199,8 +202,6 @@ public class Client implements Runnable{
             key.interestOps(SelectionKey.OP_READ);
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SentRequest);
             logger.info("Sent request: {} to peer: {}", index, ((PeerInfo) key.attachment()).GetPort());
-        } else {
-            // Завершение загрузки
         }
     }
 

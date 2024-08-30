@@ -46,7 +46,6 @@ public class Peer {
         Parser parser = new Parser(filePath + ".torrent");
         PieceManager pieceManager = new PieceManager(file.getName(), parser.GetPieceSize(), parser.GetPiecesNum(), parser.GetLength());
         Bitfield bitfield = GetBitField(parser, pieceManager);
-
         logger.info("Number of pieces: {}/{}", bitfield.GetNumberOfPieces(), parser.GetPiecesNum());
 
         Thread serverThread = new Thread(new Server("127.0.0.1", port, bitfield, parser, pieceManager, peers));
