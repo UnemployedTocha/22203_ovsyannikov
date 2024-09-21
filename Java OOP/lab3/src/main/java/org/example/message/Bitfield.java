@@ -48,7 +48,7 @@ public class Bitfield {
 
         bitset = new ConcurrentHashMap<>();
         for(int i = 0; i < length; ++i) {
-            byte[] pieceHash = pieceHash = Hash.CalcPieceHash(pieceManager.GetFilePiece(i));
+            byte[] pieceHash = Hash.CalcPieceHash(pieceManager.GetFilePiece(i));
             if(Arrays.equals(pieceHash, parser.GetTorrentPieceHash(i))) {
                 bitset.put(i, true);
             } else {

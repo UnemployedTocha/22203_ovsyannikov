@@ -43,17 +43,6 @@ public class Client implements Runnable{
         System.out.println(" ");
 
     }
-    private void RegisterConnections(Selector selector, List<PeerInfo> peers) throws IOException {
-        for(PeerInfo peer : peers) {
-            if(peer.GetStatus() != Peer.Status.NotConnected) {
-                continue;
-            }
-            SocketChannel channel = SocketChannel.open();
-            channel.configureBlocking(false);
-            channel.connect(peer.GetInetSocketAddress());
-            channel.register(selector, SelectionKey.OP_CONNECT, peer);
-        }
-    }
 
     @Override
     public void run() {
@@ -61,7 +50,15 @@ public class Client implements Runnable{
             selector = Selector.open();
             logger.info("Running client");
             while(true) {
-                RegisterConnections(selector, peers);
+                for(PeerInfo peer : peers) {
+                    if(peer.GetStatus() != Peer.Status.NotConnected) {
+                        continue;
+                    }
+                    SocketChannel channel = SocketChannel.open();
+                    channel.configureBlocking(false);
+                    channel.connect(peer.GetInetSocketAddress());
+                    channel.register(selector, SelectionKey.OP_CONNECT, peer);
+                }
                 selector.select();
                 Set<SelectionKey> keys = selector.selectedKeys();
                 Iterator<SelectionKey> it = keys.iterator();
@@ -118,7 +115,7 @@ public class Client implements Runnable{
         } catch (IOException ex) {
             int index = sendingPieces.get((SocketChannel)key.channel());
             if(index != -1) {
-                logger.info("Downloading piece with index {} stopped", index);
+                logger.info("Downloading piece with index {} stopped in HandleWrite", index);
                 loadingManager.StopLoading(index);
             }
             ((PeerInfo)key.attachment()).ClearReceivedPiecesIndexes();
@@ -138,7 +135,7 @@ public class Client implements Runnable{
         } catch (IOException ex) {
             int index = sendingPieces.get((SocketChannel)key.channel());
             if(index != -1) {
-                logger.info("Downloading piece with index {} stopped", index);
+                logger.info("Downloading piece with index {} stopped in HandleRead", index);
                 loadingManager.StopLoading(index);
             }
             ((PeerInfo)key.attachment()).ClearReceivedPiecesIndexes();
@@ -147,8 +144,6 @@ public class Client implements Runnable{
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.NotConnected);
         }
     }
-
-
     private void SendHandshake(SelectionKey key) throws IOException{
         ByteBuffer message = (Handshake.Get(parser.GetInfoHash(), peerId));
         SocketChannel socketChannel = (SocketChannel) key.channel();
@@ -215,17 +210,11 @@ public class Client implements Runnable{
     private void ReceiveHandshake(SelectionKey key) throws IOException {
         SocketChannel socketChannel = (SocketChannel)key.channel();
         ByteBuffer buffer = ByteBuffer.allocate(68);
-
-        int bytesRead;
-        while(buffer.hasRemaining()) {
-            bytesRead = socketChannel.read(buffer);
-            if(bytesRead == -1) {
-                throw new IOException();
-            }
-        }
-
+        ReadAllToBuffer(socketChannel, buffer);
         if(Handshake.IsHandshakeMessage(buffer.array())) {
-            // Добавить проверку инфохэша??
+            if(!Arrays.equals(Handshake.GetInfoHash(buffer.array()), Handshake.GetInfoHash(Handshake.Get(parser.GetInfoHash(), peerId).array()))) {
+                throw new IOException("Received info hash in handshake message is wrong!!!");
+            }
             ((PeerInfo)key.attachment()).SetStatus(Peer.Status.SendBitfield);
             key.interestOps(SelectionKey.OP_WRITE);
             logger.info("Received handshake from peer: {}", ((PeerInfo) key.attachment()).GetPort());
@@ -237,24 +226,11 @@ public class Client implements Runnable{
     private void ReceiveBitfield(SelectionKey key) throws IOException {
         SocketChannel socketChannel = (SocketChannel) key.channel();
         ByteBuffer buffer = ByteBuffer.allocate(4);
-
-        while (buffer.hasRemaining()) {
-            int bytesRead = socketChannel.read(buffer);
-            if(bytesRead == -1) {
-                throw new IOException();
-            }
-        }
-        buffer.flip();
+        ReadAllToBuffer(socketChannel, buffer);
         int messageLength = buffer.getInt();
 
         buffer = ByteBuffer.allocate(messageLength);
-        while (buffer.hasRemaining()) {
-            int bytesRead = socketChannel.read(buffer);
-            if(bytesRead == -1) {
-                throw new IOException("Socket channel closed");
-            }
-        }
-        buffer.flip();
+        ReadAllToBuffer(socketChannel, buffer);
         if (buffer.get() == MessageClassifier.GetMessageId(MessageType.Bitfield)) {
             BitSet peerBitSet = new BitSet(parser.GetPiecesNum());
             byte[] bitsetBytes = new byte[messageLength - 1];
@@ -276,26 +252,12 @@ public class Client implements Runnable{
 
     private void ReceivePiece(SelectionKey key) throws IOException{
         SocketChannel socketChannel = (SocketChannel) key.channel();
-        PeerInfo peerInfo = (PeerInfo)key.attachment();
         ByteBuffer buffer = ByteBuffer.allocate(4);
 
-        while (buffer.hasRemaining()) {
-            int bytesRead = socketChannel.read(buffer);
-            if(bytesRead == -1) {
-                throw new IOException();
-            }
-        }
-
-        buffer.flip();
+        ReadAllToBuffer(socketChannel, buffer);
         int messageLen = buffer.getInt();
         buffer = ByteBuffer.allocate(messageLen);
-        while (buffer.hasRemaining()) {
-            int bytesRead = socketChannel.read(buffer);
-            if(bytesRead == -1) {
-                throw new IOException("Socket channel closed");
-            }
-        }
-        buffer.flip();
+        ReadAllToBuffer(socketChannel, buffer);
         if(buffer.get() == MessageClassifier.GetMessageId(MessageType.Piece)) {
             int pieceIndex = buffer.getInt();
             int begin = buffer.getInt();
@@ -329,4 +291,13 @@ public class Client implements Runnable{
         }
     }
 
+    private void ReadAllToBuffer(SocketChannel socketChannel, ByteBuffer buffer) throws IOException {
+        while (buffer.hasRemaining()) {
+            int bytesRead = socketChannel.read(buffer);
+            if(bytesRead == -1) {
+                throw new IOException();
+            }
+        }
+        buffer.flip();
+    }
 }
