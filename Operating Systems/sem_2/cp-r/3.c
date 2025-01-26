@@ -41,19 +41,9 @@ void* copy_file(void* args) {
     char buffer[buff_len];
     ssize_t bytes_read;
 
-    src_fd = safe_open(args_->src_path, O_RDONLY, 0);
-    if (src_fd < 0) {
-        free(args_);
-	perror("file open err");
-        pthread_exit(NULL);
-    }
+    src_fd = safe_open(args_->src_path, O_RDONLY, 0);   
     dest_fd = safe_open(args_->dest_path, O_CREAT | O_WRONLY | O_TRUNC, 0644);
-    if (dest_fd < 0) {
-        perror("dir oper err");
-        close(src_fd);
-        free(args_);
-        pthread_exit(NULL);
-    }
+ 
     while ((bytes_read = read(src_fd, buffer, buff_len)) > 0) {
         write(dest_fd, buffer, bytes_read);
     }
@@ -64,6 +54,7 @@ void* copy_file(void* args) {
 }
 
 void* copy_directory(void* args) {
+    pthread_attr_t attr;
     char src_entry_path[PATH_MAX]; 
     args_t* args_ = (args_t*)args;
     DIR* src_dir;
@@ -71,23 +62,29 @@ void* copy_directory(void* args) {
     struct stat st;
     char dest_entry_path[PATH_MAX];
 
-    src_dir = safe_opendir(args_->src_path);
-    if (!src_dir) {
-	free(args_);
-        perror("dir open err");
-        pthread_exit(NULL);
+    int res = pthread_attr_init(&attr);
+    if(res != 0) {
+  perror("Attr init failed\n");
+  return 0;
     }
+    res = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+    if(res != 0) {
+  perror("Attr setdetach failed :( \n");
+  return 0;
+    }      
+
+    src_dir = safe_opendir(args_->src_path);
 
     mkdir(args_->dest_path, 0755);
 
     while ((entry = readdir(src_dir)) != NULL) {
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
- 	    continue;
-	}
+       continue;
+  }
         snprintf(src_entry_path, PATH_MAX, "%s/%s", args_->src_path, entry->d_name);
         snprintf(dest_entry_path, PATH_MAX, "%s/%s", args_->dest_path, entry->d_name);
         if (stat(src_entry_path, &st) == -1) {
-            perror("status err");
+            perror("status err\n");
             continue;
         }
 
@@ -96,25 +93,30 @@ void* copy_directory(void* args) {
             strcpy(subdir_args->src_path, src_entry_path);
             strcpy(subdir_args->dest_path, dest_entry_path);
             pthread_t thread;
-            pthread_create(&thread, NULL, copy_directory, subdir_args);
-            pthread_detach(thread);
+
+            pthread_create(&thread, &attr, copy_directory, subdir_args);
+            //pthread_detach(thread);
         } else if (S_ISREG(st.st_mode)) {
             args_t* file_args = malloc(sizeof(args_t));
             strcpy(file_args->src_path, src_entry_path);
             strcpy(file_args->dest_path, dest_entry_path);
             pthread_t thread;
-            pthread_create(&thread, NULL, copy_file, file_args);
-            pthread_detach(thread);
+            pthread_create(&thread, &attr, copy_file, file_args);
+            //pthread_detach(thread);
         }
     }
 
+    res = pthread_attr_destroy(&attr);
+    if (res != 0) {
+  perror("pthread_attr_dedtroy failed :((((((( \n");
+    }
     closedir(src_dir);
     free(args_);
     pthread_exit(NULL);
 }
 
 int main(int argc, char** argv) {
-    pthread_t thread;	
+    pthread_t thread;  
     if (argc != 3) {
         printf("incorrect args num\n");
         return EXIT_FAILURE;
@@ -126,5 +128,5 @@ int main(int argc, char** argv) {
 
     pthread_create(&thread, NULL, copy_directory, args);
     pthread_join(thread, NULL);
-    return 0;
+    pthread_exit(NULL);
 }
